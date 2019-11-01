@@ -20,9 +20,10 @@ class Land extends React.PureComponent {
 
     render() {
         return (
-            <View style={{ flex: 1, alignContent: "center", alignItems: "center", justifyContent: "center", backgroundColor: "red"}}>
-                <View style={{ width: 300, backgroundColor: "cyan" }}>
+            <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "red"}}>
+                <View style={{ width: 300, backgroundColor: "cyan", alignItems: "center" }}>
                     <Text style={{ fontSize: 26, textAlign: "center" }}>Land Screen</Text>
+                    <Text>{this.props.selectedSubreddit}</Text>
                     <Button
                         title={"go back"}
                         onPress={() => {

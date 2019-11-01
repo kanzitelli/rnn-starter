@@ -26,11 +26,13 @@ class Home extends React.PureComponent {
 
     render() {
         return (
-            <View style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: "white" }}>
+            <View style={{ flex: 1, justifyContent: "center", backgroundColor: "white" }}>
                 <Text style={{ fontSize: 26, textAlign: "center" }}>Home Screen</Text>
                 <Button
                     title={"push"}
                     onPress={() => {
+                        this.props.onSelectSubreddit('xuy');
+
                         Navigation.push(this.props.componentId, {
                             component: {
                                 name: LAND,
