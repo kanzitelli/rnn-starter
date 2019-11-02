@@ -1,44 +1,76 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableNativeFeedback, FlatList, Platform } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
 import { LAND } from '../constants/ScreensNames';
+
+const SUBREDDITS = [
+    {
+        id: '100',
+        title: 'reactjs',
+    },
+    {
+        id: '103',
+        title: 'reactnative',
+    },
+    {
+        id: '101',
+        title: 'rust',
+    },
+    {
+        id: '102',
+        title: 'golang',
+    }
+]
+
+const Touchable = Platform.OS === 'ios' ?
+  TouchableOpacity : 
+  TouchableNativeFeedback
+
+const Item = ({ title, onPressed }) => (
+    <Touchable onPress={() => onPressed(title)}>
+        <View style={{ padding: 12 }}>
+            <Text style={{ fontSize: 22 }}>{title}</Text>
+        </View>
+    </Touchable>
+)
 
 class Home extends React.PureComponent {
     static options() {
         return {
             topBar: {
                 title: {
-                    text: "Home",
+                    text: "Subreddits",
                 },
-                // largeTitle: {
-                //     visible: true,
-                // },
             }
         }
     }
 
-    _landComponent = {
-        component: {
-            name: LAND,
-        },
-    };
+    _itemPressed = (title) => {
+        this.props.onSelectSubreddit(title);
+
+        Navigation.push(this.props.componentId, {
+            component: {
+                name: LAND,
+                passProps: {
+                    title
+                }
+            },
+        });
+    }
 
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: "center", backgroundColor: "white" }}>
-                <Text style={{ fontSize: 26, textAlign: "center" }}>Home Screen</Text>
-                <Button
-                    title={"push"}
-                    onPress={() => {
-                        this.props.onSelectSubreddit('xuy');
-
-                        Navigation.push(this.props.componentId, {
-                            component: {
-                                name: LAND,
-                            },
-                        });
-                    }}
+            <View style={{ flex: 1 }}>
+                <FlatList
+                    data={SUBREDDITS}
+                    keyExtractor={ item => item.id }
+                    renderItem={({ item }) => 
+                        <Item 
+                            title={item.title}
+                            onPressed={this._itemPressed}
+                        />
+                    }
                 />
             </View>
         );

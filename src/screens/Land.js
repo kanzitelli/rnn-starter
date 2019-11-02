@@ -1,36 +1,62 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableNativeFeedback, FlatList, Platform, Linking } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
+const Touchable = Platform.OS === 'ios' ?
+  TouchableOpacity : 
+  TouchableNativeFeedback
+
+const Item = ({ title, url, onPressed }) => (
+    <Touchable onPress={() => onPressed(url)}>
+        <View style={{ padding: 12 }}>
+            <Text style={{ fontSize: 16 }}>{title}</Text>
+        </View>
+    </Touchable>
+)
+
 class Land extends React.PureComponent {
-    static options() {
+    static options(passProps) {
         return {
-            modalPresentationStyle: 'pageSheet',
             topBar: {
                 visible: true,
                 title: {
-                    text: "Land",
+                    text: `r/${passProps.title}`,
                 },
-                // largeTitle: {
-                //     visible: true,
-                // },
             },
         }
     }
 
+    componentDidMount() {
+        const { selectedSubreddit, fetchPosts } = this.props;
+
+        fetchPosts(selectedSubreddit);
+    }
+
+    _itemPressed = (url) => {
+        Linking.canOpenURL(url)
+            .then(supported => {
+                if (supported) {
+                    Linking.openURL(url);
+                }
+            })
+    }
+
     render() {
+        const { posts } = this.props;
+
         return (
-            <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "red"}}>
-                <View style={{ width: 300, backgroundColor: "cyan", alignItems: "center" }}>
-                    <Text style={{ fontSize: 26, textAlign: "center" }}>Land Screen</Text>
-                    <Text>{this.props.selectedSubreddit}</Text>
-                    <Button
-                        title={"go back"}
-                        onPress={() => {
-                            Navigation.pop(this.props.componentId);
-                        }}
-                    />
-                </View>
+            <View style={{ flex: 1 }}>
+                <FlatList 
+                    data={posts}
+                    keyExtractor={ item => item.url }
+                    renderItem={({ item }) => 
+                        <Item 
+                            title={item.title}
+                            url={item.url}
+                            onPressed={this._itemPressed}
+                        />
+                    }
+                />
             </View>
         );
     }

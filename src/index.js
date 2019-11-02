@@ -1,12 +1,13 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux';
 
 import reducer from './reducers';
 import { Screens, startApp } from './App';
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
 const withReduxProvider = C => props => (
     <Provider store={store}>
