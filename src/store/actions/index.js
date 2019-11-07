@@ -2,7 +2,7 @@ import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     SELECT_SUBREDDIT,
-} from '../../constants/ActionsNames';
+} from './names';
 
 export const selectSubreddit = subreddit => ({
     type: SELECT_SUBREDDIT,

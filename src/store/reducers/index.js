@@ -4,7 +4,7 @@ import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     SELECT_SUBREDDIT,
-} from '../../constants/ActionsNames';
+} from '../actions/names';
 
 const selectedSubreddit = (state = '', action) => {
     switch (action.type) {

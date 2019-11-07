@@ -3,7 +3,7 @@ import { Navigation } from 'react-native-navigation';
 import HomeContainer from './containers/Home';
 import LandContainer from './containers/Land';
 
-import { HOME, LAND } from './constants/ScreensNames';
+import { HOME, LAND } from './screens/names';
 
 export const Screens = new Map();
 

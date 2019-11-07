@@ -5,8 +5,8 @@ import {
 } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
+import { LAND } from './names';
 import Item from '../components/listItem';
-import { LAND } from '../constants/ScreensNames';
 
 const SUBREDDITS = [
     {
