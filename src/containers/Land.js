@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Land from '../screens/Land';
-import { fetchPosts } from '../actions';
+import { fetchPosts } from '../store/actions';
 
 const mapStateToProps = state => {
     const { selectedSubreddit, postsBySubreddit } = state

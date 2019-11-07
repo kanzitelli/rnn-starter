@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Home from '../screens/Home';
-import { selectSubreddit } from '../actions';
+import { selectSubreddit } from '../store/actions';
 
 const mapStateToProps = state => ({});
 
