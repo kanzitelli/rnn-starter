@@ -22,7 +22,7 @@ public class MainApplication extends NavigationApplication {
         ReactNativeHost host = new NavigationReactNativeHost(this, isDebug(), createAdditionalReactPackages()) {
             @Override
             protected String getJSMainModuleName() {
-                return "src/index";
+                return "index";
             }
         };
         ReactGateway gateway = new ReactGateway(this, isDebug(), host);

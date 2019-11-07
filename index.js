@@ -1,7 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 
-import { withReduxProvider } from './store';
-import { Screens, startApp } from './App';
+import { withReduxProvider } from './src/store';
+import { Screens, startApp } from './src/App';
 
 Screens.forEach((C, key) => {
     Navigation.registerComponent(key, () => withReduxProvider(C), () => C);
