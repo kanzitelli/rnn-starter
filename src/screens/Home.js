@@ -1,7 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, TouchableNativeFeedback, FlatList, Platform } from 'react-native';
+import { 
+    View,
+    FlatList,
+} from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
+import Item from '../components/listItem';
 import { LAND } from '../constants/ScreensNames';
 
 const SUBREDDITS = [
@@ -22,18 +26,6 @@ const SUBREDDITS = [
         title: 'golang',
     }
 ]
-
-const Touchable = Platform.OS === 'ios' ?
-  TouchableOpacity : 
-  TouchableNativeFeedback
-
-const Item = ({ title, onPressed }) => (
-    <Touchable onPress={() => onPressed(title)}>
-        <View style={{ padding: 12 }}>
-            <Text style={{ fontSize: 22 }}>{title}</Text>
-        </View>
-    </Touchable>
-)
 
 const Home = (props) => {
     const _itemPressed = (title) => {
@@ -56,7 +48,9 @@ const Home = (props) => {
                 keyExtractor={ item => item.id }
                 renderItem={({ item }) => 
                     <Item 
+                        data={item.title}
                         title={item.title}
+                        textSize={22}
                         onPressed={_itemPressed}
                     />
                 }

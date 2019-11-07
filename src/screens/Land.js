@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react';
-import { View, Text, TouchableOpacity, TouchableNativeFeedback, FlatList, Platform, Linking } from 'react-native';
+import { 
+    View,
+    FlatList,
+    Linking,
+} from 'react-native';
 
-const Touchable = Platform.OS === 'ios' ?
-  TouchableOpacity : 
-  TouchableNativeFeedback
-
-const Item = ({ title, url, onPressed }) => (
-    <Touchable onPress={() => onPressed(url)}>
-        <View style={{ padding: 12 }}>
-            <Text style={{ fontSize: 16 }}>{title}</Text>
-        </View>
-    </Touchable>
-)
+import Item from '../components/listItem';
 
 // if you need to use componentDidAppear or componentDidDisappear (https://wix.github.io/react-native-navigation/#/docs/events?id=componentdidappear)
 // then consider using React.Component instead of a function.
@@ -40,8 +34,9 @@ const Land = (props) => {
                 keyExtractor={ item => item.url }
                 renderItem={({ item }) => 
                     <Item 
+                        data={item.url}
                         title={item.title}
-                        url={item.url}
+                        textSize={16}
                         onPressed={_itemPressed}
                     />
                 }
