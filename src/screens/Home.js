@@ -35,21 +35,11 @@ const Item = ({ title, onPressed }) => (
     </Touchable>
 )
 
-class Home extends React.PureComponent {
-    static options() {
-        return {
-            topBar: {
-                title: {
-                    text: "Subreddits",
-                },
-            }
-        }
-    }
+const Home = (props) => {
+    const _itemPressed = (title) => {
+        props.onSelectSubreddit(title);
 
-    _itemPressed = (title) => {
-        this.props.onSelectSubreddit(title);
-
-        Navigation.push(this.props.componentId, {
+        Navigation.push(props.componentId, {
             component: {
                 name: LAND,
                 passProps: {
@@ -59,22 +49,28 @@ class Home extends React.PureComponent {
         });
     }
 
-    render() {
-        return (
-            <View style={{ flex: 1 }}>
-                <FlatList
-                    data={SUBREDDITS}
-                    keyExtractor={ item => item.id }
-                    renderItem={({ item }) => 
-                        <Item 
-                            title={item.title}
-                            onPressed={this._itemPressed}
-                        />
-                    }
-                />
-            </View>
-        );
-    }
+    return (
+        <View style={{ flex: 1 }}>
+            <FlatList
+                data={SUBREDDITS}
+                keyExtractor={ item => item.id }
+                renderItem={({ item }) => 
+                    <Item 
+                        title={item.title}
+                        onPressed={_itemPressed}
+                    />
+                }
+            />
+        </View>
+    )
 }
+
+Home.options = () => ({
+    topBar: {
+        title: {
+            text: "Subreddits",
+        },
+    }
+});
 
 export default Home;

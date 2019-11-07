@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, TouchableNativeFeedback, FlatList, Platform, Linking } from 'react-native';
-import { Navigation } from 'react-native-navigation';
 
 const Touchable = Platform.OS === 'ios' ?
   TouchableOpacity : 
@@ -14,25 +13,18 @@ const Item = ({ title, url, onPressed }) => (
     </Touchable>
 )
 
-class Land extends React.PureComponent {
-    static options(passProps) {
-        return {
-            topBar: {
-                visible: true,
-                title: {
-                    text: `r/${passProps.title}`,
-                },
-            },
-        }
-    }
+// if you need to use componentDidAppear or componentDidDisappear (https://wix.github.io/react-native-navigation/#/docs/events?id=componentdidappear)
+// then consider using React.Component instead of a function.
 
-    componentDidMount() {
-        const { selectedSubreddit, fetchPosts } = this.props;
+const Land = (props) => {
+    const { selectedSubreddit, posts, fetchPosts } = props;
 
+    // equivalent to componentDidMount, see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
+    useEffect(() => {
         fetchPosts(selectedSubreddit);
-    }
+    }, []);
 
-    _itemPressed = (url) => {
+    const _itemPressed = (url) => {
         Linking.canOpenURL(url)
             .then(supported => {
                 if (supported) {
@@ -41,25 +33,30 @@ class Land extends React.PureComponent {
             })
     }
 
-    render() {
-        const { posts } = this.props;
-
-        return (
-            <View style={{ flex: 1 }}>
-                <FlatList 
-                    data={posts}
-                    keyExtractor={ item => item.url }
-                    renderItem={({ item }) => 
-                        <Item 
-                            title={item.title}
-                            url={item.url}
-                            onPressed={this._itemPressed}
-                        />
-                    }
-                />
-            </View>
-        );
-    }
+    return (
+        <View style={{ flex: 1 }}>
+            <FlatList 
+                data={posts}
+                keyExtractor={ item => item.url }
+                renderItem={({ item }) => 
+                    <Item 
+                        title={item.title}
+                        url={item.url}
+                        onPressed={_itemPressed}
+                    />
+                }
+            />
+        </View>
+    );
 }
+
+Land.options = (passProps) => ({
+    topBar: {
+        visible: true,
+        title: {
+            text: `r/${passProps.title}`,
+        },
+    },
+})
 
 export default Land;
