@@ -4,11 +4,9 @@ import {
     FlatList,
     Linking,
 } from 'react-native';
+import { Navigation } from 'react-native-navigation';
 
 import Item from '../components/listItem';
-
-// if you need to use componentDidAppear or componentDidDisappear (https://wix.github.io/react-native-navigation/#/docs/events?id=componentdidappear)
-// then consider using React.Component instead of a function.
 
 const Land = (props) => {
     const { selectedSubreddit, posts, fetchPosts } = props;
@@ -16,6 +14,18 @@ const Land = (props) => {
     // equivalent to componentDidMount, see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
     useEffect(() => {
         fetchPosts(selectedSubreddit);
+
+        const didAppearListener = Navigation.events().registerComponentDidAppearListener(({ componentId, componentName, passProps }) => {
+            if (componentId === props.componentId) {
+                console.log(`didAppear -- ${componentId} -- ${componentName} -- ${passProps}`);
+                // alert(`didAppear - ${componentName}`);
+            }
+        });
+
+        // equivalent to componentWillUnmount
+        return () => {
+            didAppearListener.remove();
+        }
     }, []);
 
     const _itemPressed = (url) => {
@@ -27,11 +37,17 @@ const Land = (props) => {
             })
     }
 
+    const _onRefresh = () => {
+        fetchPosts(selectedSubreddit);
+    }
+
     return (
         <View style={{ flex: 1 }}>
             <FlatList 
                 data={posts}
                 keyExtractor={ item => item.url }
+                refreshing={props.isFetching}
+                onRefresh={_onRefresh}
                 renderItem={({ item }) => 
                     <Item 
                         data={item.url}
