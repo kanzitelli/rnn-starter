@@ -2,12 +2,18 @@ import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     SELECT_SUBREDDIT,
+    ADD_SUBREDDIT,
 } from './names';
 
 export const selectSubreddit = subreddit => ({
     type: SELECT_SUBREDDIT,
     subreddit
 });
+
+export const addSubreddit = subreddit => ({
+    type: ADD_SUBREDDIT,
+    subreddit
+})
 
 export const requestPosts = subreddit => ({
     type: REQUEST_POSTS,

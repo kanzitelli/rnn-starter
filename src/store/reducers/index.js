@@ -4,12 +4,43 @@ import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     SELECT_SUBREDDIT,
+    ADD_SUBREDDIT,
 } from '../actions/names';
+
+const subredditsInitState = [
+    {
+        title: 'reactjs',
+    },
+    {
+        title: 'reactnative',
+    },
+    {
+        title: 'rust',
+    },
+    {
+        title: 'golang',
+    },
+    {
+        title: 'elixir',
+    }
+]
 
 const selectedSubreddit = (state = '', action) => {
     switch (action.type) {
         case SELECT_SUBREDDIT:
             return action.subreddit
+        default:
+            return state
+    }
+}
+
+const subreddits = (state = subredditsInitState, action) => {
+    switch (action.type) {
+        case ADD_SUBREDDIT:
+            return [
+                ...state,
+                { title: action.subreddit },
+            ]
         default:
             return state
     }
@@ -52,6 +83,7 @@ const postsBySubreddit = (state = {}, action) => {
 
 const rootReducer = combineReducers({
     selectedSubreddit, 
+    subreddits,
     postsBySubreddit
 })
 

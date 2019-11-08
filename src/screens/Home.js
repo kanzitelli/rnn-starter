@@ -8,26 +8,14 @@ import { Navigation } from 'react-native-navigation';
 import { LAND } from './names';
 import Item from '../components/listItem';
 
-const SUBREDDITS = [
-    {
-        id: '100',
-        title: 'reactjs',
-    },
-    {
-        id: '103',
-        title: 'reactnative',
-    },
-    {
-        id: '101',
-        title: 'rust',
-    },
-    {
-        id: '102',
-        title: 'golang',
-    }
-]
-
 const Home = (props) => {
+    Navigation.events().registerNavigationButtonPressedListener(event => {
+        if (event.componentId === props.componentId) {
+            alert('This just simple button');
+            // props.onAddSubreddit('apple');
+        }
+    });
+
     const _itemPressed = (title) => {
         props.onSelectSubreddit(title);
 
@@ -44,10 +32,10 @@ const Home = (props) => {
     return (
         <View style={{ flex: 1 }}>
             <FlatList
-                data={SUBREDDITS}
-                keyExtractor={ item => item.id }
+                data={props.subreddits}
+                keyExtractor={ item => item.title }
                 renderItem={({ item }) => 
-                    <Item 
+                    <Item
                         data={item.title}
                         title={item.title}
                         textSize={22}
@@ -61,9 +49,14 @@ const Home = (props) => {
 
 Home.options = () => ({
     topBar: {
+        visible: true,
         title: {
             text: "Subreddits",
         },
+        rightButtons: {
+            id: 'hi_button_id',
+            text: 'Hi',
+        }
     }
 });
 
