@@ -4,7 +4,7 @@
 todo:
 [X] example of using RNN top bar button with React functions
 [X] onRefresh list of articles
-[ ] proper adding of subreddit (with text input and checking on duplicates, removing spaces)
+[X] proper adding of subreddit (with text input and checking on duplicates, removing spaces)
 [ ] long press on subreddit on the list will ask to remove it
 [ ] devide reducers and actions in separate logical files
 [ ] tab bar with Subreddits and Bookmarks
