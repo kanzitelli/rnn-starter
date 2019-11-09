@@ -37,10 +37,13 @@ const selectedSubreddit = (state = '', action) => {
 const subreddits = (state = subredditsInitState, action) => {
     switch (action.type) {
         case ADD_SUBREDDIT:
-            return [
-                ...state,
-                { title: action.subreddit },
-            ]
+            // check on duplicates
+            if (!state.find(sr => sr.title === action.subreddit)) {
+                return [
+                    ...state,
+                    { title: action.subreddit },
+                ]
+            }
         default:
             return state
     }
