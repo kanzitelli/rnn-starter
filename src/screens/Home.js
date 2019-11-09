@@ -79,7 +79,7 @@ const Home = (props) => {
                         style={{marginLeft: 16, marginRight: 0,}}
                         onPress={() => {
                             if (value.trim() != '') {
-                                props.onAddSubreddit(value.trim());
+                                props.onAddSubreddit(value.trim().toLowerCase().replace(/ /g, ''));
                                 onChangeText('');
                             }
                         }}
