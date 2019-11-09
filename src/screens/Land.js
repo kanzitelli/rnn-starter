@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { 
     View,
     FlatList,
@@ -12,7 +12,7 @@ const Land = (props) => {
     const { selectedSubreddit, posts, fetchPosts } = props;
 
     // equivalent to componentDidMount, see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
-    useEffect(() => {
+    React.useEffect(() => {
         fetchPosts(selectedSubreddit);
 
         const didAppearListener = Navigation.events().registerComponentDidAppearListener(({ componentId, componentName, passProps }) => {
@@ -45,7 +45,7 @@ const Land = (props) => {
         <View style={{ flex: 1 }}>
             <FlatList 
                 data={posts}
-                keyExtractor={ item => item.url }
+                keyExtractor={ item => item.id }
                 refreshing={props.isFetching}
                 onRefresh={_onRefresh}
                 renderItem={({ item }) => 
