@@ -1,10 +1,6 @@
 import React from 'react';
 import { 
     SafeAreaView,
-    View,
-    TextInput,
-    Text,
-    TouchableOpacity,
     FlatList,
     KeyboardAvoidingView,
     Dimensions,
@@ -13,6 +9,7 @@ import { Navigation } from 'react-native-navigation';
 
 import { LAND } from './names';
 import Item from '../components/listItem';
+import SubredditInput from '../components/subredditInput';
 
 const Home = (props) => {
     Navigation.events().registerNavigationButtonPressedListener(event => {
@@ -25,7 +22,6 @@ const Home = (props) => {
         getStatusBarHeight();
     });
 
-    const [value, onChangeText] = React.useState('');
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
     React.useEffect(() => {
@@ -53,7 +49,12 @@ const Home = (props) => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <KeyboardAvoidingView style={{flex:1}} behavior="padding" enabled keyboardVerticalOffset={keyboardVerticalOffset}>
+            <KeyboardAvoidingView 
+                style={{flex:1}} 
+                behavior="padding" 
+                enabled 
+                keyboardVerticalOffset={keyboardVerticalOffset}
+            >
                 <FlatList
                     data={props.subreddits}
                     keyExtractor={ item => item.title }
@@ -67,26 +68,9 @@ const Home = (props) => {
                     }
                 />
             
-                <View style={{ flexDirection: 'row', padding: 16, justifyContent: 'center', alignContent:'center', alignItems:'center' }}>
-                    <TextInput
-                        style={{ flex: 1, borderColor: 'lightgray', borderRadius: 10, padding: 8, borderWidth: 1, fontSize: 22, }}
-                        onChangeText={text => onChangeText(text)}
-                        value={value}
-                        placeholder={'new subreddit goes here...'}
-                        autoCapitalize={'none'}
-                    />
-                    <TouchableOpacity 
-                        style={{marginLeft: 16, marginRight: 0,}}
-                        onPress={() => {
-                            if (value.trim() != '') {
-                                props.onAddSubreddit(value.trim().toLowerCase().replace(/ /g, ''));
-                                onChangeText('');
-                            }
-                        }}
-                    >
-                        <Text style={{ fontSize: 32, }}>+</Text>
-                    </TouchableOpacity>
-                </View>
+                <SubredditInput
+                    onAddSubreddit={sr => props.onAddSubreddit(sr)}
+                />
             </KeyboardAvoidingView>
         </SafeAreaView>
     )
