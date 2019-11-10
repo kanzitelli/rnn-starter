@@ -45,6 +45,7 @@ const subreddits = (state = subredditsInitState, action) => {
                     { title: action.subreddit },
                 ]
             }
+            return state;
         case DELETE_SUBREDDIT:
             return state.filter(v => v.title !== action.subreddit);
         default:
