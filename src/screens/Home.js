@@ -12,21 +12,24 @@ import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
 
 const Home = (props) => {
-    Navigation.events().registerNavigationButtonPressedListener(event => {
-        if (event.componentId === props.componentId) {
-            alert('This just simple button');
-        }
-    });
-
-    Dimensions.addEventListener('change', () => {
-        getStatusBarHeight();
-    });
-
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
+    // equivalent to componentDidMount, see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
     React.useEffect(() => {
+        Navigation.events().registerNavigationButtonPressedListener(event => {
+            if (event.componentId === props.componentId &&
+                event.buttonId    === 'hi_button_id') {
+                    console.log('asd');
+                alert('This just simple button');
+            }
+        });
+    
+        Dimensions.addEventListener('change', () => {
+            getStatusBarHeight();
+        });
+
         getStatusBarHeight();
-    })
+    }, []);
 
     const getStatusBarHeight = async () => {
         const navConstants = await Navigation.constants();
