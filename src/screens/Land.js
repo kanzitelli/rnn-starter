@@ -25,7 +25,7 @@ const Land = (props) => {
         return () => listener.remove();
     }, []);
 
-    const _itemPressed = (url) => {
+    const _onItemPressed = (url) => {
         Linking.canOpenURL(url)
             .then(supported => {
                 if (supported) {
@@ -50,7 +50,7 @@ const Land = (props) => {
                         data={item.url}
                         title={item.title}
                         textSize={16}
-                        onPressed={_itemPressed}
+                        onPressed={_onItemPressed}
                     />
                 }
             />

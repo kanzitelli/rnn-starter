@@ -16,8 +16,12 @@ const ListItem = ({
     data,
     textSize,
     onPressed,
+    onLongPressed,
 }) => (
-    <Touchable onPress={() => onPressed(data)}>
+    <Touchable 
+        onPress={() => onPressed(data)}
+        onLongPress={() => onLongPressed && onLongPressed(data)}
+    >
         <View style={{ padding: 12 }}>
             <Text style={{ fontSize: textSize }}>{title}</Text>
         </View>

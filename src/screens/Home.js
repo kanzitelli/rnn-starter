@@ -5,6 +5,7 @@ import {
     KeyboardAvoidingView,
     Dimensions,
     Platform,
+    Alert,
 } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
@@ -49,17 +50,31 @@ const Home = (props) => {
         }
     }
 
-    const _itemPressed = (title) => {
-        props.onSelectSubreddit(title);
+    const _onItemPressed = subreddit => {
+        props.onSelectSubreddit(subreddit);
 
         Navigation.push(props.componentId, {
             component: {
                 name: LAND,
                 passProps: {
-                    title
+                    title: subreddit
                 }
             },
         });
+    }
+
+    const _onItemLongPressed = subreddit => {
+        Alert.alert(
+            'Action required',
+            `Would you like to delete ${subreddit} subreddit?`,
+            [{
+                text: 'Yes',
+                onPress: () => props.onDeleteSubreddit(subreddit)
+            }, {
+                text: 'Cancel',
+                style: 'cancel',
+            }]
+        )
     }
 
     return (
@@ -78,7 +93,8 @@ const Home = (props) => {
                             data={item.title}
                             title={item.title}
                             textSize={22}
-                            onPressed={_itemPressed}
+                            onPressed={_onItemPressed}
+                            onLongPressed={_onItemLongPressed}
                         />
                     }
                 />

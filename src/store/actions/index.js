@@ -3,6 +3,7 @@ import {
     RECEIVE_POSTS,
     SELECT_SUBREDDIT,
     ADD_SUBREDDIT,
+    DELETE_SUBREDDIT,
 } from './names';
 
 export const selectSubreddit = subreddit => ({
@@ -13,7 +14,12 @@ export const selectSubreddit = subreddit => ({
 export const addSubreddit = subreddit => ({
     type: ADD_SUBREDDIT,
     subreddit
-})
+});
+
+export const deleteSubreddit = subreddit => ({
+    type: DELETE_SUBREDDIT,
+    subreddit
+});
 
 export const requestPosts = subreddit => ({
     type: REQUEST_POSTS,

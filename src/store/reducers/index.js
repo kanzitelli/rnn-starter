@@ -5,6 +5,7 @@ import {
     RECEIVE_POSTS,
     SELECT_SUBREDDIT,
     ADD_SUBREDDIT,
+    DELETE_SUBREDDIT,
 } from '../actions/names';
 
 const subredditsInitState = [
@@ -44,6 +45,8 @@ const subreddits = (state = subredditsInitState, action) => {
                     { title: action.subreddit },
                 ]
             }
+        case DELETE_SUBREDDIT:
+            return state.filter(v => v.title !== action.subreddit);
         default:
             return state
     }
