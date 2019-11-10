@@ -6,7 +6,7 @@ todo:
 [X] onRefresh list of articles
 [X] proper adding of subreddit (with text input and checking on duplicates, removing spaces)
 [X] long press on subreddit on the list will ask to remove it
-[ ] devide reducers and actions in separate logical files
+[X] devide reducers and actions in separate logical files
 [ ] maybe make constants folder with all buttons, screens and etc. descriptions
 [ ] tab bar with Subreddits and Bookmarks
 [ ] adding to boomarks by long press on an article (alert :: yes/no)
