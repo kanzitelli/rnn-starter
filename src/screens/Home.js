@@ -4,6 +4,7 @@ import {
     FlatList,
     KeyboardAvoidingView,
     Dimensions,
+    Platform,
 } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
@@ -14,7 +15,9 @@ import SubredditInput from '../components/subredditInput';
 const Home = (props) => {
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
-    // equivalent to componentDidMount, see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
+    // equivalent to componentDidMount
+    // see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
+    // and - https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
     React.useEffect(() => {
         Navigation.events().registerNavigationButtonPressedListener(event => {
             if (event.componentId === props.componentId &&
@@ -34,7 +37,10 @@ const Home = (props) => {
     const getStatusBarHeight = async () => {
         const navConstants = await Navigation.constants();
 
-        setKeyboardVerticalOffset(navConstants.statusBarHeight + navConstants.topBarHeight);
+        // for more info - https://stackoverflow.com/a/48759750
+        if (Platform.OS === 'ios') {
+            setKeyboardVerticalOffset(navConstants.statusBarHeight + navConstants.topBarHeight);
+        }
     }
 
     const _itemPressed = (title) => {
@@ -51,10 +57,10 @@ const Home = (props) => {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{flex:1}}>
             <KeyboardAvoidingView 
                 style={{flex:1}} 
-                behavior="padding" 
+                behavior={Platform.OS === 'ios' ? "padding" : null}
                 enabled 
                 keyboardVerticalOffset={keyboardVerticalOffset}
             >

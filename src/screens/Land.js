@@ -11,7 +11,7 @@ import Item from '../components/listItem';
 const Land = (props) => {
     const { selectedSubreddit, posts, fetchPosts } = props;
 
-    // equivalent to componentDidMount, see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
+    // equivalent to componentDidMount
     React.useEffect(() => {
         fetchPosts(selectedSubreddit);
 
