@@ -19,7 +19,7 @@ const Home = (props) => {
     // see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
     // and - https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
     React.useEffect(() => {
-        Navigation.events().registerNavigationButtonPressedListener(event => {
+        const listener = Navigation.events().registerNavigationButtonPressedListener(event => {
             if (event.componentId === props.componentId &&
                 event.buttonId    === 'hi_button_id') {
                     console.log('asd');
@@ -32,6 +32,8 @@ const Home = (props) => {
         });
 
         getStatusBarHeight();
+
+        return () => listener.remove();
     }, []);
 
     const getStatusBarHeight = async () => {

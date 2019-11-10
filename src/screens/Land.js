@@ -15,7 +15,7 @@ const Land = (props) => {
     React.useEffect(() => {
         fetchPosts(selectedSubreddit);
 
-        const didAppearListener = Navigation.events().registerComponentDidAppearListener(({ componentId, componentName, passProps }) => {
+        const listener = Navigation.events().registerComponentDidAppearListener(({ componentId, componentName, passProps }) => {
             if (componentId === props.componentId) {
                 console.log(`didAppear -- ${componentId} -- ${componentName} -- ${passProps}`);
                 // alert(`didAppear - ${componentName}`);
@@ -23,9 +23,7 @@ const Land = (props) => {
         });
 
         // equivalent to componentWillUnmount
-        return () => {
-            didAppearListener.remove();
-        }
+        return () => listener.remove();
     }, []);
 
     const _itemPressed = (url) => {
