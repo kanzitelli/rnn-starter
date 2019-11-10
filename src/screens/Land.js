@@ -18,7 +18,6 @@ const Land = (props) => {
         const listener = Navigation.events().registerComponentDidAppearListener(({ componentId, componentName, passProps }) => {
             if (componentId === props.componentId) {
                 console.log(`didAppear -- ${componentId} -- ${componentName} -- ${passProps}`);
-                // alert(`didAppear - ${componentName}`);
             }
         });
 

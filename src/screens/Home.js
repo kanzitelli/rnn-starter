@@ -20,10 +20,14 @@ const Home = (props) => {
     // and - https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
     React.useEffect(() => {
         const listener = Navigation.events().registerNavigationButtonPressedListener(event => {
-            if (event.componentId === props.componentId &&
-                event.buttonId    === 'hi_button_id') {
-                    console.log('asd');
-                alert('This just simple button');
+            if (event.componentId === props.componentId) {
+                switch (event.buttonId) {
+                    case 'hi_button_id':
+                        alert('This just simple button');
+                        break;
+                    default:
+                        break;
+                }
             }
         });
     
