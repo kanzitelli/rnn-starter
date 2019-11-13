@@ -4,26 +4,26 @@ import {
     FlatList,
     Linking,
 } from 'react-native';
-import { Navigation } from 'react-native-navigation';
+import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
 
 import Item from '../components/listItem';
 
 const Land = (props) => {
-    const { componentId, selectedSubreddit, posts, fetchPosts } = props;
+    const {
+        componentId,
+        posts,
+        selectedSubreddit,
+        fetchPosts
+    } = props;
 
     // equivalent to componentDidMount
     React.useEffect(() => {
         fetchPosts(selectedSubreddit);
-
-        const listener = Navigation.events().registerComponentDidAppearListener(e => {
-            if (componentId === e.componentId) {
-                console.log(`didAppear -- ${e.componentId} -- ${e.componentName} -- ${e.passProps}`);
-            }
-        });
-
-        // equivalent to componentWillUnmount
-        return () => listener.remove();
     }, [componentId]);
+
+    useNavigationComponentDidAppear(e => {
+        console.log(`${e.componentName} appeared`)
+    }, componentId);
 
     const _onItemPressed = (url) => {
         Linking.canOpenURL(url)

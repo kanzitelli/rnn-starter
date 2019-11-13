@@ -8,13 +8,20 @@ import {
     Alert,
 } from 'react-native';
 import { Navigation } from 'react-native-navigation';
+import { useNavigationButtonPress } from 'react-native-navigation-hooks';
 
 import { LAND } from './names';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
 
 const Home = (props) => {
-    const { componentId } = props;
+    const { 
+        componentId,
+        subreddits,
+        onSelectSubreddit,
+        onDeleteSubreddit,
+        onAddSubreddit,
+    } = props;
 
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
@@ -22,26 +29,19 @@ const Home = (props) => {
     // see - https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
     // and - https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
     React.useEffect(() => {
-        const listener = Navigation.events().registerNavigationButtonPressedListener(event => {
-            if (event.componentId === componentId) {
-                switch (event.buttonId) {
-                    case 'hi_button_id':
-                        alert('This just simple button');
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-    
         Dimensions.addEventListener('change', () => {
             getStatusBarHeight();
         });
 
         getStatusBarHeight();
 
-        return () => listener.remove();
+        // equivalent to componentWillUnmount
+        return () => {};
     }, [componentId]);
+
+    useNavigationButtonPress(e => {
+        alert('This just simple button');
+    }, componentId, 'hi_button_id');
 
     const getStatusBarHeight = async () => {
         const navConstants = await Navigation.constants();
@@ -53,9 +53,9 @@ const Home = (props) => {
     }
 
     const _onItemPressed = subreddit => {
-        props.onSelectSubreddit(subreddit);
+        onSelectSubreddit(subreddit);
 
-        Navigation.push(props.componentId, {
+        Navigation.push(componentId, {
             component: {
                 name: LAND,
                 passProps: {
@@ -71,7 +71,7 @@ const Home = (props) => {
             `Would you like to delete ${subreddit} subreddit?`,
             [{
                 text: 'Yes',
-                onPress: () => props.onDeleteSubreddit(subreddit)
+                onPress: () => onDeleteSubreddit(subreddit)
             }, {
                 text: 'Cancel',
                 style: 'cancel',
@@ -88,7 +88,7 @@ const Home = (props) => {
                 keyboardVerticalOffset={keyboardVerticalOffset}
             >
                 <FlatList
-                    data={props.subreddits}
+                    data={subreddits}
                     keyExtractor={ item => item.title }
                     renderItem={({ item }) => 
                         <Item
@@ -102,7 +102,7 @@ const Home = (props) => {
                 />
             
                 <SubredditInput
-                    onAddSubreddit={sr => props.onAddSubreddit(sr)}
+                    onAddSubreddit={sr => onAddSubreddit(sr)}
                 />
             </KeyboardAvoidingView>
         </SafeAreaView>
