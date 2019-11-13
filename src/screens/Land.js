@@ -23,7 +23,7 @@ const Land = (props) => {
 
         // equivalent to componentWillUnmount
         return () => listener.remove();
-    }, []);
+    }, [componentId]);
 
     const _onItemPressed = (url) => {
         Linking.canOpenURL(url)
