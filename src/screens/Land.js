@@ -9,15 +9,15 @@ import { Navigation } from 'react-native-navigation';
 import Item from '../components/listItem';
 
 const Land = (props) => {
-    const { selectedSubreddit, posts, fetchPosts } = props;
+    const { componentId, selectedSubreddit, posts, fetchPosts } = props;
 
     // equivalent to componentDidMount
     React.useEffect(() => {
         fetchPosts(selectedSubreddit);
 
-        const listener = Navigation.events().registerComponentDidAppearListener(({ componentId, componentName, passProps }) => {
-            if (componentId === props.componentId) {
-                console.log(`didAppear -- ${componentId} -- ${componentName} -- ${passProps}`);
+        const listener = Navigation.events().registerComponentDidAppearListener(e => {
+            if (componentId === e.componentId) {
+                console.log(`didAppear -- ${e.componentId} -- ${e.componentName} -- ${e.passProps}`);
             }
         });
 

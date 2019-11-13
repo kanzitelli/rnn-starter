@@ -14,6 +14,8 @@ import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
 
 const Home = (props) => {
+    const { componentId } = props;
+
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
     // equivalent to componentDidMount
@@ -21,7 +23,7 @@ const Home = (props) => {
     // and - https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
     React.useEffect(() => {
         const listener = Navigation.events().registerNavigationButtonPressedListener(event => {
-            if (event.componentId === props.componentId) {
+            if (event.componentId === componentId) {
                 switch (event.buttonId) {
                     case 'hi_button_id':
                         alert('This just simple button');
@@ -39,7 +41,7 @@ const Home = (props) => {
         getStatusBarHeight();
 
         return () => listener.remove();
-    }, []);
+    }, [componentId]);
 
     const getStatusBarHeight = async () => {
         const navConstants = await Navigation.constants();
