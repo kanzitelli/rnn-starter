@@ -11,7 +11,7 @@ todo:
 [X] make fake bottom tabs
 [X] rn vector icons
 [X] add redux persist
-[ ] add redux saga
+[ ] add redux saga, + FAIL_RECEIVE_POSTS with error hadling
 [ ] add reselect (selectors)
 [ ] proper readme
 
