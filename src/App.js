@@ -39,7 +39,7 @@ export const startApp = () => {
                             }],
                             options: {
                                 bottomTab: {
-                                    text: 'Tab 1',
+                                    text: 'Subreddits',
                                     icon: redditIcon,
                                 }
                             }
@@ -49,7 +49,7 @@ export const startApp = () => {
                             name: EMPTY,
                             options: {
                                 bottomTab: {
-                                  text: 'Tab 2',
+                                  text: 'Emptiness',
                                   icon: reactIcon,
                                 }
                             }
