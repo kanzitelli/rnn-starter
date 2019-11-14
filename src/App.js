@@ -1,4 +1,5 @@
 import { Navigation } from 'react-native-navigation';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import HomeContainer from './containers/Home';
 import LandContainer from './containers/Land';
@@ -22,35 +23,40 @@ Screens.forEach((C, key) => {
 // ...
 
 export const startApp = () => {
-    Navigation.setRoot({
-        root: {
-            bottomTabs: {
-                children: [{
-                    stack: {
-                        children: [{
-                            component: { 
-                                name: HOME ,
-                            },
-                        }],
-                        options: {
-                            bottomTab: {
-                                text: 'Tab 1',
-                                // icon: require('../images/one.png'),
+    Promise.all([
+        FontAwesome5.getImageSource('reddit', 25),
+        FontAwesome5.getImageSource('react', 25),
+    ]).then(([redditIcon, reactIcon]) => {
+        Navigation.setRoot({
+            root: {
+                bottomTabs: {
+                    children: [{
+                        stack: {
+                            children: [{
+                                component: { 
+                                    name: HOME ,
+                                },
+                            }],
+                            options: {
+                                bottomTab: {
+                                    text: 'Tab 1',
+                                    icon: redditIcon,
+                                }
+                            }
+                        },
+                    }, {
+                        component: {
+                            name: EMPTY,
+                            options: {
+                                bottomTab: {
+                                  text: 'Tab 2',
+                                  icon: reactIcon,
+                                }
                             }
                         }
-                    },
-                }, {
-                    component: {
-                        name: EMPTY,
-                        options: {
-                            bottomTab: {
-                              text: 'Tab 2',
-                              // icon: require('../images/two.png'),
-                            }
-                        }
-                    }
-                }],
-            }            
-        }
-    });
+                    }],
+                }            
+            }
+        });
+    })
 };
