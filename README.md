@@ -9,6 +9,9 @@ todo:
 [X] devide reducers and actions in separate logical files
 [X] add === https://github.com/underscopeio/react-native-navigation-hooks ===
 [ ] maybe make constants folder with all buttons, screens and etc. descriptions
+[ ] make fake bottom tabs
 [ ] add redux persist
 [ ] proper readme
 [ ] some more improvements like rn vector icons
+
+[ ] do the same starter using TypeScript
