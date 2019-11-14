@@ -10,7 +10,7 @@ todo:
 [X] add === https://github.com/underscopeio/react-native-navigation-hooks ===
 [X] make fake bottom tabs
 [X] rn vector icons
-[ ] add redux persist
+[X] add redux persist
 [ ] add redux saga
 [ ] proper readme
 
