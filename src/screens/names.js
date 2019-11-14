@@ -1,2 +1,3 @@
-export const HOME = 'good-news-app.Home';
-export const LAND = 'good-news-app.Land';
+export const HOME = 'rnn-starter.Home';
+export const LAND = 'rnn-starter.Land';
+export const EMPTY = 'rnn-starter.Empty';
