@@ -8,9 +8,9 @@ todo:
 [X] long press on subreddit on the list will ask to remove it
 [X] devide reducers and actions in separate logical files
 [X] add === https://github.com/underscopeio/react-native-navigation-hooks ===
-[ ] maybe make constants folder with all buttons, screens and etc. descriptions
 [ ] make fake bottom tabs
 [ ] add redux persist
+[ ] add redux saga
 [ ] proper readme
 [ ] some more improvements like rn vector icons
 
