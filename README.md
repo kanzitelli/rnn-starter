@@ -9,8 +9,6 @@ todo:
 [X] devide reducers and actions in separate logical files
 [X] add === https://github.com/underscopeio/react-native-navigation-hooks ===
 [ ] maybe make constants folder with all buttons, screens and etc. descriptions
-[ ] tab bar with Subreddits and Bookmarks
-[ ] adding to boomarks by long press on an article (alert :: yes/no)
 [ ] add redux persist
 [ ] proper readme
 [ ] some more improvements like rn vector icons
