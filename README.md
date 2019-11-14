@@ -8,10 +8,10 @@ todo:
 [X] long press on subreddit on the list will ask to remove it
 [X] devide reducers and actions in separate logical files
 [X] add === https://github.com/underscopeio/react-native-navigation-hooks ===
-[ ] make fake bottom tabs
+[X] make fake bottom tabs
+[ ] rn vector icons
 [ ] add redux persist
 [ ] add redux saga
 [ ] proper readme
-[ ] some more improvements like rn vector icons
 
 [ ] do the same starter using TypeScript
