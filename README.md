@@ -12,6 +12,8 @@ todo:
 [X] rn vector icons
 [X] add redux persist
 [ ] add redux saga
+[ ] add reselect (selectors)
 [ ] proper readme
 
+later:
 [ ] do the same starter using TypeScript
