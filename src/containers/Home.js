@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 
 import Home from '../screens/Home';
-import Actions from '../store/actions';
+import actions from '../store/actions';
 
 const mapStateToProps = state => ({
     subreddits: state.subreddits,
 });
 
 const mapDispatchToProps = dispatch => ({
-    onSelectSubreddit: sr => dispatch(Actions.selectSubreddit(sr)),
-    onAddSubreddit: sr => dispatch(Actions.addSubreddit(sr)),
-    onDeleteSubreddit: sr => dispatch(Actions.deleteSubreddit(sr)),
+    onSelectSubreddit: sr => dispatch(actions.selectSubreddit(sr)),
+    onAddSubreddit: sr => dispatch(actions.addSubreddit(sr)),
+    onDeleteSubreddit: sr => dispatch(actions.deleteSubreddit(sr)),
 });
 
 export default connect(

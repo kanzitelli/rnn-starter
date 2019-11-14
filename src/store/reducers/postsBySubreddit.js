@@ -1,7 +1,7 @@
 import { 
     REQUEST_POSTS,
     RECEIVE_POSTS,
-} from '../actions/names';
+} from '../actions';
 
 const initialStatePostsBySubreddit = {};
 const initialStatePosts = {

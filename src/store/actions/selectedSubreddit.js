@@ -1,6 +1,6 @@
 import { 
     SELECT_SUBREDDIT,
-} from './names';
+} from './index';
 
 const selectSubreddit = subreddit => ({
     type: SELECT_SUBREDDIT,

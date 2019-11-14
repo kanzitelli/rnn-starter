@@ -1,7 +1,7 @@
 import { 
     ADD_SUBREDDIT,
     DELETE_SUBREDDIT,
-} from './names';
+} from './index';
 
 const addSubreddit = subreddit => ({
     type: ADD_SUBREDDIT,

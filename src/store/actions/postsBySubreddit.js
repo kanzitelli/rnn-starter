@@ -1,7 +1,7 @@
 import { 
     REQUEST_POSTS,
     RECEIVE_POSTS,
-} from './names';
+} from './index';
 
 const requestPosts = subreddit => ({
     type: REQUEST_POSTS,
@@ -15,16 +15,7 @@ const receivePosts = (subreddit, json) => ({
     receivedAt: Date.now()
 });
 
-const fetchPosts = subreddit => 
-    dispatch => {
-      dispatch(requestPosts(subreddit))
-      return fetch(`https://www.reddit.com/r/${subreddit}.json`)
-        .then(response => response.json())
-        .then(json => dispatch(receivePosts(subreddit, json)))
-    }
-
 export default {
     requestPosts,
     receivePosts,
-    fetchPosts,
 }

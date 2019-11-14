@@ -4,22 +4,26 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react'
-import thunkMiddleware from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
 import reducer from './reducers';
+import saga from './sagas';
 
 const persistConfig = {
     key: 'rootKeyPersist',
     storage: AsyncStorage,
 };
-
 const persistedReducer = persistReducer(persistConfig, reducer);
+
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
     persistedReducer,
-    applyMiddleware(thunkMiddleware)
+    applyMiddleware(sagaMiddleware)
 );
 const persistor = persistStore(store);
+
+sagaMiddleware.run(saga);
 
 export const withReduxProvider = C => props => (
     <Provider store={store}>

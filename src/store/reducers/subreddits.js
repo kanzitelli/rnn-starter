@@ -1,7 +1,7 @@
 import { 
     ADD_SUBREDDIT,
     DELETE_SUBREDDIT,
-} from '../actions/names';
+} from '../actions';
 
 const initialState = [
     {

@@ -1,6 +1,6 @@
 import { 
     SELECT_SUBREDDIT,
-} from '../actions/names';
+} from '../actions';
 
 const initialState = '';
 
