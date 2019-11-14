@@ -9,7 +9,7 @@ todo:
 [X] devide reducers and actions in separate logical files
 [X] add === https://github.com/underscopeio/react-native-navigation-hooks ===
 [X] make fake bottom tabs
-[ ] rn vector icons
+[X] rn vector icons
 [ ] add redux persist
 [ ] add redux saga
 [ ] proper readme
