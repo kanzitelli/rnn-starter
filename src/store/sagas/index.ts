@@ -7,4 +7,4 @@ export default function* rootSaga() {
         postsBySubreddit(),
         // some more 
     ])
-  }
+}
