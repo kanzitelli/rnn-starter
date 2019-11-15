@@ -5,17 +5,19 @@ import actions from '../store/actions';
 
 const mapStateToProps = state => {
     const { selectedSubreddit, postsBySubreddit } = state
-    const { isFetching, items: posts } = postsBySubreddit[
+    const { isFetching, items: posts, error } = postsBySubreddit[
       selectedSubreddit
     ] || {
       isFetching: true,
-      items: []
+      items: [],
+      error: null,
     }
 
     return {
         selectedSubreddit,
         posts,
         isFetching,
+        error,
     }
 };
 

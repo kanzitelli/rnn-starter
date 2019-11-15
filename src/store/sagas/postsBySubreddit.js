@@ -8,10 +8,11 @@ function fetchPostsApi(reddit) {
 
 function* fetchPosts({ subreddit }) {
     try {
-        const json = yield call(fetchPostsApi, subreddit)
-        yield put(actions.receivePosts(subreddit, json))
+        const json = yield call(fetchPostsApi, subreddit);
+        yield put(actions.receivePosts(subreddit, json));
     } catch (e) {
         console.log(`Some error - ${e}`);
+        yield put(actions.failReceivePosts(subreddit, e));
     }
 }
 

@@ -1,6 +1,7 @@
 import { 
     REQUEST_POSTS,
     RECEIVE_POSTS,
+    FAIL_RECEIVE_POSTS,
 } from './index';
 
 const requestPosts = subreddit => ({
@@ -15,7 +16,15 @@ const receivePosts = (subreddit, json) => ({
     receivedAt: Date.now()
 });
 
+const failReceivePosts = (subreddit, error) => ({
+    type: FAIL_RECEIVE_POSTS,
+    subreddit,
+    error,
+    receivedAt: Date.now(),
+})
+
 export default {
     requestPosts,
     receivePosts,
+    failReceivePosts,
 }

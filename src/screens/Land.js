@@ -12,6 +12,7 @@ const Land = (props) => {
     const {
         componentId,
         posts,
+        error,
         selectedSubreddit,
         fetchPosts
     } = props;
@@ -36,6 +37,10 @@ const Land = (props) => {
 
     const _onRefresh = () => {
         fetchPosts(selectedSubreddit);
+    }
+
+    if (error) {
+        alert(error);
     }
 
     return (
