@@ -12,7 +12,7 @@ todo:
 [X] rn vector icons
 [X] add redux persist
 [X] add redux saga, + FAIL_RECEIVE_POSTS with error hadling
-[ ] proper readme
+[ ] integrate TypeScript
 
-later:
-[ ] do the same starter using TypeScript
+[ ] update all packages to up-to-dated // npm outdated
+[ ] proper readme
