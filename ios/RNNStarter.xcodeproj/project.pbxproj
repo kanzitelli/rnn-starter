@@ -653,7 +653,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNNStarter.app/RNNStarter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNN Starter.app/RNN Starter";
 			};
 			name = Debug;
 		};
@@ -674,7 +674,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNNStarter.app/RNNStarter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNN Starter.app/RNN Starter";
 			};
 			name = Release;
 		};
