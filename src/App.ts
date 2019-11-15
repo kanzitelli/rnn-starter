@@ -8,7 +8,7 @@ import EmptyContainer from './containers/Empty';
 import { withReduxProvider } from './store';
 import { HOME, LAND, EMPTY } from './screens/names';
 
-const Screens = new Map();
+const Screens = new Map<string, React.FC>();
 
 Screens.set(HOME, HomeContainer);
 Screens.set(LAND, LandContainer);
