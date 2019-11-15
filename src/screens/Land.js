@@ -1,6 +1,7 @@
 import React from 'react';
 import { 
     View,
+    Text,
     FlatList,
     Linking,
 } from 'react-native';
@@ -39,12 +40,9 @@ const Land = (props) => {
         fetchPosts(selectedSubreddit);
     }
 
-    if (error) {
-        alert(error);
-    }
-
     return (
         <View style={{ flex: 1 }}>
+            { error && <Text>Error {error.toString()}</Text> }
             <FlatList 
                 data={posts}
                 keyExtractor={ item => item.id }

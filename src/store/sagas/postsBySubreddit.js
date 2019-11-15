@@ -11,7 +11,6 @@ function* fetchPosts({ subreddit }) {
         const json = yield call(fetchPostsApi, subreddit);
         yield put(actions.receivePosts(subreddit, json));
     } catch (e) {
-        console.log(`Some error - ${e}`);
         yield put(actions.failReceivePosts(subreddit, e));
     }
 }
