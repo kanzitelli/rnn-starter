@@ -1,17 +1,19 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import actions, { REQUEST_POSTS } from '../actions';
+import actions from '../actions';
+import { PostsActionTypes } from '../actions/types';
 
-interface IApiReddit {
-    type: string,
-    subreddit: string;
-}
+// MOVE THIS TO ANOTHER FILE, FOR ACTIONS ONLY
+// interface IApiReddit {
+//     type: string,
+//     subreddit: string;
+// }
 
 async function fetchPostsApi(reddit: string) {
     const response = await fetch(`https://www.reddit.com/r/${reddit}.json`);
     return await response.json();
 }
 
-function* fetchPosts({ subreddit }: IApiReddit) {
+function* fetchPosts({ subreddit }: PostsActionTypes) {
     try {
         const json = yield call(fetchPostsApi, subreddit);
         yield put(actions.receivePosts(subreddit, json));
@@ -21,5 +23,5 @@ function* fetchPosts({ subreddit }: IApiReddit) {
 }
 
 export default function* postsBySubreddit() {
-    yield takeEvery<IApiReddit>(actions.requestPosts, fetchPosts);
+    yield takeEvery<PostsActionTypes>(actions.requestPosts, fetchPosts);
 }
