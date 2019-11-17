@@ -1,7 +1,11 @@
-import actions from './actions';
+import {
+    REQUEST_POSTS,
+    RECEIVE_POSTS,
+    FAIL_RECEIVE_POSTS,
+} from './actions';
 import {
     PostsActionTypes_I,
-    
+
     PostsBySubredditState,
     PostsState,
 } from './types';
@@ -19,20 +23,20 @@ const posts = (
     action: Partial<PostsActionTypes_I>,
 ): PostsState => {
     switch (action.type) {
-        case actions.REQUEST_POSTS:
+        case REQUEST_POSTS:
             return {
                 ...state,
                 isFetching: true,
                 error: null,
             }
-        case actions.FAIL_RECEIVE_POSTS:
+        case FAIL_RECEIVE_POSTS:
             return {
                 ...state,
                 isFetching: false,
                 error: action.error,
                 lastUpdated: action.receivedAt,
             }
-        case actions.RECEIVE_POSTS:
+        case RECEIVE_POSTS:
             return {
                 ...state,
                 isFetching: false,
@@ -50,9 +54,9 @@ const postsBySubreddit = (
     action: Partial<PostsActionTypes_I>,
 ): PostsBySubredditState => {
     switch (action.type) {
-        case actions.RECEIVE_POSTS:
-        case actions.FAIL_RECEIVE_POSTS:
-        case actions.REQUEST_POSTS:
+        case RECEIVE_POSTS:
+        case FAIL_RECEIVE_POSTS:
+        case REQUEST_POSTS:
             return {
                 ...state,
                 [action.subreddit]: posts(state[action.subreddit], action)

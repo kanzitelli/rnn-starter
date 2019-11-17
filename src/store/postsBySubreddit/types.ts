@@ -1,22 +1,26 @@
-import actions from './actions';
+import {
+    REQUEST_POSTS,
+    RECEIVE_POSTS,
+    FAIL_RECEIVE_POSTS,
+} from './actions';
 
 // =================
 // ACTIONS
 // =================
 export interface RequestPostsAction {
-    type: typeof actions.REQUEST_POSTS,
+    type: typeof REQUEST_POSTS,
     subreddit: string,
 }
 
 export interface ReceivePostsAction {
-    type: typeof actions.RECEIVE_POSTS,
+    type: typeof RECEIVE_POSTS,
     subreddit: string,
     posts: Array<any>,
     receivedAt: number,
 }
 
 export interface FailReceivePostsAction {
-    type: typeof actions.FAIL_RECEIVE_POSTS,
+    type: typeof FAIL_RECEIVE_POSTS,
     subreddit: string,
     error: Error,
     receivedAt: number,
