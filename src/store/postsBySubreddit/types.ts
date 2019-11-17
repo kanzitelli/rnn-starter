@@ -1,5 +1,4 @@
 import actions from './actions';
-import subreddits from '../actions/subreddits';
 
 // =================
 // ACTIONS
