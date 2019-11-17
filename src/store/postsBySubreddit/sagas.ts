@@ -1,13 +1,15 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import actions from '../actions';
-import { PostsActionTypes } from '../actions/types';
+import actions from './actions';
+import {
+    RequestPostsAction
+} from './types';
 
 async function fetchPostsApi(reddit: string) {
     const response = await fetch(`https://www.reddit.com/r/${reddit}.json`);
     return await response.json();
 }
 
-function* fetchPosts({ subreddit }: PostsActionTypes) {
+function* fetchPosts({ subreddit }: RequestPostsAction) {
     try {
         const json = yield call(fetchPostsApi, subreddit);
         yield put(actions.receivePosts(subreddit, json));
@@ -17,5 +19,5 @@ function* fetchPosts({ subreddit }: PostsActionTypes) {
 }
 
 export default function* postsBySubreddit() {
-    yield takeEvery<PostsActionTypes>(actions.requestPosts, fetchPosts);
+    yield takeEvery<RequestPostsAction>(actions.requestPosts, fetchPosts);
 }
