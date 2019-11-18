@@ -27,6 +27,7 @@
     "@types/jest": "^24.0.23",
     "@types/react-native": "^0.60.22",
     "@types/react-native-vector-icons": "^6.4.4",
+    "@types/react-redux": "^7.1.5",
     "@types/react-test-renderer": "^16.9.1",
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
