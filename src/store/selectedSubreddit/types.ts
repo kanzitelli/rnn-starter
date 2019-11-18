@@ -5,7 +5,7 @@ import {
 // =================
 // ACTIONS
 // =================
-export interface SelectSubredditAction {
+export interface SelectedSubredditAction {
     type: typeof SELECT_SUBREDDIT,
     subreddit: string,
 }

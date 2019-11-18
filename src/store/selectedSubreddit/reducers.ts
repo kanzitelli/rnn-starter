@@ -2,7 +2,7 @@ import {
     SELECT_SUBREDDIT,
 } from './actions';
 import {
-    SelectSubredditAction,
+    SelectedSubredditAction,
     SelectedSubredditState,
 } from './types';
 
@@ -10,7 +10,7 @@ const initialState: SelectedSubredditState = '';
 
 const selectedSubreddit = (
     state = initialState,
-    action: SelectSubredditAction,
+    action: SelectedSubredditAction,
 ) => {
     switch (action.type) {
         case SELECT_SUBREDDIT:

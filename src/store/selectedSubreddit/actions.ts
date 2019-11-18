@@ -1,12 +1,12 @@
 import {
-    SelectSubredditAction,
+    SelectedSubredditAction,
 } from './types';
 
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT';
 
 export const selectSubreddit = (
     subreddit: string,
-): SelectSubredditAction => ({
+): SelectedSubredditAction => ({
     type: SELECT_SUBREDDIT,
     subreddit
 });
