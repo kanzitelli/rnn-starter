@@ -1,9 +1,14 @@
 import { 
     ADD_SUBREDDIT,
     DELETE_SUBREDDIT,
-} from '../actions';
+} from './actions';
+import {
+    SubredditsActionTypes_I,
 
-const initialState = [
+    SubredditInfo,
+} from './types';
+
+const initialState: SubredditInfo[] = [
     {
         title: 'reactjs',
     },
@@ -11,17 +16,17 @@ const initialState = [
         title: 'reactnative',
     },
     {
-        title: 'rust',
-    },
-    {
         title: 'golang',
     },
     {
-        title: 'elixir',
-    }
+        title: 'rust',
+    },
 ]
 
-const subreddits = (state = initialState, action) => {
+const subreddits = (
+    state = initialState,
+    action: Partial<SubredditsActionTypes_I>,
+) => {
     switch (action.type) {
         case ADD_SUBREDDIT:
             // check on duplicates

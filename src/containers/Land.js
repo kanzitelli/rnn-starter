@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 
 import Land from '../screens/Land';
-import actions from '../store/actions';
+import {
+  requestPosts,
+} from '../store/postsBySubreddit/actions';
 
 const mapStateToProps = state => {
     const { selectedSubreddit, postsBySubreddit } = state
@@ -22,7 +24,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchPosts: subreddit => dispatch(actions.requestPosts(subreddit))
+    fetchPosts: subreddit => dispatch(requestPosts(subreddit))
 });
 
 export default connect(

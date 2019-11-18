@@ -6,8 +6,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react'
 import createSagaMiddleware from 'redux-saga';
 
-import reducer from './reducers';
-import saga from './sagas';
+import reducer from './rootReducer';
+import saga from './rootSaga';
 
 const persistConfig = {
     key: 'rootKeyPersist',
