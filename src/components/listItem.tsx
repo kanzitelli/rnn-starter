@@ -8,16 +8,26 @@ import {
 } from 'react-native';
 
 const Touchable = Platform.OS === 'ios' ?
-  TouchableOpacity : 
-  TouchableNativeFeedback
+    (props: any, children: React.ReactNode) => 
+        <TouchableOpacity {...props}>{children}</TouchableOpacity> :
+    (props: any, children: React.ReactNode) => 
+        <TouchableNativeFeedback {...props}>{children}</TouchableNativeFeedback>;
 
-const ListItem = ({ 
+interface Props {
+    title: string,
+    data: string,
+    textSize: number,
+    onPressed(sr: string): void,
+    onLongPressed(data: string): void,
+}
+
+const ListItem: React.FC<Props> = ({ 
     title,
     data,
     textSize,
     onPressed,
     onLongPressed,
-}) => (
+}): JSX.Element => (
     <Touchable 
         onPress={() => onPressed(data)}
         onLongPress={() => onLongPressed && onLongPressed(data)}

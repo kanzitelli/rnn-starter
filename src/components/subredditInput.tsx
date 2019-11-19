@@ -7,14 +7,20 @@ import {
     StyleSheet,
 } from 'react-native';
 
-const SubredditInput = (props) => {
+interface Props {
+    onAddSubreddit(sr: string): void,
+}
+
+const SubredditInput: React.FC<Props> = ({
+    onAddSubreddit,
+}): JSX.Element => {
     const [value, onChangeText] = React.useState('');
 
     const _onAddButtonPressed = () => {
         const subreddit = value.trim();
 
         if (subreddit != '') {
-            props.onAddSubreddit(subreddit.toLowerCase().replace(/ /g, ''));
+            onAddSubreddit(subreddit.toLowerCase().replace(/ /g, ''));
             onChangeText('');
         }
     }
