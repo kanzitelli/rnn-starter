@@ -33,7 +33,7 @@ export const startApp = () => {
                     children: [{
                         stack: {
                             children: [{
-                                component: { 
+                                component: {
                                     name: HOME ,
                                 },
                             }],
@@ -41,34 +41,34 @@ export const startApp = () => {
                                 bottomTab: {
                                     text: 'Subreddits',
                                     icon: redditIcon,
-                                }
-                            }
+                                },
+                            },
                         },
                     }, {
                         stack: {
                             children: [{
-                                component: { 
+                                component: {
                                     name: EMPTY,
                                     options: {
                                         topBar: {
                                             visible: true,
                                             title: {
-                                                text: 'Emptiness'
-                                            }
+                                                text: 'Emptiness',
+                                            },
                                         },
-                                    }
+                                    },
                                 },
                             }],
                             options: {
                                 bottomTab: {
                                     text: 'Emptiness',
                                     icon: reactIcon,
-                                }
-                            }
+                                },
+                            },
                         },
                     }],
-                }            
-            }
+                },
+            },
         });
-    })
+    });
 };

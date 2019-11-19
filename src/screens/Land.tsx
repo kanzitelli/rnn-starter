@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     View,
     Text,
     FlatList,
@@ -17,7 +17,7 @@ const Land: LandComponentType = ({
     isFetching,
     posts,
     error,
-    
+
     fetchPosts,
 }): JSX.Element => {
 
@@ -26,43 +26,43 @@ const Land: LandComponentType = ({
         fetchPosts(selectedSubreddit);
     }, [componentId]);
 
-    useNavigationComponentDidAppear(e => {
-        console.log(`${e.componentName} appeared`)
+    useNavigationComponentDidAppear((e) => {
+        console.log(`${e.componentName} appeared`);
     }, componentId);
 
-    const _onItemPressed = (url: string) => {
+    const onItemPressed = (url: string) => {
         Linking.canOpenURL(url)
-            .then(supported => {
+            .then((supported) => {
                 if (supported) {
                     Linking.openURL(url);
                 }
-            })
-    }
+            });
+    };
 
-    const _onRefresh = () => {
+    const onRefresh = () => {
         fetchPosts(selectedSubreddit);
-    }
+    };
 
     return (
         <View style={{ flex: 1 }}>
             { error && <Text>Error {error.toString()}</Text> }
-            <FlatList 
+            <FlatList
                 data={posts}
-                keyExtractor={ item => item.id }
+                keyExtractor={(item) => item.id }
                 refreshing={isFetching}
-                onRefresh={_onRefresh}
-                renderItem={({ item }) => 
-                    <Item 
+                onRefresh={onRefresh}
+                renderItem={({ item }) =>
+                    <Item
                         data={item.url}
                         title={item.title}
                         textSize={16}
-                        onPressed={_onItemPressed}
+                        onPressed={onItemPressed}
                     />
                 }
             />
         </View>
     );
-}
+};
 
 Land.options = (passProps: any) => ({
     topBar: {
@@ -71,6 +71,6 @@ Land.options = (passProps: any) => ({
             text: `r/${passProps.title}`,
         },
     },
-})
+});
 
 export default Land;

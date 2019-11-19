@@ -9,43 +9,52 @@ import {
 // ACTIONS
 // =================
 export interface RequestPostsAction {
-    type: typeof REQUEST_POSTS,
-    subreddit: string,
+    type: typeof REQUEST_POSTS;
+    subreddit: string;
 }
 
 export interface DeletePostsAction {
-    type: typeof DELETE_POSTS,
-    subreddit: string,
+    type: typeof DELETE_POSTS;
+    subreddit: string;
 }
 
 export interface ReceivePostsAction {
-    type: typeof RECEIVE_POSTS,
-    subreddit: string,
-    posts: Array<any>,
-    receivedAt: number,
+    type: typeof RECEIVE_POSTS;
+    subreddit: string;
+    posts: any[];
+    receivedAt: number;
 }
 
 export interface FailReceivePostsAction {
-    type: typeof FAIL_RECEIVE_POSTS,
-    subreddit: string,
-    error: Error | null,
-    receivedAt: number,
+    type: typeof FAIL_RECEIVE_POSTS;
+    subreddit: string;
+    error: Error | null;
+    receivedAt: number;
 }
 
-export type PostsActionTypes_U = (RequestPostsAction | ReceivePostsAction | FailReceivePostsAction | DeletePostsAction); // Union Types
-export type PostsActionTypes_I = (RequestPostsAction & ReceivePostsAction & FailReceivePostsAction & DeletePostsAction); // Intersection Types
-
+export type PostsActionTypes_U = (
+    RequestPostsAction |
+    ReceivePostsAction |
+    FailReceivePostsAction |
+    DeletePostsAction
+); // Union Types
+export type PostsActionTypes_I = (
+    RequestPostsAction &
+    ReceivePostsAction &
+    FailReceivePostsAction &
+    DeletePostsAction
+); // Intersection Types
 
 // =================
 // REDUCERS
 // =================
 export interface PostsBySubredditState {
-    [subreddit: string]: PostsState,
+    [subreddit: string]: PostsState;
 }
 
 export interface PostsState {
-    isFetching: boolean,
-    items: Array<any>,
-    error: Error | null,
-    lastUpdated: number,
+    isFetching: boolean;
+    items: any[];
+    error: Error | null;
+    lastUpdated: number;
 }

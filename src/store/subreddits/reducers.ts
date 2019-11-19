@@ -1,4 +1,4 @@
-import { 
+import {
     ADD_SUBREDDIT,
     DELETE_SUBREDDIT,
 } from './actions';
@@ -21,7 +21,7 @@ const initialState: SubredditsState = [
     {
         title: 'rust',
     },
-]
+];
 
 const subreddits = (
     state = initialState,
@@ -30,18 +30,18 @@ const subreddits = (
     switch (action.type) {
         case ADD_SUBREDDIT:
             // check on duplicates
-            if (!state.find(sr => sr.title === action.subreddit)) {
+            if (!state.find((sr) => sr.title === action.subreddit)) {
                 return [
                     ...state,
                     { title: action.subreddit },
-                ]
+                ];
             }
             return state;
         case DELETE_SUBREDDIT:
-            return state.filter(v => v.title !== action.subreddit);
+            return state.filter((v) => v.title !== action.subreddit);
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default subreddits;

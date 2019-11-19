@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     SafeAreaView,
     Text,
     StyleSheet,
@@ -12,10 +12,10 @@ const Empty: EmptyComponentType = (): JSX.Element => {
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.text}>Just an Empty Screen 🤷‍♂️</Text>
-            <Icon name='react' size={100} />
+            <Icon name={'react'} size={100} />
         </SafeAreaView>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 26,
         margin: 16,
-    }
+    },
 });
 
 export default Empty;

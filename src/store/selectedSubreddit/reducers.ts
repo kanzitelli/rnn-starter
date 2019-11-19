@@ -14,10 +14,10 @@ const selectedSubreddit = (
 ): SelectedSubredditState => {
     switch (action.type) {
         case SELECT_SUBREDDIT:
-            return action.subreddit
+            return action.subreddit;
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default selectedSubreddit;

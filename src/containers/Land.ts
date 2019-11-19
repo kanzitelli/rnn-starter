@@ -9,12 +9,12 @@ import { requestPosts } from '../store/postsBySubreddit/actions';
 import { RequestPostsAction } from '../store/postsBySubreddit/types';
 
 interface Props {
-    selectedSubreddit: string,
-    posts: Array<any>,
-    isFetching: boolean,
-    error: Error | null,
+    selectedSubreddit: string;
+    posts: any[];
+    isFetching: boolean;
+    error: Error | null;
 
-    fetchPosts: (sr: string) => void,
+    fetchPosts: (sr: string) => void;
 }
 
 type DispatchType = RequestPostsAction;
@@ -22,32 +22,32 @@ type DispatchType = RequestPostsAction;
 const mapStateToProps = (
     state: GlobalState,
 ) => {
-    const { selectedSubreddit, postsBySubreddit } = state
+    const { selectedSubreddit, postsBySubreddit } = state;
     const { isFetching, items: posts, error } = postsBySubreddit[
         selectedSubreddit
     ] || {
         isFetching: true,
         items: [],
         error: null,
-    }
+    };
 
     return {
         selectedSubreddit,
         posts,
         isFetching,
         error,
-    }
+    };
 };
 
 const mapDispatchToProps = (
-    dispatch: Dispatch<DispatchType>
+    dispatch: Dispatch<DispatchType>,
 ) => ({
-    fetchPosts: (sr: string) => dispatch(requestPosts(sr))
+    fetchPosts: (sr: string) => dispatch(requestPosts(sr)),
 });
 
-export type LandComponentType = NavigationComponent<Props>
+export type LandComponentType = NavigationComponent<Props>;
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(Land);

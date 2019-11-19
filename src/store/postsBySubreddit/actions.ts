@@ -14,7 +14,7 @@ export const requestPosts = (
     subreddit: string,
 ): RequestPostsAction => ({
     type: REQUEST_POSTS,
-    subreddit
+    subreddit,
 });
 
 export const deletePosts = (
@@ -23,7 +23,7 @@ export const deletePosts = (
     type: DELETE_POSTS,
     subreddit,
 });
-  
+
 export const receivePosts = (
     subreddit: string,
     json: any,
@@ -31,7 +31,7 @@ export const receivePosts = (
     type: RECEIVE_POSTS,
     subreddit,
     posts: json.data.children.map((child: any) => child.data),
-    receivedAt: Date.now()
+    receivedAt: Date.now(),
 });
 
 export const failReceivePosts = (

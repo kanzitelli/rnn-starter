@@ -8,5 +8,5 @@ export const selectSubreddit = (
     subreddit: string,
 ): SelectedSubredditAction => ({
     type: SELECT_SUBREDDIT,
-    subreddit
+    subreddit,
 });

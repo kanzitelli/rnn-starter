@@ -5,9 +5,9 @@ import subreddits from './subreddits/reducers';
 import postsBySubreddit from './postsBySubreddit/reducers';
 
 const rootReducer = combineReducers({
-    selectedSubreddit, 
+    selectedSubreddit,
     subreddits,
     postsBySubreddit,
-})
+});
 
-export default rootReducer
+export default rootReducer;

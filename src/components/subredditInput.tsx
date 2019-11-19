@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     View,
     TextInput,
     Text,
@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 interface Props {
-    onAddSubreddit: (sr: string) => void,
+    onAddSubreddit: (sr: string) => void;
 }
 
 const SubredditInput: React.FC<Props> = ({
@@ -16,41 +16,41 @@ const SubredditInput: React.FC<Props> = ({
 }): JSX.Element => {
     const [value, onChangeText] = React.useState('');
 
-    const _onAddButtonPressed = () => {
+    const onAddButtonPressed = () => {
         const subreddit = value.trim();
 
-        if (subreddit != '') {
+        if (subreddit !== '') {
             onAddSubreddit(subreddit.toLowerCase().replace(/ /g, ''));
             onChangeText('');
         }
-    }
+    };
 
     return (
         <View style={styles.inputContainer}>
             <TextInput
                 style={styles.input}
-                onChangeText={text => onChangeText(text)}
+                onChangeText={(text) => onChangeText(text)}
                 value={value}
                 placeholder={'new subreddit goes here...'}
                 autoCapitalize={'none'}
             />
-            <TouchableOpacity 
+            <TouchableOpacity
                 style={styles.buttonContainer}
-                onPress={_onAddButtonPressed}
+                onPress={onAddButtonPressed}
             >
                 <Text style={styles.buttonText}>+</Text>
             </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         padding: 16,
         justifyContent: 'center',
-        alignContent:'center',
-        alignItems:'center',
+        alignContent: 'center',
+        alignItems: 'center',
     },
     input: {
         flex: 1,
@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
         fontSize: 22,
     },
     buttonContainer: {
-        marginLeft: 16
+        marginLeft: 16,
     },
     buttonText: {
         fontSize: 32,
-    }
+    },
 });
 
 export default SubredditInput;

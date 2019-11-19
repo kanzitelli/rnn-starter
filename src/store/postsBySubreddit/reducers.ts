@@ -17,7 +17,7 @@ const initialStatePosts: PostsState = {
     items: [],
     error: null,
     lastUpdated: 0,
-}
+};
 
 const posts = (
     state = initialStatePosts,
@@ -29,16 +29,16 @@ const posts = (
                 ...state,
                 isFetching: true,
                 error: null,
-            }
+            };
         case DELETE_POSTS:
-            return initialStatePosts
+            return initialStatePosts;
         case FAIL_RECEIVE_POSTS:
             return {
                 ...state,
                 isFetching: false,
                 error: action.error,
                 lastUpdated: action.receivedAt,
-            }
+            };
         case RECEIVE_POSTS:
             return {
                 ...state,
@@ -46,11 +46,11 @@ const posts = (
                 items: action.posts,
                 error: null,
                 lastUpdated: action.receivedAt,
-            }
+            };
         default:
-          return state
+          return state;
       }
-}
+};
 
 const postsBySubreddit = (
     state = initialStatePostsBySubreddit,
@@ -63,11 +63,11 @@ const postsBySubreddit = (
         case REQUEST_POSTS:
             return {
                 ...state,
-                [action.subreddit]: posts(state[action.subreddit], action)
-            }
+                [action.subreddit]: posts(state[action.subreddit], action),
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default postsBySubreddit;

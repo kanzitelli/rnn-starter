@@ -6,11 +6,11 @@ import {
 // ACTIONS
 // =================
 export interface SelectedSubredditAction {
-    type: typeof SELECT_SUBREDDIT,
-    subreddit: string,
+    type: typeof SELECT_SUBREDDIT;
+    subreddit: string;
 }
 
 // =================
 // REDUCERS
 // =================
-export type SelectedSubredditState = string
+export type SelectedSubredditState = string;

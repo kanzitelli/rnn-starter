@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from 'redux-persist/integration/react';
 import createSagaMiddleware from 'redux-saga';
 
 import reducer from './rootReducer';
@@ -19,7 +19,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
     persistedReducer,
-    applyMiddleware(sagaMiddleware)
+    applyMiddleware(sagaMiddleware),
 );
 const persistor = persistStore(store);
 

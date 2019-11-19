@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     SafeAreaView,
     FlatList,
     KeyboardAvoidingView,
@@ -8,7 +8,7 @@ import {
     Alert,
 } from 'react-native';
 import { Navigation } from 'react-native-navigation';
-import { useNavigationButtonPress }    from 'react-native-navigation-hooks';
+import { useNavigationButtonPress } from 'react-native-navigation-hooks';
 
 import { LAND } from '../containers';
 import { HomeComponentType } from '../containers/Home';
@@ -19,7 +19,7 @@ const Home: HomeComponentType = ({
     componentId,
 
     subreddits,
-    
+
     onSelectSubreddit,
     onDeleteSubreddit,
     onAddSubreddit,
@@ -37,10 +37,10 @@ const Home: HomeComponentType = ({
         getStatusBarHeight();
 
         // equivalent to componentWillUnmount
-        return () => {};
+        // return () => {};
     }, [componentId]);
 
-    useNavigationButtonPress(e => {
+    useNavigationButtonPress((_) => {
         Alert.alert('This is just a simple button');
     }, componentId, 'hi_button_id');
 
@@ -51,76 +51,76 @@ const Home: HomeComponentType = ({
         if (Platform.OS === 'ios') {
             setKeyboardVerticalOffset(navConstants.statusBarHeight + navConstants.topBarHeight);
         }
-    }
+    };
 
-    const _onItemPressed = (subreddit: string) => {
+    const onItemPressed = (subreddit: string) => {
         onSelectSubreddit(subreddit);
 
         Navigation.push(componentId, {
             component: {
                 name: LAND,
                 passProps: {
-                    title: subreddit
-                }
+                    title: subreddit,
+                },
             },
         });
-    }
+    };
 
-    const _onItemLongPressed = (subreddit: string) => {
+    const onItemLongPressed = (subreddit: string) => {
         Alert.alert(
             'Action required',
             `Would you like to delete ${subreddit} subreddit?`,
             [{
                 text: 'Yes',
-                onPress: () => onDeleteSubreddit(subreddit)
+                onPress: () => onDeleteSubreddit(subreddit),
             }, {
                 text: 'Cancel',
                 style: 'cancel',
-            }]
-        )
-    }
+            }],
+        );
+    };
 
     return (
-        <SafeAreaView style={{flex:1}}>
-            <KeyboardAvoidingView 
-                style={{flex:1}} 
-                behavior={Platform.OS === "ios" ? "padding" : undefined}
-                enabled 
+        <SafeAreaView style={{flex: 1}}>
+            <KeyboardAvoidingView
+                style={{flex: 1}}
+                behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+                enabled
                 keyboardVerticalOffset={keyboardVerticalOffset}
             >
                 <FlatList
                     data={subreddits}
-                    keyExtractor={ item => item.title }
-                    renderItem={({ item }) => 
+                    keyExtractor={(item) => item.title }
+                    renderItem={({ item }) =>
                         <Item
                             data={item.title}
                             title={item.title}
                             textSize={22}
-                            onPressed={_onItemPressed}
-                            onLongPressed={_onItemLongPressed}
+                            onPressed={onItemPressed}
+                            onLongPressed={onItemLongPressed}
                         />
                     }
                 />
-            
+
                 <SubredditInput
                     onAddSubreddit={(sr: string) => onAddSubreddit(sr)}
                 />
             </KeyboardAvoidingView>
         </SafeAreaView>
-    )
-}
+    );
+};
 
 Home.options = () => ({
     topBar: {
         visible: true,
         title: {
-            text: "Subreddits",
+            text: 'Subreddits',
         },
         rightButtons: [{
             id: 'hi_button_id',
             text: 'Hi',
-        }]
-    }
+        }],
+    },
 });
 
 export default Home;

@@ -1,12 +1,12 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import {
     REQUEST_POSTS,
-    
+
     receivePosts,
     failReceivePosts,
 } from './actions';
 import {
-    RequestPostsAction
+    RequestPostsAction,
 } from './types';
 
 async function fetchPostsApi(reddit: string) {

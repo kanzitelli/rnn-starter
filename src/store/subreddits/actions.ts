@@ -10,12 +10,12 @@ export const addSubreddit = (
     subreddit: string,
 ): AddSubredditAction => ({
     type: ADD_SUBREDDIT,
-    subreddit
+    subreddit,
 });
 
 export const deleteSubreddit = (
     subreddit: string,
 ): DeleteSubredditAction => ({
     type: DELETE_SUBREDDIT,
-    subreddit
+    subreddit,
 });
