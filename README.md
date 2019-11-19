@@ -13,7 +13,7 @@ todo:
 [X] add redux persist
 [X] add redux saga, + FAIL_RECEIVE_POSTS with error hadling
 [X] integrate TypeScript
-[ ] when subreddit removed from list --> remove its posts (w/ saga)
+[X] when subreddit removed from list --> remove its posts (w/ saga)
 
 [ ] update all packages to up-to-dated // npm outdated
-[ ] proper readme
+[ ] proper readme -- add more todos (like Codepush and ask for more)
