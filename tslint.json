@@ -1,0 +1,20 @@
+{
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "rules": {
+      "completed-docs": false,
+      "interface-name": false,
+      "missing-jsdoc": false,
+      "no-relative-imports": false,
+      "no-reserved-keywords": false,
+      "no-unsafe-any": false,
+      "object-literal-sort-keys": false,
+      "quotemark": [true, "single", "jsx-double"],
+      "strict-boolean-expressions": false,
+      "typedef": false,
+      "ordered-imports": false,
+      "member-access": false
+    },
+    "linterOptions": {
+      "exclude": ["node_modules"]
+    }
+  }
