@@ -26,3 +26,5 @@ export type SubredditsActionTypes_I = (AddSubredditAction & DeleteSubredditActio
 export interface SubredditInfo {
     title: string,
 }
+
+export type SubredditsState = SubredditInfo[];

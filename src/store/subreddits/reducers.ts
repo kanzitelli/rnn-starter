@@ -5,10 +5,10 @@ import {
 import {
     SubredditsActionTypes_I,
 
-    SubredditInfo,
+    SubredditsState,
 } from './types';
 
-const initialState: SubredditInfo[] = [
+const initialState: SubredditsState = [
     {
         title: 'reactjs',
     },
@@ -26,7 +26,7 @@ const initialState: SubredditInfo[] = [
 const subreddits = (
     state = initialState,
     action: Partial<SubredditsActionTypes_I>,
-) => {
+): SubredditsState => {
     switch (action.type) {
         case ADD_SUBREDDIT:
             // check on duplicates

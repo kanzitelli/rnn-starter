@@ -3,23 +3,24 @@ import { connect } from 'react-redux';
 
 import Land from '../screens/Land';
 
+import { GlobalState } from '../store/types';
 import { requestPosts } from '../store/postsBySubreddit/actions';
-import { 
-  PostsBySubredditState,
-  RequestPostsAction
-} from '../store/postsBySubreddit/types';
-import { SelectedSubredditState } from '../store/selectedSubreddit/types';
+import { RequestPostsAction } from '../store/postsBySubreddit/types';
 
-interface State {
-  selectedSubreddit: SelectedSubredditState,
-  postsBySubreddit: PostsBySubredditState,
+export interface Props {
+  selectedSubreddit: string,
+  posts: Array<any>,
+  isFetching: boolean,
+  error: Error,
+
+  fetchPosts: Function,
 }
 
 type DispatchType = RequestPostsAction;
 
 const mapStateToProps = (
-  state: State,
-) => {
+  state: GlobalState,
+): Partial<Props> => {
     const { selectedSubreddit, postsBySubreddit } = state
     const { isFetching, items: posts, error } = postsBySubreddit[
       selectedSubreddit
@@ -39,7 +40,7 @@ const mapStateToProps = (
 
 const mapDispatchToProps = (
   dispatch: Dispatch<DispatchType>
-) => ({
+): Partial<Props> => ({
     fetchPosts: (sr: string) => dispatch(requestPosts(sr))
 });
 
