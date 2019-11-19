@@ -7,22 +7,23 @@ import {
     Platform,
     Alert,
 } from 'react-native';
-import { Navigation } from 'react-native-navigation';
-import { useNavigationButtonPress } from 'react-native-navigation-hooks';
+import { Navigation, LayoutComponent } from 'react-native-navigation';
+import { useNavigationButtonPress }    from 'react-native-navigation-hooks';
 
-import { LAND } from './names';
+import { LAND } from '../containers';
+import { Props } from '../containers/Home';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
 
-const Home = (props) => {
-    const { 
-        componentId,
-        subreddits,
-        onSelectSubreddit,
-        onDeleteSubreddit,
-        onAddSubreddit,
-    } = props;
+const Home: React.FC<Props> & LayoutComponent = ({
+    componentId,
 
+    subreddits,
+    
+    onSelectSubreddit,
+    onDeleteSubreddit,
+    onAddSubreddit,
+}): JSX.Element => {
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
     // equivalent to componentDidMount
@@ -52,7 +53,7 @@ const Home = (props) => {
         }
     }
 
-    const _onItemPressed = subreddit => {
+    const _onItemPressed = (subreddit: string) => {
         onSelectSubreddit(subreddit);
 
         Navigation.push(componentId, {
@@ -65,7 +66,7 @@ const Home = (props) => {
         });
     }
 
-    const _onItemLongPressed = subreddit => {
+    const _onItemLongPressed = (subreddit: string) => {
         Alert.alert(
             'Action required',
             `Would you like to delete ${subreddit} subreddit?`,
@@ -102,7 +103,7 @@ const Home = (props) => {
                 />
             
                 <SubredditInput
-                    onAddSubreddit={sr => onAddSubreddit(sr)}
+                    onAddSubreddit={(sr: string) => onAddSubreddit(sr)}
                 />
             </KeyboardAvoidingView>
         </SafeAreaView>

@@ -5,18 +5,22 @@ import {
     FlatList,
     Linking,
 } from 'react-native';
+import { LayoutComponent } from 'react-native-navigation';
 import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
 
+import { Props } from '../containers/Land';
 import Item from '../components/listItem';
 
-const Land = (props) => {
-    const {
-        componentId,
-        posts,
-        error,
-        selectedSubreddit,
-        fetchPosts
-    } = props;
+const Land: React.FC<Props> & LayoutComponent = ({
+    componentId,
+
+    selectedSubreddit,
+    isFetching,
+    posts,
+    error,
+    
+    fetchPosts,
+}): JSX.Element => {
 
     // equivalent to componentDidMount
     React.useEffect(() => {
@@ -27,7 +31,7 @@ const Land = (props) => {
         console.log(`${e.componentName} appeared`)
     }, componentId);
 
-    const _onItemPressed = (url) => {
+    const _onItemPressed = (url: string) => {
         Linking.canOpenURL(url)
             .then(supported => {
                 if (supported) {
@@ -46,7 +50,7 @@ const Land = (props) => {
             <FlatList 
                 data={posts}
                 keyExtractor={ item => item.id }
-                refreshing={props.isFetching}
+                refreshing={isFetching}
                 onRefresh={_onRefresh}
                 renderItem={({ item }) => 
                     <Item 
@@ -54,6 +58,7 @@ const Land = (props) => {
                         title={item.title}
                         textSize={16}
                         onPressed={_onItemPressed}
+                        onLongPressed={null}
                     />
                 }
             />
@@ -61,7 +66,7 @@ const Land = (props) => {
     );
 }
 
-Land.options = (passProps) => ({
+Land.options = (passProps: any) => ({
     topBar: {
         visible: true,
         title: {

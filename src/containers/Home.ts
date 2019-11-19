@@ -4,17 +4,18 @@ import { connect } from 'react-redux';
 import Home from '../screens/Home';
 
 import { GlobalState } from '../store/types';
+import { NavigationComponentProps } from '.';
 import { selectSubreddit }         from '../store/selectedSubreddit/actions';
 import { SelectedSubredditAction } from '../store/selectedSubreddit/types';
 import { addSubreddit, deleteSubreddit }          from '../store/subreddits/actions';
 import { SubredditsActionTypes_U, SubredditInfo } from '../store/subreddits/types';
 
-export interface Props {
+export interface Props extends NavigationComponentProps {
     subreddits: SubredditInfo[],
   
-    onSelectSubreddit: Function,
-    onAddSubreddit: Function,
-    onDeleteSubreddit: Function,
+    onSelectSubreddit(sr: string): void,
+    onAddSubreddit(sr: string): void,
+    onDeleteSubreddit(sr: string): void,
 }
 
 type DispatchType = SelectedSubredditAction | SubredditsActionTypes_U;
