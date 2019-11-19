@@ -45,15 +45,27 @@ export const startApp = () => {
                             }
                         },
                     }, {
-                        component: {
-                            name: EMPTY,
+                        stack: {
+                            children: [{
+                                component: { 
+                                    name: EMPTY,
+                                    options: {
+                                        topBar: {
+                                            visible: true,
+                                            title: {
+                                                text: 'Emptiness'
+                                            }
+                                        },
+                                    }
+                                },
+                            }],
                             options: {
                                 bottomTab: {
-                                  text: 'Emptiness',
-                                  icon: reactIcon,
+                                    text: 'Emptiness',
+                                    icon: reactIcon,
                                 }
                             }
-                        }
+                        },
                     }],
                 }            
             }
