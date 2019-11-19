@@ -217,7 +217,7 @@ PODS:
     - React-cxxreact (= 0.61.4)
     - React-jsi (= 0.61.4)
     - ReactCommon/jscallinvoker (= 0.61.4)
-  - ReactNativeNavigation (3.5.1):
+  - ReactNativeNavigation (3.7.0):
     - React
   - RNCAsyncStorage (1.6.3):
     - React
@@ -346,8 +346,8 @@ SPEC CHECKSUMS:
   React-RCTText: 21934e0a51d522abcd0a275407e80af45d6fd9ec
   React-RCTVibration: 0f76400ee3cec6edb9c125da49fed279340d145a
   ReactCommon: a6a294e7028ed67b926d29551aa9394fd989c24c
-  ReactNativeNavigation: 3fad99b3843e8840affd70577aaa30bf14b272d5
-  RNCAsyncStorage: 3c304d1adfaea02ec732ac218801cb13897aa8c0
+  ReactNativeNavigation: bed6f504aa1a4dadd151503bf99d0ef96d06847f
+  RNCAsyncStorage: 6b57de0f6cb0dcfd17521af1681fa39001d3efff
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: ba3d99dbee6c15ea6bbe3783d1f0cb1ffb79af0f
 
