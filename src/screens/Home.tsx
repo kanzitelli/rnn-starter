@@ -7,15 +7,15 @@ import {
     Platform,
     Alert,
 } from 'react-native';
-import { Navigation, LayoutComponent } from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
 import { useNavigationButtonPress }    from 'react-native-navigation-hooks';
 
 import { LAND } from '../containers';
-import { Props } from '../containers/Home';
+import { HomeComponentType } from '../containers/Home';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
 
-const Home: React.FC<Props> & LayoutComponent = ({
+const Home: HomeComponentType = ({
     componentId,
 
     subreddits,
@@ -41,7 +41,7 @@ const Home: React.FC<Props> & LayoutComponent = ({
     }, [componentId]);
 
     useNavigationButtonPress(e => {
-        alert('This just simple button');
+        Alert.alert('This is just a simple button');
     }, componentId, 'hi_button_id');
 
     const getStatusBarHeight = async () => {
@@ -84,7 +84,7 @@ const Home: React.FC<Props> & LayoutComponent = ({
         <SafeAreaView style={{flex:1}}>
             <KeyboardAvoidingView 
                 style={{flex:1}} 
-                behavior={Platform.OS === 'ios' ? "padding" : null}
+                behavior={Platform.OS === "ios" ? "padding" : undefined}
                 enabled 
                 keyboardVerticalOffset={keyboardVerticalOffset}
             >
@@ -116,10 +116,10 @@ Home.options = () => ({
         title: {
             text: "Subreddits",
         },
-        rightButtons: {
+        rightButtons: [{
             id: 'hi_button_id',
             text: 'Hi',
-        }
+        }]
     }
 });
 

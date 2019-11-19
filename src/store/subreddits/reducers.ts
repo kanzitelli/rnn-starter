@@ -25,7 +25,7 @@ const initialState: SubredditsState = [
 
 const subreddits = (
     state = initialState,
-    action: Partial<SubredditsActionTypes_I>,
+    action: SubredditsActionTypes_I,
 ): SubredditsState => {
     switch (action.type) {
         case ADD_SUBREDDIT:

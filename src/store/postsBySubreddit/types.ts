@@ -28,7 +28,7 @@ export interface ReceivePostsAction {
 export interface FailReceivePostsAction {
     type: typeof FAIL_RECEIVE_POSTS,
     subreddit: string,
-    error: Error,
+    error: Error | null,
     receivedAt: number,
 }
 
@@ -46,6 +46,6 @@ export interface PostsBySubredditState {
 export interface PostsState {
     isFetching: boolean,
     items: Array<any>,
-    error: Error,
+    error: Error | null,
     lastUpdated: number,
 }

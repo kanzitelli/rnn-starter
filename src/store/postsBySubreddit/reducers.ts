@@ -16,12 +16,12 @@ const initialStatePosts: PostsState = {
     isFetching: false,
     items: [],
     error: null,
-    lastUpdated: null,
+    lastUpdated: 0,
 }
 
 const posts = (
     state = initialStatePosts,
-    action: Partial<PostsActionTypes_I>,
+    action: PostsActionTypes_I,
 ): PostsState => {
     switch (action.type) {
         case REQUEST_POSTS:
@@ -54,7 +54,7 @@ const posts = (
 
 const postsBySubreddit = (
     state = initialStatePostsBySubreddit,
-    action: Partial<PostsActionTypes_I>,
+    action: PostsActionTypes_I,
 ): PostsBySubredditState => {
     switch (action.type) {
         case RECEIVE_POSTS:

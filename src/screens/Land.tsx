@@ -5,13 +5,12 @@ import {
     FlatList,
     Linking,
 } from 'react-native';
-import { LayoutComponent } from 'react-native-navigation';
 import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
 
-import { Props } from '../containers/Land';
+import { LandComponentType } from '../containers/Land';
 import Item from '../components/listItem';
 
-const Land: React.FC<Props> & LayoutComponent = ({
+const Land: LandComponentType = ({
     componentId,
 
     selectedSubreddit,
@@ -58,7 +57,6 @@ const Land: React.FC<Props> & LayoutComponent = ({
                         title={item.title}
                         textSize={16}
                         onPressed={_onItemPressed}
-                        onLongPressed={null}
                     />
                 }
             />

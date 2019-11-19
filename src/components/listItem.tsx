@@ -10,7 +10,7 @@ import {
 
 interface TouchableProps {
     onPress: (event: GestureResponderEvent) => void,
-    onLongPress: (event: GestureResponderEvent) => void,
+    onLongPress?: (event: GestureResponderEvent) => void,
 }
 
 const Touchable = Platform.OS === 'ios' ?
@@ -23,8 +23,8 @@ interface Props {
     title: string,
     data: string,
     textSize: number,
-    onPressed(sr: string): void,
-    onLongPressed(data: string): void,
+    onPressed: (sr: string) => void,
+    onLongPressed?: (data: string) => void,
 }
 
 const ListItem: React.FC<Props> = ({ 

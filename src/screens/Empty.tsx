@@ -6,9 +6,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-interface Props { }
+import { EmptyComponentType } from '../containers/Empty';
 
-const Empty: React.FC<Props> = ({}): JSX.Element => {
+const Empty: EmptyComponentType = (): JSX.Element => {
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.text}>Just an Empty Screen 🤷‍♂️</Text>

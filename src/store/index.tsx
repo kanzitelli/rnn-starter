@@ -25,7 +25,7 @@ const persistor = persistStore(store);
 
 sagaMiddleware.run(saga);
 
-export const withReduxProvider = C => props => (
+export const withReduxProvider = (C: React.FC) => (props: any) => (
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
             <C {...props}/>
