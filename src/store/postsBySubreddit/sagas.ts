@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import {
-    requestPosts,
+    REQUEST_POSTS,
+    
     receivePosts,
     failReceivePosts,
 } from './actions';
@@ -23,5 +24,5 @@ function* fetchPosts({ subreddit }: RequestPostsAction) {
 }
 
 export default function* postsBySubreddit() {
-    yield takeEvery<RequestPostsAction>(requestPosts, fetchPosts);
+    yield takeEvery<RequestPostsAction>(REQUEST_POSTS, fetchPosts);
 }

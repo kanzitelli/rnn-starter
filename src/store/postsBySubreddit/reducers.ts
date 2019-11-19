@@ -2,6 +2,7 @@ import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     FAIL_RECEIVE_POSTS,
+    DELETE_POSTS,
 } from './actions';
 import {
     PostsActionTypes_I,
@@ -29,6 +30,8 @@ const posts = (
                 isFetching: true,
                 error: null,
             }
+        case DELETE_POSTS:
+            return initialStatePosts
         case FAIL_RECEIVE_POSTS:
             return {
                 ...state,
@@ -55,6 +58,7 @@ const postsBySubreddit = (
 ): PostsBySubredditState => {
     switch (action.type) {
         case RECEIVE_POSTS:
+        case DELETE_POSTS:
         case FAIL_RECEIVE_POSTS:
         case REQUEST_POSTS:
             return {

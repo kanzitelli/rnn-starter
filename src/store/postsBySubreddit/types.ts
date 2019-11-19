@@ -2,6 +2,7 @@ import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     FAIL_RECEIVE_POSTS,
+    DELETE_POSTS,
 } from './actions';
 
 // =================
@@ -9,6 +10,11 @@ import {
 // =================
 export interface RequestPostsAction {
     type: typeof REQUEST_POSTS,
+    subreddit: string,
+}
+
+export interface DeletePostsAction {
+    type: typeof DELETE_POSTS,
     subreddit: string,
 }
 
@@ -26,8 +32,8 @@ export interface FailReceivePostsAction {
     receivedAt: number,
 }
 
-export type PostsActionTypes_U = (RequestPostsAction | ReceivePostsAction | FailReceivePostsAction); // Union Types
-export type PostsActionTypes_I = (RequestPostsAction & ReceivePostsAction & FailReceivePostsAction); // Intersection Types
+export type PostsActionTypes_U = (RequestPostsAction | ReceivePostsAction | FailReceivePostsAction | DeletePostsAction); // Union Types
+export type PostsActionTypes_I = (RequestPostsAction & ReceivePostsAction & FailReceivePostsAction & DeletePostsAction); // Intersection Types
 
 
 // =================
