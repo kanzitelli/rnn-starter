@@ -14,7 +14,7 @@ export interface Props extends NavigationComponentProps {
   isFetching: boolean,
   error: Error,
 
-  fetchPosts(sr: string): void,
+  fetchPosts: (sr: string) => void,
 }
 
 type DispatchType = RequestPostsAction;

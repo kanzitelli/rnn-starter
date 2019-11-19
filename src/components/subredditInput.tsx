@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 interface Props {
-    onAddSubreddit(sr: string): void,
+    onAddSubreddit: (sr: string) => void,
 }
 
 const SubredditInput: React.FC<Props> = ({

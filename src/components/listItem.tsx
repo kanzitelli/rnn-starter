@@ -1,17 +1,23 @@
-import React from 'react';
+import * as React from 'react';
 import {
     View,
     Text,
     TouchableOpacity,
     TouchableNativeFeedback,
-    Platform 
+    Platform,
+    GestureResponderEvent,
 } from 'react-native';
 
+interface TouchableProps {
+    onPress: (event: GestureResponderEvent) => void,
+    onLongPress: (event: GestureResponderEvent) => void,
+}
+
 const Touchable = Platform.OS === 'ios' ?
-    (props: any, children: React.ReactNode) => 
-        <TouchableOpacity {...props}>{children}</TouchableOpacity> :
-    (props: any, children: React.ReactNode) => 
-        <TouchableNativeFeedback {...props}>{children}</TouchableNativeFeedback>;
+    (props: React.PropsWithChildren<TouchableProps>) => 
+        <TouchableOpacity {...props}>{props.children}</TouchableOpacity> :
+    (props: React.PropsWithChildren<TouchableProps>) => 
+        <TouchableNativeFeedback {...props}>{props.children}</TouchableNativeFeedback>;
 
 interface Props {
     title: string,

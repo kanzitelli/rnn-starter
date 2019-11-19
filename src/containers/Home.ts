@@ -13,9 +13,9 @@ import { SubredditsActionTypes_U, SubredditInfo } from '../store/subreddits/type
 export interface Props extends NavigationComponentProps {
     subreddits: SubredditInfo[],
   
-    onSelectSubreddit(sr: string): void,
-    onAddSubreddit(sr: string): void,
-    onDeleteSubreddit(sr: string): void,
+    onSelectSubreddit: (sr: string) => void,
+    onAddSubreddit: (sr: string) => void,
+    onDeleteSubreddit: (sr: string) => void,
 }
 
 type DispatchType = SelectedSubredditAction | SubredditsActionTypes_U;
