@@ -17,6 +17,6 @@ todo:
 [X] add tslint + typos fixed
 [X] update all packages to up-to-dated // npm outdated
 [X] add react-native-gesture-handler
+[X] add MIT license
 
-[ ] add MIT license
 [ ] proper readme -- add more todos (like Codepush, styled and ask for more)
