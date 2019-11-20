@@ -1,4 +1,4 @@
-![logo](https://i.ibb.co/dmgMMdR/RNN-Starter.png)
+<img src="https://i.postimg.cc/G2DNR52v/RNN-Starter.png" width="100%" title="Logo">
 
 -----
 Simple yet practical starter with [React Native Navigation v3](https://github.com/wix/react-native-navigation), [Redux](https://github.com/reduxjs/redux) and more goodies inside.
