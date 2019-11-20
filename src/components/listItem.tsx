@@ -2,11 +2,13 @@ import * as React from 'react';
 import {
     View,
     Text,
-    TouchableOpacity,
-    TouchableNativeFeedback,
     Platform,
     GestureResponderEvent,
 } from 'react-native';
+import {
+    TouchableOpacity,
+    TouchableNativeFeedback,
+} from 'react-native-gesture-handler';
 
 interface TouchableProps {
     onPress: (event: GestureResponderEvent) => void;

@@ -1,4 +1,5 @@
 import { Navigation } from 'react-native-navigation';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import { HOME, LAND, EMPTY } from './containers';
@@ -16,7 +17,11 @@ Screens.set(EMPTY, EmptyContainer);
 
 // Register screens
 Screens.forEach((C, key) => {
-    Navigation.registerComponent(key, () => withReduxProvider(C), () => C);
+    Navigation.registerComponent(
+        key,
+        () => gestureHandlerRootHOC(withReduxProvider(C)),
+        () => C,
+    );
 });
 
 // Here some global listeners could be placed

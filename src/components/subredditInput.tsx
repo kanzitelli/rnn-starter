@@ -3,9 +3,11 @@ import {
     View,
     TextInput,
     Text,
-    TouchableOpacity,
     StyleSheet,
 } from 'react-native';
+import {
+    TouchableOpacity,
+} from 'react-native-gesture-handler';
 
 interface Props {
     onAddSubreddit: (sr: string) => void;
