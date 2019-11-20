@@ -1,7 +1,10 @@
 {
-  "name": "rnn.v3-redux-starter",
-  "version": "0.0.1",
-  "private": true,
+  "name": "react-native-navigation-starter",
+  "version": "1.0.0",
+  "description": "Simple yet practical starter with React Native Navigation v3, Redux and more goodies inside",
+  "license": "MIT",
+  "author": "Batr Kanzitelli <kanzitelli@gmail.com>",
+  "homepage": "https://github.com/kanzitelli/react-native-navigation-starter",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -34,6 +37,7 @@
     "jest": "^24.1.0",
     "metro-react-native-babel-preset": "^0.51.1",
     "react-test-renderer": "16.12.0",
+    "tslint": "^5.20.1",
     "typescript": "^3.7.2"
   },
   "jest": {
