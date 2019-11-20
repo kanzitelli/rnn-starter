@@ -36,7 +36,7 @@ react-native run-ios # or react-native run-android
 ```
 
 ## Todos
-There are still some more things I would like to add to the starter:
+There are still some things I would like to add to the starter:
 - Continous delivery via [Codepush](https://github.com/Microsoft/code-push).
 - Styles using [Styled Components](https://github.com/styled-components/styled-components).
 - Maybe something else. Feel free to open an issue for suggestions.
