@@ -14,6 +14,7 @@ import { LAND } from '../containers';
 import { HomeComponentType } from '../containers/Home';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
+import { SubredditInfo } from 'src/store/subreddits/types';
 
 const Home: HomeComponentType = ({
     componentId,
@@ -24,6 +25,7 @@ const Home: HomeComponentType = ({
     onDeleteSubreddit,
     onAddSubreddit,
 }): JSX.Element => {
+    let flatListRef: FlatList<SubredditInfo> | null;
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
     // equivalent to componentDidMount
@@ -80,6 +82,10 @@ const Home: HomeComponentType = ({
         );
     };
 
+    const onAddSubredditPressed = (subreddit: string) => {
+        onAddSubreddit(subreddit);
+    };
+
     return (
         <SafeAreaView style={{flex: 1}}>
             <KeyboardAvoidingView
@@ -89,6 +95,9 @@ const Home: HomeComponentType = ({
                 keyboardVerticalOffset={keyboardVerticalOffset}
             >
                 <FlatList
+                    ref={(ref) => flatListRef = ref}
+                    onContentSizeChange={() => flatListRef && flatListRef.scrollToEnd({animated: true})}
+                    onLayout={() => flatListRef && flatListRef.scrollToEnd({animated: true})}
                     data={subreddits}
                     keyExtractor={(item) => item.title }
                     renderItem={({ item }) =>
@@ -103,7 +112,7 @@ const Home: HomeComponentType = ({
                 />
 
                 <SubredditInput
-                    onAddSubreddit={(sr: string) => onAddSubreddit(sr)}
+                    onAddSubreddit={onAddSubredditPressed}
                 />
             </KeyboardAvoidingView>
         </SafeAreaView>
