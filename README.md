@@ -15,6 +15,8 @@ todo:
 [X] integrate TypeScript
 [X] when subreddit removed from list --> remove its posts (w/ saga)
 [X] add tslint + typos fixed
+[X] update all packages to up-to-dated // npm outdated
+[X] add react-native-gesture-handler
 
-[ ] update all packages to up-to-dated // npm outdated
+[ ] add MIT license
 [ ] proper readme -- add more todos (like Codepush, styled and ask for more)
