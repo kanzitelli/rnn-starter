@@ -28,11 +28,10 @@ npm i
 cd ios/ && pod install && cd ../
 ```
 
-3. Rename the app using [react-native-rename](https://github.com/junedomingo/react-native-rename) if needed.
+3. Rename the app using [react-native-rename](https://github.com/junedomingo/react-native-rename) if needed. If you do so, don't forget to run `cd ios/ && pod install && cd ../` when the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
 
 4. Run it!
 ```bash
-npm start
 react-native run-ios # or react-native run-android
 ```
 
