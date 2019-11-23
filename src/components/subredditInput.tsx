@@ -1,12 +1,12 @@
 import React from 'react';
 import {
     View,
-    TextInput,
     Text,
     StyleSheet,
 } from 'react-native';
 import {
     TouchableOpacity,
+    TextInput,
 } from 'react-native-gesture-handler';
 
 interface Props {
