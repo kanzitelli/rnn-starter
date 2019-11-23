@@ -2,11 +2,6 @@ import {
     ADD_SUBREDDIT,
     DELETE_SUBREDDIT,
 } from './actions';
-import {
-    SubredditsActionTypes_I,
-
-    SubredditsState,
-} from './types';
 
 const initialState: SubredditsState = [
     {

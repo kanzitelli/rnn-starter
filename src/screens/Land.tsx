@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
 
-import { LandComponentType } from '../containers/Land';
 import Item from '../components/listItem';
 
 const Land: LandComponentType = ({

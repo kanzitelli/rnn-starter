@@ -1,8 +1,3 @@
-import {
-    AddSubredditAction,
-    DeleteSubredditAction,
-} from './types';
-
 export const ADD_SUBREDDIT = 'ADD_SUBREDDIT';
 export const DELETE_SUBREDDIT = 'DELETE_SUBREDDIT';
 

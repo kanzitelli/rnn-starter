@@ -10,11 +10,9 @@ import {
 import { Navigation } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks';
 
-import { LAND } from '../containers';
-import { HomeComponentType } from '../containers/Home';
+import { LAND } from '.';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
-import { SubredditInfo } from 'src/store/subreddits/types';
 
 const Home: HomeComponentType = ({
     componentId,

@@ -1,10 +1,3 @@
-import {
-    RequestPostsAction,
-    ReceivePostsAction,
-    FailReceivePostsAction,
-    DeletePostsAction,
-} from './types';
-
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const DELETE_POSTS = 'DELETE_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';

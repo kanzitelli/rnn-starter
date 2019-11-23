@@ -1,10 +1,6 @@
 import {
     SELECT_SUBREDDIT,
 } from './actions';
-import {
-    SelectedSubredditAction,
-    SelectedSubredditState,
-} from './types';
 
 const initialState: SelectedSubredditState = '';
 

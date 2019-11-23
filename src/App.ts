@@ -2,7 +2,7 @@ import { Navigation } from 'react-native-navigation';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-import { HOME, LAND, EMPTY } from './containers';
+import { HOME, LAND, EMPTY } from './screens';
 import HomeContainer from './containers/Home';
 import LandContainer from './containers/Land';
 import EmptyContainer from './containers/Empty';

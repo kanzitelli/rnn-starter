@@ -6,8 +6,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import { EmptyComponentType } from '../containers/Empty';
-
 const Empty: EmptyComponentType = (): JSX.Element => {
     return (
         <SafeAreaView style={styles.container}>

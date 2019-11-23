@@ -1,7 +1,3 @@
-import {
-    SelectedSubredditAction,
-} from './types';
-
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT';
 
 export const selectSubreddit = (

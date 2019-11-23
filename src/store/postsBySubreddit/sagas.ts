@@ -5,9 +5,6 @@ import {
     receivePosts,
     failReceivePosts,
 } from './actions';
-import {
-    RequestPostsAction,
-} from './types';
 
 async function fetchPostsApi(reddit: string) {
     const response = await fetch(`https://www.reddit.com/r/${reddit}.json`);

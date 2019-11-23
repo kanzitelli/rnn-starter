@@ -1,6 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { DELETE_SUBREDDIT } from './actions';
-import { DeleteSubredditAction } from './types';
 
 import { deletePosts } from '../postsBySubreddit/actions';
 

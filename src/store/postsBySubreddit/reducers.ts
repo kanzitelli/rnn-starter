@@ -4,12 +4,6 @@ import {
     FAIL_RECEIVE_POSTS,
     DELETE_POSTS,
 } from './actions';
-import {
-    PostsActionTypes_I,
-
-    PostsBySubredditState,
-    PostsState,
-} from './types';
 
 const initialStatePostsBySubreddit: PostsBySubredditState = {};
 const initialStatePosts: PostsState = {

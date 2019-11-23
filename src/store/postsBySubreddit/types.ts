@@ -1,44 +1,37 @@
-import {
-    REQUEST_POSTS,
-    RECEIVE_POSTS,
-    FAIL_RECEIVE_POSTS,
-    DELETE_POSTS,
-} from './actions';
-
 // =================
 // ACTIONS
 // =================
-export interface RequestPostsAction {
-    type: typeof REQUEST_POSTS;
+interface RequestPostsAction {
+    type: string;
     subreddit: string;
 }
 
-export interface DeletePostsAction {
-    type: typeof DELETE_POSTS;
+interface DeletePostsAction {
+    type: string;
     subreddit: string;
 }
 
-export interface ReceivePostsAction {
-    type: typeof RECEIVE_POSTS;
+interface ReceivePostsAction {
+    type: string;
     subreddit: string;
     posts: any[];
     receivedAt: number;
 }
 
-export interface FailReceivePostsAction {
-    type: typeof FAIL_RECEIVE_POSTS;
+interface FailReceivePostsAction {
+    type: string;
     subreddit: string;
     error: Error | null;
     receivedAt: number;
 }
 
-export type PostsActionTypes_U = (
+type PostsActionTypes_U = (
     RequestPostsAction |
     ReceivePostsAction |
     FailReceivePostsAction |
     DeletePostsAction
 ); // Union Types
-export type PostsActionTypes_I = (
+type PostsActionTypes_I = (
     RequestPostsAction &
     ReceivePostsAction &
     FailReceivePostsAction &
@@ -48,11 +41,11 @@ export type PostsActionTypes_I = (
 // =================
 // REDUCERS
 // =================
-export interface PostsBySubredditState {
+interface PostsBySubredditState {
     [subreddit: string]: PostsState;
 }
 
-export interface PostsState {
+interface PostsState {
     isFetching: boolean;
     items: any[];
     error: Error | null;

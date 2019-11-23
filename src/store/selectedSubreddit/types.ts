@@ -1,16 +1,12 @@
-import {
-    SELECT_SUBREDDIT,
-} from './actions';
-
 // =================
 // ACTIONS
 // =================
-export interface SelectedSubredditAction {
-    type: typeof SELECT_SUBREDDIT;
+interface SelectedSubredditAction {
+    type: string;
     subreddit: string;
 }
 
 // =================
 // REDUCERS
 // =================
-export type SelectedSubredditState = string;
+type SelectedSubredditState = string;
