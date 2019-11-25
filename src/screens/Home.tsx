@@ -23,7 +23,7 @@ const Home: HomeComponentType = ({
     onDeleteSubreddit,
     onAddSubreddit,
 }): JSX.Element => {
-    let flatListRef: FlatList<SubredditInfo> | null;
+    const listRef = React.useRef<FlatList<SubredditInfo>>(null);
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
     // equivalent to componentDidMount
@@ -84,6 +84,9 @@ const Home: HomeComponentType = ({
         onAddSubreddit(subreddit);
     };
 
+    const listScrollToBottom = () =>
+        listRef.current && listRef.current.scrollToEnd({animated: true});
+
     return (
         <SafeAreaView style={{flex: 1}}>
             <KeyboardAvoidingView
@@ -93,9 +96,9 @@ const Home: HomeComponentType = ({
                 keyboardVerticalOffset={keyboardVerticalOffset}
             >
                 <FlatList
-                    ref={(ref) => flatListRef = ref}
-                    onContentSizeChange={() => flatListRef && flatListRef.scrollToEnd({animated: true})}
-                    onLayout={() => flatListRef && flatListRef.scrollToEnd({animated: true})}
+                    ref={listRef}
+                    onContentSizeChange={listScrollToBottom}
+                    onLayout={listScrollToBottom}
                     data={subreddits}
                     keyExtractor={(item) => item.title }
                     renderItem={({ item }) =>
