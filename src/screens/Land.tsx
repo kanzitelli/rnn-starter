@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    View,
+    SafeAreaView,
     Text,
     FlatList,
     Linking,
@@ -43,7 +43,7 @@ const Land: LandComponentType = ({
     };
 
     return (
-        <View style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1 }}>
             { error && <Text>Error {error.toString()}</Text> }
             <FlatList
                 data={posts}
@@ -59,7 +59,7 @@ const Land: LandComponentType = ({
                     />
                 }
             />
-        </View>
+        </SafeAreaView>
     );
 };
 
