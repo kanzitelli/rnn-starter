@@ -10,7 +10,7 @@ import {
 import { Navigation } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks';
 
-import { LAND } from '.';
+import { LAND } from '../screens';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
 
