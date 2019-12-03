@@ -7,6 +7,7 @@ It is a basic Reddit App implementation (list of subreddits and news only) where
 The app logic is written in two ways: using [MobX-State-Tree](https://github.com/mobxjs/mobx-state-tree) in `/srcMobX` folder and using [Redux](https://github.com/reduxjs/redux) in `/srcRedux` folder. You can find instructions for launching the app using one or another way in `index.js` file.
 So now you are free to choose any option you love and stick with it!
 
+-----
 - [React Native Navigation v3](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of React hooks for React Native Navigation
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native
@@ -17,7 +18,7 @@ So now you are free to choose any option you love and stick with it!
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management
 - [MobX React](https://github.com/mobxjs/mobx-react) - official React bindings for MobX
 - [MobX State Tree (MST)](https://github.com/mobxjs/mobx-state-tree) - opinionated, transactional, MobX powered state container
-- Persistent and Hydration are done by our hands
+- [Persistence](https://github.com/kanzitelli/react-native-navigation-starter/blob/master/srcMobX/store/redditStore.ts#L130) and [Hydration](https://github.com/kanzitelli/react-native-navigation-starter/blob/master/srcMobX/store/redditStore.ts#L97) are done by our hands
 -----
 - [Redux](https://github.com/reduxjs/redux) - a predictable state container
 - [React Redux](https://github.com/reduxjs/react-redux) - official React bindings for Redux
