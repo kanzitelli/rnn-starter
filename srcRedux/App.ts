@@ -66,7 +66,7 @@ export const startApp = () => {
                             }],
                             options: {
                                 bottomTab: {
-                                    text: 'Emptiness',
+                                    text: 'Redux App',
                                     icon: reactIcon,
                                 },
                             },
