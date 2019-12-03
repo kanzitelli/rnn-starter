@@ -105,6 +105,7 @@ export function createRedditStore() {
     return RedditStore.create({
         selectedSubreddit: '',
         subreddits: [
+            { title: 'mobx' },
             { title: 'reactjs' },
             { title: 'reactnative' },
             { title: 'golang' },
