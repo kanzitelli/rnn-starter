@@ -97,7 +97,6 @@ const RedditStore = types
         const hydrate = () => {
             return flow(function*() {
                 const data = yield AsyncStorage.getItem(storageID);
-                console.log(`hydrate --> ${JSON.parse(data)}`);
                 if (data) {
                     applySnapshot(RedditStore, JSON.parse(data));
                 }
@@ -130,10 +129,7 @@ const RedditStore = types
 
 // persisting the stores
 onSnapshot(RedditStore, debounce(
-    (snapshot) => {
-        console.log('onSnapshot', snapshot);
-        AsyncStorage.setItem(storageID, JSON.stringify(snapshot))
-    },
+    (snapshot) => AsyncStorage.setItem(storageID, JSON.stringify(snapshot)),
     1000,
 ));
 
