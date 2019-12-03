@@ -7,7 +7,7 @@ import HomeScreen from './screens/Home';
 import LandScreen from './screens/Land';
 import EmptyScreen from './screens/Empty';
 
-import { withStoreProvider } from './store';
+import { withStoreProvider, hydrateStores } from './store';
 
 const Screens = new Map<string, React.FC<any>>();
 
@@ -28,52 +28,57 @@ Screens.forEach((C, key) => {
 // ...
 
 export const startApp = () => {
-    Promise.all([
-        FontAwesome5.getImageSource('reddit', 25),
-        FontAwesome5.getImageSource('react', 25),
-    ]).then(([redditIcon, reactIcon]) => {
-        Navigation.setRoot({
-            root: {
-                bottomTabs: {
-                    children: [{
-                        stack: {
-                            children: [{
-                                component: {
-                                    name: HOME ,
-                                },
-                            }],
-                            options: {
-                                bottomTab: {
-                                    text: 'Subreddits',
-                                    icon: redditIcon,
+    // 1st - we hydrate all stores
+    // 2nd - we get icons
+    // 3rd - we launch the app
+    Promise.all(hydrateStores).then(() => {
+        Promise.all([
+            FontAwesome5.getImageSource('reddit', 25),
+            FontAwesome5.getImageSource('react', 25),
+        ]).then(([redditIcon, reactIcon]) => {
+            Navigation.setRoot({
+                root: {
+                    bottomTabs: {
+                        children: [{
+                            stack: {
+                                children: [{
+                                    component: {
+                                        name: HOME ,
+                                    },
+                                }],
+                                options: {
+                                    bottomTab: {
+                                        text: 'Subreddits',
+                                        icon: redditIcon,
+                                    },
                                 },
                             },
-                        },
-                    }, {
-                        stack: {
-                            children: [{
-                                component: {
-                                    name: EMPTY,
-                                    options: {
-                                        topBar: {
-                                            visible: true,
-                                            title: {
-                                                text: 'Emptiness',
+                        }, {
+                            stack: {
+                                children: [{
+                                    component: {
+                                        name: EMPTY,
+                                        options: {
+                                            topBar: {
+                                                visible: true,
+                                                title: {
+                                                    text: 'Emptiness',
+                                                },
                                             },
                                         },
                                     },
-                                },
-                            }],
-                            options: {
-                                bottomTab: {
-                                    text: 'MobX App',
-                                    icon: reactIcon,
+                                }],
+                                options: {
+                                    bottomTab: {
+                                        text: 'MobX App',
+                                        icon: reactIcon,
+                                    },
                                 },
                             },
-                        },
-                    }],
+                        }],
+                    },
                 },
-            },
+            });
         });
     });
 };

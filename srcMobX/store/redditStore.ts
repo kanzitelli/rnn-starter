@@ -1,4 +1,13 @@
-import { types, flow } from 'mobx-state-tree';
+import { types, flow, applySnapshot, onSnapshot } from 'mobx-state-tree';
+import AsyncStorage from '@react-native-community/async-storage';
+import debounce from 'lodash/debounce';
+
+const storageID = 'RedditStore';
+
+async function fetchPostsApi(reddit: string) {
+    const response = await fetch(`https://www.reddit.com/r/${reddit}.json`);
+    return await response.json();
+}
 
 const Subreddit = types
     .model('Subreddit', {
@@ -85,6 +94,16 @@ const RedditStore = types
             self.postsBySubreddit.delete(subreddit);
         };
 
+        const hydrate = () => {
+            return flow(function*() {
+                const data = yield AsyncStorage.getItem(storageID);
+                console.log(`hydrate --> ${JSON.parse(data)}`);
+                if (data) {
+                    applySnapshot(RedditStore, JSON.parse(data));
+                }
+            })();
+        };
+
         return {
             selectSubreddit,
 
@@ -93,16 +112,11 @@ const RedditStore = types
 
             fetchSubredditPosts,
             deleteSubredditPosts,
+
+            hydrate,
         };
-    });
-
-async function fetchPostsApi(reddit: string) {
-    const response = await fetch(`https://www.reddit.com/r/${reddit}.json`);
-    return await response.json();
-}
-
-export function createRedditStore() {
-    return RedditStore.create({
+    })
+    .create({
         selectedSubreddit: '',
         subreddits: [
             { title: 'mobx' },
@@ -113,4 +127,14 @@ export function createRedditStore() {
         ],
         postsBySubreddit: {},
     });
-}
+
+// persisting the stores
+onSnapshot(RedditStore, debounce(
+    (snapshot) => {
+        console.log('onSnapshot', snapshot);
+        AsyncStorage.setItem(storageID, JSON.stringify(snapshot))
+    },
+    1000,
+));
+
+export default RedditStore;
