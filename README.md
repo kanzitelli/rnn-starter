@@ -17,8 +17,8 @@ So now you are free to choose any option you love and stick with it!
 
 ##### and pick your favourite state management tool (examples inside)
 
-| MOBX  | REDUX |
-| ------------- | ------------- |
+| MOBX | REDUX |
+| :---: | :---: |
 | [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management | [Redux](https://github.com/reduxjs/redux) - a predictable state container  |
 | [MobX React](https://github.com/mobxjs/mobx-react) - official React bindings for MobX | [React Redux](https://github.com/reduxjs/react-redux) - official React bindings for Redux  |
 | [MobX State Tree (MST)](https://github.com/mobxjs/mobx-state-tree) - opinionated, transactional, MobX powered state container | [Redux Saga](https://github.com/redux-saga/redux-saga) - side effect model for Redux apps |
