@@ -5,6 +5,9 @@ import {
 
 const initialState: SubredditsState = [
     {
+        title: 'redux',
+    },
+    {
         title: 'reactjs',
     },
     {
