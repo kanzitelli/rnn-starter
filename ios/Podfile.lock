@@ -352,7 +352,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   ReactNativeNavigation: bed6f504aa1a4dadd151503bf99d0ef96d06847f
-  RNCAsyncStorage: 3c304d1adfaea02ec732ac218801cb13897aa8c0
+  RNCAsyncStorage: 6b57de0f6cb0dcfd17521af1681fa39001d3efff
   RNGestureHandler: 946a7691e41df61e2c4b1884deab41a4cdc3afff
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
