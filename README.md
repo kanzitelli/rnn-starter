@@ -8,7 +8,7 @@ The app logic is written in two ways: using [MobX-State-Tree](https://github.com
 So now you are free to choose any option you love and stick with it!
 
 -----
-- [React Native Navigation v3](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android
+- [React Native Navigation v4](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of React hooks for React Native Navigation
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native
