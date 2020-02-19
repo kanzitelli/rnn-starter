@@ -4,7 +4,7 @@
 Simple yet practical starter with [React Native Navigation v5](https://github.com/wix/react-native-navigation), [MobX-State-Tree](https://github.com/mobxjs/mobx-state-tree) and [Redux](https://github.com/reduxjs/redux) (pick one) and more goodies inside.
 
 It is a basic Reddit App implementation (list of subreddits and news only) where the main goal to achieve was usage of functional components with React Native Navigation. So no more ~~`class MyComponent extends React.Component { ... }`~~, only functions with [React Hooks](https://reactjs.org/docs/hooks-intro.html) and native navigation.
-The app logic is written in two ways: using [MobX-State-Tree](https://github.com/mobxjs/mobx-state-tree) in `/srcMobX` folder and using [Redux](https://github.com/reduxjs/redux) in `/srcRedux` folder. You can find instructions for launching the app using one or another way in `index.js` file.
+The app logic is written in two ways: using [MobX-State-Tree](https://github.com/mobxjs/mobx-state-tree) in `/srcMobX` folder and using [Redux](https://github.com/reduxjs/redux) with hooks in `/srcRedux` folder. You can find instructions for launching the app using one or another way in `index.js` file.
 So now you are free to choose any option you love and stick with it!
 
 -----

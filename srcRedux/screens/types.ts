@@ -10,23 +10,10 @@ type NavigationComponent<P> =
 
 // ====================================================================
 // ====================================================================
-interface HomeComponentProps {
-    subreddits: SubredditInfo[];
-
-    onSelectSubreddit: (sr: string) => void;
-    onAddSubreddit: (sr: string) => void;
-    onDeleteSubreddit: (sr: string) => void;
-}
+interface HomeComponentProps { }
 type HomeComponentType = NavigationComponent<HomeComponentProps>;
 
-interface LandComponentProps {
-    selectedSubreddit: string;
-    posts: any[];
-    isFetching: boolean;
-    error: Error | null;
-
-    fetchPosts: (sr: string) => void;
-}
+interface LandComponentProps { }
 type LandComponentType = NavigationComponent<LandComponentProps>;
 
 interface EmptyComponentProps { }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
     SafeAreaView,
     FlatList,
@@ -9,6 +9,10 @@ import {
 } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { selectSubreddit } from '../store/selectedSubreddit/actions';
+import { addSubreddit, deleteSubreddit } from '../store/subreddits/actions';
 
 import { LAND } from '../screens';
 import Item from '../components/listItem';
@@ -16,13 +20,28 @@ import SubredditInput from '../components/subredditInput';
 
 const Home: HomeComponentType = ({
     componentId,
-
-    subreddits,
-
-    onSelectSubreddit,
-    onDeleteSubreddit,
-    onAddSubreddit,
 }): JSX.Element => {
+    // Redux Hooks
+    // ===========
+    // selectors
+    const subreddits = useSelector((s: GlobalState) => s.subreddits);
+
+    // actions
+    const dispatch = useDispatch();
+    const onSelectSubreddit = useCallback(
+        (sr: string) => dispatch(selectSubreddit(sr)),
+        [dispatch],
+    );
+    const onDeleteSubreddit = useCallback(
+        (sr: string) => dispatch(deleteSubreddit(sr)),
+        [dispatch],
+    );
+    const onAddSubreddit = useCallback(
+        (sr: string) => dispatch(addSubreddit(sr)),
+        [dispatch],
+    );
+    // ===========
+
     const listRef = React.useRef<FlatList<SubredditInfo>>(null);
     const [keyboardVerticalOffset, setKeyboardVerticalOffset] = React.useState(0);
 
