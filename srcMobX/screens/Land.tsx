@@ -11,7 +11,7 @@ import { useObserver } from 'mobx-react';
 import { useStore } from '../store';
 import Item from '../components/listItem';
 
-const Land: NavigationComponent_MobX<{}> = ({
+const Land: LandComponentType_MobX = ({
     componentId,
 }): JSX.Element => {
     const { redditStore } = useStore();

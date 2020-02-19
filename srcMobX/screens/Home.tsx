@@ -16,7 +16,7 @@ import { LAND } from '../screens';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
 
-const Home: NavigationComponent_MobX<{}> = ({
+const Home: HomeComponentType_MobX = ({
     componentId,
 }): JSX.Element => {
     const listRef = React.useRef<FlatList<any>>(null);

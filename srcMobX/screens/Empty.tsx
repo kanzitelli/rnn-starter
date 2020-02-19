@@ -9,7 +9,7 @@ import { useObserver } from 'mobx-react';
 
 import { useStore } from '../store';
 
-const Empty: NavigationComponent_MobX<{}> = (): JSX.Element => {
+const Empty: EmptyComponentProps_MobX = (): JSX.Element => {
     const { redditStore } = useStore();
 
     return useObserver(() => (
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 26,
         margin: 16,
+        textAlign: 'center',
     },
 });
 
