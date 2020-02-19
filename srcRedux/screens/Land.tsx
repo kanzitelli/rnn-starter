@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
     SafeAreaView,
     Text,
@@ -6,19 +6,37 @@ import {
     Linking,
 } from 'react-native';
 import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { requestPosts } from '../store/postsBySubreddit/actions';
 
 import Item from '../components/listItem';
 
 const Land: LandComponentType = ({
     componentId,
-
-    selectedSubreddit,
-    isFetching,
-    posts,
-    error,
-
-    fetchPosts,
 }): JSX.Element => {
+    // Redux Hooks
+    // ===========
+    // selectors
+    const selectedSubreddit = useSelector((s: GlobalState) => s.selectedSubreddit);
+    const postsBySubreddit = useSelector((s: GlobalState) => s.postsBySubreddit[selectedSubreddit]);
+    const {
+        isFetching,
+        items: posts,
+        error,
+    } = postsBySubreddit || {
+        isFetching: true,
+        items: [],
+        error: null,
+    }
+
+    // actions
+    const dispatch = useDispatch();
+    const fetchPosts = useCallback(
+        (sr: string) => dispatch(requestPosts(sr)),
+        [dispatch],
+    );
+    // ===========
 
     // equivalent to componentDidMount
     React.useEffect(() => {
