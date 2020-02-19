@@ -3,17 +3,18 @@ import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import { HOME, LAND, EMPTY } from './screens';
-import HomeContainer from './containers/Home';
-import LandContainer from './containers/Land';
-import EmptyContainer from './containers/Empty';
+
+import HomeScreen from './screens/Home';
+import LandScreen from './screens/Land';
+import EmptyScreen from './screens/Empty';
 
 import { withReduxProvider } from './store';
 
 const Screens = new Map<string, React.FC<any>>();
 
-Screens.set(HOME, HomeContainer);
-Screens.set(LAND, LandContainer);
-Screens.set(EMPTY, EmptyContainer);
+Screens.set(HOME, HomeScreen);
+Screens.set(LAND, LandScreen);
+Screens.set(EMPTY, EmptyScreen);
 
 // Register screens
 Screens.forEach((C, key) => {
