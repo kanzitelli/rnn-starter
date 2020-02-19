@@ -50,8 +50,10 @@ react-native run-android
 
 ## Todos
 There are still some things I would like to add to the starter:
+- [Notifications by Wix](https://github.com/wix/react-native-notifications).
 - Continous delivery via [Codepush](https://github.com/Microsoft/code-push).
 - Dark Mode via [react-native-dark-mode](https://github.com/codemotionapps/react-native-dark-mode).
+- Localization via [i18next](https://github.com/i18next/i18next/).
 - Maybe something else. Feel free to open an issue for suggestions.
 
 ## License
