@@ -1,14 +1,14 @@
 <img src="https://i.postimg.cc/G2DNR52v/RNN-Starter.png" width="100%" title="Logo">
 
 -----
-Simple yet practical starter with [React Native Navigation v5](https://github.com/wix/react-native-navigation), [MobX-State-Tree](https://github.com/mobxjs/mobx-state-tree) and [Redux](https://github.com/reduxjs/redux) (pick one) and more goodies inside.
+Simple yet practical starter with [React Native Navigation v6](https://github.com/wix/react-native-navigation), [MobX-State-Tree](https://github.com/mobxjs/mobx-state-tree) and [Redux](https://github.com/reduxjs/redux) (pick one) and more goodies inside.
 
 It is a basic Reddit App implementation (list of subreddits and news only) where the main goal to achieve was usage of functional components with React Native Navigation. So no more ~~`class MyComponent extends React.Component { ... }`~~, only functions with [React Hooks](https://reactjs.org/docs/hooks-intro.html) and native navigation.
 The app logic is written in two ways: using [MobX-State-Tree](https://github.com/mobxjs/mobx-state-tree) in `/srcMobX` folder and using [Redux](https://github.com/reduxjs/redux) with hooks in `/srcRedux` folder. You can find instructions for launching the app using one or another way in `index.js` file.
 So now you are free to choose any option you love and stick with it!
 
 -----
-- [React Native Navigation v5](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android
+- [React Native Navigation v6](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of React hooks for React Native Navigation
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native
