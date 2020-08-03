@@ -40,7 +40,7 @@ yarn
 npx pod-install
 ```
 
-3. Rename the app using [react-native-rename](https://github.com/junedomingo/react-native-rename) if needed. If you do so, don't forget to run `cd ios/ && pod install && cd ../` when the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
+3. Rename the app using [react-native-rename](https://github.com/junedomingo/react-native-rename) if needed. If you do so, don't forget to run `npx pod-install` when the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
 
 4. Run it!
 ```bash
