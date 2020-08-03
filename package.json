@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Simple yet practical starter with React Native Navigation v6, MobX-State-Tree and Redux (pick one) and more goodies inside",
   "license": "MIT",
-  "author": "Batr Kanzitelli <kanzitelli@gmail.com>",
+  "author": "Batyr Kanzitdinov <say_hi@batyr.io>",
   "homepage": "https://github.com/kanzitelli/react-native-navigation-starter",
   "scripts": {
     "android": "react-native run-android",
