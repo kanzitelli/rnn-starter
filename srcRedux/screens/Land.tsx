@@ -11,8 +11,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { requestPosts } from '../store/postsBySubreddit/actions';
 
 import Item from '../components/listItem';
+import { NavigationFunctionComponent } from 'react-native-navigation';
+import { HomeLandPassProps } from './types';
 
-const Land: LandComponentType = ({
+interface Props { }
+
+const Land: NavigationFunctionComponent<Props> = ({
     componentId,
 }): JSX.Element => {
     // Redux Hooks
@@ -81,11 +85,14 @@ const Land: LandComponentType = ({
     );
 };
 
-Land.options = (passProps: any) => ({
+Land.options = (passProps: HomeLandPassProps) => ({
     topBar: {
         visible: true,
         title: {
             text: `r/${passProps.title}`,
+        },
+        largeTitle: {
+            visible: true,
         },
     },
 });
