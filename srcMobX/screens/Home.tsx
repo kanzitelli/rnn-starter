@@ -7,7 +7,7 @@ import {
     Platform,
     Alert,
 } from 'react-native';
-import { Navigation } from 'react-native-navigation';
+import { Navigation, NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks';
 import { useObserver } from 'mobx-react';
 
@@ -15,8 +15,11 @@ import { useStore } from '../store';
 import { LAND } from '../screens';
 import Item from '../components/listItem';
 import SubredditInput from '../components/subredditInput';
+import { HomeLandPassProps } from './types';
 
-const Home: HomeComponentType_MobX = ({
+interface Props { }
+
+const Home: NavigationFunctionComponent<Props> = ({
     componentId,
 }): JSX.Element => {
     const listRef = React.useRef<FlatList<any>>(null);
@@ -53,7 +56,7 @@ const Home: HomeComponentType_MobX = ({
     const onItemPressed = (subreddit: string) => {
         redditStore.selectSubreddit(subreddit);
 
-        Navigation.push(componentId, {
+        Navigation.push<HomeLandPassProps>(componentId, {
             component: {
                 name: LAND,
                 passProps: {
@@ -82,9 +85,8 @@ const Home: HomeComponentType_MobX = ({
         );
     };
 
-    const onAddSubredditPressed = (subreddit: string) => {
+    const onAddSubredditPressed = (subreddit: string) =>
         redditStore.addSubreddit(subreddit);
-    };
 
     const listScrollToBottom = () =>
         listRef.current && listRef.current.scrollToEnd({animated: true});
@@ -127,6 +129,9 @@ Home.options = () => ({
         visible: true,
         title: {
             text: 'Subreddits',
+        },
+        largeTitle: {
+            visible: true,
         },
         rightButtons: [{
             id: 'hi_button_id',

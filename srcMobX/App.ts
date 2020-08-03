@@ -1,6 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import 'mobx-react-lite/batchingForReactNative';
 
 import { HOME, LAND, EMPTY } from './screens';
 import HomeScreen from './screens/Home';

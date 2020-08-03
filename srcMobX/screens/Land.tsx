@@ -5,13 +5,17 @@ import {
     FlatList,
     Linking,
 } from 'react-native';
+import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
 import { useObserver } from 'mobx-react';
 
 import { useStore } from '../store';
 import Item from '../components/listItem';
+import { HomeLandPassProps } from './types';
 
-const Land: LandComponentType_MobX = ({
+interface Props { }
+
+const Land: NavigationFunctionComponent<Props> = ({
     componentId,
 }): JSX.Element => {
     const { redditStore } = useStore();
@@ -60,11 +64,14 @@ const Land: LandComponentType_MobX = ({
     ));
 };
 
-Land.options = (passProps: any) => ({
+Land.options = (passProps: HomeLandPassProps) => ({
     topBar: {
         visible: true,
         title: {
             text: `r/${passProps.title}`,
+        },
+        largeTitle: {
+            visible: true,
         },
     },
 });
