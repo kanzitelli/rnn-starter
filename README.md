@@ -7,7 +7,7 @@
 
 So why not put them all together? 😏
 
-P.S. Big love and gratitude to all people who are working on React Native, Expo and React Native Navigation!
+Big love and gratitude to all people who are working on React Native, Expo and React Native Navigation!
 
 ## 🏃‍♂️ Getting Started
 
