@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
+    "expo": "^38.0.9",
+    "expo-network": "~2.2.1",
     "lodash": "^4.17.19",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.5",
@@ -22,6 +24,7 @@
     "react-native-gesture-handler": "^1.7.0",
     "react-native-navigation": "^6.11.0",
     "react-native-navigation-hooks": "^6.0.2",
+    "react-native-unimodules": "^0.10.1",
     "react-native-vector-icons": "^7.0.0",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
