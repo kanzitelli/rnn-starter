@@ -1,11 +1,4 @@
 <img src="https://i.postimg.cc/Vvv1X3hy/image1.png" width="100%" title="Logo">
-<p style="text-align: center; font-size: 32px">
-Build mobile apps with
-pure native experience &
-Expo unimodules
-🖖 👽 🖖
-</p>
-<br/>
 
 ##  🦥 Motivation
 1. I love [React Native](https://reactnative.dev/) 💚
@@ -30,15 +23,15 @@ yarn
 npx pod-install
 ```
 
-3. Rename the app using [react-native-rename](https://github.com/junedomingo/react-native-rename) if needed. If you do so, don't forget to run `npx pod-install` when the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
-
-4. Run it!
+3. Run it!
 ```bash
 yarn ios
 yarn android
 ```
 
-<b>NOTE:</b> If you are planning to add Expo modules, please use [expo-cli](https://docs.expo.io/workflow/expo-cli/), so they are compatible with each other.
+If you would like to rename the app, you can use [react-native-rename](https://github.com/junedomingo/react-native-rename). Don't forget to run `npx pod-install` after the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
+
+NOTE: If you are planning to add Expo modules, please use [expo-cli](https://docs.expo.io/workflow/expo-cli/), so they are compatible with each other.
 
 ## 📖 What's inside
 - [Expo Unimodules](https://github.com/expo/expo) - universal set of amazing libraries which are needed for every app.
@@ -57,8 +50,6 @@ and pick your favourite state management tool (examples inside)
 | [MobX State Tree (MST)](https://github.com/mobxjs/mobx-state-tree) - opinionated, transactional, MobX powered state container | [Redux Saga](https://github.com/redux-saga/redux-saga) - side effect model for Redux apps |
 | [Persistence](https://github.com/kanzitelli/react-native-navigation-starter/blob/master/srcMobX/store/redditStore.ts#L130) and [Hydration](https://github.com/kanzitelli/react-native-navigation-starter/blob/master/srcMobX/store/redditStore.ts#L97) are done by our hands | [Redux Persist](https://github.com/rt2zz/redux-persist) - persist and rehydrate a Redux store |
 
------
-
 ## 🧙‍♂️ Enhancements
 There are still some things I would like to add to the starter:
 - [Expo Notifications](https://docs.expo.io/versions/v38.0.0/sdk/notifications/).
@@ -67,6 +58,11 @@ There are still some things I would like to add to the starter:
 - Localization via [i18next](https://github.com/i18next/i18next/).
 
 Feel free to open an issue for suggestions.
+
+## ⚠️ Known issues (warnings)
+* Splash screen warning from Expo. It happens due to absent of Splash screen but it will be added soon. If you would like to turn it off, you can use `console.disableYellowBox = true`. If you would like to help integrating it, you can follow this [link]( https://github.com/expo/expo/tree/master/packages/expo-splash-screen).
+
+Feel free to open an issue for any other warning or problems.
 
 ## 📃 License
 
