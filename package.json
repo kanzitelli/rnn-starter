@@ -1,6 +1,6 @@
 {
   "name": "react-native-navigation-starter",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Simple yet practical starter with React Native Navigation v6, MobX-State-Tree and Redux (pick one) and more goodies inside",
   "license": "MIT",
   "author": "Batyr Kanzitdinov <say_hi@batyr.io>",
