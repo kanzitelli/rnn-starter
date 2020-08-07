@@ -1,10 +1,10 @@
 {
-  "name": "react-native-navigation-starter",
+  "name": "expo-rnn-starter",
   "version": "3.0.0",
-  "description": "Simple yet practical starter with React Native Navigation v6, MobX-State-Tree and Redux (pick one) and more goodies inside",
+  "description": "Expo + React Native Navigation starter 🖖👽🖖",
   "license": "MIT",
   "author": "Batyr Kanzitdinov <say_hi@batyr.io>",
-  "homepage": "https://github.com/kanzitelli/react-native-navigation-starter",
+  "homepage": "https://github.com/kanzitelli/expo-rnn-starter",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
