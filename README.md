@@ -13,7 +13,7 @@ Big love and gratitude to all people who are working on React Native, Expo and R
 
 1. Clone the repo
 ```bash
-git clone https://github.com/kanzitelli/react-native-navigation-starter.git new-project
+git clone https://github.com/kanzitelli/expo-rnn-starter.git new-project
 ```
 
 2. Install packages
