@@ -1,3 +1,4 @@
+import 'expo-asset';
 import { Navigation } from 'react-native-navigation';
 
 // Note:
