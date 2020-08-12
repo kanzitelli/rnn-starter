@@ -14,7 +14,7 @@
 
         <meta-data
           android:name="expo.modules.updates.EXPO_UPDATE_URL"
-          android:value="https://exp.host/@my-expo-username/my-app" />
+          android:value="https://exp.host/@my-expo-username/my-app-slug" />
         <meta-data
           android:name="expo.modules.updates.EXPO_SDK_VERSION"
           android:value="38.0.0" />
