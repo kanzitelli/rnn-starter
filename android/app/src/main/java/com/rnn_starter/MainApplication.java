@@ -19,9 +19,16 @@ import org.unimodules.adapters.react.ModuleRegistryAdapter;
 import org.unimodules.adapters.react.ReactModuleRegistryProvider;
 import org.unimodules.core.interfaces.SingletonModule;
 
+import android.net.Uri;
+import expo.modules.updates.UpdatesController;
+import javax.annotation.Nullable;
+
 public class MainApplication extends NavigationApplication {
 
   private final ReactModuleRegistryProvider mModuleRegistryProvider = new ReactModuleRegistryProvider(new BasePackageList().getPackageList(), null);
+
+  // we need instance of NavigationApplication to pass it to UpdatesController.initialize(...)
+  private final NavigationApplication mApp = this;
 
   private final ReactNativeHost mReactNativeHost =
       new NavigationReactNativeHost(this) {
@@ -46,8 +53,32 @@ public class MainApplication extends NavigationApplication {
 
         @Override
         protected String getJSMainModuleName() {
-          return "index";
+            return "index";
         }
+
+          @Override
+          protected @Nullable String getJSBundleFile() {
+            if (BuildConfig.DEBUG) {
+              return super.getJSBundleFile();
+            } else {
+              // we do "UpdatesController.initialize(mApp)" here
+              // because `onCreate` method is called after.
+              UpdatesController.initialize(mApp);
+              return UpdatesController.getInstance().getLaunchAssetFile();
+            }
+          }
+
+          @Override
+          protected @Nullable String getBundleAssetName() {
+            if (BuildConfig.DEBUG) {
+              return super.getBundleAssetName();
+            } else {
+              // we do "UpdatesController.initialize(mApp)" here
+              // because `onCreate` method is called after.
+              UpdatesController.initialize(mApp);
+              return UpdatesController.getInstance().getBundleAssetName();
+            }
+          }
       };
 
   @Override
@@ -58,6 +89,10 @@ public class MainApplication extends NavigationApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+
+    if (!BuildConfig.DEBUG) {
+      UpdatesController.initialize(this);
+    }
     
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
