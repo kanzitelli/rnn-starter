@@ -27,11 +27,10 @@ yarn ios
 yarn android
 ```
 
-👁‍🗨 If you are planning to use Expo modules, such as preconfigured `expo-updates` and others, or add new ones, what I strongly recommend, then proceed to [Expo Configuration](expo-configuration) section and follow those steps carefully.
+👁‍🗨 If you are planning to use Expo modules, such as preconfigured `expo-updates` and others, or add new ones, what I strongly recommend, then proceed to Expo Configuration section and follow those steps carefully.
 
 If you would like to rename the app, you can use [react-native-rename](https://github.com/junedomingo/react-native-rename). Don't forget to run `yarn ios:pods` after the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
 
-[expo-configuration]: #expo-configuration
 ## 🎛 Expo Configuration
 #### Prerequisites
 1. Get familiar with [Expo](https://expo.io) and [their documentation](https://docs.expo.io/) if you haven't yet.
