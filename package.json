@@ -15,6 +15,7 @@
     "@react-native-community/async-storage": "^1.11.0",
     "expo": "^38.0.9",
     "expo-network": "~2.2.1",
+    "expo-updates": "^0.2.14",
     "lodash": "^4.17.19",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.5",
