@@ -31,12 +31,12 @@ PODS:
   - EXPermissions (9.0.1):
     - UMCore
     - UMPermissionsInterface
-  - EXSplashScreen (0.5.0):
-    - React
-    - UMCore
   - EXSQLite (8.2.1):
     - UMCore
     - UMFileSystemInterface
+  - EXUpdates (0.2.14):
+    - React
+    - UMCore
   - FBLazyVector (0.63.2)
   - FBReactNativeSpec (0.63.2):
     - Folly (= 2020.01.13.00)
@@ -378,8 +378,8 @@ DEPENDENCIES:
   - EXLocation (from `../node_modules/expo-location/ios`)
   - EXNetwork (from `../node_modules/expo-network/ios`)
   - EXPermissions (from `../node_modules/expo-permissions/ios`)
-  - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - EXSQLite (from `../node_modules/expo-sqlite/ios`)
+  - EXUpdates (from `../node_modules/expo-updates/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Flipper (~> 0.41.1)
@@ -482,10 +482,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-network/ios"
   EXPermissions:
     :path: "../node_modules/expo-permissions/ios"
-  EXSplashScreen:
-    :path: "../node_modules/expo-splash-screen/ios"
   EXSQLite:
     :path: "../node_modules/expo-sqlite/ios"
+  EXUpdates:
+    :path: "../node_modules/expo-updates/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
@@ -586,8 +586,8 @@ SPEC CHECKSUMS:
   EXLocation: e93020e255f52a1cc031e0f45b0a24eb20fc4b55
   EXNetwork: 64a87db404f4a3c53b2dc707d0df2183ccfdedcb
   EXPermissions: 80ac3acbdb145930079810fe5b08c022b3428aa8
-  EXSplashScreen: 9423d258b71afa5bf128a83dcb57b636d9900a74
   EXSQLite: 64611c1b369c0f1e9cae4e551d0aa4478a58cadf
+  EXUpdates: f3c4943abb6ab28cc55cbeac4ff4612701f82725
   FBLazyVector: 3ef4a7f62e7db01092f9d517d2ebc0d0677c4a37
   FBReactNativeSpec: dc7fa9088f0f2a998503a352b0554d69a4391c5a
   Flipper: 33585e2d9810fe5528346be33bcf71b37bb7ae13
@@ -640,6 +640,6 @@ SPEC CHECKSUMS:
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 4bab8d6b027b4a2fb42acf0744e05bc716b8a903
+PODFILE CHECKSUM: 930b97ce20cec18625dea2ff5213549dbfef8013
 
 COCOAPODS: 1.8.4

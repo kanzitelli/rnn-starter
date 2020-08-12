@@ -18,9 +18,7 @@ git clone https://github.com/kanzitelli/expo-rnn-starter.git new-project
 
 2. Install packages
 ```bash
-cd new-project
-yarn
-npx pod-install
+cd new-project && yarn && yarn ios:pods
 ```
 
 3. Run it!
@@ -29,12 +27,33 @@ yarn ios
 yarn android
 ```
 
-If you would like to rename the app, you can use [react-native-rename](https://github.com/junedomingo/react-native-rename). Don't forget to run `npx pod-install` after the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
+👁‍🗨 If you are planning to use Expo modules, such as preconfigured `expo-updates` and others, or add new ones, what I strongly recommend, then proceed to Expo Configuration section and follow those steps carefully.
 
-NOTE: If you are planning to add Expo modules, please use [expo-cli](https://docs.expo.io/workflow/expo-cli/), so they are compatible with each other.
+If you would like to rename the app, you can use [react-native-rename](https://github.com/junedomingo/react-native-rename). Don't forget to run `yarn ios:pods` after the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
+
+## 🎛 Expo Configuration
+#### Prerequisites
+1. Get familiar with [Expo](https://expo.io) and [their documentation](https://docs.expo.io/) if you haven't yet.
+2. Create new account at [Expo.io](https://expo.io/signup)
+3. Install [expo-cli](https://docs.expo.io/workflow/expo-cli/).
+4. Login using expo-cli in the terminal.
+
+### expo-updates
+If you decided to use this module, then you will need to follow steps below carefully:
+1. Decide how your app's `slug` will look like. For example, for the starter I am using `expo-rnn-starter`.
+2. Open `app.json` from the root of the project and change `"expo" --> "slug"` property to your own.
+3. We need to define `EXPO UPDATE URL` for the project which we will put in to iOS and Android config files. It has following pattern -- `https://exp.host/@my-expo-username/my-app-slug`. For example, for the starter it would be `https://exp.host/@kanzitelli/expo-rnn-starter`.
+4. Open `ios/Supporting/Expo.plist` and change `EXUpdatesURL` property to your own.
+5. Open `android/app/src/main/AndroidManifest.xml` and change `EXPO_UPDATE_URL` meta-data property to your own.
+6. Run `expo publish` from the root of the project. It will take some time.
+7. Now you should be able to see the app in [Expo dashboard](https://expo.io/dashboard).
+8. In order to test it, you will need to build the app in Release mode for both platforms. Once you do some changes in your code, don't forget to run `expo publish`.
+
+If you would like to disable `expo-updates`, open `ios/Supporting/Expo.plist` and change `EXUpdatesEnabled ` to `NO`; and for Android open `android/app/src/main/AndroidManifest.xml` and change `ENABLED` meta-data property to `false`.
 
 ## 📖 What's inside
 - [Expo Unimodules](https://github.com/expo/expo) - universal set of amazing libraries which are needed for every app.
+- [Expo Updates]() - continuous delivery tool maintained by Expo team and is part of Expo Ecosystem. Best alternative to CodePush.
 - [React Native Navigation](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of React hooks for React Native Navigation
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native
@@ -53,14 +72,13 @@ and pick your favourite state management tool (examples inside)
 ## 🧙‍♂️ Enhancements
 There are still some things I would like to add to the starter:
 - [Expo Notifications](https://docs.expo.io/versions/v38.0.0/sdk/notifications/).
-- Continous delivery via [Expo Updates](https://docs.expo.io/bare/installing-updates/).
 - Dark Mode support.
 - Localization via [i18next](https://github.com/i18next/i18next/).
 
 Feel free to open an issue for suggestions.
 
 ## ⚠️ Known issues (warnings)
-* Splash screen warning from Expo. It happens due to absent of Splash screen but it will be added soon. If you would like to turn it off, you can use `console.disableYellowBox = true`. If you would like to help integrating it, you can follow this [link]( https://github.com/expo/expo/tree/master/packages/expo-splash-screen).
+* Expo splash screen. There is some weird behavior using `expo-splash-screen` with `react-native-navigation`. That is why I have excluded this module from `react-native-unimodules`.
 
 Feel free to open an issue for any other warning or problems.
 

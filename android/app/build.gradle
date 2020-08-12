@@ -1,5 +1,4 @@
 apply plugin: "com.android.application"
-apply from: '../../node_modules/react-native-unimodules/gradle.groovy'
 
 import com.android.build.OutputFile
 
@@ -79,10 +78,14 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
+//        bundleInDebug: true, // only for testing expo-updates
+        bundleInRelease: true,
+        enableHermes: false,  // clean and rebuild if changing
 ]
 
+apply from: '../../node_modules/react-native-unimodules/gradle.groovy'
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/expo-updates/scripts/create-manifest-android.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -190,7 +193,7 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
-    addUnimodulesDependencies()
+    addUnimodulesDependencies([exclude: ['expo-splash-screen']])
     implementation 'com.android.support:multidex:1.0.3'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {

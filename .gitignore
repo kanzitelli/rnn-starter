@@ -30,6 +30,10 @@ local.properties
 *.iml
 *.hprof
 
+# Expo
+#
+.expo
+
 # node.js
 #
 node_modules/
