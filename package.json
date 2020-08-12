@@ -6,9 +6,10 @@
   "author": "Batyr Kanzitdinov <say_hi@batyr.io>",
   "homepage": "https://github.com/kanzitelli/expo-rnn-starter",
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "android": "npx react-native run-android",
+    "ios": "npx react-native run-ios",
+    "ios:pods": "npx pod-install",
+    "start": "npx react-native start",
     "test": "jest"
   },
   "dependencies": {
