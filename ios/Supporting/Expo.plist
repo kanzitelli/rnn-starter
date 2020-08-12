@@ -1,0 +1,4 @@
+{
+	EXUpdatesURL = "https://exp.host/@my-expo-username/my-app";
+	EXUpdatesSDKVersion = "38.0.0";
+}
