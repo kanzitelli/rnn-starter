@@ -1,7 +1,7 @@
 {
   "name": "expo-rnn-starter",
   "version": "3.0.0",
-  "description": "Expo + React Native Navigation starter 🖖👽🖖",
+  "description": "👽 Expo + React Native Navigation starter with Unimodules & Expo-Updates preconfigured and ready to use!",
   "license": "MIT",
   "author": "Batyr Kanzitdinov <say_hi@batyr.io>",
   "homepage": "https://github.com/kanzitelli/expo-rnn-starter",
