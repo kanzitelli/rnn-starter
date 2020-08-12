@@ -18,6 +18,9 @@
         <meta-data
           android:name="expo.modules.updates.EXPO_SDK_VERSION"
           android:value="38.0.0" />
+        <meta-data
+          android:name="expo.modules.updates.ENABLED"
+          android:value="true"/>
 
         <activity
           android:name=".MainActivity"
