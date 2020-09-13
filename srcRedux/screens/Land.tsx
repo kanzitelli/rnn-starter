@@ -92,7 +92,7 @@ Land.options = (passProps: HomeLandPassProps) => ({
             text: `r/${passProps.title}`,
         },
         largeTitle: {
-            visible: true,
+            visible: false,
         },
     },
 });
