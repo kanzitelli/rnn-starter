@@ -131,7 +131,7 @@ Home.options = () => ({
             text: 'Subreddits',
         },
         largeTitle: {
-            visible: true,
+            visible: false,
         },
         rightButtons: [{
             id: 'hi_button_id',
