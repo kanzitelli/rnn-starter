@@ -101,7 +101,7 @@ static void InitializeFlipper(UIApplication *application) {
   appController.bridge = [self initializeReactNativeApp];
   
 #ifndef DEBUG
-  [ReactNativeNavigation bootstrap:[self sourceURLForBridge:appController.bridge] launchOptions:self.launchOptions bridgeManagerDelegate:self];
+  [ReactNativeNavigation bootstrapWithDelegate:self launchOptions:self.launchOptions];
 #endif
 }
 
