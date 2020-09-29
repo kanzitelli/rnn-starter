@@ -2712,10 +2712,10 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react-native@^0.63.20":
-  version "0.63.20"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.20.tgz#15ccf000bf849d867b15d14d2b4acc364fb7fa27"
-  integrity sha512-APnxRTDxbWw/IYjvwvXkhYJiz1gahyVA579pJqAVsEfZ+ZUwUHZpWKnexobyH5NmRJHuA/8LrThyps/BW3SYXA==
+"@types/react-native@^0.63.23":
+  version "0.63.23"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.23.tgz#bc4617e5bbb1ac28cb5dbf7ad09cc49a2cce914c"
+  integrity sha512-4pWQpgyzX+vCEJDceW9Zsc8/SZtJrIUIw9lwYKeTWAtSHWdcRwUns2O/18L98WGo6NUNVdLzY59vOW8ZGWJxSA==
   dependencies:
     "@types/react" "*"
 
@@ -7958,10 +7958,10 @@ react-native-navigation-hooks@^6.2.0:
   dependencies:
     hoist-non-react-statics "3.3.2"
 
-react-native-navigation@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.0.0.tgz#5decd9f9dacc15d21f73f8b157b112513b47e381"
-  integrity sha512-6fcaHvGw0ALLa9ZcqPpCr3H4Ykbd1IsqjB3m9SeoQ4zKuf3r7DJTJsJnazcj6LZxjt5IiBDQr/GzhnZquGXjUA==
+react-native-navigation@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.1.0.tgz#05dbfc6b31dd6a8aa626a74b2f51e1cc031b230d"
+  integrity sha512-Ub5eegREee2kyI8OXAzPXAe9dJgVBpj8k3Ni4HfzA2D3+xVGwvskCmKkIJm2xU/i1GcM9TdzoloB1JHsAZl6Qw==
   dependencies:
     hoist-non-react-statics "3.x.x"
     lodash "4.17.x"
