@@ -4600,19 +4600,19 @@ expo-sqlite@~8.4.0:
     "@expo/websql" "^1.0.1"
     lodash "^4.17.15"
 
-expo-updates@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.3.3.tgz#0855ac8ccdc66e94b5fdbc09e04192570968f20b"
-  integrity sha512-8GIuxhS40Lj5J0fd7Kv8uhbAg6L4AzVVVKz0sdnaO7gO1Db9vSxgYfswb4NS5sXF9NEn/ReTJJJG09PnMdtZJw==
+expo-updates@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.3.4.tgz#6892bd244ec3f4fd07041d5a7175ab484c1c4d11"
+  integrity sha512-8/V0v1gp4elQvhBp8N40h+L0k5ldaHxmEKDJinQgn5NBi6YZ53MVNA3QjGhAfhKLUkrlCyaLt4RKUk5o1cvtZw==
   dependencies:
     "@expo/metro-config" "^0.1.16"
     fbemitter "^2.1.1"
     uuid "^3.4.0"
 
-expo@^39.0.2:
-  version "39.0.2"
-  resolved "https://registry.yarnpkg.com/expo/-/expo-39.0.2.tgz#81bbfe10ea3446c313e6b742689765fc213fe34d"
-  integrity sha512-WKSsyyv818wRLMxB8jOpuGzXtsh3ZMl/c3SfAb5hgVkaD/8NDqCOLJ/yGe0W64FLzOsTHh0QEM1cdyQirlbCYw==
+expo@^39.0.3:
+  version "39.0.3"
+  resolved "https://registry.yarnpkg.com/expo/-/expo-39.0.3.tgz#55d10609b2df9b8d511acb4f3e72e4dc162e6b27"
+  integrity sha512-pbLlkq43XDViEQpzgIW8hEPRibwjSml1uZQ3imPpCDfjMGlq7J6+IIN7q4kd+Hp+W0J6w6INYPR0E/dxdEBkSw==
   dependencies:
     "@babel/runtime" "^7.1.2"
     "@expo/vector-icons" "^10.0.2"
