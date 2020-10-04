@@ -34,7 +34,7 @@ PODS:
   - EXSQLite (8.4.0):
     - UMCore
     - UMFileSystemInterface
-  - EXUpdates (0.3.4):
+  - EXUpdates (0.3.5):
     - React
     - UMCore
   - FBLazyVector (0.63.2)
@@ -339,6 +339,35 @@ PODS:
     - React
   - RNGestureHandler (1.8.0):
     - React
+  - RNReanimated (2.0.0-alpha.7):
+    - DoubleConversion
+    - FBLazyVector
+    - FBReactNativeSpec
+    - Folly
+    - glog
+    - RCTRequired
+    - RCTTypeSafety
+    - React
+    - React-callinvoker
+    - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTActionSheet
+    - React-RCTAnimation
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - React-RCTVibration
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNVectorIcons (7.1.0):
     - React
   - UMAppLoader (1.3.0)
@@ -424,6 +453,7 @@ DEPENDENCIES:
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - UMAppLoader (from `../node_modules/unimodules-app-loader/ios`)
   - UMBarCodeScannerInterface (from `../node_modules/unimodules-barcode-scanner-interface/ios`)
@@ -536,6 +566,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   UMAppLoader:
@@ -583,7 +615,7 @@ SPEC CHECKSUMS:
   EXNetwork: 05c1b87ba7077cb3eea7a3968640e5007e32eb6b
   EXPermissions: 30cbe5b72bd209b65c00884180ad058a60bb413d
   EXSQLite: d0d8677c13e60d5db2812387f059c697be27d3fb
-  EXUpdates: 9ed0693ab1c8df9f0472cfb4549d5edccdf05849
+  EXUpdates: 74b39409f68eca207075d87b0077bdf37865a8bf
   FBLazyVector: 3ef4a7f62e7db01092f9d517d2ebc0d0677c4a37
   FBReactNativeSpec: dc7fa9088f0f2a998503a352b0554d69a4391c5a
   Flipper: 33585e2d9810fe5528346be33bcf71b37bb7ae13
@@ -619,6 +651,7 @@ SPEC CHECKSUMS:
   ReactNativeNavigation: 65025dab27b404053678593b2450ed7a022e3173
   RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
+  RNReanimated: c40c29429b22a1564e505b789132cfcef456c6bd
   RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
   UMAppLoader: 5db5dc03176c6238da9c8b3657a370137882a4ad
   UMBarCodeScannerInterface: 017672479f93de88d94c3a50dfb66b5348b65989
