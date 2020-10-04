@@ -14,7 +14,6 @@ const Screens = new Map<string, React.FC<any>>();
 
 Screens.set(Constants.ScreenNames.CounterScreen, CounterScreen);
 Screens.set(Constants.ScreenNames.ExpoScreen, ExpoScreen);
-Screens.set(Constants.ScreenNames.AboutScreen, CounterScreen);
 
 // Register screens
 Screens.forEach((C, key) => {
@@ -35,15 +34,13 @@ export const startApp = async () => {
   await hydrateStores();
 
   // getting icons for tabs as they have to be as image sources
-  const [tab1, tab2, tab3] = await Promise.all([
+  const [tab1, tab2] = await Promise.all([
     Ionicons.getImageSource('ios-duplicate-outline', 25),
     Ionicons.getImageSource('ios-rocket-outline', 25),
-    Ionicons.getImageSource('ios-information-circle-outline', 25),
   ]);
-  const [tab1Selected, tab2Selected, tab3Selected] = await Promise.all([
+  const [tab1Selected, tab2Selected] = await Promise.all([
     Ionicons.getImageSource('ios-duplicate', 25),
     Ionicons.getImageSource('ios-rocket', 25),
-    Ionicons.getImageSource('ios-information-circle', 25),
   ]);
 
   // settings default options for navigation, like colors
@@ -88,21 +85,6 @@ export const startApp = async () => {
                 text: Constants.BottomTabsTitles.tab2,
                 icon: tab2,
                 selectedIcon: tab2Selected,
-              },
-            },
-          },
-        }, {
-          stack: {
-            children: [{
-              component: {
-                name: Constants.ScreenNames.AboutScreen,
-              },
-            }],
-            options: {
-              bottomTab: {
-                text: Constants.BottomTabsTitles.tab3,
-                icon: tab3,
-                selectedIcon: tab3Selected,
               },
             },
           },

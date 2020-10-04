@@ -7,10 +7,8 @@ import {
     Platform,
 } from 'react-native';
 import { observer } from 'mobx-react';
-import Icon from 'react-native-vector-icons/AntDesign';
 import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks/dist/hooks';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { useStores } from '../store';
 import Constants from '../utils/constants';
