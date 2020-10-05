@@ -16,6 +16,7 @@ const Reanimated2: React.FC = () => {
     <View style={styles.container}>
       <Animated.View style={[styles.box, animatedStyles]} />
       <ButtonTitle
+        centered
         title={'Move'}
         onPress={() => {
           offset.value = withSpring(Math.random());
