@@ -5,11 +5,11 @@ import { create } from 'mobx-persist';
 import CounterStore from './counterStore';
 import UIStore from './uiStore';
 
-const stores = {
+export const stores = {
     counter: CounterStore,
     ui: UIStore,
 };
-
+// const f_stores = () => stores;
 const storeContext = React.createContext(stores);
 
 export const withStoreProvider = (C: React.FC) => (props: any) => {
