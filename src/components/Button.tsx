@@ -7,8 +7,11 @@ import {
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+import useStyles, { ThemedStylesFuncType } from '../utils/useStyles';
+
 type ButtonTitleProps = {
   title: string;
+  centered?: boolean;
   onPress: () => void;
 }
 
@@ -19,13 +22,16 @@ type ButtonIconProps = {
 
 export const ButtonTitle: React.FC<ButtonTitleProps> = ({
   title,
+  centered = false,
   onPress,
 }) => {
+  const styles = useStyles(_styles);
+
   return (
     <>
       <TouchableOpacity onPress={onPress}>
         <View style={styles.buttonContainer}>
-          <Text style={styles.text}>{title}</Text>
+          <Text style={[styles.text, centered ? { textAlign: 'center' } : {}]}>{title}</Text>
         </View>
       </TouchableOpacity>
     </>
@@ -36,6 +42,8 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   icon,
   onPress,
 }) => {
+  const styles = useStyles(_styles);
+
   return (
     <>
       <TouchableOpacity onPress={onPress}>
@@ -47,16 +55,17 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   )
 }
 
-const styles = StyleSheet.create({
+const _styles: ThemedStylesFuncType = theme => StyleSheet.create({
   buttonContainer: {
-    margin: 8,
+    margin: theme.sizes.s,
   },
   buttonIcon: {
     fontSize: 32,
+    color: theme.colors.text,
   },
   text: {
-    fontSize: 24,
-    margin: 8,
-    textAlign: 'center',
+    fontSize: 18,
+    margin: theme.sizes.s,
+    color: theme.colors.text,
   },
 });

@@ -1,6 +1,18 @@
-
 interface IStore {
   STORAGE_ID: string;
 }
 
-// export {}
+interface IService {
+  init: () => Promise<void>;
+}
+
+type ThemeNameType = 'dark' | 'light';
+
+type ThemeType = {
+  colors: any;
+  sizes: any;
+}
+
+type ThemesType = {
+  [key in ThemeNameType]: ThemeType;
+};
