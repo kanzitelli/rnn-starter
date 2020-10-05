@@ -14,14 +14,19 @@ import { Constants as ExpoConstants } from 'react-native-unimodules';
 import * as Network from 'expo-network';
 
 import Constants from '../utils/constants';
-import { useStores } from '../store';
+import { useStores } from '../stores';
+import { useServices } from '../services';
 import Reanimated2 from '../components/Reanimated2';
+import { ButtonTitle } from '../components/Button';
+import useStyles, { ThemedStylesFuncType } from '../utils/useStyles';
 
 
 const ExpoScreen: NavigationFunctionComponent = observer(({
   componentId,
 }) => {
   const { ui } = useStores();
+  const { navigation } = useServices();
+  const styles = useStyles(_styles);
 
   useNavigationComponentDidAppear(() => {
     getNetworkType();
@@ -32,9 +37,7 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
       const networkState = await Network.getNetworkStateAsync();
 
       ui.networkType = networkState.type;
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) { }
   }
 
   return (
@@ -43,6 +46,7 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
         <Text style={styles.header}>
           { 'From Expo SDK' }
         </Text>
+
         <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
         <Text style={styles.text}>Network type: {ui.networkType}</Text>
       </View>
@@ -54,31 +58,53 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
 
         <Reanimated2 />
       </View>
+
+      <View style={styles.section}>
+        <Text style={styles.header}>
+          { 'Navigation' }
+        </Text>
+
+        <ButtonTitle
+          title={'Push this screen again'}
+          onPress={() => navigation.pushExpo(componentId)}
+        />
+        <ButtonTitle
+          title={'Show it as a modal'}
+          onPress={() => navigation.showExpo()}
+        />
+        <ButtonTitle
+          title={'Close modal'}
+          onPress={() => navigation.dismissModal(componentId)}
+        />
+      </View>
     </SafeAreaView>
   );
 });
 
-const styles = StyleSheet.create({
+const _styles: ThemedStylesFuncType = theme => StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: theme.colors.bg,
   },
   section: {
-    padding: 16,
+    padding: theme.sizes.m,
   },
   header: {
-    fontSize: 32,
+    fontSize: 26,
     fontWeight: 'bold',
+    color: theme.colors.text,
   },
   text: {
-    fontSize: 22,
-    margin: 8,
+    fontSize: 18,
+    margin: theme.sizes.s,
+    color: theme.colors.text,
   }
 });
 
 ExpoScreen.options = props => ({
   topBar: {
     title: {
-      text: 'Expo',
+      text: Constants.ScreenTitles.ExpoScreen,
     },
   },
 });

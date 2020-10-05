@@ -10,14 +10,16 @@ import { observer } from 'mobx-react';
 import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks/dist/hooks';
 
-import { useStores } from '../store';
+import { useStores } from '../stores';
 import Constants from '../utils/constants';
 import { ButtonIcon } from '../components/Button';
+import useStyles, { ThemedStylesFuncType } from '../utils/useStyles';
 
 const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,
 }) => {
   const { counter } = useStores();
+  const styles = useStyles(_styles);
 
   useNavigationButtonPress(counter.decrement, componentId, Constants.CounterScreen.decButtonId);
   useNavigationButtonPress(counter.increment, componentId, Constants.CounterScreen.incButtonId);
@@ -35,14 +37,15 @@ const CounterScreen: NavigationFunctionComponent = observer(({
   );
 });
 
-const styles = StyleSheet.create({
+const _styles: ThemedStylesFuncType = theme => StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: theme.colors.bg,
   },
   counterContainer: {
-    padding: 8,
+    padding: theme.sizes.s,
     flexDirection: 'row',
     width: '80%',
     justifyContent: 'space-between',
@@ -50,8 +53,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 80,
-    margin: 8,
+    margin: theme.sizes.s,
     textAlign: 'center',
+    color: theme.colors.text,
   },
 });
 
@@ -72,7 +76,7 @@ CounterScreen.options = props => ({
         text: Constants.CounterScreen.decButtonTitle,
       }],
     title: {
-      text: 'Counter',
+      text: Constants.ScreenTitles.CounterScreen,
     },
   },
 });
