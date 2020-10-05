@@ -1,14 +1,14 @@
 import { Navigation } from 'react-native-navigation';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import 'mobx-react-lite/batchingForReactNative';
 
 import Constants from './utils/constants';
 
 import CounterScreen from './screens/CounterScreen';
 import ExpoScreen from './screens/ExpoScreen';
 
-import { withStoreProvider, hydrateStores } from './store';
+import { withStoreProvider, hydrateStores } from './stores';
+import { withServicesProvider, initServices } from './services';
 
 const Screens = new Map<string, React.FC<any>>();
 
@@ -21,7 +21,8 @@ Screens.forEach((C, key) => {
     key,
     () =>
       gestureHandlerRootHOC(
-        withStoreProvider(C)),
+        withStoreProvider(
+          withServicesProvider(C))),
     () => C,
   );
 });
@@ -33,6 +34,9 @@ export const startApp = async () => {
   // rehydrate stores
   await hydrateStores();
 
+  // init services
+  await initServices();
+
   // getting icons for tabs as they have to be as image sources
   const [tab1, tab2] = await Promise.all([
     Ionicons.getImageSource('ios-duplicate-outline', 25),
@@ -42,18 +46,6 @@ export const startApp = async () => {
     Ionicons.getImageSource('ios-duplicate', 25),
     Ionicons.getImageSource('ios-rocket', 25),
   ]);
-
-  // settings default options for navigation, like colors
-  Navigation.setDefaultOptions({
-    layout: {
-      orientation: ['portrait'],
-      // backgroundColor: 'black',
-      // componentBackgroundColor: 'black',
-    },
-    bottomTabs: {
-      titleDisplayMode: 'alwaysShow',
-    }
-  });
 
   Navigation.setRoot({
     root: {
@@ -70,6 +62,10 @@ export const startApp = async () => {
                 text: Constants.BottomTabsTitles.tab1,
                 icon: tab1,
                 selectedIcon: tab1Selected,
+                iconColor: Constants.colors.blue,
+                textColor: Constants.colors.blue,
+                selectedIconColor: Constants.colors.blue,
+                selectedTextColor: Constants.colors.blue,
               },
             },
           },
@@ -85,6 +81,10 @@ export const startApp = async () => {
                 text: Constants.BottomTabsTitles.tab2,
                 icon: tab2,
                 selectedIcon: tab2Selected,
+                iconColor: Constants.colors.blue,
+                textColor: Constants.colors.blue,
+                selectedIconColor: Constants.colors.blue,
+                selectedTextColor: Constants.colors.blue,
               },
             },
           },
