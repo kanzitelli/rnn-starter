@@ -1,4 +1,4 @@
-<img src="https://i.postimg.cc/Vvv1X3hy/image1.png" width="100%" title="Logo">
+<img src="https://i.postimg.cc/Qx2m8TkP/ezgif-com-optimize.gif" width="100%" title="Logo">
 
 ## Table of contents
 - [🦥 Motivation](#motivation)
