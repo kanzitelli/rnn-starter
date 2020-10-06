@@ -16,3 +16,10 @@ type ThemeType = {
 type ThemesType = {
   [key in ThemeNameType]: ThemeType;
 };
+
+type ThemedStylesFuncType<T> = (theme: ThemeType) => T;
+
+type UseStylesOptionsType = {
+  normalize?: boolean;
+  darkmode?: boolean;
+}
