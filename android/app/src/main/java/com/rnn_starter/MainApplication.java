@@ -23,6 +23,9 @@ import android.net.Uri;
 import expo.modules.updates.UpdatesController;
 import javax.annotation.Nullable;
 
+import com.facebook.react.bridge.JSIModulePackage;
+import com.swmansion.reanimated.ReanimatedJSIModulePackage;
+
 public class MainApplication extends NavigationApplication {
 
   private final ReactModuleRegistryProvider mModuleRegistryProvider = new ReactModuleRegistryProvider(new BasePackageList().getPackageList(), null);
@@ -54,6 +57,11 @@ public class MainApplication extends NavigationApplication {
         @Override
         protected String getJSMainModuleName() {
             return "index";
+        }
+
+        @Override
+        protected JSIModulePackage getJSIModulePackage() {
+          return new ReanimatedJSIModulePackage();
         }
 
           @Override

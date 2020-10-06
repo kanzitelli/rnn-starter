@@ -773,7 +773,7 @@
     "@babel/helper-create-class-features-plugin" "^7.10.4"
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-proposal-decorators@^7.6.0":
+"@babel/plugin-proposal-decorators@^7.10.5", "@babel/plugin-proposal-decorators@^7.6.0":
   version "7.10.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.10.5.tgz#42898bba478bc4b1ae242a703a953a7ad350ffb4"
   integrity sha512-Sc5TAQSZuLzgY0664mMDn24Vw2P8g/VhyLyGPaWiHahhgLqeZvcGeyBZOrJW0oSKIK2mvQ22a1ENXBIQLhrEiQ==
@@ -1382,6 +1382,13 @@
   integrity sha512-nmE55cZBPFgUktbF2OuoZgPRadfxosLOpSgzEPYotKSls9J4pEPcembi8r78RU37Rph6UApCpNmsQA4QMWK9Ng==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
+
+"@babel/plugin-transform-object-assign@^7.10.4":
+  version "7.10.4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-object-assign/-/plugin-transform-object-assign-7.10.4.tgz#f7c8f54ce8052ccd8b9da9b3358848423221c338"
+  integrity sha512-6zccDhYEICfMeQqIjuY5G09/yhKzG30DKHJeYBQUHIsJH7c2jXSGvgwRalufLAXAq432OSlsEfAOLlzEsQzxVw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.10.4"
 
 "@babel/plugin-transform-object-super@^7.0.0":
   version "7.5.5"
@@ -4600,10 +4607,10 @@ expo-sqlite@~8.4.0:
     "@expo/websql" "^1.0.1"
     lodash "^4.17.15"
 
-expo-updates@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.3.4.tgz#6892bd244ec3f4fd07041d5a7175ab484c1c4d11"
-  integrity sha512-8/V0v1gp4elQvhBp8N40h+L0k5ldaHxmEKDJinQgn5NBi6YZ53MVNA3QjGhAfhKLUkrlCyaLt4RKUk5o1cvtZw==
+expo-updates@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.3.5.tgz#cd9aafeb5cbe16399df7d39243d00d330d99e674"
+  integrity sha512-O+W0MfDZPhhCYKFtLL85ifd+YAm3rFKALWzmyKOSGBb/L+8CBPQsbbB3mdvji0V2NCqq0+jrBvSCmNa5LRD41w==
   dependencies:
     "@expo/metro-config" "^0.1.16"
     fbemitter "^2.1.1"
@@ -7125,27 +7132,34 @@ mkdirp@^0.5.3:
   dependencies:
     minimist "^1.2.5"
 
-mobx-react-lite@>=2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-2.2.1.tgz#9c05dd799005d29ec1671ae86ca30b3ab5411055"
-  integrity sha512-SxOuV7Q1MLdj9uRUG8N1x9lBa4cS9c+YwlcrvrBVuCTlNrgRrrHuydfBHW/0f3pALhvGhcg+JEvf1gMWOuej4A==
-
-mobx-react@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-6.3.0.tgz#7d11799f988bbdadc49e725081993b18baa20329"
-  integrity sha512-C14yya2nqEBRSEiJjPkhoWJLlV8pcCX3m2JRV7w1KivwANJqipoiPx9UMH4pm6QNMbqDdvJqoyl+LqNu9AhvEQ==
+mobx-persist@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/mobx-persist/-/mobx-persist-0.4.1.tgz#fe5790eda04e0ee0b91c512d1347104e09363f9a"
+  integrity sha512-cPxVuZTY5neesxOV/Z25SF4+/NbC6wfHOe9HT5XoSEkAALNxNE41yDK48peJQ3iK14m0G2ywQRklCXeV3wftnQ==
   dependencies:
-    mobx-react-lite ">=2.2.0"
+    serializr "^1.1.11"
+
+mobx-react-lite@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-3.0.0.tgz#f39b1cb23262ce539829d47217551e04bf14a8b7"
+  integrity sha512-SJgrTD9mfClFOsamB+0y6zjteSMr4gkp9usnpIeEi8E+lW3lMgDa3hnD4PJgLGoENpJ8/9OmO3vrkA50SNy0mw==
+
+mobx-react@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-7.0.0.tgz#c2eb0c3f79ade93ffb07b1ffa07cbaeb5f04e9b6"
+  integrity sha512-yxbTG+ovn/GbgF3+QdQahkL5sXiITtwvkoXM6PNqd0V4jvO53cnr/YM4PYuA+0Ig95IW1nojA3qViJx9ufJm6w==
+  dependencies:
+    mobx-react-lite "^3.0.0"
 
 mobx-state-tree@^3.17.2:
   version "3.17.2"
   resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-3.17.2.tgz#130ab4d450fc4dd6e2571b7385af1350c82def37"
   integrity sha512-X0+xO7yEvBvPmLU2Z6cp81sD0xQaMXgLD4lGZoKSasOhNJSQPyKlu/LFxJTS6Wgw7J3gkWq9MMfQ4pO6wGMVfw==
 
-mobx@^5.15.7:
-  version "5.15.7"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.15.7.tgz#b9a5f2b6251f5d96980d13c78e9b5d8d4ce22665"
-  integrity sha512-wyM3FghTkhmC+hQjyPGGFdpehrcX1KOXsDuERhfK2YbJemkUhEB+6wzEN639T21onxlfYBmriA1PFnvxTUhcKw==
+mobx@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.0.1.tgz#ec23520848527bf7834d7b4c0b54b2a8eb6e7c14"
+  integrity sha512-Pk6uJXZ34yqd661yRmS6z/9avm4FOGXpFpVjnEfiYYOsZXnAxv1fpYjxTCEZ9tuwk0Xe1qnUUlgm+rJtGe0YJA==
 
 ms@2.0.0:
   version "2.0.0"
@@ -7941,6 +7955,11 @@ react-lifecycles-compat@2.0.0:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-2.0.0.tgz#71d9c4cde47114c4102454f76da055c2bc48c948"
   integrity sha512-txfpPCQYiazVdcbMRhatqWKcAxJweUu2wDXvts5/7Wyp6+Y9cHojqXHsLPEckzutfHlxZhG8Oiundbmp8Fd6eQ==
 
+react-native-device-info@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-6.2.0.tgz#6eda29dee048b73b29b57b7ec0c21545bd89dada"
+  integrity sha512-UtAk/ZAdCVCepEmRNM/3Kx7dWbLwmEPh527HTjoQUQy1utpoXm3y4sYtCrP2tjczSIyeMs5nLP4Wf3c8bc0fwQ==
+
 react-native-gesture-handler@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.8.0.tgz#18f61f51da50320f938957b0ee79bc58f47449dc"
@@ -7968,6 +7987,15 @@ react-native-navigation@^7.1.0:
     prop-types "15.x.x"
     react-lifecycles-compat "2.0.0"
     tslib "1.9.3"
+
+react-native-reanimated@^2.0.0-alpha.7:
+  version "2.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.0.0-alpha.7.tgz#20b9852df6aeab9fc0efb938527bf47ae954370a"
+  integrity sha512-dAOkt087c3uSm9oTe8cDIKHbZ+D6X951OG/SWzGAOWaR9GH/JW5N++YjmxQX2IK1vFlYNCMfBnxjTuWT6QHfmQ==
+  dependencies:
+    "@babel/plugin-transform-object-assign" "^7.10.4"
+    fbjs "^1.0.0"
+    string-hash-64 "^1.0.3"
 
 react-native-safe-area-context@3.1.4:
   version "3.1.4"
@@ -8537,6 +8565,11 @@ serialize-error@^2.1.0:
   resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-2.1.0.tgz#50b679d5635cdf84667bdc8e59af4e5b81d5f60a"
   integrity sha1-ULZ51WNc34Rme9yOWa9OW4HV9go=
 
+serializr@^1.1.11:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/serializr/-/serializr-1.5.4.tgz#3ddf1cb7b4465c9c3f72bab0cbc41e09dbe50c33"
+  integrity sha512-ImLlkNfNSSv9d7Ah1j/yrPk1FHbRC1zkD7URcgx/8M1eYHGUxGf/Ig/d8ML04ifqN7QesyYKsfLYA4xjAVAR/g==
+
 serve-static@^1.13.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.14.1.tgz#666e636dc4f010f7ef29970a88a674320898b2f9"
@@ -8859,6 +8892,11 @@ stream-buffers@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/stream-buffers/-/stream-buffers-2.2.0.tgz#91d5f5130d1cef96dcfa7f726945188741d09ee4"
   integrity sha1-kdX1Ew0c75bc+n9yaUUYh0HQnuQ=
+
+string-hash-64@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/string-hash-64/-/string-hash-64-1.0.3.tgz#0deb56df58678640db5c479ccbbb597aaa0de322"
+  integrity sha512-D5OKWKvDhyVWWn2x5Y9b+37NUllks34q1dCDhk/vYcso9fmhs+Tl3KR/gE4v5UNj2UA35cnX4KdVVGkG1deKqw==
 
 string-length@^4.0.1:
   version "4.0.1"
