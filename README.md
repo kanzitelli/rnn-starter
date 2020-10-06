@@ -61,7 +61,7 @@ There are still some things I would like to add to the starter:
 Feel free to open an issue for suggestions.
 
 ## Known issues (warnings)
-- Expo splash screen. There is some weird behavior using `expo-splash-screen` with `react-native-navigation`. That is why this module has been excluded.
+- Expo splash screen. There is some weird behavior using `expo-splash-screen` with `react-native-navigation`. That is why this module has been excluded: [ios](https://github.com/kanzitelli/expo-rnn-starter/blob/master/ios/Podfile#L8) & [android](https://github.com/kanzitelli/expo-rnn-starter/blob/mater/android/app/build.gradle#L196).
 - Dark Mode in Android. React Native Navigation doesn't toggle navigation and tab bars' background color to dark when dark mode is toggled on. However it does so on iOS. As a workaround, we can subscribe to toggle events and then using `Navigation.mergeOptions` & `Navigation.setDefaultOptions` to change stylings for navigations and tab bars. Anyways, it needs some time to dive into it and come up with better solution.
 
 Feel free to open an issue for any other warning or problems.
