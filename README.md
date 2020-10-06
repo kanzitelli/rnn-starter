@@ -20,15 +20,20 @@ Big love and gratitude to all people who are working on React Native, Expo and R
 
 1. Clone the repo
 ```bash
-git clone https://github.com/kanzitelli/expo-rnn-starter.git new-project
+git clone https://github.com/kanzitelli/expo-rnn-starter.git <new-app> && cd <new-app>
 ```
 
-2. Install packages
+2. Remove `.git` file (if are not going to contribute)
 ```bash
-cd new-project && yarn && yarn ios:pods
+rm -rf .git
 ```
 
-3. Run it!
+3. Install packages
+```bash
+yarn && yarn ios:pods
+```
+
+4. Run it!
 ```bash
 yarn ios
 yarn android
@@ -36,7 +41,7 @@ yarn android
 
 👁‍🗨 If you are planning to use Expo modules, such as preconfigured `expo-updates` and others, or add new ones, what I strongly recommend, then proceed to [Expo Configuration](/EXPO_CONFIGURATION.md) and follow the steps carefully.
 
-If you would like to rename the app, you can use [react-native-rename](https://github.com/junedomingo/react-native-rename). Don't forget to run `yarn ios:pods` after the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
+🟢 If you would like to rename the app, you can use [react-native-rename-next](https://github.com/mayconmesquita/react-native-rename-next). Don't forget to run `yarn ios:pods` after the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
 
 ## What's inside
 - [Expo SDK](https://github.com/expo/expo) - universal set of amazing libraries (such as `expo-updates`) which are needed for building sustainable apps
