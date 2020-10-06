@@ -1,11 +1,11 @@
 <img src="https://i.postimg.cc/Vvv1X3hy/image1.png" width="100%" title="Logo">
 
 ## Table of contents
-[🦥 Motivation](#motivation)
-[🏃‍♂️ Getting Started](#getting-started)
-[📖 What's inside](#whats-inside)
-[🧙‍♂️ Enhancements](#enhancements)
-[⚠️ Known issues (warnings)](#known-issues-warnings)
+- [🦥 Motivation](#motivation)
+- [🏃‍♂️ Getting Started](#getting-started)
+- [📖 What's inside](#whats-inside)
+- [🧙‍♂️ Enhancements](#enhancements)
+- [⚠️ Known issues (warnings)](#known-issues-warnings)
 
 ##  Motivation
 1. I love [React Native](https://reactnative.dev/) 💚
