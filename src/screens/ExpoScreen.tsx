@@ -81,7 +81,7 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
   );
 });
 
-const _styles: ThemedStylesFuncType = theme => StyleSheet.create({
+const _styles = (theme: ThemeType) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.bg,

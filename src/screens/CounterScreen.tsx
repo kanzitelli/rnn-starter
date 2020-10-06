@@ -37,7 +37,7 @@ const CounterScreen: NavigationFunctionComponent = observer(({
   );
 });
 
-const _styles: ThemedStylesFuncType = theme => StyleSheet.create({
+const _styles = (theme: ThemeType) => StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',

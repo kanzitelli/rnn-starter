@@ -1,11 +1,11 @@
 import React from 'react';
 
 import NavigationService from './navigation';
-import DarkmodeService from './darkmode';
+// import DarkmodeService from './darkmode';
 
 export const services = {
   navigation: NavigationService,
-  // darkmode: DarkmodeService,
+  // darkmode: DarkmodeService, // not really needed
 };
 
 const servicesContext = React.createContext(services);

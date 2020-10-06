@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Appearance } from 'react-native';
+import { Appearance } from 'react-native';
 import Constants from './constants';
 
-export type ThemedStylesFuncType = (theme: ThemeType) => StyleSheet.NamedStyles<any>;
+export type ThemedStylesFuncType<T> = (theme: ThemeType) => T;
 
 // TODOs
-// [ ] add correct styles.[] behaviour in components
+// [X] add correct styles.[] behaviour in components
 // [ ] normalization of each number.
 // [ ] set or init function? so where we can set normalization and other options
 
@@ -35,7 +35,7 @@ export const generateThemeName = (): ThemeNameType => {
   return Appearance.getColorScheme() === 'dark' ? 'dark' : 'light';
 }
 
-const useStyles = (themedStylesFunc: ThemedStylesFuncType) => {
+function useStyles<T>(themedStylesFunc: ThemedStylesFuncType<T>) {
   const [themeName, setThemeName] = useState<ThemeNameType>(generateThemeName()); // here we should ger the mode
   const themedStyles = themedStylesFunc(generateTheme(themeName));
 
