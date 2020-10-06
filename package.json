@@ -10,7 +10,6 @@
     "android:release": "yarn android --variant release",
     "ios": "npx react-native run-ios",
     "ios:pods": "npx pod-install",
-    "ios:release": "yarn ios --variant release",
     "start": "npx react-native start",
     "test": "jest",
     "release": "dotenv npx release-it"
