@@ -7,7 +7,7 @@ import Constants from './utils/constants';
 import CounterScreen from './screens/CounterScreen';
 import ExpoScreen from './screens/ExpoScreen';
 
-import { withStoreProvider, hydrateStores } from './stores';
+import { withStoresProvider, hydrateStores } from './stores';
 import { withServicesProvider, initServices } from './services';
 import { setOptionsForUseStyles } from './utils/useStyles';
 
@@ -22,7 +22,7 @@ Screens.forEach((C, key) => {
     key,
     () =>
       gestureHandlerRootHOC(
-        withStoreProvider(
+        withStoresProvider(
           withServicesProvider(C))),
     () => C,
   );

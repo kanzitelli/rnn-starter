@@ -12,7 +12,7 @@ export const stores = {
 // const f_stores = () => stores;
 const storeContext = React.createContext(stores);
 
-export const withStoreProvider = (C: React.FC) => (props: any) => {
+export const withStoresProvider = (C: React.FC) => (props: any) => {
     return (
         <storeContext.Provider value={stores}>
             <C {...props} />
