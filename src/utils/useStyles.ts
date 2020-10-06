@@ -4,11 +4,6 @@ import { isTablet } from 'react-native-device-info';
 
 import Constants from './constants';
 
-// TODOs
-// [X] add correct styles.[] behaviour in components
-// [ ] normalization of each number.
-// [ ] set or init function? so where we can set normalization and other options
-
 const { colors, sizes } = Constants;
 let options: UseStylesOptionsType = {
   normalize: true,
@@ -109,9 +104,6 @@ const normalize = (
       w_value *= 2.5;
       h_value *= 2.5;
   }
-
-  // TODO
-  // and here we can check on stores.ui.app_scale (1..0.5)
 
   // based on iPhone 8's scale
   const wscale: number = SCREEN_WIDTH / w_value;
