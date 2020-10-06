@@ -337,6 +337,8 @@ PODS:
     - ReactNativeNavigation/Core (= 7.1.0)
   - RNCAsyncStorage (1.12.0):
     - React
+  - RNDeviceInfo (6.2.0):
+    - React-Core
   - RNGestureHandler (1.8.0):
     - React
   - RNReanimated (2.0.0-alpha.7):
@@ -452,6 +454,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -564,6 +567,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-navigation"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -650,6 +655,7 @@ SPEC CHECKSUMS:
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
   ReactNativeNavigation: 65025dab27b404053678593b2450ed7a022e3173
   RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
+  RNDeviceInfo: eb63f95c93ff1aae15353d113c130aebc6127915
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
   RNReanimated: c40c29429b22a1564e505b789132cfcef456c6bd
   RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
