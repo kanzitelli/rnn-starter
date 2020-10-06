@@ -1,8 +1,9 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action, makeObservable } from 'mobx';
 import { persist } from 'mobx-persist';
 
 class CounterStore implements IStore {
   STORAGE_ID = 'CounterStore';
+  constructor() { makeObservable(this) }
 
   @persist @observable value = 0;
 
