@@ -37,7 +37,7 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
     try {
       const networkState = await Network.getNetworkStateAsync();
 
-      ui.networkType = networkState.type;
+      ui.setNetworkType(networkState.type);
     } catch (e) { }
   }
 

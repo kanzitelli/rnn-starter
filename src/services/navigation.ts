@@ -4,7 +4,7 @@ import { stores } from '../stores';
 
 class NavigationService implements IService {
   init = async () => {
-    await this.setUpComponentIdListener();
+    await this.setComponentIdListener();
     await this.setDefaultOptions();
   }
 
@@ -39,9 +39,9 @@ class NavigationService implements IService {
   }
 
   // Listeners
-  private setUpComponentIdListener = async () => {
+  private setComponentIdListener = async () => {
     Navigation.events().registerComponentDidAppearListener(async e => {
-      stores.ui.componentId = e.componentId;
+      stores.ui.setComponentId(e.componentId);
     });
   }
 
