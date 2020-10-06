@@ -9,6 +9,7 @@ import ExpoScreen from './screens/ExpoScreen';
 
 import { withStoreProvider, hydrateStores } from './stores';
 import { withServicesProvider, initServices } from './services';
+import { setOptionsForUseStyles } from './utils/useStyles';
 
 const Screens = new Map<string, React.FC<any>>();
 
@@ -46,6 +47,12 @@ export const startApp = async () => {
     Ionicons.getImageSource('ios-duplicate', 25),
     Ionicons.getImageSource('ios-rocket', 25),
   ]);
+
+  // (optional) set options for useStyles
+  // setOptionsForUseStyles({
+  //   normalize: false,
+  //   darkmode: false,
+  // });
 
   Navigation.setRoot({
     root: {
