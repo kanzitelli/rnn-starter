@@ -13,7 +13,7 @@ import { useNavigationButtonPress } from 'react-native-navigation-hooks/dist/hoo
 import { useStores } from '../stores';
 import Constants from '../utils/constants';
 import { ButtonIcon } from '../components/Button';
-import useStyles, { ThemedStylesFuncType } from '../utils/useStyles';
+import useStyles from '../utils/useStyles';
 
 const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,
@@ -52,7 +52,7 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontSize: 80,
+    fontSize: 64,
     margin: theme.sizes.s,
     textAlign: 'center',
     color: theme.colors.text,

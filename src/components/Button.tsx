@@ -7,7 +7,7 @@ import {
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import useStyles, { ThemedStylesFuncType } from '../utils/useStyles';
+import useStyles from '../utils/useStyles';
 
 type ButtonTitleProps = {
   title: string;
@@ -55,12 +55,12 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   )
 }
 
-const _styles: ThemedStylesFuncType = theme => StyleSheet.create({
+const _styles = (theme: ThemeType) => StyleSheet.create({
   buttonContainer: {
     margin: theme.sizes.s,
   },
   buttonIcon: {
-    fontSize: 32,
+    fontSize: 28,
     color: theme.colors.text,
   },
   text: {

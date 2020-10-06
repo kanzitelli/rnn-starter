@@ -19,6 +19,7 @@ import { useServices } from '../services';
 import Reanimated2 from '../components/Reanimated2';
 import { ButtonTitle } from '../components/Button';
 import useStyles, { ThemedStylesFuncType } from '../utils/useStyles';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const ExpoScreen: NavigationFunctionComponent = observer(({
@@ -42,41 +43,43 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.section}>
-        <Text style={styles.header}>
-          { 'From Expo SDK' }
-        </Text>
+      <ScrollView>
+        <View style={styles.section}>
+          <Text style={styles.header}>
+            { 'From Expo SDK' }
+          </Text>
 
-        <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
-        <Text style={styles.text}>Network type: {ui.networkType}</Text>
-      </View>
+          <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
+          <Text style={styles.text}>Network type: {ui.networkType}</Text>
+        </View>
 
-      <View style={styles.section}>
-        <Text style={styles.header}>
-          { 'Reanimated 2' }
-        </Text>
+        <View style={styles.section}>
+          <Text style={styles.header}>
+            { 'Reanimated 2' }
+          </Text>
 
-        <Reanimated2 />
-      </View>
+          <Reanimated2 />
+        </View>
 
-      <View style={styles.section}>
-        <Text style={styles.header}>
-          { 'Navigation' }
-        </Text>
+        <View style={styles.section}>
+          <Text style={styles.header}>
+            { 'Navigation' }
+          </Text>
 
-        <ButtonTitle
-          title={'Push this screen again'}
-          onPress={() => navigation.pushExpo(componentId)}
-        />
-        <ButtonTitle
-          title={'Show it as a modal'}
-          onPress={() => navigation.showExpo()}
-        />
-        <ButtonTitle
-          title={'Close modal'}
-          onPress={() => navigation.dismissModal(componentId)}
-        />
-      </View>
+          <ButtonTitle
+            title={'Push this screen again'}
+            onPress={() => navigation.pushExpo(componentId)}
+          />
+          <ButtonTitle
+            title={'Show it as a modal'}
+            onPress={() => navigation.showExpo()}
+          />
+          <ButtonTitle
+            title={'Close modal'}
+            onPress={() => navigation.dismissModal(componentId)}
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 });
@@ -90,12 +93,12 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
     padding: theme.sizes.m,
   },
   header: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: 'bold',
     color: theme.colors.text,
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
     margin: theme.sizes.s,
     color: theme.colors.text,
   }
