@@ -6,6 +6,7 @@
 - [📖 What's inside](#whats-inside)
 - [🧙‍♂️ Enhancements](#enhancements)
 - [⚠️ Known issues (warnings)](#known-issues-warnings)
+- [⭕️ Limitations](#limitations)
 
 ##  Motivation
 1. I love [React Native](https://reactnative.dev/) 💚
@@ -61,7 +62,7 @@ yarn android
 There are still some things I would like to add to the starter:
 - 🔳 Dark Mode support.
 - ⬜️ Localization via [i18next](https://github.com/i18next/i18next/).
-- ⬜️ [Expo Notifications](https://docs.expo.io/versions/v39.0.0/sdk/notifications/).
+- ⬜️ Notifications (remote).
 
 Feel free to open an issue for suggestions.
 
@@ -70,6 +71,10 @@ Feel free to open an issue for suggestions.
 - Dark Mode in Android. React Native Navigation doesn't toggle navigation and tab bars' background color to dark when dark mode is toggled on. However it does so on iOS. As a workaround, we can subscribe to toggle events and then using `Navigation.mergeOptions` & `Navigation.setDefaultOptions` to change stylings for navigations and tab bars. Anyways, it needs some time to dive into it and come up with better solution.
 
 Feel free to open an issue for any other warning or problems.
+
+## Limitations
+- Apps bootstrapped from this starter won't be able to be run on web as Expo apps do. Theoretically, it is possible to create some sort of an adapter between `react-navigation` and `react-native-navigation`. Maybe there will be other issues, but would be cool to have this feature.
+- Apps bootstrapped from this starter won't be available through Expo app for iOS and Android as of differences in navigation approach. Theoretically, it is possible to create an app like Expo that will include `react-native-navigation` and somehow download needed bundles. Needs more research.
 
 ## License
 
