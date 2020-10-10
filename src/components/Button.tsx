@@ -25,7 +25,7 @@ export const ButtonTitle: React.FC<ButtonTitleProps> = ({
   centered = false,
   onPress,
 }) => {
-  const styles = useStyles(_styles);
+  const { styles } = useStyles(_styles);
 
   return (
     <>
@@ -42,7 +42,7 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   icon,
   onPress,
 }) => {
-  const styles = useStyles(_styles);
+  const { styles } = useStyles(_styles);
 
   return (
     <>

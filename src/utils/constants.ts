@@ -1,7 +1,11 @@
+const prefix = 'rnn_starter';
+
 class Contants {
   ScreenNames = {
-    CounterScreen: 'rnn_starter.CounterScreen',
-    ExpoScreen: 'rnn_starter.ExpoScreen',
+    CounterScreen: `${prefix}.CounterScreen`,
+    ExpoScreen: `${prefix}.ExpoScreen`,
+
+    ExampleScreen: `${prefix}.ExampleScreen`,
   }
 
   BottomTabsTitles = {
@@ -12,6 +16,8 @@ class Contants {
   ScreenTitles = {
     CounterScreen: 'Counter',
     ExpoScreen: 'Expo',
+
+    ExampleScreen: 'Example',
   }
 
   CounterScreen = {

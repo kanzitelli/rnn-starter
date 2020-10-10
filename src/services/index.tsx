@@ -1,11 +1,9 @@
 import React from 'react';
 
 import NavigationService from './navigation';
-// import DarkmodeService from './darkmode';
 
 export const services = {
   navigation: NavigationService,
-  // darkmode: DarkmodeService, // not really needed
 };
 
 const servicesContext = React.createContext(services);
@@ -24,5 +22,4 @@ export const useServices = () => React.useContext(servicesContext);
 // you can use services for having one for metrics or handling navigation actions
 export const initServices = async () => {
   await services.navigation.init();
-  // await services.darkmode.init();
 };
