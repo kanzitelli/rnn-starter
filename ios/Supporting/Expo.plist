@@ -1,7 +1,16 @@
-{
-	EXUpdatesURL = "https://exp.host/@my-expo-username/my-app-slug";
-	EXUpdatesSDKVersion = "39.0.0";
-	EXUpdatesEnabled = "NO";
-	EXUpdatesCheckOnLaunch = "ALWAYS";
-	EXUpdatesLaunchWaitMs = 0;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EXUpdatesCheckOnLaunch</key>
+	<string>ALWAYS</string>
+	<key>EXUpdatesEnabled</key>
+	<false/>
+	<key>EXUpdatesLaunchWaitMs</key>
+	<integer>0</integer>
+	<key>EXUpdatesSDKVersion</key>
+	<string>39.0.0</string>
+	<key>EXUpdatesURL</key>
+	<string>https://exp.host/@my-expo-username/my-app-slug</string>
+</dict>
+</plist>
