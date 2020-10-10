@@ -24,7 +24,7 @@ Big love and gratitude to all people who are working on React Native, Expo and R
 git clone https://github.com/kanzitelli/expo-rnn-starter.git <new-app> && cd <new-app>
 ```
 
-2. Remove `.git` file (if are not going to contribute)
+2. Remove `.git` file (if are not planning to contribute)
 ```bash
 rm -rf .git
 ```
