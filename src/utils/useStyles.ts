@@ -44,11 +44,13 @@ export const setOptionsForUseStyles = (_options: UseStylesOptionsType) => {
 
 function useStyles<T>(themedStylesFunc: ThemedStylesFuncType<T>) {
   const [themeName, setThemeName] = useState<ThemeNameType>(generateThemeName()); // here we should ger the mode
-  let themedStyles = themedStylesFunc(generateTheme(themeName));
+  const theme = generateTheme(themeName);
+  let themedStyles = themedStylesFunc(theme);
 
   useEffect(() => {
     const onModeChange = (_cs: any) => {
-      const cs = _cs.colorScheme as ThemeNameType;
+      // const cs = _cs.colorScheme as ThemeNameType; // somehow _cs.colorScheme gives wrong value when app goes to background mode
+      const cs = Appearance.getColorScheme() as ThemeNameType;
 
       setThemeName(cs);
     };
@@ -86,7 +88,10 @@ function useStyles<T>(themedStylesFunc: ThemedStylesFuncType<T>) {
     }
   }
 
-  return themedStyles;
+  return {
+    styles: themedStyles,
+    theme,
+  };
 }
 
 const normalize = (

@@ -19,7 +19,7 @@ const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,
 }) => {
   const { counter } = useStores();
-  const styles = useStyles(_styles);
+  const { styles } = useStyles(_styles);
 
   useNavigationButtonPress(counter.decrement, componentId, Constants.CounterScreen.decButtonId);
   useNavigationButtonPress(counter.increment, componentId, Constants.CounterScreen.incButtonId);

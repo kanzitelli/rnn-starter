@@ -18,7 +18,7 @@ import { useStores } from '../stores';
 import { useServices } from '../services';
 import Reanimated2 from '../components/Reanimated2';
 import { ButtonTitle } from '../components/Button';
-import useStyles, { ThemedStylesFuncType } from '../utils/useStyles';
+import useStyles from '../utils/useStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 
 
@@ -27,7 +27,7 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
 }) => {
   const { ui } = useStores();
   const { navigation } = useServices();
-  const styles = useStyles(_styles);
+  const { styles } = useStyles(_styles);
 
   useNavigationComponentDidAppear(() => {
     getNetworkType();
