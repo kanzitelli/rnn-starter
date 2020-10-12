@@ -29,6 +29,7 @@ class Contants {
 
   // Styles
   colors = {
+    main: '#4d7198',
     black: '#000',
     white: '#fff',
     lightGrey: '#dcdde1',

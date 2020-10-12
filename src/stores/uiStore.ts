@@ -1,7 +1,6 @@
 import { observable, action, makeObservable } from 'mobx';
 
-class UIStore implements IStore {
-  STORAGE_ID = 'UIStore';
+class UIStore {
   constructor() { makeObservable(this) }
 
   @observable networkType: string | undefined = '';

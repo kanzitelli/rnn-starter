@@ -1,9 +1,13 @@
 import { observable, action, makeObservable } from 'mobx';
 import { persist } from 'mobx-persist';
+import { HydratedStore } from '../utils/classes';
 
-class CounterStore implements IStore {
-  STORAGE_ID = 'CounterStore';
-  constructor() { makeObservable(this) }
+class CounterStore extends HydratedStore {
+  constructor() {
+    super('CounterStore'); // Storage ID
+
+    makeObservable(this);
+  }
 
   @persist @observable value = 0;
 

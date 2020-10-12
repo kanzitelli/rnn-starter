@@ -1,5 +1,6 @@
-interface IStore {
+interface IHydratedStore {
   STORAGE_ID: string;
+  hydrate: () => Promise<any>;
 }
 
 interface IService {
