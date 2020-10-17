@@ -24,9 +24,9 @@ class NavigationService implements IService {
     this.show(Constants.ScreenNames.ExpoScreen);
   }
 
-  private push = (cId: string, cName: string) => {
+  private push<T>(cId: string, cName: string, passProps?: T) {
     Navigation.push(cId, {
-      component:{name: cName}
+      component:{name: cName, passProps},
     })
   }
 
