@@ -51,45 +51,43 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
   }
 
   return contentHidden ? null : (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.section}>
-          <Text style={styles.header}>
-            { 'From Expo SDK' }
-          </Text>
+    <ScrollView>
+      <View style={styles.section}>
+        <Text style={styles.header}>
+          { 'From Expo SDK' }
+        </Text>
 
-          <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
-          <Text style={styles.text}>Network type: {ui.networkType}</Text>
-        </View>
+        <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
+        <Text style={styles.text}>Network type: {ui.networkType}</Text>
+      </View>
 
-        <View style={styles.section}>
-          <Text style={styles.header}>
-            { 'Reanimated 2' }
-          </Text>
+      <View style={styles.section}>
+        <Text style={styles.header}>
+          { 'Reanimated 2' }
+        </Text>
 
-          <Reanimated2 />
-        </View>
+        <Reanimated2 />
+      </View>
 
-        <View style={styles.section}>
-          <Text style={styles.header}>
-            { 'Navigation' }
-          </Text>
+      <View style={styles.section}>
+        <Text style={styles.header}>
+          { 'Navigation' }
+        </Text>
 
-          <ButtonTitle
-            title={'Push this screen again'}
-            onPress={() => navigation.pushExpo(componentId)}
-          />
-          <ButtonTitle
-            title={'Show it as a modal'}
-            onPress={() => navigation.showExpo()}
-          />
-          <ButtonTitle
-            title={'Close modal'}
-            onPress={() => navigation.dismissModal(componentId)}
-          />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        <ButtonTitle
+          title={'Push this screen again'}
+          onPress={() => navigation.pushExpo(componentId)}
+        />
+        <ButtonTitle
+          title={'Show it as a modal'}
+          onPress={() => navigation.showExpo()}
+        />
+        <ButtonTitle
+          title={'Close modal'}
+          onPress={() => navigation.dismissModal(componentId)}
+        />
+      </View>
+    </ScrollView>
   );
 });
 
