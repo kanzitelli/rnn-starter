@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     SafeAreaView,
     Text,
     View,
     StyleSheet,
-    Platform,
 } from 'react-native';
 import { observer } from 'mobx-react';
 import { NavigationFunctionComponent } from 'react-native-navigation';
@@ -23,18 +22,23 @@ import useStyles from '../utils/useStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 
 type ExpoScreenProps = {
-  hackLargeTitleIOS14: boolean;
+  hackForTabScreenLargeTitleIOS14: boolean; // large title collapsed if a screen is on one of the tab but first
 }
 
 const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
   componentId,
-  hackLargeTitleIOS14 = false,
+  hackForTabScreenLargeTitleIOS14 = false,
 }) => {
   const { ui } = useStores();
   const { navigation } = useServices();
   const { styles } = useStyles(_styles);
 
-  const [contentHidden, setContentHidden] = useState(Platform.OS === 'ios' && hackLargeTitleIOS14);
+  const [safeAreaHidden, setSafeAreaHidden] = useState(false); // hack for Large Title + ScrollView
+  const [contentHidden, setContentHidden] = useState(hackForTabScreenLargeTitleIOS14); // hack for Large Title iOS14
+
+  useEffect(() => {
+    setTimeout(() => setSafeAreaHidden(true), 500);
+  }, [componentId]);
 
   useNavigationComponentDidAppear(() => {
     getNetworkType();
@@ -50,44 +54,62 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
     } catch (e) { }
   }
 
-  return contentHidden ? null : (
-    <ScrollView>
-      <View style={styles.section}>
-        <Text style={styles.header}>
-          { 'From Expo SDK' }
-        </Text>
+  const Content = () => {
+    const content = (
+      <ScrollView>
+        <View style={styles.section}>
+          <Text style={styles.header}>
+            { 'From Expo SDK' }
+          </Text>
 
-        <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
-        <Text style={styles.text}>Network type: {ui.networkType}</Text>
-      </View>
+          <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
+          <Text style={styles.text}>Network type: {ui.networkType}</Text>
+        </View>
 
-      <View style={styles.section}>
-        <Text style={styles.header}>
-          { 'Reanimated 2' }
-        </Text>
+        <View style={styles.section}>
+          <Text style={styles.header}>
+            { 'Reanimated 2' }
+          </Text>
 
-        <Reanimated2 />
-      </View>
+          <Reanimated2 />
+        </View>
 
-      <View style={styles.section}>
-        <Text style={styles.header}>
-          { 'Navigation' }
-        </Text>
+        <View style={styles.section}>
+          <Text style={styles.header}>
+            { 'Navigation' }
+          </Text>
 
-        <ButtonTitle
-          title={'Push this screen again'}
-          onPress={() => navigation.pushExpo(componentId)}
-        />
-        <ButtonTitle
-          title={'Show it as a modal'}
-          onPress={() => navigation.showExpo()}
-        />
-        <ButtonTitle
-          title={'Close modal'}
-          onPress={() => navigation.dismissModal(componentId)}
-        />
-      </View>
-    </ScrollView>
+          <ButtonTitle
+            title={'Push this screen again'}
+            onPress={() => navigation.pushExpo(componentId)}
+          />
+          <ButtonTitle
+            title={'Show it as a modal'}
+            onPress={() => navigation.showExpo()}
+          />
+          <ButtonTitle
+            title={'Close modal'}
+            onPress={() => navigation.dismissModal(componentId)}
+          />
+        </View>
+      </ScrollView>
+    );
+
+    return (
+      safeAreaHidden
+        ? content
+        : (
+          <SafeAreaView>
+            { content }
+          </SafeAreaView>
+        )
+    );
+  }
+
+  return (
+    contentHidden
+      ? <SafeAreaView />
+      : <Content />
   );
 });
 

@@ -78,7 +78,7 @@ export const startApp = async () => {
               component: {
                 name: Constants.ScreenNames.ExpoScreen,
                 passProps: {
-                  hackLargeTitleIOS14: true,
+                  hackForTabScreenLargeTitleIOS14: true,
                 }
               },
             }],
