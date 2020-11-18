@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     Text,
     View,
     StyleSheet,
+    Platform,
 } from 'react-native';
 import { observer } from 'mobx-react';
 import { NavigationFunctionComponent } from 'react-native-navigation';
@@ -21,16 +22,24 @@ import { ButtonTitle } from '../components/Button';
 import useStyles from '../utils/useStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 
+type ExpoScreenProps = {
+  hackLargeTitleIOS14: boolean;
+}
 
-const ExpoScreen: NavigationFunctionComponent = observer(({
+const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
   componentId,
+  hackLargeTitleIOS14 = false,
 }) => {
   const { ui } = useStores();
   const { navigation } = useServices();
   const { styles } = useStyles(_styles);
 
+  const [contentHidden, setContentHidden] = useState(Platform.OS === 'ios' && hackLargeTitleIOS14);
+
   useNavigationComponentDidAppear(() => {
     getNetworkType();
+
+    setContentHidden(false);
   }, componentId);
 
   const getNetworkType = async () => {
@@ -41,7 +50,7 @@ const ExpoScreen: NavigationFunctionComponent = observer(({
     } catch (e) { }
   }
 
-  return (
+  return contentHidden ? null : (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.section}>
@@ -109,6 +118,9 @@ ExpoScreen.options = props => ({
     title: {
       text: Constants.ScreenTitles.ExpoScreen,
     },
+    largeTitle: {
+      visible: true,
+    }
   },
 });
 

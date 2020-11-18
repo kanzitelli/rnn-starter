@@ -78,6 +78,9 @@ CounterScreen.options = props => ({
     title: {
       text: Constants.ScreenTitles.CounterScreen,
     },
+    largeTitle: {
+      visible: true,
+    },
   },
 });
 
