@@ -12,24 +12,22 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme">
 
-        <meta-data
-          android:name="expo.modules.updates.EXPO_UPDATE_URL"
-          android:value="https://exp.host/@my-expo-username/my-app-slug" />
-        <meta-data
-          android:name="expo.modules.updates.EXPO_SDK_VERSION"
-          android:value="39.0.0" />
+        <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="https://exp.host/@username/app-slug" />
+        <meta-data android:name="expo.modules.updates.EXPO_SDK_VERSION" android:value="39.0.0" />
         <meta-data
           android:name="expo.modules.updates.ENABLED"
-          android:value="false"/>
+          android:value="true"/>
         <meta-data
           android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH"
-          android:value="ALWAYS"/>
+          android:value="NEVER"/>
         <meta-data
           android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS"
           android:value="0"/>
 
-        <activity
-          android:name=".MainActivity"
+        <meta-data android:name="expo.modules.updates.EXPO_RELEASE_CHANNEL" android:value="dev" />
+
+  <activity
+    android:name=".MainActivity"
           android:label="@string/app_name"
           android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
           android:launchMode="singleTask"
