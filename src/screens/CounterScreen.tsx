@@ -51,7 +51,23 @@ const CounterScreen: NavigationFunctionComponent = observer(({
 
   return (
     <SafeAreaView style={styles.container}>
-      <AppUpdatesView updating={ui.isCheckingForAppUpdates} />
+      <View style={styles.appUpdatesContainer}>
+        {
+          ui.isCheckingForAppUpdates
+            ? (
+              <>
+                <ActivityIndicator />
+          
+                <Text style={styles.appUpdatesText}>Checking for app updates</Text>
+              </>
+            )
+            : (
+              <TouchableOpacity onPress={appUpdates.checkForAppUpdate}>
+                <Text style={styles.appUpdatesText}>Check for app updates and reload</Text>
+              </TouchableOpacity>
+            )
+        }
+      </View>
 
       <View style={styles.counterContainer}>
         <ButtonIcon icon={'minuscircleo'} onPress={counter.decrement} />

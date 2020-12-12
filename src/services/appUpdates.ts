@@ -3,7 +3,7 @@ import { stores } from '../stores';
 
 class AppUpdatesService implements IService {
   init = async () => {
-    this.checkForAppUpdate();
+    // this.checkForAppUpdate();
   }
 
   checkForAppUpdate = async () => {
@@ -24,6 +24,7 @@ class AppUpdatesService implements IService {
     catch (e) {
       // handle error
       console.error(e)
+      stores.ui.setIsCheckingForAppUpdates(false);
     }
   }
 }
