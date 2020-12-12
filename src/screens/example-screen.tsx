@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     SafeAreaView,
     Text,
@@ -12,6 +12,7 @@ import { useStores } from '../stores';
 import { useServices } from '../services';
 import Constants from '../utils/constants';
 import useStyles from '../utils/useStyles';
+import NView from '../components/NView';
 
 // This is an example that can be used to bootstrap your new screen
 // Once you add a new screen, don't forget to go through following steps:
@@ -25,14 +26,20 @@ const ExampleScreen: NavigationFunctionComponent = observer(({
   const { } = useServices();
   const { styles } = useStyles(_styles);
 
+  const [safeArea, setSafeArea] = useState(false); // hack for Large Title + ScrollView when push a new screen
+
+  useEffect(() => {
+    setTimeout(() => setSafeArea(true), 250);
+  }, [componentId]);
+
   return (
-    <SafeAreaView style={styles.container}>
+    <NView safe={safeArea} style={styles.container}>
       <View style={styles.counterContainer}>
         <Text style={styles.text}>
           { 'Example' }
         </Text>
       </View>
-    </SafeAreaView>
+    </NView>
   );
 });
 
