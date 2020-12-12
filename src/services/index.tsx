@@ -1,9 +1,11 @@
 import React from 'react';
 
 import NavigationService from './navigation';
+import AppUpdatesService from './appUpdates';
 
 export const services = {
   navigation: NavigationService,
+  appUpdates: AppUpdatesService,
 };
 
 const servicesContext = React.createContext(services);
