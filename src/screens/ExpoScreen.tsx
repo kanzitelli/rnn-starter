@@ -8,6 +8,7 @@ import {
 import { observer } from 'mobx-react';
 import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks/dist/hooks';
+import { ScrollView } from 'react-native-gesture-handler';
 
 // EXPO modules
 import { Constants as ExpoConstants } from 'react-native-unimodules';
@@ -19,7 +20,7 @@ import { useServices } from '../services';
 import Reanimated2 from '../components/Reanimated2';
 import { ButtonTitle } from '../components/Button';
 import useStyles from '../utils/useStyles';
-import { ScrollView } from 'react-native-gesture-handler';
+import NView from '../components/NView';
 
 type ExpoScreenProps = {
   hackForTabScreenLargeTitleIOS14: boolean; // large title collapsed if a screen is on one of the tab but first
@@ -33,11 +34,11 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
   const { navigation } = useServices();
   const { styles } = useStyles(_styles);
 
-  const [safeAreaHidden, setSafeAreaHidden] = useState(false); // hack for Large Title + ScrollView
-  const [contentHidden, setContentHidden] = useState(hackForTabScreenLargeTitleIOS14); // hack for Large Title iOS14
+  const [safeArea, setSafeArea] = useState(false); // hack for Large Title + ScrollView
+  const [contentHidden, setContentHidden] = useState(hackForTabScreenLargeTitleIOS14); // hack for Large Title iOS14 on 2+ tab view
 
   useEffect(() => {
-    setTimeout(() => setSafeAreaHidden(true), 500);
+    setTimeout(() => setSafeArea(true), 250);
   }, [componentId]);
 
   useNavigationComponentDidAppear(() => {
@@ -54,8 +55,8 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
     } catch (e) { }
   }
 
-  const Content = () => {
-    const content = (
+  return contentHidden ? <NView safe={true} /> : (
+    <NView safe={safeArea}>
       <ScrollView>
         <View style={styles.section}>
           <Text style={styles.header}>
@@ -93,24 +94,8 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
           />
         </View>
       </ScrollView>
-    );
-
-    return (
-      safeAreaHidden
-        ? content
-        : (
-          <SafeAreaView>
-            { content }
-          </SafeAreaView>
-        )
-    );
-  }
-
-  return (
-    contentHidden
-      ? <SafeAreaView />
-      : <Content />
-  );
+    </NView>
+  )
 });
 
 const _styles = (theme: ThemeType) => StyleSheet.create({
