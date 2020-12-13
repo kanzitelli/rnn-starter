@@ -56,15 +56,17 @@ yarn android
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native. Even though Expo SDK includes `expo-icons` which you can still use, but the reason of adding `react-native-vector-icons` is to get icons as sources before launching tab based app
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native
 - [React Native Defice Info](https://github.com/react-native-community/react-native-device-info) - device information for React Native iOS and Android
+- [Hermes Engine](https://reactnative.dev/docs/hermes) - a JavaScript engine optimized for running React Native apps on Android.
 - [Typescript](https://www.typescriptlang.org/) - strict syntactical superset of JavaScript
 ### Small useful libraries/hooks from me
 - `useStyles()` - a hook that takes care of dark mode in your app. Supports toggling modes while you are in app. No dependencies (needs only `react-native`, so could be reusable).
 - `appUpdates` - a service that shows and simplifies integration with `expo-updates`. In order to use it, you will need to change `Expo.plist` and `AndroidManifest.xml` with your actual information. More information about [expo-updates](https://docs.expo.io/versions/latest/sdk/updates/).
+- `translate` - a service that shows and simplifies integration with `expo-localization` and `i18n-js`. You can see an example of `en`, `ru` and `de` localizations in `ExpoScreen`.
 
 ## Enhancements
 There are still some things I would like to add to the starter:
 - 🔳 Dark Mode support.
-- ⬜️ Localization via [i18next](https://github.com/i18next/i18next/).
+- 🔳 Localization via [expo-localization](https://docs.expo.io/versions/latest/sdk/localization) and [i18n-js](https://github.com/fnando/i18n-js).
 - ⬜️ Notifications (remote).
 
 Feel free to open an issue for suggestions.
