@@ -9,7 +9,7 @@
 	<key>EXUpdatesLaunchWaitMs</key>
 	<integer>0</integer>
 	<key>EXUpdatesSDKVersion</key>
-	<string>39.0.0</string>
+	<string>40.0.0</string>
 	<key>EXUpdatesURL</key>
 	<string>https://exp.host/@username/app-slug?release-channel=dev</string>
 </dict>
