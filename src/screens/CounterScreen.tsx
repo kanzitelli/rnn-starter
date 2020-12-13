@@ -63,7 +63,7 @@ const CounterScreen: NavigationFunctionComponent = observer(({
             )
             : (
               <TouchableOpacity onPress={appUpdates.checkForAppUpdate}>
-                <Text style={styles.appUpdatesText}>Check for app updates and reload</Text>
+                <Text style={styles.appUpdatesText}>Check for app updates</Text>
               </TouchableOpacity>
             )
         }
