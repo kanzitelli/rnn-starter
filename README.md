@@ -17,6 +17,8 @@ So why not put them all together? 😏
 
 Big love and gratitude to all people who are working on React Native, Expo and React Native Navigation!
 
+This starter is a collection of libraries and approaches from my personal experience. No hard judgements ✌️
+
 ## Getting Started
 
 1. Clone the repo
@@ -56,7 +58,8 @@ yarn android
 - [React Native Defice Info](https://github.com/react-native-community/react-native-device-info) - device information for React Native iOS and Android
 - [Typescript](https://www.typescriptlang.org/) - strict syntactical superset of JavaScript
 ### Small useful libraries/hooks from me
-- `useStyles()` - a hook that takes care of dark mode in your app. Supports toggling modes while you are in app. No dependencies (needs only `react-native`, so could be reusable). It is not a theme provider but could be used as one. It only has two themes light or dark
+- `useStyles()` - a hook that takes care of dark mode in your app. Supports toggling modes while you are in app. No dependencies (needs only `react-native`, so could be reusable). It is not a theme provider but could be used as one. It only has two themes light or dark. `UPD:` There are plans to replace `useStyles()` with [react-native-navigation-appearance](https://github.com/busfor/react-native-navigation-appearance).
+- `appUpdates` - a service that shows and simplifies integration with `expo-updates`. In order to use it, you will need to change `Expo.plist` and `AndroidManifest.xml` with your actual information. More information about [expo-updates](https://docs.expo.io/versions/latest/sdk/updates/).
 
 ## Enhancements
 There are still some things I would like to add to the starter:
