@@ -23,7 +23,7 @@
     "expo": "^40.0.0",
     "expo-network": "^2.4.0",
     "expo-updates": "^0.4.1",
-    "hermes-engine": "0.5.2-rc1",
+    "hermes-engine": "^0.5.2-rc1",
     "lodash": "^4.17.20",
     "mobx": "^6.0.4",
     "mobx-persist": "^0.4.1",

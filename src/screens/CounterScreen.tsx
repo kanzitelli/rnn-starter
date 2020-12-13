@@ -51,7 +51,7 @@ const CounterScreen: NavigationFunctionComponent = observer(({
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.appUpdatesContainer}>
+      {/* <View style={styles.appUpdatesContainer}>
         {
           ui.isCheckingForAppUpdates
             ? (
@@ -67,7 +67,7 @@ const CounterScreen: NavigationFunctionComponent = observer(({
               </TouchableOpacity>
             )
         }
-      </View>
+      </View> */}
 
       <View style={styles.counterContainer}>
         <ButtonIcon icon={'minuscircleo'} onPress={counter.decrement} />
