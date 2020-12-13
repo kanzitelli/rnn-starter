@@ -31,7 +31,7 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
   hackForTabScreenLargeTitleIOS14 = false,
 }) => {
   const { ui } = useStores();
-  const { navigation } = useServices();
+  const { navigation, t } = useServices();
   const { styles } = useStyles(_styles);
 
   const [safeArea, setSafeArea] = useState(false); // hack for Large Title + ScrollView
@@ -60,7 +60,7 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
       <ScrollView>
         <View style={styles.section}>
           <Text style={styles.header}>
-            { 'From Expo SDK' }
+            { t.do('from_expo') }
           </Text>
 
           <Text style={styles.text}>Device ID: {ExpoConstants.deviceId}</Text>
@@ -69,7 +69,7 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
 
         <View style={styles.section}>
           <Text style={styles.header}>
-            { 'Reanimated 2' }
+            { t.do('reanimated2') }
           </Text>
 
           <Reanimated2 />
@@ -77,19 +77,19 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
 
         <View style={styles.section}>
           <Text style={styles.header}>
-            { 'Navigation' }
+            { t.do('navigation') }
           </Text>
 
           <ButtonTitle
-            title={'Push this screen again'}
+            title={t.do('push_screen')}
             onPress={() => navigation.pushExpo(componentId)}
           />
           <ButtonTitle
-            title={'Show it as a modal'}
+            title={t.do('show_modal')}
             onPress={() => navigation.showExpo()}
           />
           <ButtonTitle
-            title={'Close modal'}
+            title={t.do('close_modal')}
             onPress={() => navigation.dismissModal(componentId)}
           />
         </View>
