@@ -22,53 +22,15 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,
 }) => {
-  const { counter, ui } = useStores();
+  const { counter } = useStores();
   const { appUpdates } = useServices();
   const { styles } = useStyles(_styles);
 
   useNavigationButtonPress(counter.decrement, componentId, Constants.CounterScreen.decButtonId);
   useNavigationButtonPress(counter.increment, componentId, Constants.CounterScreen.incButtonId);
 
-  const AppUpdatesView = (props: any) => (
-    <View style={styles.appUpdatesContainer}>
-      {
-        props.updating
-          ? (
-            <>
-              <ActivityIndicator />
-        
-              <Text style={styles.appUpdatesText}>Checking for app updates</Text>
-            </>
-          )
-          : (
-            <TouchableOpacity onPress={appUpdates.checkForAppUpdate}>
-              <Text style={styles.appUpdatesText}>Check for app updates and reload</Text>
-            </TouchableOpacity>
-          )
-      }
-    </View>
-  )
-
   return (
     <SafeAreaView style={styles.container}>
-      {/* <View style={styles.appUpdatesContainer}>
-        {
-          ui.isCheckingForAppUpdates
-            ? (
-              <>
-                <ActivityIndicator />
-          
-                <Text style={styles.appUpdatesText}>Checking for app updates</Text>
-              </>
-            )
-            : (
-              <TouchableOpacity onPress={appUpdates.checkForAppUpdate}>
-                <Text style={styles.appUpdatesText}>Check for app updates</Text>
-              </TouchableOpacity>
-            )
-        }
-      </View> */}
-
       <View style={styles.counterContainer}>
         <ButtonIcon icon={'minuscircleo'} onPress={counter.decrement} />
 

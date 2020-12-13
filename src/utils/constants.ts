@@ -22,9 +22,9 @@ class Contants {
 
   CounterScreen = {
     decButtonId: 'decButtonId',
-    decButtonTitle: 'Dec',
+    decButtonTitle: '-',
     incButtonId: 'incButtonId',
-    incButtonTitle: 'Inc',
+    incButtonTitle: '+',
   }
 
   // Styles
