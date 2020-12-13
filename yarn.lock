@@ -2770,6 +2770,11 @@
   resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
   integrity sha512-7TUK/k2/QGpEAv/BCwSHlYu3NXZhQ9ZwBYpzr9tjlPIL2C5BeGhH3DmVavRx3ZNyELX5TLC91JTz/cen6AAtIQ==
 
+"@types/i18n-js@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@types/i18n-js/-/i18n-js-3.0.3.tgz#84f66fb969741fecd91b854387e0682aa7fd70b7"
+  integrity sha512-GiZzazvxQ5j+EA4Zf4MtDsSaokAR/gW7FxxTlHi2p2xKFUhwAUT0B/MB8WL77P1TcqAO3MefWorFFyZS8F7s0Q==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -4636,6 +4641,13 @@ expo-linking@~2.0.0:
     qs "^6.5.0"
     url-parse "^1.4.4"
 
+expo-localization@~9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/expo-localization/-/expo-localization-9.1.0.tgz#463381568082fdcb28ad4e4c533a6f9471a3f78a"
+  integrity sha512-0KYVUOJAHVRS/5oq0Bcf2i0imKOIFdpLnnNSG9XeaskkNgNSnbzeTQsoDvHi9UGYLwwtUo9HLciQJ/xcoSiftw==
+  dependencies:
+    rtl-detect "^1.0.2"
+
 expo-location@~10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-10.0.0.tgz#2923411649434f2f079343b163b13c5c9eee8b2d"
@@ -5326,6 +5338,11 @@ human-signals@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
+
+i18n-js@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/i18n-js/-/i18n-js-3.8.0.tgz#b8fd6b12e1d88cb71f9806c29bca7c31c012e504"
+  integrity sha512-hDsGgPuvw/2P+lXSbOafAwspK8Ste8YrwuuUg17W3wEcO1JkQxBlPgsN1t2+852nTnz4YSYTjZc/1nAA2PC/nw==
 
 iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.24"
@@ -8459,6 +8476,11 @@ rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
+
+rtl-detect@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/rtl-detect/-/rtl-detect-1.0.2.tgz#8eca316f5c6563d54df4e406171dd7819adda67f"
+  integrity sha512-5X1422hvphzg2a/bo4tIDbjFjbJUOaPZwqE6dnyyxqwFqfR+tBcvfqapJr0o0VygATVCGKiODEewhZtKF+90AA==
 
 run-async@^2.2.0:
   version "2.3.0"
