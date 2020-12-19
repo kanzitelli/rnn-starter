@@ -7966,6 +7966,11 @@ react-native-navigation@^7.6.0:
     react-lifecycles-compat "2.0.0"
     tslib "1.9.3"
 
+react-native-notifications@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-notifications/-/react-native-notifications-3.4.1.tgz#3046bae51863e1073d71820598f0b85a3b389535"
+  integrity sha512-jJHo5z5XR0smZIVj4yjoqDWZ3HX26TL8FMsUIBiIy1Hh9b0q/HAl1xN651sTW/HM49+Mr2F+ShSf6nXBnGB4fQ==
+
 react-native-reanimated@2.0.0-rc.0:
   version "2.0.0-rc.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.0.0-rc.0.tgz#7a1b0bfd48e3de9dfa985a524463b6a216531358"
