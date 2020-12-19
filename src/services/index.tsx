@@ -3,11 +3,13 @@ import React from 'react';
 import NavigationService from './navigation';
 import AppUpdatesService from './appUpdates';
 import TranslateService from './translate';
+import NotificationsService from './notifications';
 
 export const services = {
   navigation: NavigationService,
   appUpdates: AppUpdatesService,
   t: TranslateService,
+  notifications: NotificationsService,
 };
 
 const servicesContext = React.createContext(services);
