@@ -52,7 +52,7 @@ yarn android
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist](https://github.com/pinqy520/mobx-persist) for persisting your stores
 ### Extra helpful libraries
-- [React Native Notifications](https://github.com/wix/react-native-notifications) - a library that takes care of handling notifications.
+- [React Native Notifications](https://github.com/wix/react-native-notifications) - a library that takes care of handling notifications
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of hooks for React Native Navigation
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native. Even though Expo SDK includes `expo-icons` which you can still use, but the reason of adding `react-native-vector-icons` is to get icons as sources before launching tab based app
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native

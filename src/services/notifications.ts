@@ -2,7 +2,7 @@ import { NotificationBackgroundFetchResult, Notifications as RNNotifications } f
 
 class NotificationsService implements IService {
   init = async () => {
-    this.registerReactNativeNotifications();
+    // this.registerReactNativeNotifications();
   }
 
   private registerReactNativeNotifications() {
