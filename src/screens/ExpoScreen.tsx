@@ -22,29 +22,17 @@ import { ButtonTitle } from '../components/Button';
 import useStyles from '../utils/useStyles';
 import NView from '../components/NView';
 
-type ExpoScreenProps = {
-  hackForTabScreenLargeTitleIOS14: boolean; // large title collapsed if a screen is on one of the tab but first
-}
+type ExpoScreenProps = { }
 
 const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
   componentId,
-  hackForTabScreenLargeTitleIOS14 = false,
 }) => {
   const { ui } = useStores();
   const { navigation, t } = useServices();
   const { styles } = useStyles(_styles);
 
-  const [safeArea, setSafeArea] = useState(false); // hack for Large Title + ScrollView
-  const [contentHidden, setContentHidden] = useState(hackForTabScreenLargeTitleIOS14); // hack for Large Title iOS14 on 2+ tab view
-
-  useEffect(() => {
-    setTimeout(() => setSafeArea(true), 250);
-  }, [componentId]);
-
   useNavigationComponentDidAppear(() => {
     getNetworkType();
-
-    setContentHidden(false);
   }, componentId);
 
   const getNetworkType = async () => {
@@ -55,8 +43,8 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
     } catch (e) { }
   }
 
-  return contentHidden ? <NView safe={true} /> : (
-    <NView safe={safeArea}>
+  return (
+    <>
       <ScrollView>
         <View style={styles.section}>
           <Text style={styles.header}>
@@ -94,7 +82,7 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
           />
         </View>
       </ScrollView>
-    </NView>
+    </>
   )
 });
 
