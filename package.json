@@ -16,7 +16,8 @@
     "u:o": "yarn updates:optimize",
     "start": "npx react-native start",
     "test": "jest",
-    "release": "dotenv npx release-it"
+    "release": "dotenv npx release-it",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
@@ -30,6 +31,8 @@
     "mobx": "^6.0.4",
     "mobx-persist": "^0.4.1",
     "mobx-react": "^7.0.5",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-device-info": "^7.3.1",
