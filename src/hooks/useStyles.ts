@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Appearance, Dimensions, Platform, PixelRatio } from 'react-native';
 import { isTablet } from 'react-native-device-info';
 
-import Constants from './constants';
+import Constants from '../utils/constants';
 
 const { colors, sizes } = Constants;
 let options: UseStylesOptionsType = {
