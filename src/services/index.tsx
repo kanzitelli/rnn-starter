@@ -6,9 +6,9 @@ import TranslateService from './translate';
 import NotificationsService from './notifications';
 
 export const services = {
-  navigation: NavigationService,
-  appUpdates: AppUpdatesService,
+  nav: NavigationService,
   t: TranslateService,
+  appUpdates: AppUpdatesService,
   notifications: NotificationsService,
 };
 
