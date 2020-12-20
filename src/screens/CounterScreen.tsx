@@ -23,7 +23,7 @@ const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,
 }) => {
   const { counter } = useStores();
-  const { appUpdates } = useServices();
+  const { } = useServices();
   const { styles } = useStyles(_styles);
 
   useNavigationButtonPress(counter.decrement, componentId, Constants.CounterScreen.decButtonId);
