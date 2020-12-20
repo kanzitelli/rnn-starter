@@ -11,10 +11,10 @@ import { useNavigationButtonPress } from 'react-native-navigation-hooks/dist/hoo
 
 import { useStores } from '../stores';
 import { useServices } from '../services';
-import Constants from '../utils/constants';
 import { ButtonIcon } from '../components/Button';
 import useStyles from '../hooks/useStyles';
 import { ScreenOptions } from '../services/navigation/screens';
+import { Buttons } from '../services/navigation/buttons';
 
 const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,
@@ -23,8 +23,8 @@ const CounterScreen: NavigationFunctionComponent = observer(({
   const { } = useServices();
   const { styles } = useStyles(_styles);
 
-  useNavigationButtonPress(counter.decrement, componentId, Constants.CounterScreen.decButtonId);
-  useNavigationButtonPress(counter.increment, componentId, Constants.CounterScreen.incButtonId);
+  useNavigationButtonPress(counter.decrement, componentId, Buttons.Dec.id);
+  useNavigationButtonPress(counter.increment, componentId, Buttons.Inc.id);
 
   return (
     <SafeAreaView style={styles.container}>

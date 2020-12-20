@@ -7,7 +7,7 @@ import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gestur
 import Screens, { ScreenNames } from './screens';
 import { withStoresProvider } from '../../stores';
 import { withServicesProvider } from '..';
-import Constants from '../../utils/constants';
+import useConstants from '../../hooks/useConstants';
 import { stores } from '../../stores';
 import { getTabOptions } from './tabs';
 import { Layout_BottomTabs, Layout_Component, Layout_Root, Layout_StackWith } from './layout';
@@ -62,6 +62,8 @@ class NavigationSystem {
   }
 
   private setDefaultOptions = async () => {
+    const { colors } = useConstants();
+
     Navigation.setDefaultOptions({
       layout: {
         orientation: ['portrait'],
@@ -70,10 +72,10 @@ class NavigationSystem {
         titleDisplayMode: 'alwaysShow',
       },
       bottomTab: {
-        iconColor: Constants.colors.main,
-        textColor: Constants.colors.main,
-        selectedIconColor: Constants.colors.main,
-        selectedTextColor: Constants.colors.main,
+        iconColor: colors.main,
+        textColor: colors.main,
+        selectedIconColor: colors.main,
+        selectedTextColor: colors.main,
       },
       topBar: {
         largeTitle: {
