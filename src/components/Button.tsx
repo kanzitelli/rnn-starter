@@ -7,7 +7,7 @@ import {
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import useStyles from '../utils/useStyles';
+import useStyles from '../hooks/useStyles';
 
 type ButtonTitleProps = {
   title: string;

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Appearance, Dimensions, Platform, PixelRatio } from 'react-native';
 import { isTablet } from 'react-native-device-info';
 
-import Constants from './constants';
+import useConstants from './useConstants';
 
-const { colors, sizes } = Constants;
+const { colors, sizes } = useConstants();
 let options: UseStylesOptionsType = {
   normalize: true,
   darkmode: true,

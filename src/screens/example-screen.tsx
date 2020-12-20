@@ -10,14 +10,12 @@ import { NavigationFunctionComponent } from 'react-native-navigation';
 
 import { useStores } from '../stores';
 import { useServices } from '../services';
-import Constants from '../utils/constants';
-import useStyles from '../utils/useStyles';
-import NView from '../components/NView';
+import useStyles from '../hooks/useStyles';
+import { ScreenOptions } from '../services/navigation/screens';
 
 // This is an example that can be used to bootstrap your new screen
-// Once you add a new screen, don't forget to go through following steps:
-//   1. Open src/utils/constants.ts and add a new screen's name to ScreenNames, and ScreenTitle (if going to use)
-//   2. Open stc/App.tsx and register a new screen
+// In order to register this screen, open services/navigation/screens
+// and add a new screen's information
 
 const ExampleScreen: NavigationFunctionComponent = observer(({
   componentId,
@@ -26,20 +24,14 @@ const ExampleScreen: NavigationFunctionComponent = observer(({
   const { } = useServices();
   const { styles } = useStyles(_styles);
 
-  const [safeArea, setSafeArea] = useState(false); // hack for Large Title + ScrollView when push a new screen
-
-  useEffect(() => {
-    setTimeout(() => setSafeArea(true), 250);
-  }, [componentId]);
-
   return (
-    <NView safe={safeArea} style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.counterContainer}>
         <Text style={styles.text}>
           { 'Example' }
         </Text>
       </View>
-    </NView>
+    </SafeAreaView>
   );
 });
 
@@ -65,12 +57,6 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
   },
 });
 
-ExampleScreen.options = props => ({
-  topBar: {
-    title: {
-      text: Constants.ScreenTitles.ExampleScreen,
-    },
-  },
-});
+ExampleScreen.options = props => ScreenOptions.ExampleScreen;
 
 export default ExampleScreen;

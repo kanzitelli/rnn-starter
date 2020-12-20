@@ -7,6 +7,7 @@
 - [🧙‍♂️ Enhancements](#enhancements)
 - [⚠️ Known issues (warnings)](#known-issues-warnings)
 - [⭕️ Limitations](#limitations)
+- [🤓 Worth checking](#worth-checking)
 
 ##  Motivation
 1. I love [React Native](https://reactnative.dev/) 💚
@@ -62,9 +63,11 @@ yarn android
 - [Typescript](https://www.typescriptlang.org/) - strict syntactical superset of JavaScript
 ### Small useful services/hooks from me
 - `useStyles()` - a hook that takes care of dark mode in your app. Supports toggling modes while you are in app. No dependencies (needs only `react-native`, so could be reusable).
-- `appUpdates` - a service that shows and simplifies integration with `expo-updates`. In order to use it, you will need to change `Expo.plist` and `AndroidManifest.xml` with your actual information. More information about [expo-updates](https://docs.expo.io/versions/latest/sdk/updates/).
+- `useConstants()` - a simple hook that gives access to constants.
+- `navigation` - a service where all navigation configuration takes place. It might be a bit confusing but it should simplify and abstract the process of registering screens, etc.
 - `translate` - a service that shows and simplifies integration with `expo-localization` and `i18n-js`. You can see an example of `en`, `ru` and `de` localizations in `ExpoScreen`.
 - `notifications` - a service that takes care of setting up notifications which utilizes [React Native Notifications](https://github.com/wix/react-native-notifications). For more information, please, take a look at this [guide](/NOTIFICATIONS.md).
+- `appUpdates` - a service that shows and simplifies integration with `expo-updates`. In order to use it, you will need to change `Expo.plist` and `AndroidManifest.xml` with your actual information. More information about [expo-updates](https://docs.expo.io/versions/latest/sdk/updates/).
 
 ## Enhancements
 There are still some things I would like to add to the starter:
@@ -85,6 +88,16 @@ Feel free to open an issue for any other warning or problems.
 - Apps bootstrapped from this starter won't be able to be run on web as Expo apps do. Theoretically, it is possible to create some sort of an adapter between `react-navigation` and `react-native-navigation`. Maybe there will be other issues, but would be cool to have this feature.
 - Apps bootstrapped from this starter won't be available through Expo app for iOS and Android as of differences in navigation approach. Theoretically, it is possible to create an app like Expo that will include `react-native-navigation` and somehow download needed bundles. Needs more research.
 
-## License
+## Worth checking
+### Articles
+- Expo + React Native Navigation? Yes! - [Medium](https://kanzitelli.medium.com/expo-react-native-navigation-yes-ebda0cbfa4b1), [Dev.to](https://dev.to/kanzitelli/expo-react-native-navigation-1pll)
 
+### Apps in production
+- Rabbit App. Lite Reddit client - [Github](https://github.com/kanzitelli/rabbit-app), [App Store](https://apps.apple.com/ru/app/rabbit-app-lite-reddit-client/id1535084154), [Google Play](https://play.google.com/store/apps/details?id=io.batyr.rabbitapp)
+- Christmas Market - [App Store](https://apps.apple.com/ru/app/id1446775875)
+- Trip Music Radio - [App Store](https://apps.apple.com/ru/app/id1525645826), [Google Play](https://play.google.com/store/apps/details?id=team.ggc.tripmusic)
+- Messenger for VK - [App Store](https://apps.apple.com/ru/app/id891605076)
+- App for VK - [App Store](https://apps.apple.com/ru/app/id819406913)
+
+## License
 This project is [MIT licensed](/LICENSE.md)
