@@ -1,6 +1,6 @@
 import CounterScreen from '../../screens/CounterScreen';
 import ExpoScreen from '../../screens/ExpoScreen';
-import Constants from '../../utils/constants';
+import { Buttons } from './buttons';
 
 // Here we define all information regarding screens
 
@@ -20,17 +20,17 @@ const ScreenTitles = {
   ExampleScreen: 'Example',
 }
 
+const ScreenButtons = {
+  CounterScreen: {
+    right: [Buttons.Inc, Buttons.Dec]
+  }
+};
+
 const ScreenOptions = {
   CounterScreen: {
     topBar: {
       title: { text: ScreenTitles.CounterScreen, },
-      rightButtons: [{
-          id: Constants.CounterScreen.incButtonId,
-          text: Constants.CounterScreen.incButtonTitle,
-        }, {
-          id: Constants.CounterScreen.decButtonId,
-          text: Constants.CounterScreen.decButtonTitle,
-        }],
+      rightButtons: ScreenButtons.CounterScreen.right,
     }
   },
   ExpoScreen: {
@@ -51,4 +51,5 @@ export {
   ScreenNames,
   ScreenTitles,
   ScreenOptions,
+  ScreenButtons,
 };
