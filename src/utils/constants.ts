@@ -1,25 +1,4 @@
-const prefix = 'rnn_starter';
-
 class Contants {
-  ScreenNames = {
-    CounterScreen: `${prefix}.CounterScreen`,
-    ExpoScreen: `${prefix}.ExpoScreen`,
-
-    ExampleScreen: `${prefix}.ExampleScreen`,
-  }
-
-  BottomTabsTitles = {
-    tab1: 'Counter',
-    tab2: 'Expo',
-  }
-
-  ScreenTitles = {
-    CounterScreen: 'Counter',
-    ExpoScreen: 'Expo',
-
-    ExampleScreen: 'Example',
-  }
-
   CounterScreen = {
     decButtonId: 'decButtonId',
     decButtonTitle: '-',

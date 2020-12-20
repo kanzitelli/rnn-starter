@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
-    SafeAreaView,
     Text,
     View,
     StyleSheet,
@@ -14,13 +13,12 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Constants as ExpoConstants } from 'react-native-unimodules';
 import * as Network from 'expo-network';
 
-import Constants from '../utils/constants';
 import { useStores } from '../stores';
 import { useServices } from '../services';
 import Reanimated2 from '../components/Reanimated2';
 import { ButtonTitle } from '../components/Button';
-import useStyles from '../utils/useStyles';
-import NView from '../components/NView';
+import useStyles from '../hooks/useStyles';
+import { ScreenOptions } from '../services/navigation/screens';
 
 type ExpoScreenProps = { }
 
@@ -28,7 +26,7 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
   componentId,
 }) => {
   const { ui } = useStores();
-  const { navigation, t } = useServices();
+  const { nav, t } = useServices();
   const { styles } = useStyles(_styles);
 
   useNavigationComponentDidAppear(() => {
@@ -70,15 +68,15 @@ const ExpoScreen: NavigationFunctionComponent<ExpoScreenProps> = observer(({
 
           <ButtonTitle
             title={t.do('push_screen')}
-            onPress={() => navigation.pushExpo(componentId)}
+            onPress={() => nav.pushExpo(componentId)}
           />
           <ButtonTitle
             title={t.do('show_modal')}
-            onPress={() => navigation.showExpo()}
+            onPress={() => nav.showExpo()}
           />
           <ButtonTitle
             title={t.do('close_modal')}
-            onPress={() => navigation.dismissModal(componentId)}
+            onPress={() => nav.dismissModal(componentId)}
           />
         </View>
       </ScrollView>
@@ -106,15 +104,6 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
   }
 });
 
-ExpoScreen.options = props => ({
-  topBar: {
-    title: {
-      text: Constants.ScreenTitles.ExpoScreen,
-    },
-    largeTitle: {
-      visible: true,
-    }
-  },
-});
+ExpoScreen.options = props => ScreenOptions.ExpoScreen;
 
 export default ExpoScreen;

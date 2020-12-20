@@ -4,9 +4,6 @@ import {
     Text,
     View,
     StyleSheet,
-    Platform,
-    ActivityIndicator,
-    Pressable,
 } from 'react-native';
 import { observer } from 'mobx-react';
 import { NavigationFunctionComponent } from 'react-native-navigation';
@@ -16,8 +13,8 @@ import { useStores } from '../stores';
 import { useServices } from '../services';
 import Constants from '../utils/constants';
 import { ButtonIcon } from '../components/Button';
-import useStyles from '../utils/useStyles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import useStyles from '../hooks/useStyles';
+import { ScreenOptions } from '../services/navigation/screens';
 
 const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,
@@ -75,29 +72,6 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
   },
 });
 
-CounterScreen.options = props => ({
-  topBar: {
-    leftButtons: Platform.OS === 'ios' ? [{
-        id: Constants.CounterScreen.decButtonId,
-        text: Constants.CounterScreen.decButtonTitle,
-      }] : [],
-    rightButtons: Platform.OS === 'ios' ? [{
-        id: Constants.CounterScreen.incButtonId,
-        text: Constants.CounterScreen.incButtonTitle,
-      }] : [{
-        id: Constants.CounterScreen.incButtonId,
-        text: Constants.CounterScreen.incButtonTitle,
-      }, {
-        id: Constants.CounterScreen.decButtonId,
-        text: Constants.CounterScreen.decButtonTitle,
-      }],
-    title: {
-      text: Constants.ScreenTitles.CounterScreen,
-    },
-    largeTitle: {
-      visible: true,
-    },
-  },
-});
+CounterScreen.options = props => ScreenOptions.CounterScreen;
 
 export default CounterScreen;
