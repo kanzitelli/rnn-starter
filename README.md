@@ -57,7 +57,8 @@ yarn android
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native. Even though Expo SDK includes `expo-icons` which you can still use, but the reason of adding `react-native-vector-icons` is to get icons as sources before launching tab based app
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native
 - [React Native Defice Info](https://github.com/react-native-community/react-native-device-info) - device information for React Native iOS and Android
-- [Hermes Engine](https://reactnative.dev/docs/hermes) - a JavaScript engine optimized for running React Native apps on Android.
+- [Hermes Engine](https://reactnative.dev/docs/hermes) - a JavaScript engine optimized for running React Native apps on Android
+- [Patch Package](https://github.com/ds300/patch-package) - useful for fixing node modules instantly
 - [Typescript](https://www.typescriptlang.org/) - strict syntactical superset of JavaScript
 ### Small useful services/hooks from me
 - `useStyles()` - a hook that takes care of dark mode in your app. Supports toggling modes while you are in app. No dependencies (needs only `react-native`, so could be reusable).
