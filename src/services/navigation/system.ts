@@ -9,10 +9,10 @@ import { withStoresProvider } from '../../stores';
 import { withServicesProvider } from '..';
 import useConstants from '../../hooks/useConstants';
 import { stores } from '../../stores';
-import { Layout_Component, Layout_StackWith } from './layout';
+import { Component, StackWith } from './layout';
 
 // Here we define "system" methods for Navigation,
-// as startApp(), registerScreens(), setDefaultOptions() and others.
+// as registerScreens(), setDefaultOptions() and others.
 // Feel free to change them up your needs.
 // However, you will work more with ./index.ts if you'd like to add some other methods.
 
@@ -74,16 +74,32 @@ class NavigationSystem {
     Navigation.dismissModal(cId, options);
   }
 
+  dismissOverlay = (cId: string) => {
+    Navigation.dismissOverlay(cId);
+  }
+
+  dismissAllOverlays = () => {
+    Navigation.dismissAllOverlays();
+  }
+
   dismissAllModals = () => {
     Navigation.dismissAllModals();
   }
 
+  pop = (cId: string) => {
+    Navigation.pop(cId);
+  }
+
   protected push = <T>(cId: string, name: string, passProps?: T, options?: Options) => {
-    Navigation.push(cId, Layout_Component(name, passProps, options))
+    Navigation.push(cId, Component(name, passProps, options))
   }
 
   protected show = <T>(name: string, passProps?: T, options?: Options) => {
-    Navigation.showModal(Layout_StackWith(Layout_Component(name, passProps, options)));
+    Navigation.showModal(StackWith(Component(name, passProps, options)));
+  }
+
+  protected showOverlay = <T>(name: string, passProps?: T, options?: Options) => {
+    Navigation.showOverlay(StackWith(Component(name, passProps, options)));
   }
 }
 
