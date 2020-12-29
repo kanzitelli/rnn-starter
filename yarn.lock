@@ -852,10 +852,10 @@
     "@babel/helper-create-class-features-plugin" "^7.10.4"
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-proposal-decorators@^7.12.1":
-  version "7.12.1"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.12.1.tgz#59271439fed4145456c41067450543aee332d15f"
-  integrity sha512-knNIuusychgYN8fGJHONL0RbFxLGawhXOJNLBk75TniTsZZeA+wdkDuv6wp4lGwzQEKjZi6/WYtnb3udNPmQmQ==
+"@babel/plugin-proposal-decorators@^7.12.12":
+  version "7.12.12"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.12.12.tgz#067a6d3d6ca86d54cf56bb183239199c20daeafe"
+  integrity sha512-fhkE9lJYpw2mjHelBpM2zCbaA11aov2GJs7q4cFaXNrWx0H3bW58H9Esy2rdtYOghFBEYUDRIpvlgi+ZD+AvvQ==
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.12.1"
     "@babel/helper-plugin-utils" "^7.10.4"
@@ -2764,10 +2764,10 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
   integrity sha512-8+KAKzEvSUdeo+kmqnKrqgeE+LcA0tjYWFY7RPProVYwnqDjukzO+3b6dLD56rYX5TdWejnEOLJYOIeh4CXKuA==
 
-"@types/lodash@^4.14.165":
-  version "4.14.165"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.165.tgz#74d55d947452e2de0742bad65270433b63a8c30f"
-  integrity sha512-tjSSOTHhI5mCHTy/OOXYIhi2Wt1qcbHmuXD1Ha7q70CgI/I71afO4XtLb/cVexki1oVYchpul/TOuu3Arcdxrg==
+"@types/lodash@^4.14.166":
+  version "4.14.166"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.166.tgz#07e7f2699a149219dbc3c35574f126ec8737688f"
+  integrity sha512-A3YT/c1oTlyvvW/GQqG86EyqWNrT/tisOIh2mW3YCgcx71TNjiTZA3zYZWA5BCmtsOTXjhliy4c4yEkErw6njA==
 
 "@types/node@*":
   version "14.0.27"
@@ -2805,10 +2805,10 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react-native@^0.63.37":
-  version "0.63.37"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.37.tgz#c43df90c9d3cc082a97a49a53e989de26cb8ab45"
-  integrity sha512-xr9SZG7tQQBKT6840tAGaWEC65D2gjyxZtuZxz631UgeW1ofItuu9HMVhoyYqot2hRSa6Q4YC8FYkRVUpM53/w==
+"@types/react-native@^0.63.43":
+  version "0.63.43"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.43.tgz#0278dd540f8479b35ae5d6ef373dd9b3be4cffb1"
+  integrity sha512-zFD+rFf7xmk3ZL5laaGdWB8NLNoN36TjHc2M5PcT5gXcDk7ZJBPsiabNcPDQPSIU/om8YPwBpaFdd1IiyuIM+g==
   dependencies:
     "@types/react" "*"
 
@@ -8023,10 +8023,10 @@ react-native-navigation-hooks@^6.2.0:
   dependencies:
     hoist-non-react-statics "3.3.2"
 
-react-native-navigation@^7.6.0:
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.6.0.tgz#8f28018f8801b9871d085b105f6300c1c12039d1"
-  integrity sha512-loCSdGCoic8UtcANm0uPugWBJTJgxDlfQgvgkH7dFtMkj/bqRpKOvJD1Pt79Tx9v2McZzNTrNu2symkmmN6tGg==
+react-native-navigation@^7.7.0:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.7.0.tgz#e71b7dd40a5798effbd1b188341a89b7a80c4f9f"
+  integrity sha512-k53wBnMa24OQoS+dYyhuvbK6qsvnG0+rSf/mg9l6ENxU1JFz3jvWwS7RHvHNKkucSnloHNTlL32Pv4zPCWVM2Q==
   dependencies:
     hoist-non-react-statics "3.x.x"
     lodash "4.17.x"
@@ -8034,10 +8034,10 @@ react-native-navigation@^7.6.0:
     react-lifecycles-compat "2.0.0"
     tslib "1.9.3"
 
-react-native-notifications@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/react-native-notifications/-/react-native-notifications-3.4.1.tgz#3046bae51863e1073d71820598f0b85a3b389535"
-  integrity sha512-jJHo5z5XR0smZIVj4yjoqDWZ3HX26TL8FMsUIBiIy1Hh9b0q/HAl1xN651sTW/HM49+Mr2F+ShSf6nXBnGB4fQ==
+react-native-notifications@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-notifications/-/react-native-notifications-3.4.2.tgz#5742a07eb62f61668df0ab8e1c97d470f3101e58"
+  integrity sha512-kJL3fDQu2LaCmz94dpUjWbpXSTwoouHCNpYQgIwNDL4H4lp7h5TNnfoo0owwA0CSz9E1egWz9o3CioM/unZw/w==
 
 react-native-reanimated@2.0.0-rc.0:
   version "2.0.0-rc.0"
