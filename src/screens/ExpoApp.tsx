@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import useStyles from '../hooks/useStyles';
+import useStyles from 'src/hooks/useStyles';
 
 // This component is used to pass it to registerRootComponent(...) for Expo SDK
 // Otherwise, it was causing a crash on iOS (14?) in release build

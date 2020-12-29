@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import useStyles from '../hooks/useStyles';
+import useStyles from 'src/hooks/useStyles';
 
 type ExampleComponentProps = {
 }

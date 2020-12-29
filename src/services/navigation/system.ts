@@ -5,10 +5,10 @@ import {
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
 import Screens from './screens';
-import { withStoresProvider } from '../../stores';
-import { withServicesProvider } from '..';
-import useConstants from '../../hooks/useConstants';
-import { stores } from '../../stores';
+import { withStoresProvider } from 'src/stores';
+import { withServicesProvider } from 'src/services';
+import useConstants from 'src/hooks/useConstants';
+import { stores } from 'src/stores';
 import { Component, StackWith } from './layout';
 
 // Here we define "system" methods for Navigation,

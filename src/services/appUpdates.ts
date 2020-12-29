@@ -1,5 +1,5 @@
 import * as Updates from 'expo-updates';
-import { stores } from '../stores';
+import { stores } from 'src/stores';
 
 class AppUpdatesService implements IService {
   init = async () => {
