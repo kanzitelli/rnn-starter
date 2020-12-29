@@ -9,6 +9,7 @@
     "android": "npx react-native run-android",
     "android:release": "yarn android --variant release",
     "ios": "npx react-native run-ios",
+    "ios:release": "yarn ios --configuration Release",
     "ios:pods": "npx pod-install",
     "updates:publish:dev": "expo publish --release-channel dev",
     "u:p:dev": "yarn updates:publish:dev",
