@@ -4,13 +4,12 @@ import {
 } from 'react-native-navigation';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
-import Screens, { ScreenNames } from './screens';
+import Screens from './screens';
 import { withStoresProvider } from '../../stores';
 import { withServicesProvider } from '..';
 import useConstants from '../../hooks/useConstants';
 import { stores } from '../../stores';
-import { getTabOptions } from './tabs';
-import { Layout_BottomTabs, Layout_Component, Layout_Root, Layout_StackWith } from './layout';
+import { Layout_Component, Layout_StackWith } from './layout';
 
 // Here we define "system" methods for Navigation,
 // as startApp(), registerScreens(), setDefaultOptions() and others.
@@ -22,28 +21,6 @@ class NavigationSystem {
     await this.registerScreens();
     await this.setComponentIdListener();
     await this.setDefaultOptions();
-  }
-
-  // APP
-
-  startApp = async () => {
-    const tabOptions = await getTabOptions();
-
-    Navigation.setRoot(
-      Layout_Root(
-        Layout_BottomTabs([
-          Layout_StackWith(
-            Layout_Component(ScreenNames.CounterScreen),
-            { ...tabOptions[0] },
-          ),
-
-          Layout_StackWith(
-            Layout_Component(ScreenNames.ExpoScreen),
-            tabOptions[1],
-          ),
-        ])
-      )
-    );
   }
 
   // APPEARANCE CONFIG
