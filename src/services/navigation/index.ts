@@ -1,5 +1,5 @@
 import { Navigation } from 'react-native-navigation';
-import { Layout_Root, Layout_BottomTabs, Layout_StackWith, Layout_Component } from './layout';
+import { Root, BottomTabs, StackWith, Component } from './layout';
 import { ScreenNames } from './screens';
 import NavigationSystem from './system';
 import { getTabOptions } from './tabs';
@@ -23,15 +23,15 @@ class NavigationService extends NavigationSystem implements IService {
     const tabOptions = await getTabOptions();
 
     Navigation.setRoot(
-      Layout_Root(
-        Layout_BottomTabs([
-          Layout_StackWith(
-            Layout_Component(ScreenNames.CounterScreen),
+      Root(
+        BottomTabs([
+          StackWith(
+            Component(ScreenNames.CounterScreen),
             { ...tabOptions[0] },
           ),
 
-          Layout_StackWith(
-            Layout_Component(ScreenNames.ExpoScreen),
+          StackWith(
+            Component(ScreenNames.ExpoScreen),
             tabOptions[1],
           ),
         ])

@@ -8,30 +8,30 @@ import {
 
 // Set of methods which help building RNN layout without long boring code like {stack:component:{...}}
 
-const Layout_Root =
+const Root =
   (root: Layout): LayoutRoot =>
     ({ root });
 
-const Layout_BottomTabs =
+const BottomTabs =
   (children?: LayoutTabsChildren[], options?: Options): Layout =>
     ({ bottomTabs: { children, options }});
 
-const Layout_Stack =
+const Stack =
   (children?: LayoutStackChildren[], options?: Options): Layout =>
     ({ stack: { children, options }});
 
-const Layout_StackWith =
+const StackWith =
   (c: LayoutStackChildren, options?: Options): Layout =>
-    Layout_Stack([c], options);
+    Stack([c], options);
 
-const Layout_Component =
-  <P = {}>(name: string, options?: Options, passProps?: P): Layout =>
-    ({ component: { name, options, passProps, }})
+const Component =
+  <P = {}>(name: string, passProps?: P, options?: Options): Layout =>
+    ({ component: { name, passProps, options }})
 
 export {
-  Layout_Root,
-  Layout_BottomTabs,
-  Layout_Stack,
-  Layout_StackWith,
-  Layout_Component,
+  Root,
+  BottomTabs,
+  Stack,
+  StackWith,
+  Component,
 }
