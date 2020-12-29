@@ -4,16 +4,15 @@ import {
 } from 'react-native-navigation';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
-import Screens, { ScreenNames } from './screens';
-import { withStoresProvider } from '../../stores';
-import { withServicesProvider } from '..';
-import useConstants from '../../hooks/useConstants';
-import { stores } from '../../stores';
-import { getTabOptions } from './tabs';
-import { Layout_BottomTabs, Layout_Component, Layout_Root, Layout_StackWith } from './layout';
+import Screens from './screens';
+import { withStoresProvider } from 'src/stores';
+import { withServicesProvider } from 'src/services';
+import useConstants from 'src/hooks/useConstants';
+import { stores } from 'src/stores';
+import { Component, StackWith } from './layout';
 
 // Here we define "system" methods for Navigation,
-// as startApp(), registerScreens(), setDefaultOptions() and others.
+// as registerScreens(), setDefaultOptions() and others.
 // Feel free to change them up your needs.
 // However, you will work more with ./index.ts if you'd like to add some other methods.
 
@@ -22,28 +21,6 @@ class NavigationSystem {
     await this.registerScreens();
     await this.setComponentIdListener();
     await this.setDefaultOptions();
-  }
-
-  // APP
-
-  startApp = async () => {
-    const tabOptions = await getTabOptions();
-
-    Navigation.setRoot(
-      Layout_Root(
-        Layout_BottomTabs([
-          Layout_StackWith(
-            Layout_Component(ScreenNames.CounterScreen),
-            { ...tabOptions[0] },
-          ),
-
-          Layout_StackWith(
-            Layout_Component(ScreenNames.ExpoScreen),
-            tabOptions[1],
-          ),
-        ])
-      )
-    );
   }
 
   // APPEARANCE CONFIG
@@ -97,16 +74,32 @@ class NavigationSystem {
     Navigation.dismissModal(cId, options);
   }
 
+  dismissOverlay = (cId: string) => {
+    Navigation.dismissOverlay(cId);
+  }
+
+  dismissAllOverlays = () => {
+    Navigation.dismissAllOverlays();
+  }
+
   dismissAllModals = () => {
     Navigation.dismissAllModals();
   }
 
+  pop = (cId: string) => {
+    Navigation.pop(cId);
+  }
+
   protected push = <T>(cId: string, name: string, passProps?: T, options?: Options) => {
-    Navigation.push(cId, Layout_Component(name, passProps, options))
+    Navigation.push(cId, Component(name, passProps, options))
   }
 
   protected show = <T>(name: string, passProps?: T, options?: Options) => {
-    Navigation.showModal(Layout_StackWith(Layout_Component(name, passProps, options)));
+    Navigation.showModal(StackWith(Component(name, passProps, options)));
+  }
+
+  protected showOverlay = <T>(name: string, passProps?: T, options?: Options) => {
+    Navigation.showOverlay(StackWith(Component(name, passProps, options)));
   }
 }
 

@@ -15,5 +15,6 @@ export const startApp = async () => {
     darkmode: true,
   });
 
-  services.nav.startApp();
+  // here you can start the app depending on auth state.
+  await services.nav.startApp();
 };

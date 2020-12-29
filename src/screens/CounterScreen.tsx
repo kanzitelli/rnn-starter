@@ -9,12 +9,12 @@ import { observer } from 'mobx-react';
 import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks/dist/hooks';
 
-import { useStores } from '../stores';
-import { useServices } from '../services';
-import { ButtonIcon } from '../components/Button';
-import useStyles from '../hooks/useStyles';
-import { ScreenOptions } from '../services/navigation/screens';
-import { Buttons } from '../services/navigation/buttons';
+import { useStores } from 'src/stores';
+import { useServices } from 'src/services';
+import { ButtonIcon } from 'src/components/Button';
+import useStyles from 'src/hooks/useStyles';
+import { ScreenOptions } from 'src/services/navigation/screens';
+import { Buttons } from 'src/services/navigation/buttons';
 
 const CounterScreen: NavigationFunctionComponent = observer(({
   componentId,

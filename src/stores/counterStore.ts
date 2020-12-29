@@ -1,6 +1,6 @@
 import { observable, action, makeObservable } from 'mobx';
 import { persist } from 'mobx-persist';
-import { HydratedStore } from '../utils/classes';
+import { HydratedStore } from 'src/utils/classes';
 
 class CounterStore extends HydratedStore {
   constructor() {

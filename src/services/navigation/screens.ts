@@ -1,5 +1,5 @@
-import CounterScreen from '../../screens/CounterScreen';
-import ExpoScreen from '../../screens/ExpoScreen';
+import CounterScreen from 'src/screens/CounterScreen';
+import ExpoScreen from 'src/screens/ExpoScreen';
 import { Buttons } from './buttons';
 
 // Here we define all information regarding screens

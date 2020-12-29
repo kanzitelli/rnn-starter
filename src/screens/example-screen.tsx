@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
     SafeAreaView,
     Text,
@@ -8,10 +8,10 @@ import {
 import { observer } from 'mobx-react';
 import { NavigationFunctionComponent } from 'react-native-navigation';
 
-import { useStores } from '../stores';
-import { useServices } from '../services';
-import useStyles from '../hooks/useStyles';
-import { ScreenOptions } from '../services/navigation/screens';
+import { useStores } from 'src/stores';
+import { useServices } from 'src/services';
+import useStyles from 'src/hooks/useStyles';
+import { ScreenOptions } from 'src/services/navigation/screens';
 
 // This is an example that can be used to bootstrap your new screen
 // In order to register this screen, open services/navigation/screens
