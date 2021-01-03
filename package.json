@@ -18,7 +18,8 @@
     "start": "npx react-native start",
     "test": "jest",
     "release": "dotenv npx release-it",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "rename": "react-native-rename-next"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
