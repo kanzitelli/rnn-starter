@@ -1,5 +1,6 @@
 {
-  "from_expo": "From Expo SDK",
+  "counter_store": "Counter MobX Store",
+  "from_expo": "Expo SDK",
   "navigation": "Navigation",
   "reanimated2": "Reanimated 2",
   "push_screen": "Push this screen again",
