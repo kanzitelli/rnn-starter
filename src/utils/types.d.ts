@@ -24,3 +24,11 @@ type UseStylesOptionsType = {
   normalize?: boolean;
   darkmode?: boolean;
 }
+
+type GenerateShadowProps = {
+  shadowColor?: string;
+  shadowRadius?: number;
+  shadowOpacity?: number;
+  shadowOffsetW?: number;
+  shadowOffsetH?: number;
+}
