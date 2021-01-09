@@ -301,8 +301,8 @@ PODS:
     - React-Core
     - React-RCTImage
     - React-RCTText
-  - RNCAsyncStorage (1.12.1):
-    - React-Core
+  - RNCAsyncStorage (1.13.2):
+    - React
   - RNDeviceInfo (7.4.0):
     - React-Core
   - RNGestureHandler (1.9.0):
@@ -404,7 +404,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
-  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -518,7 +518,7 @@ EXTERNAL SOURCES:
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
   RNCAsyncStorage:
-    :path: "../node_modules/@react-native-community/async-storage"
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
@@ -602,7 +602,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   ReactNativeNavigation: 9bef98654981540f3c05e471f0314345a148a571
-  RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
+  RNCAsyncStorage: 05bae7ecfab1cbd5441993f1ca098f7c3b3f8d0e
   RNDeviceInfo: 9538a884f862fe4aa0d7cead9f34e292d41ba8f6
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
   RNReanimated: b9c929bfff7dedc9c89ab1875f1c6151023358d9

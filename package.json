@@ -22,7 +22,7 @@
     "rename": "react-native-rename-next"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-async-storage/async-storage": "^1.13.2",
     "expo": "^40.0.0",
     "expo-localization": "~9.1.0",
     "expo-mail-composer": "~9.0.0",
