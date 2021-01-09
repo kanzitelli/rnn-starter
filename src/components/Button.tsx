@@ -4,7 +4,7 @@ import {
     View,
     StyleSheet,
 } from 'react-native';
-import AntIcon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import useStyles from 'src/hooks/useStyles';
@@ -48,7 +48,7 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
     <>
       <TouchableOpacity onPress={onPress}>
         <View style={styles.buttonContainer}>
-          <AntIcon name={icon} style={styles.buttonIcon} />
+          <Icon name={icon} style={styles.buttonIcon} />
         </View>
       </TouchableOpacity>
     </>
