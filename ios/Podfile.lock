@@ -28,6 +28,9 @@ PODS:
     - UMCore
     - UMPermissionsInterface
     - UMTaskManagerInterface
+  - EXMailComposer (9.0.0):
+    - UMCore
+    - UMFileSystemInterface
   - EXNetwork (2.4.0):
     - UMCore
   - EXPermissions (10.0.0):
@@ -38,6 +41,8 @@ PODS:
   - EXSQLite (8.5.0):
     - UMCore
     - UMFileSystemInterface
+  - EXStoreReview (2.3.0):
+    - UMCore
   - EXUpdates (0.4.1):
     - React-Core
     - UMCore
@@ -287,18 +292,18 @@ PODS:
     - React-Core (= 0.63.4)
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
-  - ReactNativeNavigation (7.7.0):
+  - ReactNativeNavigation (7.8.1):
     - React-Core
     - React-RCTImage
     - React-RCTText
-    - ReactNativeNavigation/Core (= 7.7.0)
-  - ReactNativeNavigation/Core (7.7.0):
+    - ReactNativeNavigation/Core (= 7.8.1)
+  - ReactNativeNavigation/Core (7.8.1):
     - React-Core
     - React-RCTImage
     - React-RCTText
   - RNCAsyncStorage (1.12.1):
     - React-Core
-  - RNDeviceInfo (7.3.1):
+  - RNDeviceInfo (7.4.0):
     - React-Core
   - RNGestureHandler (1.9.0):
     - React-Core
@@ -364,10 +369,12 @@ DEPENDENCIES:
   - EXLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - EXLocalization (from `../node_modules/expo-localization/ios`)
   - EXLocation (from `../node_modules/expo-location/ios`)
+  - EXMailComposer (from `../node_modules/expo-mail-composer/ios`)
   - EXNetwork (from `../node_modules/expo-network/ios`)
   - EXPermissions (from `../node_modules/expo-permissions/ios`)
   - EXSecureStore (from `../node_modules/expo-secure-store/ios`)
   - EXSQLite (from `../node_modules/expo-sqlite/ios`)
+  - EXStoreReview (from `../node_modules/expo-store-review/ios`)
   - EXUpdates (from `../node_modules/expo-updates/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
@@ -444,6 +451,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-localization/ios"
   EXLocation:
     :path: "../node_modules/expo-location/ios"
+  EXMailComposer:
+    :path: "../node_modules/expo-mail-composer/ios"
   EXNetwork:
     :path: "../node_modules/expo-network/ios"
   EXPermissions:
@@ -452,6 +461,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-secure-store/ios"
   EXSQLite:
     :path: "../node_modules/expo-sqlite/ios"
+  EXStoreReview:
+    :path: "../node_modules/expo-store-review/ios"
   EXUpdates:
     :path: "../node_modules/expo-updates/ios"
   FBLazyVector:
@@ -558,10 +569,12 @@ SPEC CHECKSUMS:
   EXLinearGradient: c803fbd1aa974be038177b1e45524bc35759fe9c
   EXLocalization: 8b9463c81843da214476b541a27811dd885c9a76
   EXLocation: d55e2a37f61bcfb4eba9c813b3f4621d896c4c00
+  EXMailComposer: b736d3ef1073c7d6b7116bd2fa8eb8ba067f7185
   EXNetwork: 6efac2968418772829f979a78c555900267ce231
   EXPermissions: 17d4846ad1880f6891c74ae58ca1acb43e47ed47
   EXSecureStore: 1b571851e6068b30b8ec097be848a04603c03bae
   EXSQLite: bda6a286dded0637bb312ee781239dcca163ff4b
+  EXStoreReview: 9b161bd86c172a9755c787982bfc32c7193cf803
   EXUpdates: 28368049118dbe4ceaf4422ec72e0ad5f770df1f
   FBLazyVector: 3bb422f41b18121b71783a905c10e58606f7dc3e
   FBReactNativeSpec: f2c97f2529dd79c083355182cc158c9f98f4bd6e
@@ -588,9 +601,9 @@ SPEC CHECKSUMS:
   React-RCTText: 5c51df3f08cb9dedc6e790161195d12bac06101c
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
-  ReactNativeNavigation: 8a9cf15040eeffcf4a6c750ae7e9a63042aea0aa
+  ReactNativeNavigation: 9bef98654981540f3c05e471f0314345a148a571
   RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
-  RNDeviceInfo: 6ecb1d1c87d20e4c62354be0348de23362824dcd
+  RNDeviceInfo: 9538a884f862fe4aa0d7cead9f34e292d41ba8f6
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
   RNReanimated: b9c929bfff7dedc9c89ab1875f1c6151023358d9
   RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
