@@ -9,12 +9,12 @@ class NavigationService extends NavigationSystem implements IService {
     await this.initSystem();
   }
 
-  pushExpo = async (cId: string) => {
-    this.push(cId, ScreenNames.ExpoScreen)
+  pushStarter = async (cId: string) => {
+    this.push(cId, ScreenNames.StarterScreen)
   }
 
-  showExpo = async () => {
-    this.show(ScreenNames.ExpoScreen)
+  showStarter = async () => {
+    this.show(ScreenNames.StarterScreen)
   }
 
   // APP
@@ -26,12 +26,12 @@ class NavigationService extends NavigationSystem implements IService {
       Root(
         BottomTabs([
           StackWith(
-            Component(ScreenNames.CounterScreen),
+            Component(ScreenNames.StarterScreen),
             { ...tabOptions[0] },
           ),
 
           StackWith(
-            Component(ScreenNames.ExpoScreen),
+            Component(ScreenNames.SettingsScreen),
             tabOptions[1],
           ),
         ])

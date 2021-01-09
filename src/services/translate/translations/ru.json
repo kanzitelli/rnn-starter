@@ -1,5 +1,6 @@
 {
-  "from_expo": "Из Expo SDK",
+  "counter_store": "Счетчик MobX Store",
+  "from_expo": "Expo SDK",
   "navigation": "Навигация",
   "push_screen": "Показать экран еще раз",
   "show_modal": "Показать в модале",

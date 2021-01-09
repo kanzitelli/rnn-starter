@@ -16,6 +16,7 @@ const themes: ThemesType = {
       ...colors,
       bg: colors.white,
       text: colors.black,
+      sectionBg: colors.light,
     },
     sizes,
   },
@@ -24,6 +25,7 @@ const themes: ThemesType = {
       ...colors,
       bg: colors.black,
       text: colors.lightGrey,
+      sectionBg: colors.darkGrey,
     },
     sizes,
   }

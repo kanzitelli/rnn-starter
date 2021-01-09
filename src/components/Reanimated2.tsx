@@ -1,10 +1,12 @@
 import React from 'react';
 import Animated, { withSpring, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import { StyleSheet, View, Text } from 'react-native';
+import useStyles from 'src/hooks/useStyles';
 import { ButtonTitle } from './Button';
 import Bounceable from './Bounceable';
 
 const Reanimated2: React.FC = () => {
+  const { styles } = useStyles(_styles);
   const offset = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => {
@@ -36,7 +38,7 @@ const Reanimated2: React.FC = () => {
   )
 }
 
-const styles = StyleSheet.create({
+const _styles = (theme: ThemeType) => StyleSheet.create({
   container: {
     padding: 8,
     justifyContent: 'center',
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
     padding: 30,
     borderRadius: 20,
     margin: 8,
-    backgroundColor: '#001a72',
+    backgroundColor: theme.colors.main,
   },
 })
 
