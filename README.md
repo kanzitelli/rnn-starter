@@ -71,7 +71,7 @@ yarn android
 
 ## Enhancements
 There are still some things I would like to add to the starter:
-- 🔳 Dark Mode support.
+- 🔳 Dark Mode support (still looking for a more robust solution).
 - 🔳 Localization via [expo-localization](https://docs.expo.io/versions/latest/sdk/localization) and [i18n-js](https://github.com/fnando/i18n-js).
 - 🔳 Notifications (remote) using [React Native Notifications](https://github.com/wix/react-native-notifications).
 
