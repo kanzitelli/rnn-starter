@@ -15,6 +15,8 @@ class NavigationService extends NavigationSystem implements IService {
 
   showStarter = async () => {
     this.show(ScreenNames.StarterScreen)
+  showAppUpdate = async () => {
+    this.showOverlay(ScreenNames.AppUpdateScreen);
   }
 
   // APP
