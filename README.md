@@ -24,7 +24,7 @@ This starter is a collection of libraries and approaches from my personal experi
 
 1. Clone the repo
 ```bash
-git clone https://github.com/kanzitelli/expo-rnn-starter.git <new-app> && cd <new-app>
+git clone https://github.com/kanzitelli/expo-rnn-starter.git <appName> && cd <appName>
 ```
 
 2. Remove `.git` file (if are not planning to contribute)
@@ -32,9 +32,11 @@ git clone https://github.com/kanzitelli/expo-rnn-starter.git <new-app> && cd <ne
 rm -rf .git
 ```
 
-3. Install packages
+3. Install packages and rename the app (based on [react-native-rename-next
 ```bash
-yarn && yarn ios:pods
+yarn
+yarn rename <AppName>
+yarn ios:pods
 ```
 
 4. Run it!
@@ -45,11 +47,9 @@ yarn android
 
 👁‍🗨 If you are planning to use Expo modules, such as preconfigured `expo-updates` and others, or add new ones, what I strongly recommend, then proceed to [Expo Configuration](/EXPO_CONFIGURATION.md) and follow the steps.
 
-🟢 If you would like to rename the app, you can use [react-native-rename-next](https://github.com/mayconmesquita/react-native-rename-next). Don't forget to run `yarn ios:pods` after the process is finished. Also keep in mind that bundle identifier must be valid for both platforms or change it manually.
-
 ## What's inside
-- [Expo SDK](https://github.com/expo/expo) - universal set of amazing libraries (such as `expo-updates`) which are needed for building sustainable apps
 - [React Native Navigation](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android
+- [Expo SDK](https://github.com/expo/expo) - universal set of amazing libraries (such as `expo-updates`) which are needed for building sustainable apps
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist](https://github.com/pinqy520/mobx-persist) for persisting your stores
 ### Extra helpful libraries
