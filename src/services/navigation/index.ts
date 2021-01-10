@@ -9,12 +9,14 @@ class NavigationService extends NavigationSystem implements IService {
     await this.initSystem();
   }
 
-  pushStarter = async (cId: string) => {
-    this.push(cId, ScreenNames.StarterScreen)
+  pushSettings = async (cId: string) => {
+    this.push(cId, ScreenNames.SettingsScreen);
   }
 
-  showStarter = async () => {
-    this.show(ScreenNames.StarterScreen)
+  showSettings = async () => {
+    this.show(ScreenNames.SettingsScreen);
+  }
+
   showAppUpdate = async () => {
     this.showOverlay(ScreenNames.AppUpdateScreen);
   }

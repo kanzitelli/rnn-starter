@@ -70,11 +70,11 @@ const StarterScreen: NavigationFunctionComponent<StarterScreenProps> = observer(
         <Section title={t.do('navigation')}>
           <ButtonTitle
             title={t.do('push_screen')}
-            onPress={() => nav.pushStarter(componentId)}
+            onPress={() => nav.pushSettings(componentId)}
           />
           <ButtonTitle
             title={t.do('show_modal')}
-            onPress={() => nav.showStarter()}
+            onPress={() => nav.showSettings()}
           />
           <ButtonTitle
             title={t.do('close_modal')}

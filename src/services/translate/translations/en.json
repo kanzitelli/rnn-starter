@@ -3,7 +3,7 @@
   "from_expo": "Expo SDK",
   "navigation": "Navigation",
   "reanimated2": "Reanimated 2",
-  "push_screen": "Push this screen again",
-  "show_modal": "Show it as a modal",
+  "push_screen": "Push a screen",
+  "show_modal": "Show a modal",
   "close_modal": "Close modal"
 }
