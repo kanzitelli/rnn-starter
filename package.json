@@ -13,6 +13,8 @@
     "ios:pods": "npx pod-install",
     "updates:publish:dev": "expo publish --release-channel dev",
     "u:p:dev": "yarn updates:publish:dev",
+    "updates:publish:prod": "expo publish --release-channel prod_1.0",
+    "u:p:prod": "yarn updates:publish:prod",
     "updates:optimize": "npx expo-optimize",
     "u:o": "yarn updates:optimize",
     "start": "npx react-native start",
