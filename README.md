@@ -10,9 +10,9 @@
 - [🤓 Worth checking](#worth-checking)
 
 ##  Motivation
-1. I love [React Native](https://reactnative.dev/) 💚
-2. I love [Expo](https://expo.io/) 💙
-3. I love [React Native Navigation](https://wix.github.io/react-native-navigation) ❤️
+- 💚 I love [React Native](https://reactnative.dev/)
+- 💙 I love [Expo](https://expo.io/)
+- ❤️ I love [React Native Navigation](https://wix.github.io/react-native-navigation)
 
 So why not put them all together? 😏
 
@@ -22,6 +22,14 @@ This starter is a collection of libraries and approaches from my personal experi
 
 ## Getting Started
 
+### Quick start
+
+```bash
+> npm i -g cli-rn
+> cli-rn new AppName
+```
+
+### Manual setup
 1. Clone the repo
 ```bash
 git clone https://github.com/kanzitelli/expo-rnn-starter.git <appName> && cd <appName>
@@ -85,8 +93,8 @@ Feel free to open an issue for suggestions.
 Feel free to open an issue for any other warning or problems.
 
 ## Limitations
+- [SOLVED] Check [cli-rn](https://github.com/kanzitelli/cli-rn) and [cli-rn-app](https://github.com/kanzitelli/cli-rn-app). ~~Apps bootstrapped from this starter won't be available through Expo app for iOS and Android as of differences in navigation approach. Theoretically, it is possible to create an app like Expo that will include `react-native-navigation` and somehow download needed bundles. Needs more research.~~
 - Apps bootstrapped from this starter won't be able to be run on web as Expo apps do. Theoretically, it is possible to create some sort of an adapter between `react-navigation` and `react-native-navigation`. Maybe there will be other issues, but would be cool to have this feature.
-- Apps bootstrapped from this starter won't be available through Expo app for iOS and Android as of differences in navigation approach. Theoretically, it is possible to create an app like Expo that will include `react-native-navigation` and somehow download needed bundles. Needs more research.
 
 ## Worth checking
 ### Articles
