@@ -34,6 +34,7 @@ google-services.json
 # Own
 #
 .env
+.cli-rn
 
 # Expo
 #
