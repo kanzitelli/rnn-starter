@@ -22,7 +22,7 @@ This starter is a collection of libraries and approaches from my personal experi
 
 ## Getting Started
 
-### Quick start
+### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
 
 ```bash
 > npm i -g cli-rn
