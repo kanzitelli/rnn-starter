@@ -14,7 +14,7 @@ import * as MailComposer from 'expo-mail-composer';
 import { useStores } from 'src/stores';
 import { useServices } from 'src/services';
 import useStyles from 'src/hooks/useStyles';
-import { ScreenOptions } from 'src/services/navigation/screens';
+import { screens } from 'src/services/navigation/screens';
 import Section from 'src/components/Section';
 import SettingsAction from 'src/components/SettingsAction';
 import useContants from 'src/hooks/useConstants';
@@ -101,6 +101,6 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
   
 });
 
-SettingsScreen.options = props => ScreenOptions.SettingsScreen;
+SettingsScreen.options = props => screens.settings.options();
 
 export default SettingsScreen;

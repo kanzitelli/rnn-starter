@@ -1,6 +1,6 @@
 import { Navigation } from 'react-native-navigation';
 import { Root, BottomTabs, StackWith, Component } from './layout';
-import { ScreenNames } from './screens';
+import { screens } from './screens';
 import NavigationSystem from './system';
 import { getTabOptions } from './tabs';
 
@@ -10,15 +10,15 @@ class NavigationService extends NavigationSystem implements IService {
   }
 
   pushSettings = async (cId: string) => {
-    this.push(cId, ScreenNames.SettingsScreen);
+    this.push(cId, screens.settings.id);
   }
 
   showSettings = async () => {
-    this.show(ScreenNames.SettingsScreen);
+    this.show(screens.settings.id);
   }
 
   showAppUpdate = async () => {
-    this.showOverlay(ScreenNames.AppUpdateScreen);
+    this.showOverlay(screens.appUpdates.id);
   }
 
   // APP
@@ -30,12 +30,12 @@ class NavigationService extends NavigationSystem implements IService {
       Root(
         BottomTabs([
           StackWith(
-            Component(ScreenNames.StarterScreen),
+            Component(screens.starter.id),
             { ...tabOptions[0] },
           ),
 
           StackWith(
-            Component(ScreenNames.SettingsScreen),
+            Component(screens.settings.id),
             tabOptions[1],
           ),
         ])

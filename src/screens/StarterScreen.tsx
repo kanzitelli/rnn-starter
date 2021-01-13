@@ -18,7 +18,7 @@ import { useServices } from 'src/services';
 import Reanimated2 from 'src/components/Reanimated2';
 import { ButtonIcon, ButtonTitle } from 'src/components/Button';
 import useStyles from 'src/hooks/useStyles';
-import { ScreenOptions } from 'src/services/navigation/screens';
+import { screens } from 'src/services/navigation/screens';
 import Section from 'src/components/Section';
 import { Buttons } from 'src/services/navigation/buttons';
 
@@ -119,6 +119,6 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
   },
 });
 
-StarterScreen.options = props => ScreenOptions.StarterScreen;
+StarterScreen.options = props => screens.starter.options();
 
 export default StarterScreen;

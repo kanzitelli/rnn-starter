@@ -11,7 +11,7 @@ import { BlurView } from 'expo-blur';
 import { useStores } from 'src/stores';
 import { useServices } from 'src/services';
 import useStyles, { generateThemeName } from 'src/hooks/useStyles';
-import { ScreenOptions } from 'src/services/navigation/screens';
+import { screens } from 'src/services/navigation/screens';
 
 const AppUpdateScreen: NavigationFunctionComponent = observer(({
   componentId,
@@ -44,6 +44,6 @@ const _styles = (theme: ThemeType) => StyleSheet.create({
   },
 });
 
-AppUpdateScreen.options = props => ScreenOptions.AppUpdateScreen;
+AppUpdateScreen.options = props => screens.appUpdates.options();
 
 export default AppUpdateScreen;
