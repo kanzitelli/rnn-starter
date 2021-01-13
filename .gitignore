@@ -35,6 +35,7 @@ google-services.json
 #
 .env
 .cli-rn
+/ios/assets
 
 # Expo
 #
