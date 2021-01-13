@@ -7,60 +7,51 @@ import { Options } from 'react-native-navigation';
 
 // Here we define all information regarding screens
 
-const prefix = 'rnn_starter';
-
-const ScreenNames = {
-  StarterScreen: `${prefix}.StarterScreen`,
-  SettingsScreen: `${prefix}.SettingsScreen`,
-  AppUpdateScreen: `${prefix}.AppUpdateScreen`,
-
-  ExampleScreen: `${prefix}.ExampleScreen`,
+type Screen = {
+  id: string;
+  options: () => Options;
 }
+type ScreenName =
+  'starter' |
+  'settings' |
+  'appUpdates';
 
-const ScreenTitles = {
-  StarterScreen: 'Starter',
-  SettingsScreen: 'Settings',
-  AppUpdateScreen: '',
+const withPrefix = (s: string) => `rnn_starter.${s}`;
 
-  ExampleScreen: 'Example',
-}
-
-const ScreenButtons = {
-  StarterScreen: {
-    right: [Buttons.Inc, Buttons.Dec]
+const screens: Record<ScreenName, Screen> = {
+  starter: {
+    id: withPrefix('StarterScreen'),
+    options: () => ({
+      topBar: {
+        title: { text: 'Starter', },
+        rightButtons: [Buttons.Inc, Buttons.Dec],
+      },
+    })
+  },
+  settings: {
+    id: withPrefix('SettingsScreen'),
+    options: () => ({
+      topBar: {
+        title: { text: 'Settings', }
+      }
+    })
+  },
+  appUpdates: {
+    id: withPrefix('AppUpdatesScreen'),
+    options: () => ({
+      overlay: { interceptTouchOutside: false },
+      topBar: { visible: false },
+      layout: { componentBackgroundColor: 'transparent' },
+    })
   }
-};
-
-const ScreenOptions: Record<string, Options> = {
-  StarterScreen: {
-    topBar: {
-      title: { text: ScreenTitles.StarterScreen, },
-      rightButtons: ScreenButtons.StarterScreen.right,
-    },
-  },
-  SettingsScreen: {
-    topBar: { title: { text: ScreenTitles.SettingsScreen, } }
-  },
-  AppUpdateScreen: {
-    overlay: { interceptTouchOutside: false },
-    topBar: { visible: false },
-    layout: { componentBackgroundColor: 'transparent' },
-  },
-
-  ExampleScreen: {
-    topBar: { title: { text: ScreenTitles.ExampleScreen, } }
-  },
 }
 
 const Screens = new Map<string, React.FC<any>>();
-Screens.set(ScreenNames.StarterScreen, StarterScreen);
-Screens.set(ScreenNames.SettingsScreen, SettingsScreen);
-Screens.set(ScreenNames.AppUpdateScreen, AppUpdateScreen);
+Screens.set(screens.starter.id, StarterScreen);
+Screens.set(screens.settings.id, SettingsScreen);
+Screens.set(screens.appUpdates.id, AppUpdateScreen);
 
 export default Screens;
 export {
-  ScreenNames,
-  ScreenTitles,
-  ScreenOptions,
-  ScreenButtons,
+  screens,
 };
