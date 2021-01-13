@@ -69,7 +69,7 @@ class NavigationSystem {
   }
 
   // ACTIONS
-  
+
   dismissModal = (cId: string, options?: Options) => {
     Navigation.dismissModal(cId, options);
   }
