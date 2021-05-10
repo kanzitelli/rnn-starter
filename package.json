@@ -34,7 +34,7 @@
     "expo-updates": "^0.4.1",
     "hermes-engine": "^0.5.2-rc1",
     "i18n-js": "^3.8.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mobx": "^6.0.4",
     "mobx-persist": "^0.4.1",
     "mobx-react": "^7.0.5",
