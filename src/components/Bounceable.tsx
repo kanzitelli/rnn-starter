@@ -1,26 +1,26 @@
 import React from 'react';
-import { StyleSheet, ViewStyle } from 'react-native';
+import {ViewStyle} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
   runOnJS,
 } from 'react-native-reanimated';
-import { TapGestureHandler, State } from 'react-native-gesture-handler';
+import {TapGestureHandler, State} from 'react-native-gesture-handler';
 
 type BouncableProps = {
-  children: any;
+  children: React.ReactNode;
   disabled?: boolean;
   onPress?: () => void;
   activeScale?: number;
-  springConfig?: object;
+  springConfig?: Record<string, unknown>;
   contentContainerStyle?: ViewStyle;
-}
+};
 
-const Bounceable: React.FC<BouncableProps> = ({
+export const Bounceable: React.FC<BouncableProps> = ({
   children,
   disabled = false,
-  onPress = () => {},
+  onPress,
   activeScale = 0.95,
   springConfig = {
     damping: 10,
@@ -28,7 +28,7 @@ const Bounceable: React.FC<BouncableProps> = ({
     stiffness: 300,
   },
   contentContainerStyle = {},
-}) => {
+}: BouncableProps) => {
   const scale = useSharedValue(1);
   const sz = useAnimatedStyle(() => {
     return {
@@ -43,32 +43,30 @@ const Bounceable: React.FC<BouncableProps> = ({
   return (
     <TapGestureHandler
       shouldCancelWhenOutside={true}
-      onHandlerStateChange={({ nativeEvent }) => {
+      onHandlerStateChange={({nativeEvent}) => {
         if (disabled) return;
+        const {state} = nativeEvent;
 
-        switch (nativeEvent.state) {
-          case State.BEGAN:
-            scale.value = withSpring(activeScale, springConfig);
-            break;
-          case State.END:
-            if (onPress) runOnJS(onPress)();
-            scale.value = withSpring(1, springConfig);
-            break;
-          case State.UNDETERMINED:
-          case State.FAILED:
-          case State.CANCELLED:
-            scale.value = withSpring(1, springConfig);
-            break;
+        if (state === State.BEGAN) {
+          scale.value = withSpring(activeScale, springConfig);
         }
-      }}
-    >
+
+        if (state === State.END) {
+          if (onPress) runOnJS(onPress)();
+          scale.value = withSpring(1, springConfig);
+        }
+
+        if (
+          state === State.UNDETERMINED ||
+          state === State.FAILED ||
+          state === State.CANCELLED
+        ) {
+          scale.value = withSpring(1, springConfig);
+        }
+      }}>
       <Animated.View style={[contentContainerStyle, sz]}>
         {children}
       </Animated.View>
     </TapGestureHandler>
   );
 };
-
-const s = StyleSheet.create({});
-
-export default Bounceable;

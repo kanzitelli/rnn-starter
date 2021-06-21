@@ -1,17 +1,14 @@
-// Here we define all information regarding Buttons
+import {ButtonsOptions} from './types';
 
-const Buttons = {
-  Inc: {
-    id: 'incButtonId',
-    text: '+',
+export type Button = 'inc' | 'dec';
+
+export const buttons: ButtonsOptions = {
+  inc: {
+    id: 'inc',
+    text: 'Inc',
   },
-  Dec: {
-    id: 'decButtonId',
-    text: '-',
-  }
+  dec: {
+    id: 'dec',
+    text: 'Dec',
+  },
 };
-
-
-export {
-  Buttons,
-}

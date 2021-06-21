@@ -35,11 +35,8 @@ google-services.json
 #
 .env
 .cli-rn
+media/
 /ios/assets
-
-# Expo
-#
-.expo
 
 # node.js
 #

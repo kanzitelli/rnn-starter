@@ -1,22 +1,31 @@
-import * as Localization from 'expo-localization';
+import {getLocales} from 'react-native-localize';
 import i18n from 'i18n-js';
 
-const en = require('./translations/en.json');
-const ru = require('./translations/ru.json');
-const de = require('./translations/de.json');
+import {ru, en} from './translations';
 
-class TranslateService implements IService {
-  init = async () => {
-    this.setup();
-  }
+export class Translate implements IService {
+  private inited = false;
 
-  do = (s: string) => i18n.t(s);
+  init = async (): PVoid => {
+    if (!this.inited) {
+      await this.setup();
 
-  private setup = () => {
-    i18n.translations = { en, ru, de };
-    i18n.locale = Localization.locale;
-    i18n.fallbacks = true;
-  }
+      this.inited = true;
+    }
+  };
+
+  do = i18n.t;
+
+  private setup = async () => {
+    const locales = getLocales();
+
+    if (locales.length > 0) {
+      const lng = locales[0].languageCode;
+
+      i18n.translations = {en, ru};
+      i18n.locale = lng;
+      // i18n.locale = 'ru';
+      i18n.fallbacks = true;
+    }
+  };
 }
-
-export default new TranslateService();

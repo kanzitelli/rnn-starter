@@ -4,34 +4,26 @@ import {
   LayoutStackChildren,
   LayoutRoot,
   LayoutTabsChildren,
+  LayoutComponent,
 } from 'react-native-navigation';
 
 // Set of methods which help building RNN layout without long boring code like {stack:component:{...}}
 
-const Root =
-  (root: Layout): LayoutRoot =>
-    ({ root });
+const Root = (root: Layout): LayoutRoot => ({root});
 
-const BottomTabs =
-  (children?: LayoutTabsChildren[], options?: Options): Layout =>
-    ({ bottomTabs: { children, options }});
+const BottomTabs = (
+  children?: LayoutTabsChildren[],
+  options?: Options,
+): Layout => ({bottomTabs: {children, options}});
 
-const Stack =
-  (children?: LayoutStackChildren[], options?: Options): Layout =>
-    ({ stack: { children, options }});
+const StackMany = (
+  children?: LayoutStackChildren[],
+  options?: Options,
+): Layout => ({stack: {children, options}});
 
-const StackWith =
-  (c: LayoutStackChildren, options?: Options): Layout =>
-    Stack([c], options);
+const Stack = (c: LayoutStackChildren, options?: Options): Layout =>
+  StackMany([c], options);
 
-const Component =
-  <P = {}>(name: string, passProps?: P, options?: Options): Layout =>
-    ({ component: { name, passProps, options }})
+const Component = <P>(component: LayoutComponent<P>): Layout => ({component});
 
-export {
-  Root,
-  BottomTabs,
-  Stack,
-  StackWith,
-  Component,
-}
+export {Root, BottomTabs, Stack, StackMany, Component};
