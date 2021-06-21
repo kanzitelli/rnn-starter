@@ -13,6 +13,10 @@ For more information, check out [Why](#why) section.
 > cli-rn new AppName
 ```
 
+If you encounter any problems with `cli-rn`, please open an issue.
+
+If you have any troubles running the app with `yarn ios` or `yarn android`, open XCode or Android Studio and run the project from there.
+
 #### Manual setup
 
 1. Clone the repo
@@ -35,12 +39,14 @@ For more information, check out [Why](#why) section.
 
 4. Run it!
 
+Open XCode or Android Studio to run the project (recommended) or do
+
 ```bash
 > yarn ios
 > yarn android
 ```
 
-Rename the app if needed (based on [react-native-rename](https://github.com/junedomingo/react-native-rename))
+If you need to rename the app, do the following (based on [react-native-rename](https://github.com/junedomingo/react-native-rename)):
 
 ```bash
 > yarn rename NewAppName
