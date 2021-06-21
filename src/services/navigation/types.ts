@@ -4,8 +4,8 @@ import {
   OptionsTopBarButton,
 } from 'react-native-navigation';
 
-import {Screen} from '../../screens';
-import {Button} from './buttons';
+import { Screen } from '../../screens';
+import { Button } from './buttons';
 
 export type ScreenInfo = {
   name: Screen;

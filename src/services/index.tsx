@@ -1,12 +1,9 @@
 import React from 'react';
-import {
-  NavigationComponentProps,
-  NavigationFunctionComponent,
-} from 'react-native-navigation';
+import { NavigationComponentProps, NavigationFunctionComponent } from 'react-native-navigation';
 
-import {OnStart} from './onStart';
-import {Nav} from './navigation';
-import {Translate} from './translate';
+import { OnStart } from './onStart';
+import { Nav } from './navigation';
+import { Translate } from './translate';
 
 export const services = {
   t: new Translate(), // should be first
@@ -28,8 +25,7 @@ export const withServices = (C: NavigationFunctionComponent) => {
   };
 };
 
-export const useServices = (): ContextServices =>
-  React.useContext(servicesContext);
+export const useServices = (): ContextServices => React.useContext(servicesContext);
 
 export const initServices = async (): PVoid => {
   for (const key in services) {

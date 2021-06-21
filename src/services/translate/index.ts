@@ -1,7 +1,7 @@
-import {getLocales} from 'react-native-localize';
+import { getLocales } from 'react-native-localize';
 import i18n from 'i18n-js';
 
-import {ru, en} from './translations';
+import { ru, en } from './translations';
 
 export class Translate implements IService {
   private inited = false;
@@ -22,7 +22,7 @@ export class Translate implements IService {
     if (locales.length > 0) {
       const lng = locales[0].languageCode;
 
-      i18n.translations = {en, ru};
+      i18n.translations = { en, ru };
       i18n.locale = lng;
       // i18n.locale = 'ru';
       i18n.fallbacks = true;

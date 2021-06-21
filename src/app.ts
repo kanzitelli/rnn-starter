@@ -1,8 +1,8 @@
-import {hydrateStores} from './stores';
-import {initServices, services} from './services';
-import {configureDesignSystem} from './utils/designSystem';
+import { hydrateStores } from './stores';
+import { initServices, services } from './services';
+import { configureDesignSystem } from './utils/designSystem';
 
-const {nav} = services;
+const { nav } = services;
 
 export const start = async (): PVoid => {
   // 1. configure design system

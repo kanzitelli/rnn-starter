@@ -1,4 +1,4 @@
-import {Colors, Spacings, Typography} from 'react-native-ui-lib';
+import { Colors, Spacings, Typography } from 'react-native-ui-lib';
 
 export const configureDesignSystem = (): void => {
   // for more information - https://wix.github.io/react-native-ui-lib/foundation/style
@@ -27,7 +27,7 @@ export const configureDesignSystem = (): void => {
   });
 
   Typography.loadTypographies({
-    section: {fontSize: 26, fontWeight: '600'},
+    section: { fontSize: 26, fontWeight: '600' },
   });
 
   Spacings.loadSpacings({

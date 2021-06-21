@@ -1,6 +1,6 @@
-import {stores} from '../stores';
+import { stores } from '../stores';
 
-const {ui} = stores;
+const { ui } = stores;
 
 export class OnStart implements IService {
   private inited = false;

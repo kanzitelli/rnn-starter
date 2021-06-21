@@ -1,5 +1,5 @@
-import {makeAutoObservable} from 'mobx';
-import {hydrateStore, makePersistable} from 'mobx-persist-store';
+import { makeAutoObservable } from 'mobx';
+import { hydrateStore, makePersistable } from 'mobx-persist-store';
 
 export class UI implements IStore {
   appLaunches = 0;

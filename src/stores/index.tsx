@@ -1,12 +1,9 @@
 import React from 'react';
-import {
-  NavigationComponentProps,
-  NavigationFunctionComponent,
-} from 'react-native-navigation';
+import { NavigationComponentProps, NavigationFunctionComponent } from 'react-native-navigation';
 
 import './_hydration';
-import {UI} from './ui';
-import {Counter} from './counter';
+import { UI } from './ui';
+import { Counter } from './counter';
 
 export const stores = {
   ui: new UI(),

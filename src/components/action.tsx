@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, Colors} from 'react-native-ui-lib';
+import { View, Text, Colors } from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {Bounceable} from './bounceable';
+import { Bounceable } from './bounceable';
 
 type ActionProps = {
   title: string;
@@ -19,12 +19,12 @@ export const Action: React.FC<ActionProps> = ({
   disabled,
   onPress,
 }: ActionProps) => {
-  const b = {disabled, onPress};
+  const b = { disabled, onPress };
 
   return (
     <View padding-m>
       <Bounceable {...b}>
-        <View row centerV style={{justifyContent: 'space-between'}}>
+        <View row centerV style={{ justifyContent: 'space-between' }}>
           <View row centerV>
             {!!icon && (
               <View marginR-m>

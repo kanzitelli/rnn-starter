@@ -1,21 +1,15 @@
 import React from 'react';
-import {View, Text} from 'react-native-ui-lib';
-import {
-  withSpring,
-  useAnimatedStyle,
-  useSharedValue,
-} from 'react-native-reanimated';
+import { View, Text } from 'react-native-ui-lib';
+import { withSpring, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
-import {Bounceable} from './bounceable';
+import { Bounceable } from './bounceable';
 
 export const Reanimated2: React.FC = () => {
   const offset = useSharedValue(0);
 
-  const animatedStyles = useAnimatedStyle(() => {
-    return {
-      transform: [{translateX: offset.value * 250 - 100}],
-    };
-  });
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{ translateX: offset.value * 250 - 100 }],
+  }));
 
   const moveObject = () => {
     offset.value = withSpring(Math.random());

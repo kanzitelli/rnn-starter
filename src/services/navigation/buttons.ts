@@ -1,4 +1,4 @@
-import {ButtonsOptions} from './types';
+import { ButtonsOptions } from './types';
 
 export type Button = 'inc' | 'dec';
 

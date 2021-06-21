@@ -6,8 +6,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:eslint-plugin-prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -17,12 +17,21 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    quotes: ['error', 'single', { avoidEscape: true }],
     'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    'react/display-name': 'off',
+    'react/prop-types': 'off',
     'prettier/prettier': 'error',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };

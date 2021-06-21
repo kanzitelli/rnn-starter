@@ -1,5 +1,5 @@
-import {MMKV} from 'react-native-mmkv';
-import {configurePersistable} from 'mobx-persist-store';
+import { MMKV } from 'react-native-mmkv';
+import { configurePersistable } from 'mobx-persist-store';
 
 configurePersistable({
   debugMode: __DEV__,

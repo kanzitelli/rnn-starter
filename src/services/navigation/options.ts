@@ -1,6 +1,6 @@
-import {Options, OptionsTopBar} from 'react-native-navigation';
+import { Options, OptionsTopBar } from 'react-native-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {Button, buttons} from './buttons';
+import { Button, buttons } from './buttons';
 
 const ICON_SIZE = 25;
 
@@ -13,7 +13,7 @@ export const withBottomTab = (text = 'Screen', icon = 'earth'): Options => ({
 });
 
 export const withTitle = (text = 'Screen'): OptionsTopBar => ({
-  title: {text},
+  title: { text },
 });
 
 export const withRightButtons = (...btns: Button[]): OptionsTopBar => ({

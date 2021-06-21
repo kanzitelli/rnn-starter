@@ -1,12 +1,12 @@
-import {Navigation} from 'react-native-navigation';
-import {Colors} from 'react-native-ui-lib';
-import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
+import { Navigation } from 'react-native-navigation';
+import { Colors } from 'react-native-ui-lib';
+import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
-import {Screen, screens, screensLayouts} from '../../screens';
-import {withStores} from '../../stores';
-import {withServices} from '../../services';
+import { Screen, screens, screensLayouts } from '../../screens';
+import { withStores } from '../../stores';
+import { withServices } from '../../services';
 
-import {BottomTabs, Component, Root, Stack} from './layout';
+import { BottomTabs, Component, Root, Stack } from './layout';
 
 export class Nav implements IService {
   private inited = false;
@@ -40,7 +40,7 @@ export class Nav implements IService {
 
   // Navigation methods
   push = <T>(cId: string, name: Screen, passProps?: T): void => {
-    this.N.push(cId, Component({...screensLayouts[name], passProps}));
+    this.N.push(cId, Component({ ...screensLayouts[name], passProps }));
   };
 
   pop = (cId: string): void => {
@@ -48,7 +48,7 @@ export class Nav implements IService {
   };
 
   show = <T>(name: Screen, passProps?: T): void => {
-    this.N.showModal(Stack(Component({...screensLayouts[name], passProps})));
+    this.N.showModal(Stack(Component({ ...screensLayouts[name], passProps })));
   };
 
   // System methods
