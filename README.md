@@ -1,6 +1,7 @@
 https://user-images.githubusercontent.com/4402166/122827138-47911900-d2e4-11eb-8bc4-17cad2e4cc67.mp4
 
 This starter is a collection of libraries and approaches from my personal experience. No hard judgements ✌️
+
 For more information, check out [Why](#why) section.
 
 ## Getting Started
