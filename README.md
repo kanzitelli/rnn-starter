@@ -158,11 +158,11 @@ There are still some things I would like to add to the starter:
 #### Production
 
 - [ ] Auth flow
-- [ ] Notifications -- [wix/react-native-notifications](https://github.com/wix/react-native-notifications).
-- [ ] Permissions -- [zoontek/react-native-permissions](https://github.com/zoontek/react-native-permissions)
-- [ ] FB SDK -- [thebergamo/react-native-fbsdk-next](https://github.com/thebergamo/react-native-fbsdk-next)
-- [ ] Appodeal -- [appodeal/react-native-appodeal](https://github.com/appodeal/react-native-appodeal)
-- [ ] In-app purchases -- [dooboolab/react-native-iap](https://github.com/dooboolab/react-native-iap)?
+- [ ] Notifications — [wix/react-native-notifications](https://github.com/wix/react-native-notifications).
+- [ ] Permissions — [zoontek/react-native-permissions](https://github.com/zoontek/react-native-permissions)
+- [ ] FB SDK — [thebergamo/react-native-fbsdk-next](https://github.com/thebergamo/react-native-fbsdk-next)
+- [ ] Appodeal — [appodeal/react-native-appodeal](https://github.com/appodeal/react-native-appodeal)
+- [ ] In-app purchases — [dooboolab/react-native-iap](https://github.com/dooboolab/react-native-iap)?
 
 Feel free to open an issue for suggestions.
 
