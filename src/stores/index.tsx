@@ -1,29 +1,38 @@
 import React from 'react';
+import {
+  NavigationComponentProps,
+  NavigationFunctionComponent,
+} from 'react-native-navigation';
 
-import CounterStore from './counterStore';
-import UIStore from './uiStore';
+import './_hydration';
+import {UI} from './ui';
+import {Counter} from './counter';
 
 export const stores = {
-  counter: CounterStore,
-  ui: UIStore,
+  ui: new UI(),
+  counter: new Counter(),
+};
+type ContextStores = typeof stores;
+
+const storeContext = React.createContext<ContextStores>(stores);
+
+/* eslint-disable react/display-name */
+export const withStores = (C: NavigationFunctionComponent) => {
+  return (props: NavigationComponentProps): React.ReactElement => {
+    return (
+      <storeContext.Provider value={stores}>
+        <C {...props} />
+      </storeContext.Provider>
+    );
+  };
 };
 
-const storeContext = React.createContext(stores);
+export const useStores = (): ContextStores => React.useContext(storeContext);
 
-export const withStoresProvider = (C: React.FC) => (props: any) => {
-  return (
-    <storeContext.Provider value={stores}>
-      <C {...props} />
-    </storeContext.Provider>
-  );
-};
-
-export const useStores = () => React.useContext(storeContext);
-
-export const hydrateStores = async () => {
+export const hydrateStores = async (): PVoid => {
   for (const key in stores) {
     if (Object.prototype.hasOwnProperty.call(stores, key)) {
-      const s = stores[key];
+      const s = (stores as Stores)[key];
 
       if (s.hydrate) {
         await s.hydrate();

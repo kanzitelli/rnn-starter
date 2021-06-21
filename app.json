@@ -1,9 +1,4 @@
 {
-  "name": "Expo RNN Starter",
-  "displayName": "Expo RNN Starter",
-  "expo": {
-    "name": "Expo RNN Starter",
-    "slug": "expo-rnn-starter",
-    "sdkVersion": "40.0.0"
-  }
+  "name": "rnn-starter",
+  "displayName": "RNNStarter"
 }

@@ -1,33 +1,40 @@
 import React from 'react';
+import {
+  NavigationComponentProps,
+  NavigationFunctionComponent,
+} from 'react-native-navigation';
 
-import NavigationService from './navigation';
-import AppUpdatesService from './appUpdates';
-import TranslateService from './translate';
-import NotificationsService from './notifications';
+import {OnStart} from './onStart';
+import {Nav} from './navigation';
+import {Translate} from './translate';
 
 export const services = {
-  nav: NavigationService,
-  t: TranslateService,
-  appUpdates: AppUpdatesService,
-  notifications: NotificationsService,
+  t: new Translate(), // should be first
+  nav: new Nav(),
+  onStart: new OnStart(),
+};
+type ContextServices = typeof services;
+
+const servicesContext = React.createContext<ContextServices>(services);
+
+/* eslint-disable react/display-name */
+export const withServices = (C: NavigationFunctionComponent) => {
+  return (props: NavigationComponentProps): React.ReactElement => {
+    return (
+      <servicesContext.Provider value={services}>
+        <C {...props} />
+      </servicesContext.Provider>
+    );
+  };
 };
 
-const servicesContext = React.createContext(services);
+export const useServices = (): ContextServices =>
+  React.useContext(servicesContext);
 
-export const withServicesProvider = (C: React.FC) => (props: any) => {
-  return (
-    <servicesContext.Provider value={services}>
-      <C {...props} />
-    </servicesContext.Provider>
-  );
-};
-
-export const useServices = () => React.useContext(servicesContext);
-
-export const initServices = async () => {
+export const initServices = async (): PVoid => {
   for (const key in services) {
     if (Object.prototype.hasOwnProperty.call(services, key)) {
-      const s = services[key];
+      const s = (services as Services)[key];
 
       if (s.init) {
         await s.init();

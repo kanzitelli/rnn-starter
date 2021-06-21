@@ -1,20 +1,20 @@
-import { hydrateStores } from './stores';
-import { initServices, services } from './services';
-import { setOptionsForUseStyles } from './hooks/useStyles';
+import {hydrateStores} from './stores';
+import {initServices, services} from './services';
+import {configureDesignSystem} from './utils/designSystem';
 
-export const startApp = async () => {
-  // rehydrate stores
+const {nav} = services;
+
+export const start = async (): PVoid => {
+  // 1. configure design system
+  configureDesignSystem();
+
+  // 2. hydrate stores
   await hydrateStores();
 
-  // init services
+  // 3. init services
   await initServices();
 
-  // (optional) set options for useStyles
-  setOptionsForUseStyles({
-    normalize: true,
-    darkmode: true,
-  });
-
-  // here you can start the app depending on auth state.
-  await services.nav.startApp();
+  // 4. start app
+  // nav.startOneScreenApp();
+  nav.startThreeTabsApp();
 };
