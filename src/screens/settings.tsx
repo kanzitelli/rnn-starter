@@ -7,7 +7,7 @@ import {getApplicationName, getVersion} from 'react-native-device-info';
 
 import {useConstants} from '../utils/constants';
 
-import {Section} from '../components/Section2';
+import {Section} from '../components/section';
 import {Action} from '../components/action';
 
 export const Settings: NavigationFunctionComponent = observer(() => {

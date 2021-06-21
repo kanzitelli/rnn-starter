@@ -8,7 +8,7 @@ import {useServices} from '../services';
 import {useStores} from '../stores';
 import {useConstants} from '../utils/constants';
 
-import {Section} from '../components/Section2';
+import {Section} from '../components/section';
 
 export const Example: NavigationFunctionComponent = observer(
   ({componentId}) => {
