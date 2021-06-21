@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/4402166/122827138-47911900-d2e4-11eb-8bc4-17cad2e4cc67.mp4
+
 This starter is a collection of libraries and approaches from my personal experience. No hard judgements ✌️
 For more information, check out [Why](#why) section.
 
@@ -149,18 +151,18 @@ There are still some things I would like to add to the starter:
 
 #### General
 
-- 🔲 Better documentation/exlanation for project structure, stores, services, etc.
-- 🔲 Move some services/scripts to separate libraries, e.g., `rnn-layouts`.
-- 🔲 Shared transitions example.
+- [ ] Better documentation/exlanation for project structure, stores, services, etc.
+- [ ] Move some services/scripts to separate libraries, e.g., `rnn-layouts`.
+- [ ] Shared transitions example.
 
 #### Production
 
-- 🔲 Auth flow
-- 🔲 Notifications -- [wix/react-native-notifications](https://github.com/wix/react-native-notifications).
-- 🔲 Permissions -- [zoontek/react-native-permissions](https://github.com/zoontek/react-native-permissions)
-- 🔲 FB SDK -- [thebergamo/react-native-fbsdk-next](https://github.com/thebergamo/react-native-fbsdk-next)
-- 🔲 Appodeal -- [appodeal/react-native-appodeal](https://github.com/appodeal/react-native-appodeal)
-- 🔲 In-app purchases -- [dooboolab/react-native-iap](https://github.com/dooboolab/react-native-iap)?
+- [ ] Auth flow
+- [ ] Notifications -- [wix/react-native-notifications](https://github.com/wix/react-native-notifications).
+- [ ] Permissions -- [zoontek/react-native-permissions](https://github.com/zoontek/react-native-permissions)
+- [ ] FB SDK -- [thebergamo/react-native-fbsdk-next](https://github.com/thebergamo/react-native-fbsdk-next)
+- [ ] Appodeal -- [appodeal/react-native-appodeal](https://github.com/appodeal/react-native-appodeal)
+- [ ] In-app purchases -- [dooboolab/react-native-iap](https://github.com/dooboolab/react-native-iap)?
 
 Feel free to open an issue for suggestions.
 
