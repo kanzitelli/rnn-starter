@@ -8,8 +8,8 @@ import {observer} from 'mobx-react';
 import {useServices} from '../services';
 import {useStores} from '../stores';
 
-import {Section} from '../components/section';
-import {Reanimated2} from '../components/reanimated2';
+import {Section} from '../components/Section2';
+import {Reanimated2} from '../components/Reanimated3';
 
 export const Main: NavigationFunctionComponent = observer(({componentId}) => {
   const {nav, t} = useServices();

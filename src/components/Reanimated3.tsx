@@ -6,7 +6,7 @@ import {
   useSharedValue,
 } from 'react-native-reanimated';
 
-import {Bounceable} from './bounceable';
+import {Bounceable} from './Bounceable2';
 
 export const Reanimated2: React.FC = () => {
   const offset = useSharedValue(0);
