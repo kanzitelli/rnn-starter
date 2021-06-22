@@ -161,11 +161,13 @@ There are still some things I would like to add to the starter:
 - [ ] Better documentation/exlanation for project structure, stores, services, etc.
 - [ ] Move some services/scripts to separate libraries, e.g., `rnn-layouts`.
 - [ ] Shared transitions example.
+- [ ] API example
 
 #### Production
 
 - [ ] Auth flow
-- [ ] Notifications — [wix/react-native-notifications](https://github.com/wix/react-native-notifications).
+- [ ] Notifications — [wix/react-native-notifications](https://github.com/wix/react-native-notifications)
+- [ ] E2E tests - [wix/Detox](https://github.com/wix/Detox)
 - [ ] Permissions — [zoontek/react-native-permissions](https://github.com/zoontek/react-native-permissions)
 - [ ] FB SDK — [thebergamo/react-native-fbsdk-next](https://github.com/thebergamo/react-native-fbsdk-next)
 - [ ] Appodeal — [appodeal/react-native-appodeal](https://github.com/appodeal/react-native-appodeal)
@@ -197,7 +199,7 @@ Feel free to open an issue for suggestions.
 
 ## Why
 
-...do we need yet another starter/boilerplate? Well, I work with React Native for more than 3 years and during the time I started having my own project structure which was a good fit for almost all of the delivered apps. Also, I have come up with some custom [useful services/methods](#useful-services-methods) which simplify usage of [React Native Navigation](https://github.com/wix/react-native-navigation) and other libraries. Check out [Advantages](#advantages) section.
+...do we need yet another starter/boilerplate? Well, I work with React Native for more than 3 years and during the time I started having my own project structure which was a good fit for almost all of the delivered apps. Also, I have come up with some custom [useful services/methods](#useful-servicesmethods) which simplify usage of [React Native Navigation](https://github.com/wix/react-native-navigation) and other libraries. Check out [Advantages](#advantages) section.
 
 ## License
 
