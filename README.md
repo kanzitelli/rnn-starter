@@ -66,7 +66,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of hooks for React Native Navigation.
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
-- [React Native Defice Info](https://github.com/react-native-community/react-native-device-info) - device information for React Native iOS and Android.
+- [React Native Device Info](https://github.com/react-native-community/react-native-device-info) - device information for React Native iOS and Android.
 - [Hermes Engine](https://reactnative.dev/docs/hermes) - a JavaScript engine optimized for running React Native apps.
 - [ESLint](https://github.com/eslint/eslint) + [Prettier](https://github.com/prettier/prettier) - keep your code neat and structured.
 - [Patch Package](https://github.com/ds300/patch-package) - useful for fixing node modules instantly.
