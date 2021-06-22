@@ -11,9 +11,15 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Collections;
 
 import com.facebook.react.bridge.JSIModulePackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
+
+import com.facebook.react.bridge.JSIModuleSpec;
+import com.facebook.react.bridge.JavaScriptContextHolder;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.reactnativemmkv.MmkvModule;
 
 public class MainApplication extends NavigationApplication {
 
@@ -85,5 +91,16 @@ public class MainApplication extends NavigationApplication {
         e.printStackTrace();
       }
     }
+  }
+}
+
+// TODO: Remove all of this when MMKV and Reanimated can be autoinstalled (maybe RN 0.65)
+// RNNStarterJSIPackage is not in a separate file bc it was causing problem when renaming project
+class RNNStarterJSIPackage extends ReanimatedJSIModulePackage {
+  @Override
+  public List<JSIModuleSpec> getJSIModules(ReactApplicationContext reactApplicationContext, JavaScriptContextHolder jsContext) {
+    super.getJSIModules(reactApplicationContext, jsContext);
+    MmkvModule.install(jsContext, reactApplicationContext.getFilesDir().getAbsolutePath() + "/mmkv");
+    return Collections.emptyList();
   }
 }
