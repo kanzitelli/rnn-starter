@@ -1,6 +1,9 @@
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ButtonsOptions } from './types';
 
-export type Button = 'inc' | 'dec';
+const ICON_SIZE = 30;
+
+export type Button = 'inc' | 'dec' | 'settings';
 
 export const buttons: ButtonsOptions = {
   inc: {
@@ -10,5 +13,9 @@ export const buttons: ButtonsOptions = {
   dec: {
     id: 'dec',
     text: 'Dec',
+  },
+  settings: {
+    id: 'settings',
+    icon: Ionicons.getImageSourceSync('cog-outline', ICON_SIZE),
   },
 };

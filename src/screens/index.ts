@@ -21,7 +21,7 @@ export const screensLayouts: ScreensLayouts = {
     options: {
       topBar: {
         ...withTitle('Main'),
-        ...withRightButtons('inc', 'dec'),
+        ...withRightButtons('settings', 'inc', 'dec'),
       },
       ...withBottomTab('Main', 'newspaper'),
     },

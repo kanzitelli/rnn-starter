@@ -18,6 +18,7 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
 
   useNavigationButtonPress(counter.inc, componentId, 'inc');
   useNavigationButtonPress(counter.dec, componentId, 'dec');
+  useNavigationButtonPress(() => nav.push(componentId, 'Settings'), componentId, 'settings');
 
   return (
     <View flex bg-bgColor>
