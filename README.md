@@ -148,6 +148,21 @@ Navigation.setRoot(
 );
 ```
 
+#### Simplified API for Shared Transitions
+
+```
+nav.push<ExampleScreenProps>(
+  componentId,
+  'Example',
+  { value: randomNum() },
+  {
+    animations: genAnimations([
+      { id: 'reanimated2', type: 'view', pop: true }
+    ]),
+  },
+)
+```
+
 #### Samples for new screens, services, stores and components.
 
 So you have one structure within the project. You can find them in corresponding folders. Just copy&paste it and make the necessary changes.
@@ -158,7 +173,7 @@ There are still some things I would like to add to the starter:
 
 #### General
 
-- [X] Shared transitions example
+- [x] Shared transitions example
 - [x] Passing props to a screen example
 - [x] Constants: add Dimensions, Navigation (nav service)
 - [x] AsyncStorage stores persisting example
@@ -195,6 +210,7 @@ Feel free to open an issue for suggestions.
 
 ### Apps in production
 
+- Wallpapers App - [Twitter](https://twitter.com/kanzitelli/status/1408192827155177472?s=20), App Store soon
 - Rabbit App. Lite Reddit client - [Github](https://github.com/kanzitelli/rabbit-app), [App Store](https://apps.apple.com/ru/app/rabbit-app-lite-reddit-client/id1535084154), [Google Play](https://play.google.com/store/apps/details?id=io.batyr.rabbitapp)
 - Trip Music Radio - [App Store](https://apps.apple.com/ru/app/id1525645826), [Google Play](https://play.google.com/store/apps/details?id=team.ggc.tripmusic)
 - App for VK - [App Store](https://apps.apple.com/ru/app/id1067670987)
