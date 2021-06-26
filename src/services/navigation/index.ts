@@ -1,4 +1,4 @@
-import { Navigation } from 'react-native-navigation';
+import { Navigation, NavigationConstants } from 'react-native-navigation';
 import { Colors } from 'react-native-ui-lib';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
@@ -11,23 +11,38 @@ import { BottomTabs, Component, Root, Stack } from './layout';
 export class Nav implements IService {
   private inited = false;
   N = Navigation;
+  // nav constants always updated on willAppear event
+  C: NavigationConstants = {
+    statusBarHeight: 0,
+    backButtonId: '',
+    topBarHeight: 0,
+    bottomTabsHeight: 0,
+  };
 
   init = async (): PVoid => {
     if (!this.inited) {
       await this.registerScreens();
       await this.setDefaultOptions();
+      this.registerListeners();
 
       this.inited = true;
     }
   };
 
   // Start different apps' logic
-  startOneScreenApp = (): void => {
-    Navigation.setRoot(Root(Stack(Component(screensLayouts.Main))));
+  start = async (appType: AppType): PVoid => {
+    if (appType === 'one_screen') await this.startOneScreenApp();
+    if (appType === 'three_tabs') await this.startThreeTabsApp();
+
+    await this.getConstants(); // needs to be called after setRoot()
   };
 
-  startThreeTabsApp = (): void => {
-    Navigation.setRoot(
+  private startOneScreenApp = async (): PVoid => {
+    await Navigation.setRoot(Root(Stack(Component(screensLayouts.Main))));
+  };
+
+  private startThreeTabsApp = async (): PVoid => {
+    await Navigation.setRoot(
       Root(
         BottomTabs([
           Stack(Component(screensLayouts.Main)),
@@ -82,5 +97,17 @@ export class Nav implements IService {
         },
       },
     });
+  };
+
+  private registerListeners = () => {
+    Navigation.events().registerComponentWillAppearListener(async () => {
+      await this.getConstants();
+    });
+  };
+
+  private getConstants = async () => {
+    const C = await this.N.constants();
+    this.C = C;
+    return C;
   };
 }

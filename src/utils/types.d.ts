@@ -10,3 +10,6 @@ type Stores = Record<string, IStore>;
 
 type PVoid = Promise<void>;
 type AnyObj = Record<string, unknown>;
+
+// SERVICES
+type AppType = 'one_screen' | 'three_tabs';
