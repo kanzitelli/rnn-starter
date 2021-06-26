@@ -1,4 +1,4 @@
-import { Navigation, NavigationConstants } from 'react-native-navigation';
+import { Navigation, NavigationConstants, Options } from 'react-native-navigation';
 import { Colors } from 'react-native-ui-lib';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
@@ -54,16 +54,39 @@ export class Nav implements IService {
   };
 
   // Navigation methods
-  push = <T>(cId: string, name: Screen, passProps?: T): void => {
-    this.N.push(cId, Component({ ...screensLayouts[name], passProps }));
+  push = async <T>(cId: string, name: Screen, passProps?: T, options?: Options): PVoid => {
+    const sl = screensLayouts[name];
+    await this.N.push(
+      cId,
+      Component({
+        ...sl,
+        passProps,
+        options: {
+          ...sl.options,
+          ...options,
+        },
+      }),
+    );
   };
 
-  pop = (cId: string): void => {
+  pop = async (cId: string): PVoid => {
     this.N.pop(cId);
   };
 
-  show = <T>(name: Screen, passProps?: T): void => {
-    this.N.showModal(Stack(Component({ ...screensLayouts[name], passProps })));
+  show = async <T>(name: Screen, passProps?: T, options?: Options): PVoid => {
+    const sl = screensLayouts[name];
+    this.N.showModal(
+      Stack(
+        Component({
+          ...sl,
+          passProps,
+          options: {
+            ...sl.options,
+            ...options,
+          },
+        }),
+      ),
+    );
   };
 
   // System methods
