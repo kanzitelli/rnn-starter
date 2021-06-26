@@ -10,6 +10,7 @@ import { useConstants } from '../utils/constants';
 
 import { Section } from '../components/section';
 import { randomNum } from '../utils/help';
+import { Reanimated2 } from '../components/reanimated2';
 
 export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer(
   ({ componentId, value }) => {
@@ -40,8 +41,15 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
                     nav.push<ExampleScreenProps>(componentId, 'Example', { value: randomNum() })
                   }
                 />
+                <Button
+                  marginV-xs
+                  label={t.do('section.navigation.button.back')}
+                  onPress={() => nav.pop(componentId)}
+                />
               </View>
             </Section>
+
+            <Reanimated2 stDir="to" stID="reanimated2" />
 
             <Text textColor center text50R>
               Pass prop: {value}

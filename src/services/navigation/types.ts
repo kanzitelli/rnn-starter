@@ -2,6 +2,7 @@ import {
   LayoutComponent,
   NavigationFunctionComponent,
   OptionsTopBarButton,
+  SharedElementTransition,
 } from 'react-native-navigation';
 
 import { Screen } from '../../screens';
@@ -20,4 +21,15 @@ export type ScreensLayouts = {
 
 export type ButtonsOptions = {
   [key in Button]: OptionsTopBarButton;
+};
+
+export type SharedTransitionId = string;
+export type SharedTransitionNativeId = string;
+export type SharedTransitionViewType = 'text' | 'view' | 'image';
+export type SharedTransitionDirection = 'from' | 'to';
+export type SharedTransitionElement = {
+  id: SharedTransitionId;
+  type: SharedTransitionViewType;
+  pop?: boolean;
+  rest?: Omit<SharedElementTransition, 'fromId' | 'toId'>;
 };
