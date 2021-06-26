@@ -158,14 +158,18 @@ There are still some things I would like to add to the starter:
 
 #### General
 
+- [ ] Shared transitions example
+- [ ] API example + useEffect and start logic on Example screen
+- [ ] Passing props to a screen example
+- [ ] Constants: add Dimensions, Navigation (nav service)
+- [ ] AsyncStorage example
+- [ ] Move some services/scripts to separate libraries, e.g., `rnn-layouts`
 - [ ] Better documentation/exlanation for project structure, stores, services, etc.
-- [ ] Move some services/scripts to separate libraries, e.g., `rnn-layouts`.
-- [ ] Shared transitions example.
-- [ ] API example
 
 #### Production
 
 - [ ] Auth flow
+- [ ] Fast Image - [DylanVann/react-native-fast-image](https://github.com/DylanVann/react-native-fast-image)
 - [ ] Notifications — [wix/react-native-notifications](https://github.com/wix/react-native-notifications)
 - [ ] E2E tests - [wix/Detox](https://github.com/wix/Detox)
 - [ ] Permissions — [zoontek/react-native-permissions](https://github.com/zoontek/react-native-permissions)
