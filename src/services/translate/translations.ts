@@ -5,6 +5,7 @@ export const en = {
       button: {
         push: 'Push Example screen',
         show: 'Show Example screen',
+        passProps: 'passProps to Example screen',
       },
     },
   },
@@ -17,6 +18,7 @@ export const ru = {
       button: {
         push: 'Запушить Example экран',
         show: 'Показать Example экран',
+        passProps: 'passProps в Example экран',
       },
     },
   },

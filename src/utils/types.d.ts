@@ -13,3 +13,9 @@ type AnyObj = Record<string, unknown>;
 
 // SERVICES
 type AppType = 'one_screen' | 'three_tabs';
+
+// SCREENS
+// Props
+type ExampleScreenProps = {
+  value?: number;
+};

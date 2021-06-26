@@ -10,6 +10,7 @@ import { useStores } from '../stores';
 
 import { Section } from '../components/section';
 import { Reanimated2 } from '../components/reanimated2';
+import { randomNum } from '../utils/help';
 
 export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
   const { nav, t } = useServices();
@@ -32,6 +33,13 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
               marginV-xs
               label={t.do('section.navigation.button.show')}
               onPress={() => nav.show('Example')}
+            />
+            <Button
+              marginV-xs
+              label={t.do('section.navigation.button.passProps')}
+              onPress={() =>
+                nav.push<ExampleScreenProps>(componentId, 'Example', { value: randomNum() })
+              }
             />
           </Section>
 
