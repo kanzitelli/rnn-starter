@@ -197,7 +197,6 @@ Feel free to open an issue for suggestions.
 ## Known issues (warnings)
 
 - _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists and there is a [patch](https://github.com/software-mansion/react-native-screens/issues/649#issuecomment-727553714) for fixing it. You can find it in `patches/react-native+0.64.2.patch`. It will be autorun when you do `yarn add/remove/etc`.
-- _Crash on Android when app is launched_. Might happen in debug mode. Android Studio shows very weird message about it. So the solution is to tap on other tab when layout is shown or comment sections code in Settings screen.
 - _Dark Mode on Android_. Android doesn't toggle top and tab bars' background color to dark when dark mode is toggled on. However it happens so on iOS. As a workaround, we can subscribe to toggle events and then using `Navigation.mergeOptions` & `Navigation.setDefaultOptions` to change stylings for navigations and tab bars. Anyways, it needs some time to dive into it and come up with better solution from native side.
 - _Over-The-Air Updates_. They have been removed from the current version as I had some problems publishing one of the apps to AppStore. Check out [my tweet](https://twitter.com/kanzitelli/status/1398229619862642692) and be aware of the issue if you'd like to use them anyways.
 

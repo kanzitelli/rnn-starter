@@ -34,7 +34,7 @@ export const Bounceable: React.FC<BouncableProps> = ({
     return {
       transform: [
         {
-          scale: withSpring(scale.value, springConfig),
+          scale: scale.value === 1 ? 1 : withSpring(scale.value, springConfig),
         },
       ],
     };
@@ -49,15 +49,18 @@ export const Bounceable: React.FC<BouncableProps> = ({
 
         if (state === State.BEGAN) {
           scale.value = withSpring(activeScale, springConfig);
+          return;
         }
 
         if (state === State.END) {
           if (onPress) runOnJS(onPress)();
           scale.value = withSpring(1, springConfig);
+          return;
         }
 
         if (state === State.UNDETERMINED || state === State.FAILED || state === State.CANCELLED) {
           scale.value = withSpring(1, springConfig);
+          return;
         }
       }}>
       <Animated.View style={[contentContainerStyle, sz]}>{children}</Animated.View>
