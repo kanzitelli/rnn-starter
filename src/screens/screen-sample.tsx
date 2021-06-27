@@ -49,7 +49,7 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
               </View>
             </Section>
 
-            <Reanimated2 stDir="to" stID="reanimated2" />
+            <Reanimated2 stID="reanimated2" />
 
             <Text textColor center text50R>
               Pass prop: {value}

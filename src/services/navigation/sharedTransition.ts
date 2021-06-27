@@ -1,41 +1,23 @@
 import {
   AnimationOptions,
+  Options,
   SharedElementTransition,
   StackAnimationOptions,
 } from 'react-native-navigation';
-import {
-  SharedTransitionDirection,
-  SharedTransitionElement,
-  SharedTransitionId,
-  SharedTransitionNativeId,
-  SharedTransitionViewType,
-} from './types';
+import { SharedTransitionElement, SharedTransitionId, SharedTransitionNativeId } from './types';
 
-const DOT = '.';
-
-const genDir = (d?: SharedTransitionDirection, r?: boolean) =>
-  r ? (d === 'from' ? 'to' : 'from') : d;
-
-export const genNativeId = (
-  direction?: SharedTransitionDirection,
-  viewType?: SharedTransitionViewType,
-  id?: SharedTransitionId,
-): SharedTransitionNativeId => [genDir(direction), viewType, id].join(DOT);
+export const genNativeId = (id?: SharedTransitionId): SharedTransitionNativeId => id || 'id';
 
 export const genSharedElementTransition = (
   e: SharedTransitionElement,
-  reverse = false,
 ): SharedElementTransition => ({
   ...e.rest,
-  fromId: genNativeId(genDir('from', reverse), e.type, e.id),
-  toId: genNativeId(genDir('to', reverse), e.type, e.id),
+  fromId: genNativeId(e.id),
+  toId: genNativeId(e.id),
 });
 
-export const genStackAnimation = (
-  elements: SharedTransitionElement[],
-  reverse = false,
-): StackAnimationOptions => ({
-  sharedElementTransitions: elements.map((e) => genSharedElementTransition(e, reverse)),
+export const genStackAnimation = (elements: SharedTransitionElement[]): StackAnimationOptions => ({
+  sharedElementTransitions: elements.map(genSharedElementTransition),
 });
 
 export const genAnimations = (elements: SharedTransitionElement[]): AnimationOptions => {
@@ -44,6 +26,12 @@ export const genAnimations = (elements: SharedTransitionElement[]): AnimationOpt
 
   return {
     push: genStackAnimation(elements),
-    pop: withPop ? genStackAnimation(elementsWithPop, true) : undefined,
+    pop: withPop ? genStackAnimation(elementsWithPop) : undefined,
+  };
+};
+
+export const withSharedTransitions = (forElements: SharedTransitionElement[]): Options => {
+  return {
+    animations: genAnimations(forElements),
   };
 };

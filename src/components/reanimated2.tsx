@@ -1,17 +1,16 @@
 import React from 'react';
 import { View, Text } from 'react-native-ui-lib';
-import { withSpring, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import Animated, { withSpring, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
 import { Bounceable } from './bounceable';
 import { genNativeId } from '../services/navigation/sharedTransition';
-import { SharedTransitionDirection, SharedTransitionId } from '../services/navigation/types';
+import { SharedTransitionId } from '../services/navigation/types';
 
 type Reanimated2Props = {
   stID?: SharedTransitionId;
-  stDir?: SharedTransitionDirection;
 };
 
-export const Reanimated2: React.FC<Reanimated2Props> = ({ stID, stDir }: Reanimated2Props) => {
+export const Reanimated2: React.FC<Reanimated2Props> = ({ stID }: Reanimated2Props) => {
   const offset = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => ({
@@ -24,13 +23,15 @@ export const Reanimated2: React.FC<Reanimated2Props> = ({ stID, stDir }: Reanima
 
   return (
     <View padding-xs>
-      <View reanimated center padding-xs style={animatedStyles}>
-        <Bounceable onPress={moveObject} activeScale={0.9}>
-          <View nativeID={genNativeId(stDir, 'view', stID)} center bg-primary padding-xl br40>
-            <Text whitish>Bounceable</Text>
-          </View>
-        </Bounceable>
-      </View>
+      <Animated.View style={[animatedStyles]}>
+        <View center padding-xs>
+          <Bounceable onPress={moveObject} activeScale={0.9}>
+            <View nativeID={genNativeId(stID)} center bg-primary padding-xl br40>
+              <Text whitish>Bounceable</Text>
+            </View>
+          </Bounceable>
+        </View>
+      </Animated.View>
     </View>
   );
 };

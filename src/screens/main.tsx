@@ -11,7 +11,7 @@ import { useStores } from '../stores';
 import { Section } from '../components/section';
 import { Reanimated2 } from '../components/reanimated2';
 import { randomNum } from '../utils/help';
-import { genAnimations } from '../services/navigation/sharedTransition';
+import { withSharedTransitions } from '../services/navigation/sharedTransition';
 
 export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
   const { nav, t } = useServices();
@@ -51,9 +51,7 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
                   componentId,
                   'Example',
                   { value: randomNum() },
-                  {
-                    animations: genAnimations([{ id: 'reanimated2', type: 'view', pop: true }]),
-                  },
+                  withSharedTransitions([{ id: 'reanimated2', pop: true }]),
                 )
               }
             />
@@ -74,7 +72,7 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
           </Section>
 
           <Section title="Reanimated 2">
-            <Reanimated2 stDir="from" stID="reanimated2" />
+            <Reanimated2 stID="reanimated2" />
           </Section>
         </View>
       </ScrollView>

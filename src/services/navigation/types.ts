@@ -25,11 +25,8 @@ export type ButtonsOptions = {
 
 export type SharedTransitionId = string;
 export type SharedTransitionNativeId = string;
-export type SharedTransitionViewType = 'text' | 'view' | 'image';
-export type SharedTransitionDirection = 'from' | 'to';
 export type SharedTransitionElement = {
   id: SharedTransitionId;
-  type: SharedTransitionViewType;
   pop?: boolean;
   rest?: Omit<SharedElementTransition, 'fromId' | 'toId'>;
 };
