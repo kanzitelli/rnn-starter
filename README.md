@@ -155,11 +155,7 @@ nav.push<ExampleScreenProps>(
   componentId,
   'Example',
   { value: randomNum() },
-  {
-    animations: genAnimations([
-      { id: 'reanimated2', type: 'view', pop: true }
-    ]),
-  },
+  withSharedTransitions([{ id: 'reanimated2', pop: true }]),
 )
 ```
 
