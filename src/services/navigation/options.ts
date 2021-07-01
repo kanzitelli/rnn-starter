@@ -1,4 +1,3 @@
-import { Platform } from 'react-native';
 import { Options, OptionsTopBar } from 'react-native-navigation';
 import { Colors } from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
