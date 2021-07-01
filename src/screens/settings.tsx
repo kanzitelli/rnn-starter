@@ -6,11 +6,13 @@ import { observer } from 'mobx-react';
 import { getApplicationName, getVersion } from 'react-native-device-info';
 
 import { useConstants } from '../utils/constants';
+import { useStores } from '../stores';
 
 import { Section } from '../components/section';
 import { Action } from '../components/action';
 
 export const Settings: NavigationFunctionComponent = observer(() => {
+  const { ui } = useStores();
   const { links } = useConstants();
 
   const doSomething = (action: string) => () => {
@@ -27,6 +29,7 @@ export const Settings: NavigationFunctionComponent = observer(() => {
         <View padding-m>
           <Section bg title="General">
             <View>
+              <Action title="Toggle theme" info={ui.themeMode} onPress={ui.toggleThemeMode} />
               <Action title="Share" icon="share-outline" onPress={doSomething('Share')} />
               <Action title="Rate" icon="star-outline" onPress={doSomething('Rate')} />
               <Action title="Support" icon="mail-unread-outline" onPress={doSomething('Support')} />
