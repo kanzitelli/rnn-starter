@@ -205,7 +205,7 @@ Feel free to open an issue for suggestions.
 
 ### Apps in production
 
-- Wallpapers App - [Twitter](https://twitter.com/kanzitelli/status/1408192827155177472?s=20), App Store soon
+- Wallpapers App - [App Store](https://apps.apple.com/app/id878234888), [Twitter](https://twitter.com/kanzitelli/status/1408192827155177472?s=20)
 - Rabbit App. Lite Reddit client - [Github](https://github.com/kanzitelli/rabbit-app), [App Store](https://apps.apple.com/ru/app/rabbit-app-lite-reddit-client/id1535084154), [Google Play](https://play.google.com/store/apps/details?id=io.batyr.rabbitapp)
 - Trip Music Radio - [App Store](https://apps.apple.com/ru/app/id1525645826), [Google Play](https://play.google.com/store/apps/details?id=team.ggc.tripmusic)
 - App for VK - [App Store](https://apps.apple.com/ru/app/id1067670987)
