@@ -16,6 +16,6 @@ export const buttons: ButtonsOptions = {
   },
   settings: {
     id: 'settings',
-    icon: Ionicons.getImageSourceSync('cog-outline', ICON_SIZE),
+    icon: Ionicons.getImageSourceSync('settings-outline', ICON_SIZE),
   },
 };

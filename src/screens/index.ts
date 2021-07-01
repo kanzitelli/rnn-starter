@@ -21,7 +21,7 @@ export const screensLayouts: ScreensLayouts = {
     options: {
       topBar: {
         ...withTitle('Main'),
-        ...withRightButtons('settings', 'inc', 'dec'),
+        ...withRightButtons('inc', 'dec'),
       },
       ...withBottomTab('Main', 'newspaper'),
     },
@@ -32,7 +32,7 @@ export const screensLayouts: ScreensLayouts = {
       topBar: {
         ...withTitle('Settings'),
       },
-      ...withBottomTab('Settings', 'cog'),
+      ...withBottomTab('Settings', 'settings'),
     },
   },
 
