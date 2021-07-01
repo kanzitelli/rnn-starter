@@ -7,12 +7,24 @@ export class UI implements IStore {
     this.appLaunches += v;
   };
 
+  themeMode: ThemeMode = 'light';
+  setThemeMode = (v: ThemeMode): void => {
+    this.themeMode = v;
+  };
+  toggleThemeMode = (): void => {
+    this.themeMode = (() => {
+      if (this.themeMode === 'light') return 'dark';
+      if (this.themeMode === 'dark') return 'other';
+      return 'light';
+    })();
+  };
+
   constructor() {
     makeAutoObservable(this);
 
     makePersistable(this, {
       name: 'UI',
-      properties: ['appLaunches'],
+      properties: ['appLaunches', 'themeMode'],
     });
   }
 
