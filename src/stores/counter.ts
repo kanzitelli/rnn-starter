@@ -12,6 +12,14 @@ export class Counter implements IStore {
   reset = (): void => {
     this.value = 0;
   };
+  set = (v: number): void => {
+    this.value = v;
+  };
+
+  loading = false;
+  setLoading = (v: boolean): void => {
+    this.loading = v;
+  };
 
   constructor() {
     makeAutoObservable(this);

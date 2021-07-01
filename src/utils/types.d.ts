@@ -19,3 +19,9 @@ type AppType = 'one_screen' | 'three_tabs';
 type ExampleScreenProps = {
   value?: number;
 };
+
+// API
+// Responses
+type CounterGetResponse = {
+  value: number;
+};

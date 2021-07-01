@@ -173,8 +173,8 @@ There are still some things I would like to add to the starter:
 - [x] Passing props to a screen example
 - [x] Constants: add Dimensions, Navigation (nav service)
 - [x] AsyncStorage stores persisting example
+- [x] API example + useEffect and start logic on a screen
 - [ ] Example with theme modes change
-- [ ] API example + useEffect and start logic on Example screen
 - [ ] Move some services/scripts to separate libraries, e.g., `rnn-layouts`
 - [ ] Better documentation/exlanation for project structure, stores, services, etc.
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
+import { ScrollView, Alert } from 'react-native';
 import { View, Button, Text } from 'react-native-ui-lib';
 import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigationButtonPress } from 'react-native-navigation-hooks/dist';
@@ -14,12 +14,24 @@ import { randomNum } from '../utils/help';
 import { withSharedTransitions } from '../services/navigation/sharedTransition';
 
 export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
-  const { nav, t } = useServices();
+  const { nav, t, api } = useServices();
   const { counter, ui } = useStores();
 
   useNavigationButtonPress(counter.inc, componentId, 'inc');
   useNavigationButtonPress(counter.dec, componentId, 'dec');
   useNavigationButtonPress(() => nav.push(componentId, 'Settings'), componentId, 'settings');
+
+  useEffect(() => {
+    start();
+  }, [componentId]);
+
+  const start = async () => {
+    try {
+      await api.counter.get();
+    } catch (e) {
+      Alert.alert('Error', 'There was a problem fetching data :(');
+    }
+  };
 
   return (
     <View flex bg-bgColor>
@@ -57,13 +69,17 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
             />
           </Section>
 
+          <Section title="Reanimated 2">
+            <Reanimated2 stID="reanimated2" />
+          </Section>
+
           <Section title="MobX">
             <View centerV>
               <Text marginB-s text60R textColor>
                 App launches: {ui.appLaunches}
               </Text>
               <Text marginB-s text60R textColor>
-                Counter: {counter.value}
+                Counter: {counter.loading ? 'Loading...' : counter.value}
               </Text>
               <Button margin-xs label="-" onPress={counter.dec} />
               <Button margin-xs label="+" onPress={counter.inc} />
@@ -71,8 +87,8 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
             </View>
           </Section>
 
-          <Section title="Reanimated 2">
-            <Reanimated2 stID="reanimated2" />
+          <Section title="API">
+            <Button margin-xs label="Update counter value from API" onPress={api.counter.get} />
           </Section>
         </View>
       </ScrollView>
