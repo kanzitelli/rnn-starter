@@ -78,7 +78,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 - `navigation` - a service where all navigation configuration takes place in. It simplifies and abstracts the process of registering screens, layouts, etc.
 - `translate` - a service that brings easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [react-native-localize](https://github.com/zoontek/react-native-localize). You can see an example of `en` and `ru` localizations in `Example` screen.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
-- `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc.
+- `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc. Now you can add as much theme modes as you want.
 
 ## Advantages
 
@@ -159,6 +159,10 @@ nav.push<ExampleScreenProps>(
 )
 ```
 
+#### As much theme modes as you want
+
+You can define theme modes in `utils/designSystem.tsx` and toggle them from any part of the app.
+
 #### Samples for new screens, services, stores and components.
 
 So you have one structure within the project. You can find them in corresponding folders. Just copy&paste it and make the necessary changes.
@@ -174,7 +178,7 @@ There are still some things I would like to add to the starter:
 - [x] Constants: add Dimensions, Navigation (nav service)
 - [x] AsyncStorage stores persisting example
 - [x] API example + useEffect and start logic on a screen
-- [ ] Example with theme modes change
+- [x] Example with theme modes change
 - [ ] Move some services/scripts to separate libraries, e.g., `rnn-layouts`
 - [ ] Better documentation/exlanation for project structure, stores, services, etc.
 
@@ -194,8 +198,8 @@ Feel free to open an issue for suggestions.
 ## Known issues (warnings)
 
 - _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists and there is a [patch](https://github.com/software-mansion/react-native-screens/issues/649#issuecomment-727553714) for fixing it. You can find it in `patches/react-native+0.64.2.patch`. It will be autorun when you do `yarn add/remove/etc`.
-- _Dark Mode on Android_. Android doesn't toggle top and tab bars' background color to dark when dark mode is toggled on. However it happens so on iOS. As a workaround, we can subscribe to toggle events and then using `Navigation.mergeOptions` & `Navigation.setDefaultOptions` to change stylings for navigations and tab bars. Anyways, it needs some time to dive into it and come up with better solution from native side.
 - _Over-The-Air Updates_. They have been removed from the current version as I had some problems publishing one of the apps to AppStore. Check out [my tweet](https://twitter.com/kanzitelli/status/1398229619862642692) and be aware of the issue if you'd like to use them anyways.
+- ~~_Dark Mode on Android_. Android doesn't toggle top and tab bars' background color to dark when dark mode is toggled on. However it happens so on iOS. As a workaround, we can subscribe to toggle events and then using `Navigation.mergeOptions` & `Navigation.setDefaultOptions` to change stylings for navigations and tab bars. Anyways, it needs some time to dive into it and come up with better solution from native side.~~
 
 ## Worth checking
 
