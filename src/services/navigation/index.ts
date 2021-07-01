@@ -1,5 +1,4 @@
 import { Navigation, NavigationConstants, Options } from 'react-native-navigation';
-import { Colors } from 'react-native-ui-lib';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
 import { Screen, screens, screensLayouts } from '../../screens';
@@ -7,9 +6,13 @@ import { withStores } from '../../stores';
 import { withServices } from '../../services';
 
 import { BottomTabs, Component, Root, Stack } from './layout';
+import { getTheme, withThemeModes } from '../../utils/designSystem';
+import { navDefaultOptions } from './options';
 
 export class Nav implements IService {
   private inited = false;
+  // component ids of all presented screens
+  private cIds: string[] = [];
   N = Navigation;
   // nav constants always updated on willAppear event
   C: NavigationConstants = {
@@ -22,7 +25,7 @@ export class Nav implements IService {
   init = async (): PVoid => {
     if (!this.inited) {
       await this.registerScreens();
-      await this.setDefaultOptions();
+      this.updateDefaultOptions();
       this.registerListeners();
 
       this.inited = true;
@@ -89,43 +92,44 @@ export class Nav implements IService {
     );
   };
 
+  updateDefaultOptions = (allScreens = false): void => {
+    const options = this.getDefaultOptions();
+
+    this.N.setDefaultOptions(options);
+    if (allScreens) this.cIds.forEach((id) => this.N.mergeOptions(id, options));
+  };
+
   // System methods
   private registerScreens = async () => {
     screens.forEach((s) =>
-      Navigation.registerComponent(
+      this.N.registerComponent(
         s.name,
-        () => withGestureHandler(withStores(withServices(s.component))),
+        () => withGestureHandler(withStores(withServices(withThemeModes(s.component)))),
         () => s.component,
       ),
     );
   };
 
-  private setDefaultOptions = async () => {
-    Navigation.setDefaultOptions({
-      layout: {
-        orientation: ['portrait'],
-      },
-      bottomTabs: {
-        titleDisplayMode: 'alwaysShow',
-      },
-      bottomTab: {
-        iconColor: Colors.primary,
-        textColor: Colors.primary,
-        selectedIconColor: Colors.primary,
-        selectedTextColor: Colors.primary,
-      },
-      topBar: {
-        largeTitle: {
-          visible: true,
-        },
-      },
+  private registerListeners = () => {
+    this.N.events().registerComponentWillAppearListener(async ({ componentId: cId }) => {
+      if (this.cIds.indexOf(cId) === -1) {
+        this.cIds.push(cId);
+
+        // if it appears for the first time, we merge current default options
+        this.N.mergeOptions(cId, this.getDefaultOptions());
+      }
+
+      await this.getConstants();
     });
   };
 
-  private registerListeners = () => {
-    Navigation.events().registerComponentWillAppearListener(async () => {
-      await this.getConstants();
-    });
+  private getDefaultOptions = (): Options => {
+    const theme = getTheme();
+
+    return {
+      ...navDefaultOptions(),
+      statusBar: { style: theme.statusBar, backgroundColor: theme.bgColor },
+    };
   };
 
   private getConstants = async () => {
