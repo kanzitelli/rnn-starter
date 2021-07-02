@@ -15,6 +15,8 @@ export const navDefaultOptions = (): Options => {
     bottomTabs: {
       titleDisplayMode: 'alwaysShow',
       backgroundColor: Colors.bgColor,
+      hideShadow: true,
+      elevation: 0,
     },
     bottomTab: {
       iconColor: Colors.primary,
@@ -29,10 +31,10 @@ export const navDefaultOptions = (): Options => {
       backButton: {
         color: Colors.textColor,
       },
-      // not working
-      // rightButtonColor: Colors.textColor,
-      // leftButtonColor: Colors.textColor,
-      // ===========
+      noBorder: true,
+      elevation: 0,
+      rightButtonColor: Colors.textColor,
+      leftButtonColor: Colors.textColor,
       title: {
         color: Colors.textColor,
       },
