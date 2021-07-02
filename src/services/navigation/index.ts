@@ -1,5 +1,6 @@
 import { Navigation, NavigationConstants, Options } from 'react-native-navigation';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
+import merge from 'lodash/merge';
 
 import { Screen, screens, screensLayouts } from '../../screens';
 import { withStores } from '../../stores';
@@ -12,7 +13,7 @@ import { navDefaultOptions } from './options';
 export class Nav implements IService {
   private inited = false;
   // component ids of all presented screens
-  private cIds: string[] = [];
+  private cIds: Map<string, Screen> = new Map();
   N = Navigation;
   // nav constants always updated on willAppear event
   C: NavigationConstants = {
@@ -92,11 +93,14 @@ export class Nav implements IService {
     );
   };
 
-  updateDefaultOptions = (allScreens = false): void => {
+  updateDefaultOptions = (cId = ''): void => {
     const options = this.getDefaultOptions();
 
     this.N.setDefaultOptions(options);
-    if (allScreens) this.cIds.forEach((id) => this.N.mergeOptions(id, options));
+    if (this.cIds.has(cId)) {
+      const name = this.cIds.get(cId);
+      if (name) this.N.mergeOptions(cId, merge(options, screensLayouts[name].options));
+    }
   };
 
   // System methods
@@ -111,16 +115,15 @@ export class Nav implements IService {
   };
 
   private registerListeners = () => {
-    this.N.events().registerComponentWillAppearListener(async ({ componentId: cId }) => {
-      if (this.cIds.indexOf(cId) === -1) {
-        this.cIds.push(cId);
+    this.N.events().registerComponentWillAppearListener(
+      async ({ componentId: cId, componentName: cName }) => {
+        if (!this.cIds.has(cId)) {
+          this.cIds.set(cId, cName as Screen);
+        }
 
-        // if it appears for the first time, we merge current default options
-        this.N.mergeOptions(cId, this.getDefaultOptions());
-      }
-
-      await this.getConstants();
-    });
+        await this.getConstants();
+      },
+    );
   };
 
   private getDefaultOptions = (): Options => {
