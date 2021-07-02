@@ -69,9 +69,7 @@ export const withThemeModes = (C: NavigationFunctionComponent): NavigationFuncti
     Colors.loadColors({ ...colors, ...getThemeColors() });
 
     useEffect(() => {
-      setTimeout(() => {
-        nav.updateDefaultOptions(true);
-      }, 100);
+      nav.updateDefaultOptions(props.componentId);
     }, [ui.themeMode]);
 
     return <C {...props} key={ui.themeMode} />;
