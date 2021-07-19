@@ -1,4 +1,4 @@
-import { Navigation, NavigationConstants, Options } from 'react-native-navigation';
+import { Constants, Navigation, NavigationConstants, Options } from 'react-native-navigation';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 import merge from 'lodash/merge';
 
@@ -16,12 +16,7 @@ export class Nav implements IService {
   private cIds: Map<string, Screen> = new Map();
   N = Navigation;
   // nav constants always updated on willAppear event
-  C: NavigationConstants = {
-    statusBarHeight: 0,
-    backButtonId: '',
-    topBarHeight: 0,
-    bottomTabsHeight: 0,
-  };
+  C: NavigationConstants = Constants.getSync();
 
   init = async (): PVoid => {
     if (!this.inited) {
@@ -121,7 +116,7 @@ export class Nav implements IService {
           this.cIds.set(cId, cName as Screen);
         }
 
-        await this.getConstants();
+        this.getConstants();
       },
     );
   };
@@ -136,8 +131,6 @@ export class Nav implements IService {
   };
 
   private getConstants = async () => {
-    const C = await this.N.constants();
-    this.C = C;
-    return C;
+    this.C = Constants.getSync();
   };
 }
