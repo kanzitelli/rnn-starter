@@ -42,7 +42,7 @@
     "react-native-mmkv": "1.1.6",
     "react-native-navigation": "^7.18.1",
     "react-native-navigation-hooks": "^6.3.0",
-    "react-native-reanimated": "^2.2.0",
+    "react-native-reanimated": "^2.3.0-alpha.2",
     "react-native-ui-lib": "^5.29.0",
     "react-native-vector-icons": "^8.1.0"
   },
