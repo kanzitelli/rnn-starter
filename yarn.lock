@@ -8637,10 +8637,10 @@ react-native-localize@^2.1.1:
   resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-2.1.1.tgz#da8f8776991d2b748708c408db05152602cefb38"
   integrity sha512-+uyz2/b0vyLq19fcb7r1qU1gqmzbp3aC6EMTvOVXwfBuiN+aJXR/fDdFOJJ8D7+bLccKeuS2zBDrazh+ZayX/g==
 
-react-native-mmkv@1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-1.1.6.tgz#562699c57fc55ec84b17ef675f6f609339096dfd"
-  integrity sha512-mvpnGLkXsEwlhGc2IoiqwI+7F9PwkcoJdt3PZOMtSCrt1ngDPJXXfyIxJ4/Ia8vd/gm7K3G+/mfusjEoiOsjxw==
+react-native-mmkv@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-1.2.5.tgz#2e0a306e14a26dc71ee4b57e21f9374391218f07"
+  integrity sha512-Vtwfx5rTOWP/pnsMYiQIN0OHAQW8qaniwm6M3dm8S1tJIEM04dXVJ4t2So0fM96uQEEhYuD/lkWChisFSI+E1g==
 
 react-native-navigation-hooks@^6.3.0:
   version "6.3.0"
