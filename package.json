@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
     "@babel/runtime": "^7.15.3",
     "@react-native-community/eslint-config": "^3.0.0",
     "@types/i18n-js": "^3.8.2",
