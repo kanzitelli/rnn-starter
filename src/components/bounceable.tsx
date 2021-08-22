@@ -34,7 +34,7 @@ export const Bounceable: React.FC<BouncableProps> = ({
     return {
       transform: [
         {
-          scale: scale.value === 1 ? 1 : withSpring(scale.value, springConfig),
+          scale: scale.value,
         },
       ],
     };

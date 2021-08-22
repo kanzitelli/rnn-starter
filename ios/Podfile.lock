@@ -294,24 +294,24 @@ PODS:
     - React-cxxreact (= 0.64.2)
     - React-jsi (= 0.64.2)
     - React-perflogger (= 0.64.2)
-  - ReactNativeNavigation (7.18.0):
+  - ReactNativeNavigation (7.18.1):
     - React-Core
     - React-RCTImage
     - React-RCTText
-    - ReactNativeNavigation/Core (= 7.18.0)
-  - ReactNativeNavigation/Core (7.18.0):
+    - ReactNativeNavigation/Core (= 7.18.1)
+  - ReactNativeNavigation/Core (7.18.1):
     - React-Core
     - React-RCTImage
     - React-RCTText
   - ReactNativeUiLib (3.0.4):
     - React
-  - RNCAsyncStorage (1.15.5):
+  - RNCAsyncStorage (1.15.6):
     - React-Core
-  - RNCPicker (1.16.3):
+  - RNCPicker (1.16.6):
     - React-Core
   - RNDateTimePicker (3.5.2):
     - React-Core
-  - RNDeviceInfo (8.1.3):
+  - RNDeviceInfo (8.3.1):
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
@@ -526,12 +526,12 @@ SPEC CHECKSUMS:
   React-RCTVibration: 24600e3b1aaa77126989bc58b6747509a1ba14f3
   React-runtimeexecutor: a9904c6d0218fb9f8b19d6dd88607225927668f9
   ReactCommon: 149906e01aa51142707a10665185db879898e966
-  ReactNativeNavigation: f81a4e3d44b761c5bf81a519b6e49845ecdf9440
+  ReactNativeNavigation: 88128fa06b2c349b613e1e0fd3cdff2c58c01c55
   ReactNativeUiLib: cde7263a7d308b60161cd286f95c9433e79f2f7d
-  RNCAsyncStorage: 56a3355a10b5d660c48c6e37325ac85ebfd09885
-  RNCPicker: 6724ab5fcca83c34fe1f18a89baa13e9885f0393
+  RNCAsyncStorage: b7c6564ce662366dd44d0189456183ef7eda2d4d
+  RNCPicker: c3a3d481bec16624ed84a3c2a64c92fdc5515960
   RNDateTimePicker: 7658208086d86d09e1627b5c34ba0cf237c60140
-  RNDeviceInfo: 8d3a29207835f972bce883723882980143270d55
+  RNDeviceInfo: 7b82d1467b87f7e74d1c7ba9439a9a57d0c68ee9
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNLocalize: 82a569022724d35461e2dc5b5d015a13c3ca995b
   RNReanimated: 9c13c86454bfd54dab7505c1a054470bfecd2563
