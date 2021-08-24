@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m b/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m
-index cf6a0b1..bca659f 100644
+index 8006540..a2080ff 100644
 --- a/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m
 +++ b/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m
 @@ -14,13 +14,20 @@
@@ -10,7 +10,7 @@ index cf6a0b1..bca659f 100644
 +{
 +  [super didMoveToWindow];
 +  RCTScrollView *scrollView = (RCTScrollView *)self.superview.superview;
-+  [scrollView updateContentOffsetIfNeeded];
++  [scrollView updateContentSizeIfNeeded];
 +}
 +
  - (void)reactSetFrame:(CGRect)frame

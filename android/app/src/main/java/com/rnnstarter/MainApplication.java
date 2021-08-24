@@ -59,7 +59,7 @@ public class MainApplication extends NavigationApplication {
   public void onCreate() {
     super.onCreate();
     
-    initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+    // initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 
   /**
