@@ -73,5 +73,6 @@ export const withThemeModes = (C: NavigationFunctionComponent): NavigationFuncti
     }, [ui.themeMode]);
 
     return <C {...props} key={ui.themeMode} />;
+    // return <C {...props} />;
   });
 };
