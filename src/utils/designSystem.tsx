@@ -70,7 +70,7 @@ export const withThemeModes = (C: NavigationFunctionComponent): NavigationFuncti
 
     useEffect(() => {
       nav.updateDefaultOptions(props.componentId);
-    }, [ui.themeMode]);
+    }, [nav, props.componentId]);
 
     return <C {...props} key={ui.themeMode} />;
     // return <C {...props} />;
