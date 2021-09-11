@@ -1,7 +1,7 @@
 import { Constants, Navigation, NavigationConstants, Options } from 'react-native-navigation';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 import merge from 'lodash/merge';
-import pipe from 'lodash/flowright';
+import pipe from 'lodash/flowRight';
 
 import { Screen, screens, screensLayouts } from '../../screens';
 import { withStores } from '../../stores';
@@ -31,8 +31,12 @@ export class Nav implements IService {
 
   // Start different apps' logic
   start = async (appType: AppType): PVoid => {
-    if (appType === 'one_screen') await this.startOneScreenApp();
-    if (appType === 'three_tabs') await this.startThreeTabsApp();
+    if (appType === 'one_screen') {
+      await this.startOneScreenApp();
+    }
+    if (appType === 'three_tabs') {
+      await this.startThreeTabsApp();
+    }
 
     await this.getConstants(); // needs to be called after setRoot()
   };
@@ -95,7 +99,9 @@ export class Nav implements IService {
     this.N.setDefaultOptions(options);
     if (this.cIds.has(cId)) {
       const name = this.cIds.get(cId);
-      if (name) this.N.mergeOptions(cId, merge(options, screensLayouts[name].options));
+      if (name) {
+        this.N.mergeOptions(cId, merge(options, screensLayouts[name].options));
+      }
     }
   };
 

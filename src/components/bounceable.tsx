@@ -44,7 +44,9 @@ export const Bounceable: React.FC<BouncableProps> = ({
     <TapGestureHandler
       shouldCancelWhenOutside={true}
       onHandlerStateChange={({ nativeEvent }) => {
-        if (disabled) return;
+        if (disabled) {
+          return;
+        }
         const { state } = nativeEvent;
 
         if (state === State.BEGAN) {
@@ -53,7 +55,9 @@ export const Bounceable: React.FC<BouncableProps> = ({
         }
 
         if (state === State.END) {
-          if (onPress) runOnJS(onPress)();
+          if (onPress) {
+            runOnJS(onPress)();
+          }
           scale.value = withSpring(1, springConfig);
           return;
         }

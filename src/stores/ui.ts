@@ -13,8 +13,12 @@ export class UI implements IStore {
   };
   toggleThemeMode = (): void => {
     this.themeMode = (() => {
-      if (this.themeMode === 'light') return 'dark';
-      if (this.themeMode === 'dark') return 'other';
+      if (this.themeMode === 'light') {
+        return 'dark';
+      }
+      if (this.themeMode === 'dark') {
+        return 'other';
+      }
       return 'light';
     })();
   };

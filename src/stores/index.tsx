@@ -13,7 +13,6 @@ type ContextStores = typeof stores;
 
 const storeContext = React.createContext<ContextStores>(stores);
 
-/* eslint-disable react/display-name */
 export const withStores = (C: NavigationFunctionComponent) => {
   return (props: NavigationComponentProps): React.ReactElement => {
     return (
