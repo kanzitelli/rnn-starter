@@ -70,9 +70,9 @@ export const withThemeModes = (C: NavigationFunctionComponent): NavigationFuncti
 
     useEffect(() => {
       nav.updateDefaultOptions(props.componentId);
-    }, [nav, props.componentId]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ui.themeMode]);
 
     return <C {...props} key={ui.themeMode} />;
-    // return <C {...props} />;
   });
 };
