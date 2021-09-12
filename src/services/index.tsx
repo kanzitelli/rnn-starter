@@ -16,7 +16,6 @@ type ContextServices = typeof services;
 
 const servicesContext = React.createContext<ContextServices>(services);
 
-/* eslint-disable react/display-name */
 export const withServices = (C: NavigationFunctionComponent) => {
   return (props: NavigationComponentProps): React.ReactElement => {
     return (

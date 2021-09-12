@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { ScrollView, Alert } from 'react-native';
 import { View, Button, Text } from 'react-native-ui-lib';
 import { NavigationFunctionComponent } from 'react-native-navigation';
@@ -21,17 +21,17 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
   useNavigationButtonPress(counter.dec, componentId, 'dec');
   useNavigationButtonPress(() => nav.push(componentId, 'Settings'), componentId, 'settings');
 
-  useEffect(() => {
-    start();
-  }, [componentId]);
-
-  const start = async () => {
+  const start = useCallback(async () => {
     try {
       await api.counter.get();
     } catch (e) {
       Alert.alert('Error', 'There was a problem fetching data :(');
     }
-  };
+  }, [api.counter]);
+
+  useEffect(() => {
+    start();
+  }, [componentId, start]);
 
   return (
     <View flex bg-bgColor>
