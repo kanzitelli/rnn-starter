@@ -18,5 +18,5 @@ export const start = async (): PVoid => {
   await initServices();
 
   // 4. start app
-  nav.start('three_tabs');
+  nav.start();
 };

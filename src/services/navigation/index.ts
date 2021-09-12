@@ -30,7 +30,7 @@ export class Nav implements IService {
   };
 
   // Start different apps' logic
-  start = async (appType: AppType): PVoid => {
+  start = async (appType: AppType = 'three_tabs'): PVoid => {
     if (appType === 'one_screen') {
       await this.startOneScreenApp();
     }
