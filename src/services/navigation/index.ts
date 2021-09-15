@@ -8,7 +8,6 @@ import { withStores } from '../../stores';
 import { withServices } from '../../services';
 
 import { BottomTabs, Component, Root, Stack } from './layout';
-import { getTheme, withThemeModes } from '../../utils/designSystem';
 import { navDefaultOptions } from './options';
 
 export class Nav implements IService {
@@ -94,9 +93,9 @@ export class Nav implements IService {
   };
 
   updateDefaultOptions = (cId = ''): void => {
-    const options = this.getDefaultOptions();
+    const options = navDefaultOptions();
 
-    this.N.setDefaultOptions(options);
+    this.N.setDefaultOptions(navDefaultOptions());
     if (this.cIds.has(cId)) {
       const name = this.cIds.get(cId);
       if (name) {
@@ -110,7 +109,7 @@ export class Nav implements IService {
     screens.forEach((s) =>
       this.N.registerComponent(
         s.name,
-        pipe(withGestureHandler, withStores, withServices, withThemeModes, () => s.component),
+        pipe(withGestureHandler, withStores, withServices, () => s.component),
         () => s.component,
       ),
     );
@@ -126,15 +125,6 @@ export class Nav implements IService {
         this.getConstants();
       },
     );
-  };
-
-  private getDefaultOptions = (): Options => {
-    const theme = getTheme();
-
-    return {
-      ...navDefaultOptions(),
-      statusBar: { style: theme.statusBar, backgroundColor: theme.bgColor },
-    };
   };
 
   private getConstants = async () => {
