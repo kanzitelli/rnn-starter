@@ -1,6 +1,5 @@
 import { Constants, Navigation, NavigationConstants, Options } from 'react-native-navigation';
 import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
-import merge from 'lodash/merge';
 import pipe from 'lodash/flowRight';
 
 import { Screen, screens, screensLayouts } from '../../screens';
@@ -12,8 +11,6 @@ import { navDefaultOptions } from './options';
 
 export class Nav implements IService {
   private inited = false;
-  // component ids of all presented screens
-  private cIds: Map<string, Screen> = new Map();
   N = Navigation;
   // nav constants always updated on willAppear event
   C: NavigationConstants = Constants.getSync();
@@ -21,7 +18,7 @@ export class Nav implements IService {
   init = async (): PVoid => {
     if (!this.inited) {
       await this.registerScreens();
-      this.updateDefaultOptions();
+      this.setDefaultOptions();
       this.registerListeners();
 
       this.inited = true;
@@ -59,6 +56,7 @@ export class Nav implements IService {
   // Navigation methods
   push = async <T>(cId: string, name: Screen, passProps?: T, options?: Options): PVoid => {
     const sl = screensLayouts[name];
+
     await this.N.push(
       cId,
       Component({
@@ -78,6 +76,7 @@ export class Nav implements IService {
 
   show = async <T>(name: Screen, passProps?: T, options?: Options): PVoid => {
     const sl = screensLayouts[name];
+
     this.N.showModal(
       Stack(
         Component({
@@ -92,16 +91,8 @@ export class Nav implements IService {
     );
   };
 
-  updateDefaultOptions = (cId = ''): void => {
-    const options = navDefaultOptions();
-
+  setDefaultOptions = (): void => {
     this.N.setDefaultOptions(navDefaultOptions());
-    if (this.cIds.has(cId)) {
-      const name = this.cIds.get(cId);
-      if (name) {
-        this.N.mergeOptions(cId, merge(options, screensLayouts[name].options));
-      }
-    }
   };
 
   // System methods
@@ -116,15 +107,9 @@ export class Nav implements IService {
   };
 
   private registerListeners = () => {
-    this.N.events().registerComponentWillAppearListener(
-      async ({ componentId: cId, componentName: cName }) => {
-        if (!this.cIds.has(cId)) {
-          this.cIds.set(cId, cName as Screen);
-        }
-
-        this.getConstants();
-      },
-    );
+    this.N.events().registerComponentWillAppearListener(() => {
+      this.getConstants();
+    });
   };
 
   private getConstants = async () => {
