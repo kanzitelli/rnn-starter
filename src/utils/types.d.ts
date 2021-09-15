@@ -11,14 +11,13 @@ type Stores = Record<string, IStore>;
 type PVoid = Promise<void>;
 type AnyObj = Record<string, unknown>;
 
-type ThemeColors = Record<string, string>;
-type ThemeMode = 'light' | 'dark' | 'other';
-type Theme = {
-  statusBar: 'light' | 'dark' | undefined;
+type DesignSystemColors = Record<string, string>;
+type ThemeMode = 'light' | 'dark';
+type ThemeColors = {
   textColor: string;
   bgColor: string;
   bg2Color: string;
-} & ThemeColors;
+};
 
 // SERVICES
 type AppType = 'one_screen' | 'three_tabs';
