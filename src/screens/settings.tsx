@@ -26,10 +26,19 @@ export const Settings: NavigationFunctionComponent = observer(() => {
   return (
     <View flex bg-bgColor>
       <ScrollView contentInsetAdjustmentBehavior="always">
-        <View padding-m>
+        <View padding-s4>
+          <Section bg title="UI">
+            <Action
+              title="Appearance"
+              info={ui.themeMode}
+              onPress={ui.toggleThemeMode}
+              rightIcon="chevron-forward"
+            />
+            {/* <Action title="Language" info={'en'} onPress={() => {}} /> */}
+          </Section>
+
           <Section bg title="General">
             <View>
-              <Action title="Toggle theme" info={ui.themeMode} onPress={ui.toggleThemeMode} />
               <Action title="Share" icon="share-outline" onPress={doSomething('Share')} />
               <Action title="Rate" icon="star-outline" onPress={doSomething('Rate')} />
               <Action title="Support" icon="mail-unread-outline" onPress={doSomething('Support')} />
