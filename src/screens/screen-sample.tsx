@@ -21,21 +21,21 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
     return (
       <View flex bg-bgColor>
         <ScrollView contentInsetAdjustmentBehavior="always">
-          <View padding-m>
+          <View padding-s4>
             <Section title={t.do('section.navigation.title')}>
               <View>
                 <Button
-                  marginV-xs
+                  marginV-s1
                   label={t.do('section.navigation.button.push')}
                   onPress={() => nav.push(componentId, 'Example')}
                 />
                 <Button
-                  marginV-xs
+                  marginV-s1
                   label={t.do('section.navigation.button.show')}
                   onPress={() => nav.show('Example')}
                 />
                 <Button
-                  marginV-xs
+                  marginV-s1
                   label={t.do('section.navigation.button.passProps')}
                   onPress={() =>
                     nav.push<ExampleScreenProps>(componentId, 'Example', { value: randomNum() })
@@ -50,7 +50,7 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
 
             <Reanimated2 stID="reanimated2" />
             <Button
-              marginV-xs
+              marginV-s1
               label={t.do('section.navigation.button.back')}
               onPress={() => nav.pop(componentId)}
             />

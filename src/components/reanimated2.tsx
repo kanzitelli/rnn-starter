@@ -22,11 +22,11 @@ export const Reanimated2: React.FC<Reanimated2Props> = ({ stID }: Reanimated2Pro
   };
 
   return (
-    <View padding-xs>
+    <View padding-s1>
       <Animated.View style={[animatedStyles]}>
-        <View center padding-xs>
+        <View center padding-s1>
           <Bounceable onPress={moveObject} activeScale={0.9}>
-            <View nativeID={genNativeId(stID)} center bg-primary padding-xl br40>
+            <View nativeID={genNativeId(stID)} center bg-primary padding-s8 br40>
               <Text whitish>Bounceable</Text>
             </View>
           </Bounceable>

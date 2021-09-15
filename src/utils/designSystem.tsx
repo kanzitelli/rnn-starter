@@ -48,15 +48,6 @@ export const configureDesignSystem = (): void => {
   Typography.loadTypographies({
     section: { fontSize: 26, fontWeight: '600' },
   });
-
-  Spacings.loadSpacings({
-    xs: 4,
-    s: 8,
-    m: 16,
-    l: 24,
-    xl: 32,
-    xxl: 40,
-  });
 };
 
 export const getThemeColors = (): ThemeColors => omit(themeModes[ui.themeMode], 'statusBar');
