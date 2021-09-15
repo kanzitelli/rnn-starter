@@ -11,7 +11,7 @@ import { navDefaultOptions } from './options';
 
 export class Nav implements IService {
   private inited = false;
-  N = Navigation;
+  private N = Navigation;
   // nav constants always updated on willAppear event
   C: NavigationConstants = Constants.getSync();
 
