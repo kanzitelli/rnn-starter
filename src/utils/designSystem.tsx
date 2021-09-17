@@ -27,8 +27,15 @@ const themes: Record<AppearanceMode, ThemeColors> = {
 
 // for more information - https://wix.github.io/react-native-ui-lib/foundation/style
 export const configureDesignSystem = (): void => {
-  Colors.loadColors(colors);
-  Colors.loadSchemes(themes);
+  const {ui} = stores;
+
+  if (ui.isSystemAppearance) {
+    Colors.loadColors(colors);
+    Colors.loadSchemes(themes);
+  } else {
+    Colors.loadColors({...colors, ...themes[ui.appearance]});
+    Colors.loadSchemes({dark: {}, light: {}});
+  }
 
   Typography.loadTypographies({
     section: {fontSize: 26, fontWeight: '600'},
