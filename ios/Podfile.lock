@@ -299,30 +299,30 @@ PODS:
     - React-cxxreact (= 0.65.1)
     - React-jsi (= 0.65.1)
     - React-perflogger (= 0.65.1)
-  - ReactNativeNavigation (7.20.0):
+  - ReactNativeNavigation (7.21.0):
     - React-Core
     - React-RCTImage
     - React-RCTText
-    - ReactNativeNavigation/Core (= 7.20.0)
-  - ReactNativeNavigation/Core (7.20.0):
+    - ReactNativeNavigation/Core (= 7.21.0)
+  - ReactNativeNavigation/Core (7.21.0):
     - React-Core
     - React-RCTImage
     - React-RCTText
   - ReactNativeUiLib (3.0.4):
     - React
-  - RNCAsyncStorage (1.15.7):
+  - RNCAsyncStorage (1.15.8):
     - React-Core
   - RNCPicker (2.1.0):
     - React-Core
   - RNDateTimePicker (3.5.2):
     - React-Core
-  - RNDeviceInfo (8.3.1):
+  - RNDeviceInfo (8.3.3):
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNLocalize (2.1.4):
     - React-Core
-  - RNReanimated (2.2.1):
+  - RNReanimated (2.2.2):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -536,15 +536,15 @@ SPEC CHECKSUMS:
   React-RCTVibration: 92d41c2442e5328cc4d342cd7f78e5876b68bae5
   React-runtimeexecutor: 85187f19dd9c47a7c102f9994f9d14e4dc2110de
   ReactCommon: eafed38eec7b591c31751bfa7494801618460459
-  ReactNativeNavigation: 87aa2e3a749a9b338057e8d53af54d865241b843
+  ReactNativeNavigation: d6f27d4ba71887a161534a13e8ef3873b26c68b5
   ReactNativeUiLib: cde7263a7d308b60161cd286f95c9433e79f2f7d
-  RNCAsyncStorage: 7102fe8985f889579a3ae148d957bbb3f308122b
+  RNCAsyncStorage: e8b8d6320a0dd90eb610fb0d0b1ef90596697c69
   RNCPicker: f7a40b21b915b7a187624d52f52b7bc2f73ea413
   RNDateTimePicker: 7658208086d86d09e1627b5c34ba0cf237c60140
-  RNDeviceInfo: 7b82d1467b87f7e74d1c7ba9439a9a57d0c68ee9
+  RNDeviceInfo: cc7de0772378f85d8f36ae439df20f05c590a651
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNLocalize: 7f1e5792b65a839af55a9552d05b3558b66d017e
-  RNReanimated: d29057cf85e771be4f0180ba1d00a7185e423a7d
+  RNReanimated: ad24db8af24e3fe1b5c462785bc3db8d5baae2ee
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
 

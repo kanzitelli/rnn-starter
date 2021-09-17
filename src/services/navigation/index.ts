@@ -1,28 +1,25 @@
-import { Constants, Navigation, NavigationConstants, Options } from 'react-native-navigation';
-import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
-import merge from 'lodash/merge';
+import {Constants, Navigation, NavigationConstants, Options} from 'react-native-navigation';
+import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
 import pipe from 'lodash/flowRight';
 
-import { Screen, screens, screensLayouts } from '../../screens';
-import { withStores } from '../../stores';
-import { withServices } from '../../services';
+import {Screen, screens, screensLayouts} from '../../screens';
+import {withStores} from '../../stores';
+import {services, withServices} from '../../services';
+import {configureDesignSystem} from '../../utils/designSystem';
 
-import { BottomTabs, Component, Root, Stack } from './layout';
-import { getTheme, withThemeModes } from '../../utils/designSystem';
-import { navDefaultOptions } from './options';
+import {BottomTabs, Component, Root, Stack} from './layout';
+import {navDefaultOptions} from './options';
 
 export class Nav implements IService {
   private inited = false;
-  // component ids of all presented screens
-  private cIds: Map<string, Screen> = new Map();
-  N = Navigation;
+  private N = Navigation;
   // nav constants always updated on willAppear event
   C: NavigationConstants = Constants.getSync();
 
   init = async (): PVoid => {
     if (!this.inited) {
       await this.registerScreens();
-      this.updateDefaultOptions();
+      this.setDefaultOptions();
       this.registerListeners();
 
       this.inited = true;
@@ -39,6 +36,14 @@ export class Nav implements IService {
     }
 
     await this.getConstants(); // needs to be called after setRoot()
+  };
+
+  restart = async (): PVoid => {
+    this.setDefaultOptions(); // settings navigation options
+    configureDesignSystem(); // configuring design system with updated appearance
+    services.t.setup(); // setting up new language for translation service
+
+    await this.start('three_tabs');
   };
 
   private startOneScreenApp = async (): PVoid => {
@@ -60,6 +65,7 @@ export class Nav implements IService {
   // Navigation methods
   push = async <T>(cId: string, name: Screen, passProps?: T, options?: Options): PVoid => {
     const sl = screensLayouts[name];
+
     await this.N.push(
       cId,
       Component({
@@ -79,6 +85,7 @@ export class Nav implements IService {
 
   show = async <T>(name: Screen, passProps?: T, options?: Options): PVoid => {
     const sl = screensLayouts[name];
+
     this.N.showModal(
       Stack(
         Component({
@@ -93,48 +100,25 @@ export class Nav implements IService {
     );
   };
 
-  updateDefaultOptions = (cId = ''): void => {
-    const options = this.getDefaultOptions();
-
-    this.N.setDefaultOptions(options);
-    if (this.cIds.has(cId)) {
-      const name = this.cIds.get(cId);
-      if (name) {
-        this.N.mergeOptions(cId, merge(options, screensLayouts[name].options));
-      }
-    }
+  private setDefaultOptions = (): void => {
+    this.N.setDefaultOptions(navDefaultOptions());
   };
 
   // System methods
   private registerScreens = async () => {
-    screens.forEach((s) =>
+    screens.forEach(s =>
       this.N.registerComponent(
         s.name,
-        pipe(withGestureHandler, withStores, withServices, withThemeModes, () => s.component),
+        pipe(withGestureHandler, withStores, withServices, () => s.component),
         () => s.component,
       ),
     );
   };
 
   private registerListeners = () => {
-    this.N.events().registerComponentWillAppearListener(
-      async ({ componentId: cId, componentName: cName }) => {
-        if (!this.cIds.has(cId)) {
-          this.cIds.set(cId, cName as Screen);
-        }
-
-        this.getConstants();
-      },
-    );
-  };
-
-  private getDefaultOptions = (): Options => {
-    const theme = getTheme();
-
-    return {
-      ...navDefaultOptions(),
-      statusBar: { style: theme.statusBar, backgroundColor: theme.bgColor },
-    };
+    this.N.events().registerComponentWillAppearListener(() => {
+      this.getConstants();
+    });
   };
 
   private getConstants = async () => {

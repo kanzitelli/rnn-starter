@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native-ui-lib';
+import {View, Text} from 'react-native-ui-lib';
 
 type SectionProps = {
   children: React.ReactNode;
@@ -7,22 +7,22 @@ type SectionProps = {
   bg?: boolean;
 };
 
-export const Section: React.FC<SectionProps> = ({ children, title, bg }: SectionProps) => {
+export const Section: React.FC<SectionProps> = ({children, title, bg}: SectionProps) => {
   const S = {
     'bg-bg2Color': bg,
-    'paddingH-xs': bg,
-    'paddingV-s': bg,
+    'paddingH-s1': bg,
+    'paddingV-s2': bg,
   };
 
   return (
-    <View paddingV-xs>
+    <View paddingV-s1>
       <View row>
         <Text textColor section>
           {title}
         </Text>
       </View>
 
-      <View paddingH-s paddingV-s>
+      <View paddingH-s2 paddingV-s2>
         <View br40 {...S}>
           {children}
         </View>

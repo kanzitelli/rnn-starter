@@ -1,4 +1,4 @@
-import { CounterApi } from './counter';
+import {CounterApi} from './counter';
 
 export class Api implements IService {
   private inited = false;

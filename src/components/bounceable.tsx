@@ -1,12 +1,12 @@
 import React from 'react';
-import { ViewStyle } from 'react-native';
+import {ViewStyle} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
   runOnJS,
 } from 'react-native-reanimated';
-import { TapGestureHandler, State } from 'react-native-gesture-handler';
+import {TapGestureHandler, State} from 'react-native-gesture-handler';
 
 type BouncableProps = {
   children: React.ReactNode;
@@ -43,11 +43,11 @@ export const Bounceable: React.FC<BouncableProps> = ({
   return (
     <TapGestureHandler
       shouldCancelWhenOutside={true}
-      onHandlerStateChange={({ nativeEvent }) => {
+      onHandlerStateChange={({nativeEvent}) => {
         if (disabled) {
           return;
         }
-        const { state } = nativeEvent;
+        const {state} = nativeEvent;
 
         if (state === State.BEGAN) {
           scale.value = withSpring(activeScale, springConfig);
@@ -66,7 +66,8 @@ export const Bounceable: React.FC<BouncableProps> = ({
           scale.value = withSpring(1, springConfig);
           return;
         }
-      }}>
+      }}
+    >
       <Animated.View style={[contentContainerStyle, sz]}>{children}</Animated.View>
     </TapGestureHandler>
   );

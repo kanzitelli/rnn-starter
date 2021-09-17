@@ -1,7 +1,8 @@
-import { Options, OptionsTopBar } from 'react-native-navigation';
-import { Colors } from 'react-native-ui-lib';
+import {Options, OptionsTopBar} from 'react-native-navigation';
+import {Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Button, buttons } from './buttons';
+import {getThemeColor, getThemeStatusBarStyle} from '../../utils/designSystem';
+import {Button, buttons} from './buttons';
 
 const ICON_SIZE = 25;
 
@@ -9,12 +10,14 @@ export const navDefaultOptions = (): Options => {
   return {
     layout: {
       orientation: ['portrait'],
-      componentBackgroundColor: Colors.bgColor,
-      backgroundColor: Colors.bgColor,
+      // componentBackgroundColor: Colors.bgColor,
+      // backgroundColor: Colors.bgColor,
+      componentBackgroundColor: getThemeColor('bgColor'),
+      backgroundColor: getThemeColor('bgColor'),
     },
     bottomTabs: {
       titleDisplayMode: 'alwaysShow',
-      backgroundColor: Colors.bgColor,
+      backgroundColor: getThemeColor('bgColor'),
       hideShadow: true,
       elevation: 0,
     },
@@ -24,23 +27,27 @@ export const navDefaultOptions = (): Options => {
       selectedIconColor: Colors.primary,
       selectedTextColor: Colors.primary,
     },
+    statusBar: {
+      style: getThemeStatusBarStyle(),
+      backgroundColor: getThemeColor('bgColor'),
+    },
     topBar: {
       background: {
-        color: Colors.bgColor,
+        color: getThemeColor('bgColor'),
       },
       backButton: {
-        color: Colors.textColor,
+        color: getThemeColor('textColor'),
       },
       noBorder: true,
       elevation: 0,
-      rightButtonColor: Colors.textColor,
-      leftButtonColor: Colors.textColor,
+      rightButtonColor: getThemeColor('textColor'),
+      leftButtonColor: getThemeColor('textColor'),
       title: {
-        color: Colors.textColor,
+        color: getThemeColor('textColor'),
       },
       largeTitle: {
         visible: true,
-        color: Colors.textColor,
+        color: getThemeColor('textColor'),
       },
     },
   };
@@ -55,9 +62,9 @@ export const withBottomTab = (text = 'Screen', icon = 'earth'): Options => ({
 });
 
 export const withTitle = (text = 'Screen'): OptionsTopBar => ({
-  title: { text },
+  title: {text},
 });
 
 export const withRightButtons = (...btns: Button[]): OptionsTopBar => ({
-  rightButtons: btns.map((id) => buttons[id]),
+  rightButtons: btns.map(id => buttons[id]),
 });

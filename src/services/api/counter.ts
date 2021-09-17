@@ -1,8 +1,8 @@
-import { stores } from '../../stores';
+import {stores} from '../../stores';
 
 export class CounterApi {
   get = async (): PVoid => {
-    const { counter } = stores;
+    const {counter} = stores;
 
     counter.setLoading(true);
 
