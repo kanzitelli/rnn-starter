@@ -12,20 +12,36 @@ type PVoid = Promise<void>;
 type AnyObj = Record<string, unknown>;
 
 type DesignSystemColors = Record<string, string>;
-type ThemeMode = 'light' | 'dark';
+type AppearanceMode = 'light' | 'dark';
+type StatusBarStyle = 'light' | 'dark' | undefined;
 type ThemeColors = {
   textColor: string;
   bgColor: string;
   bg2Color: string;
 };
 
+type Language = 'en' | 'ru';
+
 // SERVICES
 type AppType = 'one_screen' | 'three_tabs';
+
+// STORES
+type UIAppearance = 'System' | 'Light' | 'Dark';
+type UILanguage = 'System' | 'English' | 'Russian';
 
 // SCREENS
 // Props
 type ExampleScreenProps = {
   value?: number;
+};
+
+// Settings
+type AppearanceAction = {
+  name: UIAppearance;
+};
+
+type LanguageAction = {
+  name: UILanguage;
 };
 
 // API
