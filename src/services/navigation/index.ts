@@ -1,13 +1,13 @@
-import { Constants, Navigation, NavigationConstants, Options } from 'react-native-navigation';
-import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
+import {Constants, Navigation, NavigationConstants, Options} from 'react-native-navigation';
+import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
 import pipe from 'lodash/flowRight';
 
-import { Screen, screens, screensLayouts } from '../../screens';
-import { withStores } from '../../stores';
-import { withServices } from '../../services';
+import {Screen, screens, screensLayouts} from '../../screens';
+import {withStores} from '../../stores';
+import {withServices} from '../../services';
 
-import { BottomTabs, Component, Root, Stack } from './layout';
-import { navDefaultOptions } from './options';
+import {BottomTabs, Component, Root, Stack} from './layout';
+import {navDefaultOptions} from './options';
 
 export class Nav implements IService {
   private inited = false;
@@ -97,7 +97,7 @@ export class Nav implements IService {
 
   // System methods
   private registerScreens = async () => {
-    screens.forEach((s) =>
+    screens.forEach(s =>
       this.N.registerComponent(
         s.name,
         pipe(withGestureHandler, withStores, withServices, () => s.component),

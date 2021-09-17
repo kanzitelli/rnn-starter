@@ -1,20 +1,20 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
-import { View, Button, Text } from 'react-native-ui-lib';
-import { NavigationFunctionComponent } from 'react-native-navigation';
-import { observer } from 'mobx-react';
+import {ScrollView} from 'react-native';
+import {View, Button, Text} from 'react-native-ui-lib';
+import {NavigationFunctionComponent} from 'react-native-navigation';
+import {observer} from 'mobx-react';
 
-import { useServices } from '../services';
+import {useServices} from '../services';
 // import { useStores } from '../stores';
 // import { useConstants } from '../utils/constants';
 
-import { Section } from '../components/section';
-import { randomNum } from '../utils/help';
-import { Reanimated2 } from '../components/reanimated2';
+import {Section} from '../components/section';
+import {randomNum} from '../utils/help';
+import {Reanimated2} from '../components/reanimated2';
 
 export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer(
-  ({ componentId, value }) => {
-    const { nav, t } = useServices();
+  ({componentId, value}) => {
+    const {nav, t} = useServices();
     // const {} = useStores();
     // const {} = useConstants();
 
@@ -38,7 +38,7 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
                   marginV-s1
                   label={t.do('section.navigation.button.passProps')}
                   onPress={() =>
-                    nav.push<ExampleScreenProps>(componentId, 'Example', { value: randomNum() })
+                    nav.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
                   }
                 />
               </View>

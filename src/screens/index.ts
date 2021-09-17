@@ -1,18 +1,18 @@
-import { Screens, ScreensLayouts } from '../services/navigation/types';
-import { withBottomTab, withRightButtons, withTitle } from '../services/navigation/options';
+import {Screens, ScreensLayouts} from '../services/navigation/types';
+import {withBottomTab, withRightButtons, withTitle} from '../services/navigation/options';
 
-import { Main } from './main';
-import { Settings } from './settings';
-import { Example } from './screen-sample';
+import {Main} from './main';
+import {Settings} from './settings';
+import {Example} from './screen-sample';
 
 // Describe your screens here
 export type Screen = 'Main' | 'Settings' | 'Example';
 
 export const screens: Screens = [
-  { name: 'Main', component: Main },
-  { name: 'Settings', component: Settings },
+  {name: 'Main', component: Main},
+  {name: 'Settings', component: Settings},
 
-  { name: 'Example', component: Example },
+  {name: 'Example', component: Example},
 ];
 
 export const screensLayouts: ScreensLayouts = {

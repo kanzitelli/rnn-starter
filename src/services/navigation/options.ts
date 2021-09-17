@@ -1,8 +1,8 @@
-import { Options, OptionsTopBar } from 'react-native-navigation';
-import { Colors } from 'react-native-ui-lib';
+import {Options, OptionsTopBar} from 'react-native-navigation';
+import {Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { getThemeColor } from '../../utils/designSystem';
-import { Button, buttons } from './buttons';
+import {getThemeColor} from '../../utils/designSystem';
+import {Button, buttons} from './buttons';
 
 const ICON_SIZE = 25;
 
@@ -58,9 +58,9 @@ export const withBottomTab = (text = 'Screen', icon = 'earth'): Options => ({
 });
 
 export const withTitle = (text = 'Screen'): OptionsTopBar => ({
-  title: { text },
+  title: {text},
 });
 
 export const withRightButtons = (...btns: Button[]): OptionsTopBar => ({
-  rightButtons: btns.map((id) => buttons[id]),
+  rightButtons: btns.map(id => buttons[id]),
 });

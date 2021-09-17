@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavigationComponentProps, NavigationFunctionComponent } from 'react-native-navigation';
+import {NavigationComponentProps, NavigationFunctionComponent} from 'react-native-navigation';
 
-import { OnStart } from './onStart';
-import { Nav } from './navigation';
-import { Translate } from './translate';
-import { Api } from './api';
+import {OnStart} from './onStart';
+import {Nav} from './navigation';
+import {Translate} from './translate';
+import {Api} from './api';
 
 export const services = {
   t: new Translate(), // should be first

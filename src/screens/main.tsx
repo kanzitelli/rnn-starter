@@ -1,21 +1,21 @@
-import React, { useCallback, useEffect } from 'react';
-import { ScrollView, Alert } from 'react-native';
-import { View, Button, Text } from 'react-native-ui-lib';
-import { NavigationFunctionComponent } from 'react-native-navigation';
-import { useNavigationButtonPress } from 'react-native-navigation-hooks/dist';
-import { observer } from 'mobx-react';
+import React, {useCallback, useEffect} from 'react';
+import {ScrollView, Alert} from 'react-native';
+import {View, Button, Text} from 'react-native-ui-lib';
+import {NavigationFunctionComponent} from 'react-native-navigation';
+import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
+import {observer} from 'mobx-react';
 
-import { useServices } from '../services';
-import { useStores } from '../stores';
+import {useServices} from '../services';
+import {useStores} from '../stores';
 
-import { Section } from '../components/section';
-import { Reanimated2 } from '../components/reanimated2';
-import { randomNum } from '../utils/help';
-import { withSharedTransitions } from '../services/navigation/sharedTransition';
+import {Section} from '../components/section';
+import {Reanimated2} from '../components/reanimated2';
+import {randomNum} from '../utils/help';
+import {withSharedTransitions} from '../services/navigation/sharedTransition';
 
-export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
-  const { nav, t, api } = useServices();
-  const { counter, ui } = useStores();
+export const Main: NavigationFunctionComponent = observer(({componentId}) => {
+  const {nav, t, api} = useServices();
+  const {counter, ui} = useStores();
 
   useNavigationButtonPress(counter.inc, componentId, 'inc');
   useNavigationButtonPress(counter.dec, componentId, 'dec');
@@ -52,7 +52,7 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
               marginV-s1
               label={t.do('section.navigation.button.passProps')}
               onPress={() =>
-                nav.push<ExampleScreenProps>(componentId, 'Example', { value: randomNum() })
+                nav.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
               }
             />
             <Button
@@ -62,8 +62,8 @@ export const Main: NavigationFunctionComponent = observer(({ componentId }) => {
                 nav.push<ExampleScreenProps>(
                   componentId,
                   'Example',
-                  { value: randomNum() },
-                  withSharedTransitions([{ id: 'reanimated2', pop: true }]),
+                  {value: randomNum()},
+                  withSharedTransitions([{id: 'reanimated2', pop: true}]),
                 )
               }
             />

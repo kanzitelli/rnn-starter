@@ -1,5 +1,5 @@
-import { makeAutoObservable } from 'mobx';
-import { hydrateStore, makePersistable } from 'mobx-persist-store';
+import {makeAutoObservable} from 'mobx';
+import {hydrateStore, makePersistable} from 'mobx-persist-store';
 
 export class UI implements IStore {
   appLaunches = 0;
@@ -7,28 +7,38 @@ export class UI implements IStore {
     this.appLaunches += v;
   };
 
-  themeMode: ThemeMode = 'light';
+  isSystemTheme = true;
+  theme: ThemeMode = 'light';
   setThemeMode = (v: ThemeMode): void => {
-    this.themeMode = v;
+    this.isSystemTheme = false;
+    this.theme = v;
   };
-  toggleThemeMode = (): void => {
-    this.themeMode = (() => {
-      if (this.themeMode === 'light') {
-        return 'dark';
-      }
-      if (this.themeMode === 'dark') {
-        return 'other';
-      }
-      return 'light';
-    })();
+  setSystemThemeMode = (): void => {
+    this.isSystemTheme = true;
   };
+  get themeName(): UIAppearance {
+    return this.isSystemTheme ? 'System' : this.theme === 'light' ? 'Light' : 'Dark';
+  }
+
+  isSystemLanguage = true;
+  language: Language = 'en';
+  setLanguage = (v: Language): void => {
+    this.isSystemLanguage = false;
+    this.language = v;
+  };
+  setSystemLanguage = (): void => {
+    this.isSystemLanguage = true;
+  };
+  get languageName(): UILanguage {
+    return this.isSystemLanguage ? 'System' : this.language === 'en' ? 'English' : 'Russian';
+  }
 
   constructor() {
     makeAutoObservable(this);
 
     makePersistable(this, {
       name: 'UI',
-      properties: ['appLaunches', 'themeMode'],
+      properties: ['appLaunches', 'isSystemTheme', 'theme', 'isSystemLanguage', 'language'],
     });
   }
 

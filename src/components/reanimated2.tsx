@@ -1,20 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native-ui-lib';
-import Animated, { withSpring, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import {View, Text} from 'react-native-ui-lib';
+import Animated, {withSpring, useAnimatedStyle, useSharedValue} from 'react-native-reanimated';
 
-import { Bounceable } from './bounceable';
-import { genNativeId } from '../services/navigation/sharedTransition';
-import { SharedTransitionId } from '../services/navigation/types';
+import {Bounceable} from './bounceable';
+import {genNativeId} from '../services/navigation/sharedTransition';
+import {SharedTransitionId} from '../services/navigation/types';
 
 type Reanimated2Props = {
   stID?: SharedTransitionId;
 };
 
-export const Reanimated2: React.FC<Reanimated2Props> = ({ stID }: Reanimated2Props) => {
+export const Reanimated2: React.FC<Reanimated2Props> = ({stID}: Reanimated2Props) => {
   const offset = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => ({
-    transform: [{ translateX: offset.value * 250 - 100 }],
+    transform: [{translateX: offset.value * 250 - 100}],
   }));
 
   const moveObject = () => {

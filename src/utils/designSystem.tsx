@@ -1,5 +1,5 @@
-import { Color } from 'react-native-navigation';
-import { Colors, Spacings, Typography } from 'react-native-ui-lib';
+import {Color} from 'react-native-navigation';
+import {Colors, Typography} from 'react-native-ui-lib';
 
 const colors: DesignSystemColors = {
   primary: '#5383b8', // blue
@@ -30,7 +30,7 @@ export const configureDesignSystem = (): void => {
   Colors.loadSchemes(themes);
 
   Typography.loadTypographies({
-    section: { fontSize: 26, fontWeight: '600' },
+    section: {fontSize: 26, fontWeight: '600'},
   });
 };
 
