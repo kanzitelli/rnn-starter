@@ -1,7 +1,7 @@
 import {Options, OptionsTopBar} from 'react-native-navigation';
 import {Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {getThemeColor} from '../../utils/designSystem';
+import {getThemeColor, getThemeStatusBarStyle} from '../../utils/designSystem';
 import {Button, buttons} from './buttons';
 
 const ICON_SIZE = 25;
@@ -26,6 +26,9 @@ export const navDefaultOptions = (): Options => {
       textColor: Colors.primary,
       selectedIconColor: Colors.primary,
       selectedTextColor: Colors.primary,
+    },
+    statusBar: {
+      style: getThemeStatusBarStyle(),
     },
     topBar: {
       background: {
