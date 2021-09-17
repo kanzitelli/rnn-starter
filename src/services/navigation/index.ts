@@ -4,7 +4,8 @@ import pipe from 'lodash/flowRight';
 
 import {Screen, screens, screensLayouts} from '../../screens';
 import {withStores} from '../../stores';
-import {withServices} from '../../services';
+import {services, withServices} from '../../services';
+import {configureDesignSystem} from '../../utils/designSystem';
 
 import {BottomTabs, Component, Root, Stack} from './layout';
 import {navDefaultOptions} from './options';
@@ -35,6 +36,14 @@ export class Nav implements IService {
     }
 
     await this.getConstants(); // needs to be called after setRoot()
+  };
+
+  restart = async (): PVoid => {
+    this.setDefaultOptions(); // settings navigation options
+    configureDesignSystem(); // configuring design system with updated appearance
+    services.t.setup(); // setting up new language for translation service
+
+    await this.start('three_tabs');
   };
 
   private startOneScreenApp = async (): PVoid => {
@@ -91,7 +100,7 @@ export class Nav implements IService {
     );
   };
 
-  setDefaultOptions = (): void => {
+  private setDefaultOptions = (): void => {
     this.N.setDefaultOptions(navDefaultOptions());
   };
 
