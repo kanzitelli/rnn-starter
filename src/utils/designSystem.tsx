@@ -1,5 +1,6 @@
 import {Color} from 'react-native-navigation';
 import {Colors, Typography} from 'react-native-ui-lib';
+import {stores} from '../stores';
 
 const colors: DesignSystemColors = {
   primary: '#5383b8', // blue
@@ -11,7 +12,7 @@ const colors: DesignSystemColors = {
   whitish2: Colors.rgba(230, 230, 230, 1),
 };
 
-const themes: Record<ThemeMode, ThemeColors> = {
+const themes: Record<AppearanceMode, ThemeColors> = {
   light: {
     textColor: colors.blackish,
     bgColor: colors.whitish,
@@ -34,7 +35,30 @@ export const configureDesignSystem = (): void => {
   });
 };
 
-export const getThemeColor = (c: keyof ThemeColors): Color => ({
-  dark: themes.dark[c],
-  light: themes.light[c],
-});
+export const getThemeColor = (c: keyof ThemeColors): Color => {
+  const {ui} = stores;
+
+  if (ui.isSystemAppearance) {
+    return {
+      dark: themes.dark[c],
+      light: themes.light[c],
+    };
+  } else {
+    return themes[ui.appearance][c];
+  }
+};
+
+export const getThemeStatusBarStyle = (): StatusBarStyle => {
+  const {ui} = stores;
+
+  if (ui.isSystemAppearance) {
+    return undefined;
+  } else {
+    switch (ui.appearance) {
+      case 'dark':
+        return 'light';
+      case 'light':
+        return 'dark';
+    }
+  }
+};
