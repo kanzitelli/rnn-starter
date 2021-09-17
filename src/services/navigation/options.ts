@@ -29,6 +29,7 @@ export const navDefaultOptions = (): Options => {
     },
     statusBar: {
       style: getThemeStatusBarStyle(),
+      backgroundColor: getThemeColor('bgColor'),
     },
     topBar: {
       background: {
