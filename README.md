@@ -9,7 +9,7 @@ For more information, check out [Why](#why) section.
 #### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
 
 ```bash
-> npx cli-rn new App -n rnn
+> npx cli-rn new App -t rnn
 ```
 
 If you encounter any problems with `cli-rn`, please open an issue [here](https://github.com/kanzitelli/cli-rn/issues).
@@ -53,7 +53,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 > yarn ios:pods
 ```
 
-<details>
+</details>
 
 ## What's inside
 
@@ -199,7 +199,7 @@ Feel free to open an issue for suggestions.
 
 ## Known issues (warnings)
 
-- _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists and there is a [patch](https://github.com/software-mansion/react-native-screens/issues/649#issuecomment-727553714) for fixing it. You can find it in `patches/react-native+0.65.1.patch`. It will be autorun when you do `yarn add/remove/etc`.
+- _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists. So you can find the patch file for fixing that in `patches/react-native+0.65.1.patch`. It will be autorun when you do `yarn add/remove/etc`.
 - _Over-The-Air Updates_. They have been removed from the current version as I had some problems publishing one of the apps to AppStore. Check out [my tweet](https://twitter.com/kanzitelli/status/1398229619862642692) and be aware of the issue if you'd like to use them anyways.
 
 ## Worth checking
