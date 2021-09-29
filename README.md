@@ -20,7 +20,7 @@ If you have any troubles running the app with `yarn ios` or `yarn android`, open
 1. Clone the repo
 
 ```bash
-> git clone https://github.com/kanzitelli/rnn-starter.git AppName && cd AppName
+> git clone https://github.com/kanzitelli/rnn-starter.git App && cd App
 ```
 
 2. Remove `.git` file (if not planning to contribute)
