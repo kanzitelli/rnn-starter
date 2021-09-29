@@ -12,8 +12,6 @@ For more information, check out [Why](#why) section.
 > npx cli-rn new App -t rnn
 ```
 
-If you encounter any problems with `cli-rn`, please open an issue [here](https://github.com/kanzitelli/cli-rn/issues).
-
 If you have any troubles running the app with `yarn ios` or `yarn android`, open XCode or Android Studio and run the project from there.
 
 <details>
