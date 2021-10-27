@@ -1,4 +1,7 @@
 export const en = {
+  home: {
+    title: 'Home',
+  },
   section: {
     navigation: {
       title: 'Navigation',
@@ -14,6 +17,9 @@ export const en = {
 };
 
 export const ru = {
+  home: {
+    title: 'Хоум',
+  },
   section: {
     navigation: {
       title: 'Навигация',
