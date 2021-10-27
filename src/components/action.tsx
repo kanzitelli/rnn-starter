@@ -3,6 +3,8 @@ import {View, Text, Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Bounceable} from 'rn-bounceable';
 
+import {Row} from './row';
+
 type ActionProps = {
   title: string;
   icon?: string;
@@ -26,8 +28,8 @@ export const Action: React.FC<ActionProps> = ({
   return (
     <View padding-s4>
       <Bounceable {...b}>
-        <View row centerV style={{justifyContent: 'space-between'}}>
-          <View row centerV>
+        <Row style={{justifyContent: 'space-between'}}>
+          <Row>
             {icon ? (
               <View marginR-s2>
                 <Ionicons name={icon} size={iconSize} color={Colors.primary} />
@@ -39,9 +41,9 @@ export const Action: React.FC<ActionProps> = ({
                 {title}
               </Text>
             ) : null}
-          </View>
+          </Row>
 
-          <View row centerV>
+          <Row>
             {info ? (
               <Text textColor text80BL>
                 {info}
@@ -53,8 +55,8 @@ export const Action: React.FC<ActionProps> = ({
                 <Ionicons name={rightIcon} size={iconSize} color={Colors.primary} />
               </View>
             ) : null}
-          </View>
-        </View>
+          </Row>
+        </Row>
       </Bounceable>
     </View>
   );
