@@ -1978,6 +1978,11 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
+"@tsconfig/react-native@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@tsconfig/react-native/-/react-native-1.0.4.tgz#716003b811bde26fc768cd1d120d1f193af6d22c"
+  integrity sha512-ARCmT+6kxAW17/wOVxn6PxQCQRGNDSql5nk3TJIL0s/fUt90yFiSCmHu4LXbbTfq/JIsvlYg+ps2yi7lkzK89g==
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   version "7.1.14"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.14.tgz#faaeefc4185ec71c389f4501ee5ec84b170cc402"
