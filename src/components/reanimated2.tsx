@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text} from 'react-native-ui-lib';
 import Animated, {withSpring, useAnimatedStyle, useSharedValue} from 'react-native-reanimated';
+import {Bounceable} from 'rn-bounceable';
 
-import {Bounceable} from './bounceable';
 import {genNativeId} from '../services/navigation/sharedTransition';
 import {SharedTransitionId} from '../services/navigation/types';
 
