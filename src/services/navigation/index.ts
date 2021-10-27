@@ -3,7 +3,7 @@ import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-
 import RNRestart from 'react-native-restart';
 import pipe from 'lodash/flowRight';
 
-import {Screen, screens, screensLayouts} from '../../screens';
+import {Screen, screens} from '../../screens';
 import {withStores} from '../../stores';
 import {withServices} from '../../services';
 
@@ -43,16 +43,16 @@ export class Nav implements IService {
   };
 
   private startOneScreenApp = async (): PVoid => {
-    await Navigation.setRoot(Root(Stack(Component(screensLayouts.Main))));
+    await Navigation.setRoot(Root(Stack(Component(screens.Main))));
   };
 
   private startThreeTabsApp = async (): PVoid => {
     await Navigation.setRoot(
       Root(
         BottomTabs([
-          Stack(Component(screensLayouts.Main)),
-          Stack(Component(screensLayouts.Example)),
-          Stack(Component(screensLayouts.Settings)),
+          Stack(Component(screens.Main)),
+          Stack(Component(screens.Example)),
+          Stack(Component(screens.Settings)),
         ]),
       ),
     );
@@ -60,7 +60,7 @@ export class Nav implements IService {
 
   // Navigation methods
   push = async <T>(cId: string, name: Screen, passProps?: T, options?: Options): PVoid => {
-    const sl = screensLayouts[name];
+    const sl = screens[name];
 
     await this.N.push(
       cId,
@@ -80,7 +80,7 @@ export class Nav implements IService {
   };
 
   show = async <T>(name: Screen, passProps?: T, options?: Options): PVoid => {
-    const sl = screensLayouts[name];
+    const sl = screens[name];
 
     this.N.showModal(
       Stack(
@@ -102,13 +102,13 @@ export class Nav implements IService {
 
   // System methods
   private registerScreens = async () => {
-    screens.forEach(s =>
+    for (const [, value] of Object.entries(screens)) {
       this.N.registerComponent(
-        s.name,
-        pipe(withGestureHandler, withStores, withServices, () => s.component),
-        () => s.component,
-      ),
-    );
+        value.name,
+        pipe(withGestureHandler, withStores, withServices, () => value.component),
+        () => value.component,
+      );
+    }
   };
 
   private registerListeners = () => {

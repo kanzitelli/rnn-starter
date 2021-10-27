@@ -1,6 +1,6 @@
 import {
-  LayoutComponent,
   NavigationFunctionComponent,
+  Options,
   OptionsTopBarButton,
   SharedElementTransition,
 } from 'react-native-navigation';
@@ -11,12 +11,11 @@ import {Button} from './buttons';
 export type ScreenInfo = {
   name: Screen;
   component: NavigationFunctionComponent;
+  options: Options;
 };
 
-export type Screens = Array<ScreenInfo>;
-
-export type ScreensLayouts = {
-  [key in Screen]: LayoutComponent;
+export type ScreenLayouts = {
+  [key in Screen]: ScreenInfo;
 };
 
 export type ButtonsOptions = {

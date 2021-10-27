@@ -1,4 +1,4 @@
-import {Screens, ScreensLayouts} from '../services/navigation/types';
+import {ScreenLayouts} from '../services/navigation/types';
 import {withBottomTab, withRightButtons, withTitle} from '../services/navigation/options';
 
 import {Main} from './main';
@@ -8,19 +8,16 @@ import {services} from '../services';
 
 // Describe your screens here
 export type Screen = 'Main' | 'Settings' | 'Example';
-
-export const screens: Screens = [
-  {name: 'Main', component: Main},
-  {name: 'Settings', component: Settings},
-
-  {name: 'Example', component: Example},
-];
+// const input_screenNames = ['Main', 'Settings', 'Example'];
+// const screenNames = [...input_screenNames] as const;
+// export type Screen = typeof screenNames[number];
 
 const {t} = services;
 
-export const screensLayouts: ScreensLayouts = {
+export const screens: ScreenLayouts = {
   Main: {
     name: 'Main',
+    component: Main,
     options: {
       topBar: {
         ...withTitle(t.do('home.title')),
@@ -31,6 +28,7 @@ export const screensLayouts: ScreensLayouts = {
   },
   Settings: {
     name: 'Settings',
+    component: Settings,
     options: {
       topBar: {
         ...withTitle('Settings'),
@@ -41,6 +39,7 @@ export const screensLayouts: ScreensLayouts = {
 
   Example: {
     name: 'Example',
+    component: Example,
     options: {
       topBar: {
         ...withTitle('Example'),
