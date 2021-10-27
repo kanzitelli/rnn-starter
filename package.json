@@ -23,7 +23,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@kanzitelli/if-component": "^0.2.0",
+    "@kanzitelli/if-component": "^0.2.1",
     "@react-native-async-storage/async-storage": "^1.15.9",
     "@react-native-community/blur": "^3.6.0",
     "@react-native-community/datetimepicker": "^3.5.2",

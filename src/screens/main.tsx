@@ -1,9 +1,10 @@
 import React, {useCallback, useEffect} from 'react';
-import {ScrollView, Alert} from 'react-native';
+import {ScrollView, Alert, ActivityIndicator} from 'react-native';
 import {View, Button, Text} from 'react-native-ui-lib';
 import {NavigationFunctionComponent} from 'react-native-navigation';
 import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 import {observer} from 'mobx-react';
+import {If} from '@kanzitelli/if-component';
 
 import {useServices} from '../services';
 import {useStores} from '../stores';
@@ -79,7 +80,12 @@ export const Main: NavigationFunctionComponent = observer(({componentId}) => {
                 App launches: {ui.appLaunches}
               </Text>
               <Text marginB-s2 text60R textColor>
-                Counter: {counter.loading ? 'Loading...' : counter.value}
+                Counter:{' '}
+                <If
+                  _={counter.loading}
+                  _then={() => <ActivityIndicator />}
+                  _else={<Text>{counter.value}</Text>}
+                />
               </Text>
               <Button margin-s1 label="-" onPress={counter.dec} />
               <Button margin-s1 label="+" onPress={counter.inc} />

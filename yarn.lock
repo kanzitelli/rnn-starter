@@ -1585,10 +1585,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@kanzitelli/if-component@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@kanzitelli/if-component/-/if-component-0.2.0.tgz#da0d1ea92f584beb0684b7cc8593ae85ac7b8a94"
-  integrity sha512-/N8Jidacswcz0emohmAjHDryQGxOOZOeETQbsI67McDPIbfyAfzWaolhQJxM00/KK/HQ5dLy6Q6WbQjZ8w+H2Q==
+"@kanzitelli/if-component@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@kanzitelli/if-component/-/if-component-0.2.1.tgz#9a2017da55579875c8946faf00a81447f7aba645"
+  integrity sha512-uanG1YJgTr2gDQp9/5aWJD+mDS+oXOIDq+S8ByVF2I0gSbtp9X6znN/yNSAhlP31vGg+/1KnFe9+OMPOlAqpNw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
