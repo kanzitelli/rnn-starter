@@ -37,7 +37,7 @@
     "mobx-persist-store": "^1.0.4",
     "mobx-react": "^7.2.1",
     "react": "^17.0.2",
-    "react-native": "^0.65.1",
+    "react-native": "^0.66.1",
     "react-native-device-info": "^8.4.3",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-localize": "^2.1.5",
@@ -71,7 +71,6 @@
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.4.1",
-    "react-native-codegen": "^0.0.9",
     "react-test-renderer": "^17.0.2",
     "release-it": "^14.11.6",
     "typescript": "^4.4.4"
