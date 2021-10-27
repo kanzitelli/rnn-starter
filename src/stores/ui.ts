@@ -34,6 +34,7 @@ export class UI implements IStore {
 
     this.isSystemLanguage = v === 'System';
     this.language = this.languageFromUIToInternal(v);
+
     nav.restart();
   };
   get languageName(): UILanguage {

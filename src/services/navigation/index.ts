@@ -1,11 +1,11 @@
 import {Constants, Navigation, NavigationConstants, Options} from 'react-native-navigation';
 import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
+import RNRestart from 'react-native-restart';
 import pipe from 'lodash/flowRight';
 
 import {Screen, screens, screensLayouts} from '../../screens';
 import {withStores} from '../../stores';
-import {services, withServices} from '../../services';
-import {configureDesignSystem} from '../../utils/designSystem';
+import {withServices} from '../../services';
 
 import {BottomTabs, Component, Root, Stack} from './layout';
 import {navDefaultOptions} from './options';
@@ -39,11 +39,7 @@ export class Nav implements IService {
   };
 
   restart = async (): PVoid => {
-    this.setDefaultOptions(); // settings navigation options
-    configureDesignSystem(); // configuring design system with updated appearance
-    services.t.setup(); // setting up new language for translation service
-
-    await this.start('three_tabs');
+    RNRestart.Restart();
   };
 
   private startOneScreenApp = async (): PVoid => {
