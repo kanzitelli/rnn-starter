@@ -1,5 +1,9 @@
-import {ScreenLayouts} from '../services/navigation/types';
+import {generateRNNScreens} from 'rnn-screens';
+import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
+
 import {withBottomTab, withRightButtons, withTitle} from '../services/navigation/options';
+import {withStores} from '../stores';
+import {withServices} from '../services';
 
 import {Main} from './main';
 import {Settings} from './settings';
@@ -7,44 +11,37 @@ import {Example} from './screen-sample';
 import {services} from '../services';
 
 // Describe your screens here
-export type Screen = 'Main' | 'Settings' | 'Example';
-// const input_screenNames = ['Main', 'Settings', 'Example'];
-// const screenNames = [...input_screenNames] as const;
-// export type Screen = typeof screenNames[number];
-
-const {t} = services;
-
-export const screens: ScreenLayouts = {
-  Main: {
-    name: 'Main',
-    component: Main,
-    options: {
-      topBar: {
-        ...withTitle(t.do('home.title')),
-        ...withRightButtons('inc', 'dec'),
+export const screens = generateRNNScreens<'Main' | 'Settings' | 'Example'>(
+  {
+    Main: {
+      component: Main,
+      options: {
+        topBar: {
+          ...withTitle(services.t.do('home.title')),
+          ...withRightButtons('inc', 'dec'),
+        },
+        ...withBottomTab('Main', 'newspaper'),
       },
-      ...withBottomTab('Main', 'newspaper'),
+    },
+    Settings: {
+      component: Settings,
+      options: {
+        topBar: {
+          ...withTitle('Settings'),
+        },
+        ...withBottomTab('Settings', 'settings'),
+      },
+    },
+
+    Example: {
+      component: Example,
+      options: {
+        topBar: {
+          ...withTitle('Example'),
+        },
+        ...withBottomTab('Example', 'construct'),
+      },
     },
   },
-  Settings: {
-    name: 'Settings',
-    component: Settings,
-    options: {
-      topBar: {
-        ...withTitle('Settings'),
-      },
-      ...withBottomTab('Settings', 'settings'),
-    },
-  },
-
-  Example: {
-    name: 'Example',
-    component: Example,
-    options: {
-      topBar: {
-        ...withTitle('Example'),
-      },
-      ...withBottomTab('Example', 'construct'),
-    },
-  },
-};
+  [withGestureHandler, withStores, withServices],
+);
