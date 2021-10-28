@@ -26,7 +26,7 @@ const themes: Record<AppearanceMode, ThemeColors> = {
 };
 
 // for more information - https://wix.github.io/react-native-ui-lib/foundation/style
-export const configureDesignSystem = (): void => {
+export const configureDesignSystem = async (): PVoid => {
   const {ui} = stores;
 
   if (ui.isSystemAppearance) {

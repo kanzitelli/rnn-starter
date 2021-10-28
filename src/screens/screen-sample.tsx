@@ -4,6 +4,8 @@ import {View, Button, Text} from 'react-native-ui-lib';
 import {NavigationFunctionComponent} from 'react-native-navigation';
 import {observer} from 'mobx-react';
 
+import {screens} from '.';
+
 import {useServices} from '../services';
 // import { useStores } from '../stores';
 // import { useConstants } from '../utils/constants';
@@ -14,7 +16,7 @@ import {Reanimated2} from '../components/reanimated2';
 
 export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer(
   ({componentId, value}) => {
-    const {nav, t} = useServices();
+    const {t} = useServices();
     // const {} = useStores();
     // const {} = useConstants();
 
@@ -27,18 +29,18 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
                 <Button
                   marginV-s1
                   label={t.do('section.navigation.button.push')}
-                  onPress={() => nav.push(componentId, 'Example')}
+                  onPress={() => screens.push(componentId, 'Example')}
                 />
                 <Button
                   marginV-s1
                   label={t.do('section.navigation.button.show')}
-                  onPress={() => nav.show('Example')}
+                  onPress={() => screens.show('Example')}
                 />
                 <Button
                   marginV-s1
                   label={t.do('section.navigation.button.passProps')}
                   onPress={() =>
-                    nav.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
+                    screens.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
                   }
                 />
               </View>
@@ -52,7 +54,7 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
             <Button
               marginV-s1
               label={t.do('section.navigation.button.back')}
-              onPress={() => nav.pop(componentId)}
+              onPress={() => screens.pop(componentId)}
             />
 
             <Text textColor center>

@@ -63,6 +63,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 
 #### Extra helpful libraries
 
+- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - a set of methods to help build initial screens for RNN ([React Native Navigation](https://github.com/wix/react-native-navigation)) without hassle. Includes screens registration and predictable navigation between them.
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of hooks for React Native Navigation.
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
@@ -75,7 +76,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 
 #### Useful services/methods
 
-- `navigation` - a service where all navigation configuration takes place in. It simplifies and abstracts the process of registering screens, layouts, etc.
+- `navigation` - a service where all navigation configuration takes place in (such as default options, listeners, etc.).
 - `translate` - a service that brings easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [react-native-localize](https://github.com/zoontek/react-native-localize). You can see an example of `en` and `ru` localizations in `Example` screen.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
 - `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc. Now you can add as much theme modes as you want.
@@ -87,31 +88,31 @@ If you need to rename the app, do the following (based on [react-native-rename](
 All setup for your screens takes place in one file `src/screens/index.ts`:
 
 ```
-type Screen = 'Main' | 'Settings' | '...';
+import {generateRNNScreens} from 'rnn-screens';
 
-const screens: Screens = [
-  {name: 'Main', component: Main},
-  // ...
-];
-
-const screensLayouts: ScreensLayouts = {
-  Main: {
-    name: 'Main',
-    options: {
-      topBar: {
-        ...withTitle('Main'),
-        ...withRightButtons('inc', 'dec'),
+export const screens = generateRNNScreens<'Main' | 'Settings' | 'Example'>(
+  {
+    Main: {
+      component: Main,
+      options: {
+        topBar: {
+          ...withTitle(services.t.do('home.title')),
+          ...withRightButtons('inc', 'dec'),
+        },
+        ...withBottomTab('Main', 'newspaper'),
       },
-      ...withBottomTab('Main', 'newspaper'),
     },
+    // ...
   },
-  // ...
-}
+  [withGestureHandler, withStores, withServices, withAnotherProvider],
+);
 ```
 
 #### Navigate to other screens with predictability
 
 ```
+import {screens} from '.';
+
 const Screen = ({componentId}) => {
   const {nav} = useServices();
 
@@ -119,7 +120,7 @@ const Screen = ({componentId}) => {
     <View>
       <Button
         label="Open Settings"
-        onPress={() => nav.push(componentId, 'Settings')}
+        onPress={() => screens.push(componentId, 'Settings')}
       />
     </View>
   )
@@ -131,18 +132,18 @@ const Screen = ({componentId}) => {
 One screen app:
 
 ```
-Navigation.setRoot(Root(Stack(Component(screensLayouts.Main))));
+screens.N.setRoot(Root(Stack(Component(screens.get('Main')))));
 ```
 
 Three tabs app:
 
 ```
-Navigation.setRoot(
+screens.N.setRoot(
   Root(
     BottomTabs([
-      Stack(Component(screensLayouts.Main)),
-      Stack(Component(screensLayouts.Example)),
-      Stack(Component(screensLayouts.Settings)),
+      Stack(Component(screens.get('Main'))),
+      Stack(Component(screens.get('Example'))),
+      Stack(Component(screens.get('Settings'))),
     ]),
   ),
 );
@@ -151,7 +152,7 @@ Navigation.setRoot(
 #### Simplified API for Shared Transitions
 
 ```
-nav.push<ExampleScreenProps>(
+screens.push<ExampleScreenProps>(
   componentId,
   'Example',
   { value: randomNum() },
@@ -159,9 +160,9 @@ nav.push<ExampleScreenProps>(
 )
 ```
 
-#### As much theme modes as you want
+#### Correct Dark mode implementation
 
-You can define theme modes in `utils/designSystem.tsx` and toggle them from any part of the app.
+You can define modes in `utils/designSystem.tsx`.
 
 #### Samples for new screens, services, stores and components.
 
@@ -179,7 +180,7 @@ There are still some things I would like to add to the starter:
 - [x] AsyncStorage stores persisting example
 - [x] API example + useEffect and start logic on a screen
 - [x] Example with theme modes change
-- [ ] Move some services/scripts to separate libraries, e.g., `rnn-layouts`
+- [x] Move some services/scripts to separate libraries, e.g., `rnn-screens`. Done - [kanzitelli/rnn-screens](https://github.com/kanzitelli/rnn-screens)
 - [ ] Better documentation/exlanation for project structure, stores, services, etc.
 
 #### Production

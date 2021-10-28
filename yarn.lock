@@ -7980,6 +7980,13 @@ rn-bounceable@^0.2.0:
   resolved "https://registry.yarnpkg.com/rn-bounceable/-/rn-bounceable-0.2.0.tgz#dfba75d6cf53db22f4863360f7de0cc16eb6d304"
   integrity sha512-MtSBWBRIT8pu/wifxOgkmF9c/GOaWfGWhCgmtVaM5G6djKNW+FXQ3K7j4qZd5XSLW4WazHIdMv5D2ZUcC7+RdQ==
 
+rnn-screens@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/rnn-screens/-/rnn-screens-0.1.0.tgz#5a143689e4e10e42dd51841814e239a751c73d43"
+  integrity sha512-cnvVlaEq8I2qRCMPGxu8wmMQB0As13KymwRhU7D+++jj1ZQPDjU/IznoGKPgyGecBG/y2itpYTSlsBKOvF1d0Q==
+  dependencies:
+    react-native-navigation "^7.23.1"
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"

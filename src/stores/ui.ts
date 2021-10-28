@@ -1,6 +1,6 @@
 import {makeAutoObservable} from 'mobx';
 import {hydrateStore, makePersistable} from 'mobx-persist-store';
-import {services} from '../services';
+import {restartApp} from '../utils/help';
 
 export class UI implements IStore {
   appLaunches = 0;
@@ -11,11 +11,10 @@ export class UI implements IStore {
   isSystemAppearance = true;
   appearance: AppearanceMode = 'light';
   setAppearanceMode = (v: UIAppearance): void => {
-    const {nav} = services;
-
     this.isSystemAppearance = v === 'System';
     this.appearance = this.appearanceFromUIToInternal(v);
-    nav.restart();
+
+    restartApp();
   };
   get appearanceName(): UIAppearance {
     return this.isSystemAppearance ? 'System' : this.appearanceFromInternalToUI(this.appearance);
@@ -30,12 +29,10 @@ export class UI implements IStore {
   isSystemLanguage = true;
   language: Language = 'en';
   setLanguage = (v: UILanguage): void => {
-    const {nav} = services;
-
     this.isSystemLanguage = v === 'System';
     this.language = this.languageFromUIToInternal(v);
 
-    nav.restart();
+    restartApp();
   };
   get languageName(): UILanguage {
     return this.isSystemLanguage ? 'System' : this.languageFromInternalToUI(this.language);
