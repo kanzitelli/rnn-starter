@@ -1,7 +1,7 @@
+import {LogBox} from 'react-native';
 import {hydrateStores} from './stores';
 import {initServices, services} from './services';
 import {configureDesignSystem} from './utils/designSystem';
-import {LogBox} from 'react-native';
 
 LogBox.ignoreLogs(['EventEmitter.removeListener', '`new NativeEventEmitter()`']);
 
@@ -12,11 +12,11 @@ export const start = async (): PVoid => {
   await hydrateStores();
 
   // 2. configure design system
-  configureDesignSystem();
+  await configureDesignSystem();
 
   // 3. init services
   await initServices();
 
   // 4. start app
-  nav.start();
+  await nav.start();
 };
