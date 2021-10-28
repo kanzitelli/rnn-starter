@@ -6,6 +6,7 @@ import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 import {observer} from 'mobx-react';
 import {If} from '@kanzitelli/if-component';
 
+import {screens} from '.';
 import {useServices} from '../services';
 import {useStores} from '../stores';
 
@@ -15,12 +16,12 @@ import {randomNum} from '../utils/help';
 import {withSharedTransitions} from '../services/navigation/sharedTransition';
 
 export const Main: NavigationFunctionComponent = observer(({componentId}) => {
-  const {nav, t, api} = useServices();
+  const {t, api} = useServices();
   const {counter, ui} = useStores();
 
   useNavigationButtonPress(counter.inc, componentId, 'inc');
   useNavigationButtonPress(counter.dec, componentId, 'dec');
-  useNavigationButtonPress(() => nav.push(componentId, 'Settings'), componentId, 'settings');
+  useNavigationButtonPress(() => screens.push(componentId, 'Settings'), componentId, 'settings');
 
   const start = useCallback(async () => {
     try {
@@ -42,25 +43,25 @@ export const Main: NavigationFunctionComponent = observer(({componentId}) => {
             <Button
               marginV-s1
               label={t.do('section.navigation.button.push')}
-              onPress={() => nav.push(componentId, 'Example')}
+              onPress={() => screens.push(componentId, 'Example')}
             />
             <Button
               marginV-s1
               label={t.do('section.navigation.button.show')}
-              onPress={() => nav.show('Example')}
+              onPress={() => screens.show('Example')}
             />
             <Button
               marginV-s1
               label={t.do('section.navigation.button.passProps')}
               onPress={() =>
-                nav.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
+                screens.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
               }
             />
             <Button
               marginV-s1
               label={t.do('section.navigation.button.sharedTransition')}
               onPress={() =>
-                nav.push<ExampleScreenProps>(
+                screens.push<ExampleScreenProps>(
                   componentId,
                   'Example',
                   {value: randomNum()},
