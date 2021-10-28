@@ -48,7 +48,8 @@
     "react-native-restart": "^0.0.22",
     "react-native-ui-lib": "^6.2.0",
     "react-native-vector-icons": "^9.0.0",
-    "rn-bounceable": "^0.2.0"
+    "rn-bounceable": "^0.2.0",
+    "rnn-screens": "^0.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
