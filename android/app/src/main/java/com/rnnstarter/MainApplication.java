@@ -21,6 +21,9 @@ import com.facebook.react.bridge.JavaScriptContextHolder;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.reactnativemmkv.MmkvModule;
 
+import expo.modules.ApplicationLifecycleDispatcher;
+import android.content.res.Configuration;
+
 public class MainApplication extends NavigationApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -60,7 +63,14 @@ public class MainApplication extends NavigationApplication {
     super.onCreate();
     
     // initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+    ApplicationLifecycleDispatcher.onApplicationCreate(this);
   }
+
+  @Override
+	public void onConfigurationChanged(Configuration newConfig) {
+	  super.onConfigurationChanged(newConfig);
+	  ApplicationLifecycleDispatcher.onConfigurationChanged(this, newConfig);
+	}
 
   /**
    * Loads Flipper in React Native templates. Call this in the onCreate method with something like
