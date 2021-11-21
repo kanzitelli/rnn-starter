@@ -90,7 +90,7 @@ All setup for your screens takes place in one file `src/screens/index.ts`:
 ```
 import {generateRNNScreens} from 'rnn-screens';
 
-export const screens = generateRNNScreens<'Main' | 'Settings' | 'Example'>(
+export const screens = generateRNNScreens(
   {
     Main: {
       component: Main,
