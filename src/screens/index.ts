@@ -11,7 +11,7 @@ import {Example} from './screen-sample';
 import {services} from '../services';
 
 // Describe your screens here
-export const screens = generateRNNScreens<'Main' | 'Settings' | 'Example'>(
+export const screens = generateRNNScreens(
   {
     Main: {
       component: Main,
