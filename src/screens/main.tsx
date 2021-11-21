@@ -5,6 +5,7 @@ import {NavigationFunctionComponent} from 'react-native-navigation';
 import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 import {observer} from 'mobx-react';
 import {If} from '@kanzitelli/if-component';
+import Constants from 'expo-constants';
 
 import {screens} from '.';
 import {useServices} from '../services';
@@ -23,6 +24,10 @@ export const Main: NavigationFunctionComponent = observer(({componentId}) => {
   useNavigationButtonPress(counter.dec, componentId, 'dec');
   useNavigationButtonPress(() => screens.push(componentId, 'Settings'), componentId, 'settings');
 
+  const checkExpoModules = () => {
+    console.log(Constants.sessionId, Constants.nativeAppVersion);
+  };
+
   const start = useCallback(async () => {
     try {
       await api.counter.get();
@@ -33,6 +38,8 @@ export const Main: NavigationFunctionComponent = observer(({componentId}) => {
 
   useEffect(() => {
     start();
+
+    checkExpoModules();
   }, [componentId, start]);
 
   return (
