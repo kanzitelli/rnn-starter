@@ -30,6 +30,7 @@
     "@react-native-community/netinfo": "^6.0.4",
     "@react-native-picker/picker": "^2.1.0",
     "date-fns": "^2.25.0",
+    "expo": "^43.0.3",
     "formik": "^2.2.9",
     "i18n-js": "^3.8.0",
     "lodash": "^4.17.21",
