@@ -60,6 +60,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
 - ~~AsyncStorage~~ [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_!
+- [Expo SDK 43](https://github.com/expo/expo). Integration with Expo Modules could be found under [rnn-starter@expo-modules](https://github.com/kanzitelli/rnn-starter/tree/expo-modules) branch. 
 
 #### Extra helpful libraries
 
