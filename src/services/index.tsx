@@ -1,16 +1,16 @@
 import React from 'react';
 import {NavigationComponentProps, NavigationFunctionComponent} from 'react-native-navigation';
 
-import {OnStart} from './onStart';
-import {Nav} from './navigation';
-import {Translate} from './translate';
-import {Api} from './api';
+import {OnStartService} from './onStart';
+import {NavService} from './navigation';
+import {TranslateService} from './translate';
+import {ApiService} from './api';
 
 export const services = {
-  t: new Translate(), // should be first
-  nav: new Nav(),
-  onStart: new OnStart(),
-  api: new Api(),
+  t: new TranslateService(), // should be first
+  nav: new NavService(),
+  api: new ApiService(),
+  onStart: new OnStartService(),
 };
 type ContextServices = typeof services;
 

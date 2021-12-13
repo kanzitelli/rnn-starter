@@ -8,7 +8,7 @@ export class SampleStore implements IStore {
     makeAutoObservable(this);
 
     makePersistable(this, {
-      name: 'SampleStore',
+      name: SampleStore.name,
       properties: ['someProperty'],
     });
   }
