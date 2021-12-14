@@ -99,8 +99,7 @@ public class MainApplication extends NavigationApplication {
 class RNNStarterJSIPackage extends ReanimatedJSIModulePackage {
   @Override
   public List<JSIModuleSpec> getJSIModules(ReactApplicationContext reactApplicationContext, JavaScriptContextHolder jsContext) {
-    super.getJSIModules(reactApplicationContext, jsContext);
     MmkvModule.install(jsContext, reactApplicationContext.getFilesDir().getAbsolutePath() + "/mmkv");
-    return Collections.emptyList();
+    return super.getJSIModules(reactApplicationContext, jsContext);
   }
 }
