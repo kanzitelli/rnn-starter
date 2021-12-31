@@ -304,13 +304,13 @@ PODS:
     - React-jsi (= 0.66.4)
     - React-logger (= 0.66.4)
     - React-perflogger (= 0.66.4)
-  - ReactNativeNavigation (7.24.1):
+  - ReactNativeNavigation (7.24.2):
     - HMSegmentedControl
     - React-Core
     - React-RCTImage
     - React-RCTText
-    - ReactNativeNavigation/Core (= 7.24.1)
-  - ReactNativeNavigation/Core (7.24.1):
+    - ReactNativeNavigation/Core (= 7.24.2)
+  - ReactNativeNavigation/Core (7.24.2):
     - HMSegmentedControl
     - React-Core
     - React-RCTImage
@@ -325,7 +325,7 @@ PODS:
     - React-Core
   - RNLocalize (2.1.6):
     - React-Core
-  - RNReanimated (2.3.0):
+  - RNReanimated (2.3.1):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -540,13 +540,13 @@ SPEC CHECKSUMS:
   React-RCTVibration: e3ffca672dd3772536cb844274094b0e2c31b187
   React-runtimeexecutor: dec32ee6f2e2a26e13e58152271535fadff5455a
   ReactCommon: 57b69f6383eafcbd7da625bfa6003810332313c4
-  ReactNativeNavigation: 23ac4081ca7439b35412242cb3a0a33adf615887
+  ReactNativeNavigation: f8c246051be2019555ef5162bfb85918b2779372
   ReactNativeUiLib: cde7263a7d308b60161cd286f95c9433e79f2f7d
   RNCAsyncStorage: ea6b5c280997b2b32a587793163b1f10e580c4f7
   RNDeviceInfo: 0400a6d0c94186d1120c3cbd97b23abc022187a9
   RNGestureHandler: e5c7cab5f214503dcefd6b2b0cefb050e1f51c4a
   RNLocalize: f10d91c76a5692d4cf6f218c70f6e4d7dcb42d1c
-  RNReanimated: 569c269480a76e39196aa17a5df08ef1561db5ff
+  RNReanimated: da3860204e5660c0dd66739936732197d359d753
   RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
 
