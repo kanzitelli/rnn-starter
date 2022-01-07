@@ -1,6 +1,5 @@
 package com.rnnstarter;
 
-import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.reactnativenavigation.NavigationApplication;
@@ -8,10 +7,8 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.Collections;
 
 import com.facebook.react.bridge.JSIModulePackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
@@ -62,7 +59,7 @@ public class MainApplication extends NavigationApplication {
   public void onCreate() {
     super.onCreate();
     
-    // initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+    initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
     ApplicationLifecycleDispatcher.onApplicationCreate(this);
   }
 
@@ -109,8 +106,7 @@ public class MainApplication extends NavigationApplication {
 class RNNStarterJSIPackage extends ReanimatedJSIModulePackage {
   @Override
   public List<JSIModuleSpec> getJSIModules(ReactApplicationContext reactApplicationContext, JavaScriptContextHolder jsContext) {
-    super.getJSIModules(reactApplicationContext, jsContext);
     MmkvModule.install(jsContext, reactApplicationContext.getFilesDir().getAbsolutePath() + "/mmkv");
-    return Collections.emptyList();
+    return super.getJSIModules(reactApplicationContext, jsContext);
   }
 }

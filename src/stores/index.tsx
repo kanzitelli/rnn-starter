@@ -2,12 +2,12 @@ import React from 'react';
 import {NavigationComponentProps, NavigationFunctionComponent} from 'react-native-navigation';
 
 import './_hydration';
-import {UI} from './ui';
-import {Counter} from './counter';
+import {UIStore} from './ui';
+import {CounterStore} from './counter';
 
 export const stores = {
-  ui: new UI(),
-  counter: new Counter(),
+  ui: new UIStore(),
+  counter: new CounterStore(),
 };
 type ContextStores = typeof stores;
 

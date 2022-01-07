@@ -2,7 +2,7 @@ import {makeAutoObservable} from 'mobx';
 import {hydrateStore, makePersistable} from 'mobx-persist-store';
 import {restartApp} from '../utils/help';
 
-export class UI implements IStore {
+export class UIStore implements IStore {
   appLaunches = 0;
   incAppLaunces = (v = 1): void => {
     this.appLaunches += v;
@@ -48,7 +48,7 @@ export class UI implements IStore {
     makeAutoObservable(this);
 
     makePersistable(this, {
-      name: 'UI',
+      name: UIStore.name,
       properties: [
         'appLaunches',
         'isSystemAppearance',

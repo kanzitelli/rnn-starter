@@ -2,7 +2,7 @@ import {stores} from '../stores';
 
 const {ui} = stores;
 
-export class OnStart implements IService {
+export class OnStartService implements IService {
   private inited = false;
 
   init = async (): PVoid => {

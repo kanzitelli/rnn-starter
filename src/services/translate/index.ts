@@ -4,7 +4,7 @@ import i18n from 'i18n-js';
 import {ru, en} from './translations';
 import {stores} from '../../stores';
 
-export class Translate implements IService {
+export class TranslateService implements IService {
   private inited = false;
 
   init = async (): PVoid => {
