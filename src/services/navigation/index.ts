@@ -3,7 +3,7 @@ import {BottomTabs, Component, Root, Stack} from 'rnn-screens';
 import {navDefaultOptions} from './options';
 import {screens} from '../../screens';
 
-export class Nav implements IService {
+export class NavService implements IService {
   private inited = false;
 
   init = async (): PVoid => {

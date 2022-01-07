@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
-import {View, Button, Text} from 'react-native-ui-lib';
+import {View, Text} from 'react-native-ui-lib';
 import {NavigationFunctionComponent} from 'react-native-navigation';
 import {observer} from 'mobx-react';
 
@@ -13,6 +13,7 @@ import {useServices} from '../services';
 import {Section} from '../components/section';
 import {randomNum} from '../utils/help';
 import {Reanimated2} from '../components/reanimated2';
+import { BButton } from '../components/button';
 
 export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer(
   ({componentId, value}) => {
@@ -26,17 +27,17 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
           <View padding-s4>
             <Section title={t.do('section.navigation.title')}>
               <View>
-                <Button
+                <BButton
                   marginV-s1
                   label={t.do('section.navigation.button.push')}
                   onPress={() => screens.push(componentId, 'Example')}
                 />
-                <Button
+                <BButton
                   marginV-s1
                   label={t.do('section.navigation.button.show')}
                   onPress={() => screens.show('Example')}
                 />
-                <Button
+                <BButton
                   marginV-s1
                   label={t.do('section.navigation.button.passProps')}
                   onPress={() =>
@@ -51,7 +52,7 @@ export const Example: NavigationFunctionComponent<ExampleScreenProps> = observer
             </Section>
 
             <Reanimated2 stID="reanimated2" />
-            <Button
+            <BButton
               marginV-s1
               label={t.do('section.navigation.button.back')}
               onPress={() => screens.pop(componentId)}

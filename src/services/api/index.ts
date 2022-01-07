@@ -1,6 +1,6 @@
 import {CounterApi} from './counter';
 
-export class Api implements IService {
+export class ApiService implements IService {
   private inited = false;
 
   counter: CounterApi;

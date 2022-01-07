@@ -10,6 +10,7 @@ type Stores = Record<string, IStore>;
 
 type PVoid = Promise<void>;
 type AnyObj = Record<string, unknown>;
+type PureFunc = () => void;
 
 type DesignSystemColors = Record<string, string>;
 type AppearanceMode = 'light' | 'dark';
