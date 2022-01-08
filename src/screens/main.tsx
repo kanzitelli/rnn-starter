@@ -6,6 +6,7 @@ import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 import {observer} from 'mobx-react';
 import {If} from '@kanzitelli/if-component';
 import Constants from 'expo-constants';
+import * as Application from 'expo-application';
 
 import {screens} from '.';
 import {useServices} from '../services';
@@ -25,10 +26,6 @@ export const Main: NavigationFunctionComponent = observer(({componentId}) => {
   useNavigationButtonPress(counter.dec, componentId, 'dec');
   useNavigationButtonPress(() => screens.push(componentId, 'Settings'), componentId, 'settings');
 
-  const checkExpoModules = () => {
-    console.log(Constants.sessionId, Constants.nativeAppVersion);
-  };
-
   const start = useCallback(async () => {
     try {
       await api.counter.get();
@@ -39,8 +36,6 @@ export const Main: NavigationFunctionComponent = observer(({componentId}) => {
 
   useEffect(() => {
     start();
-
-    checkExpoModules();
   }, [componentId, start]);
 
   return (
@@ -77,6 +72,15 @@ export const Main: NavigationFunctionComponent = observer(({componentId}) => {
                 )
               }
             />
+          </Section>
+
+          <Section title="Expo">
+            <Text marginB-s2 text60R textColor>
+              Session Id: {Constants.sessionId}
+            </Text>
+            <Text marginB-s2 text60R textColor>
+              App name: {Application.applicationName}
+            </Text>
           </Section>
 
           <Section title="Reanimated 2">
