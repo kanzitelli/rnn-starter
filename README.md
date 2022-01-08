@@ -58,11 +58,11 @@ If you need to rename the app, do the following (based on [react-native-rename](
 ## What's inside
 
 - [React Native Navigation](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android.
+- [Expo Modules](https://github.com/expo/expo) - libraries and modules from [Expo](https://expo.dev) ecosystem.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
 - ~~AsyncStorage~~ [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_!
-- [Expo SDK 43](https://github.com/expo/expo). Integration with Expo Modules could be found under [rnn-starter@expo-modules](https://github.com/kanzitelli/rnn-starter/tree/expo-modules) branch. 
 
 #### Extra helpful libraries
 
@@ -70,7 +70,6 @@ If you need to rename the app, do the following (based on [react-native-rename](
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of hooks for React Native Navigation.
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
-- [React Native Device Info](https://github.com/react-native-community/react-native-device-info) - device information for React Native iOS and Android.
 - [Hermes Engine](https://reactnative.dev/docs/hermes) - a JavaScript engine optimized for running React Native apps.
 - [ESLint](https://github.com/eslint/eslint) + [Prettier](https://github.com/prettier/prettier) - keep your code neat and structured.
 - [Patch Package](https://github.com/ds300/patch-package) - useful for fixing node modules instantly.
@@ -80,7 +79,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 #### Useful services/methods
 
 - `navigation` - a service where all navigation configuration takes place in (such as default options, listeners, etc.).
-- `translate` - a service that brings easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [react-native-localize](https://github.com/zoontek/react-native-localize). You can see an example of `en` and `ru` localizations in `Example` screen.
+- `translate` - a service that brings an easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [expo-localization](https://github.com/expo/expo/tree/master/packages/expo-localization). You can see an example of `en` and `ru` localizations in `Example` screen.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
 - `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc. Now you can add as much theme modes as you want.
 
