@@ -27,6 +27,7 @@
     "@react-native-async-storage/async-storage": "^1.15.14",
     "@react-native-community/blur": "^3.6.0",
     "date-fns": "^2.28.0",
+    "expo": "^44.0.4",
     "formik": "^2.2.9",
     "i18n-js": "^3.8.0",
     "lodash": "^4.17.21",

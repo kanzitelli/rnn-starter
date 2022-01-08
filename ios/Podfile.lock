@@ -2,6 +2,23 @@ PODS:
   - boost (1.76.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
+  - EXApplication (4.0.1):
+    - ExpoModulesCore
+  - EXConstants (13.0.0):
+    - ExpoModulesCore
+  - EXErrorRecovery (3.0.4):
+    - ExpoModulesCore
+  - EXFileSystem (13.1.0):
+    - ExpoModulesCore
+  - EXFont (10.0.4):
+    - ExpoModulesCore
+  - EXKeepAwake (10.0.1):
+    - ExpoModulesCore
+  - Expo (44.0.4):
+    - ExpoModulesCore
+  - ExpoModulesCore (0.6.4):
+    - React-Core
+    - ReactCommon/turbomodule/core
   - FBLazyVector (0.66.4)
   - FBReactNativeSpec (0.66.4):
     - RCT-Folly (= 2021.06.28.00-v2)
@@ -626,6 +643,14 @@ SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
+  EXApplication: bdc8dc27713235565da1029a34385229f31b8e08
+  EXConstants: 5d18484e38e8eacef7695a82214b6ac90133dedf
+  EXErrorRecovery: deea88a01d38f8b1c1181b4e1d179b0ba0e4bb5b
+  EXFileSystem: 7d1309ba6b38b82ef7fc9e80174de3f9184ac8b4
+  EXFont: 1fb13af43dc517c01c0ff21a6e32f9f9bf2ea602
+  EXKeepAwake: b571c2ad8323b2fced6e907766e2549f75119471
+  Expo: d9b8b5e49c200471fc473a652a84fe30dee73027
+  ExpoModulesCore: 64abda7af7cf659d2fa092934e29c6f4ea7e849f
   FBLazyVector: e5569e42a1c79ca00521846c223173a57aca1fe1
   FBReactNativeSpec: fe08c1cd7e2e205718d77ad14b34957cce949b58
   Flipper: 30e8eeeed6abdc98edaf32af0cda2f198be4b733
@@ -684,6 +709,6 @@ SPEC CHECKSUMS:
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: f20a78021082eac5d883f18af802e36176be5961
+PODFILE CHECKSUM: ac14803545a622885d3e57e2384f73052e175cd2
 
 COCOAPODS: 1.10.1
