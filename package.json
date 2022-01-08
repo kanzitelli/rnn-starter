@@ -1,7 +1,7 @@
 {
   "name": "rnn-starter",
   "version": "11.3.0",
-  "description": "Production-ready starter for your next React Native App! Powered by cli-rn, React Native Navigation, RN UI lib, Mobx, Reanimated 2, Notifications, Permissions, Dark Mode, Localization, and much more.",
+  "description": "Production-ready starter for your next React Native App! Powered by cli-rn, React Native Navigation, Expo Modules, RN UI lib, Mobx, Reanimated 2, Notifications, Permissions, Dark Mode, Localization, and much more.",
   "author": "Batyr <dev@batyr.io> (https://github.com/kanzitelli)",
   "homepage": "https://github.com/kanzitelli/rnn-starter",
   "private": false,
@@ -27,6 +27,8 @@
     "@react-native-async-storage/async-storage": "^1.15.14",
     "@react-native-community/blur": "^3.6.0",
     "date-fns": "^2.28.0",
+    "expo": "^44.0.4",
+    "expo-localization": "^12.0.0",
     "formik": "^2.2.9",
     "i18n-js": "^3.8.0",
     "lodash": "^4.17.21",
@@ -35,9 +37,7 @@
     "mobx-react": "^7.2.1",
     "react": "^17.0.2",
     "react-native": "^0.66.4",
-    "react-native-device-info": "^8.4.8",
     "react-native-gesture-handler": "^2.1.0",
-    "react-native-localize": "^2.1.7",
     "react-native-mmkv": "^1.6.2",
     "react-native-navigation": "^7.25.0",
     "react-native-navigation-hooks": "^6.3.0",
@@ -73,6 +73,15 @@
     "react-test-renderer": "^17.0.2",
     "release-it": "^14.11.8",
     "typescript": "^4.5.4"
+  },
+  "expo": {
+    "autolinking": {
+      "android": {
+        "exclude": [
+          "expo-file-system"
+        ]
+      }
+    }
   },
   "keywords": [
     "react",

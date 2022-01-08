@@ -14,7 +14,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CDC96C76E5150CEB73A0F63A /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0EC3D5EB67A1B28BFACB23 /* ExpoModulesProvider.swift */; };
 		EA7E0E496966851CF5FB769E /* libPods-RNNStarter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4B0B966626B5ACB0ACE4C4 /* libPods-RNNStarter.a */; };
+		ED89E9B2861A8C1F2A2022F8 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B7F3A9D649BC20A41B4CD /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RNNStarter/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RNNStarter/main.m; sourceTree = "<group>"; };
 		34CF669A3AFD69DA33AE8A00 /* libPods-RNNStarter-RNNStarterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNNStarter-RNNStarterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C0EC3D5EB67A1B28BFACB23 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RNNStarter/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		48B18AB159AC37BF63A184D9 /* Pods-RNNStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNStarter.release.xcconfig"; path = "Target Support Files/Pods-RNNStarter/Pods-RNNStarter.release.xcconfig"; sourceTree = "<group>"; };
+		5E2B7F3A9D649BC20A41B4CD /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RNNStarter-RNNStarterTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		7E4B0B966626B5ACB0ACE4C4 /* libPods-RNNStarter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNNStarter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RNNStarter/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2058CE9670B7BB24DB905DE /* Pods-RNNStarter-RNNStarterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNStarter-RNNStarterTests.release.xcconfig"; path = "Target Support Files/Pods-RNNStarter-RNNStarterTests/Pods-RNNStarter-RNNStarterTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 				00E356F11AD99517003FC87E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0BC1E501C4B2C5C9544C6178 /* RNNStarter */ = {
+			isa = PBXGroup;
+			children = (
+				3C0EC3D5EB67A1B28BFACB23 /* ExpoModulesProvider.swift */,
+			);
+			name = RNNStarter;
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* RNNStarter */ = {
@@ -138,6 +150,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				4EBE2FF0F75B6B780EDFE8C1 /* Pods */,
+				DC671CBA6EB0F1FC3EA8202D /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -151,6 +164,23 @@
 				00E356EE1AD99517003FC87E /* RNNStarterTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D4BB7086E40B06325BB0D5D8 /* RNNStarterTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E2B7F3A9D649BC20A41B4CD /* ExpoModulesProvider.swift */,
+			);
+			name = RNNStarterTests;
+			sourceTree = "<group>";
+		};
+		DC671CBA6EB0F1FC3EA8202D /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				0BC1E501C4B2C5C9544C6178 /* RNNStarter */,
+				D4BB7086E40B06325BB0D5D8 /* RNNStarterTests */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* RNNStarterTests.m in Sources */,
+				ED89E9B2861A8C1F2A2022F8 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +449,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				0C775D062788FE4E001220ED /* file.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				CDC96C76E5150CEB73A0F63A /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,7 +620,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -646,7 +678,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

@@ -33,6 +33,7 @@ static void InitializeFlipper(UIApplication *application) {
   
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   [ReactNativeNavigation bootstrapWithBridge:bridge];
+  [super application:application didFinishLaunchingWithOptions:launchOptions];
 
   return YES;
 }

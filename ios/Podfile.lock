@@ -2,6 +2,25 @@ PODS:
   - boost (1.76.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
+  - EXApplication (4.0.1):
+    - ExpoModulesCore
+  - EXConstants (13.0.0):
+    - ExpoModulesCore
+  - EXErrorRecovery (3.0.4):
+    - ExpoModulesCore
+  - EXFileSystem (13.1.0):
+    - ExpoModulesCore
+  - EXFont (10.0.4):
+    - ExpoModulesCore
+  - EXKeepAwake (10.0.1):
+    - ExpoModulesCore
+  - Expo (44.0.4):
+    - ExpoModulesCore
+  - ExpoLocalization (12.0.0):
+    - ExpoModulesCore
+  - ExpoModulesCore (0.6.4):
+    - React-Core
+    - ReactCommon/turbomodule/core
   - FBLazyVector (0.66.4)
   - FBReactNativeSpec (0.66.4):
     - RCT-Folly (= 2021.06.28.00-v2)
@@ -381,11 +400,7 @@ PODS:
     - React
   - RNCAsyncStorage (1.15.14):
     - React-Core
-  - RNDeviceInfo (8.4.8):
-    - React-Core
   - RNGestureHandler (2.1.0):
-    - React-Core
-  - RNLocalize (2.1.7):
     - React-Core
   - RNReanimated (2.2.4):
     - DoubleConversion
@@ -425,6 +440,15 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - EXApplication (from `../node_modules/expo-application/ios`)
+  - EXConstants (from `../node_modules/expo-constants/ios`)
+  - EXErrorRecovery (from `../node_modules/expo-error-recovery/ios`)
+  - EXFileSystem (from `../node_modules/expo-file-system/ios`)
+  - EXFont (from `../node_modules/expo-font/ios`)
+  - EXKeepAwake (from `../node_modules/expo-keep-awake/ios`)
+  - Expo (from `../node_modules/expo/ios`)
+  - ExpoLocalization (from `../node_modules/expo-localization/ios`)
+  - ExpoModulesCore (from `../node_modules/expo-modules-core/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - Flipper (= 0.99.0)
@@ -484,9 +508,7 @@ DEPENDENCIES:
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - ReactNativeUiLib (from `../node_modules/react-native-ui-lib/lib`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
-  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -517,6 +539,24 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  EXApplication:
+    :path: "../node_modules/expo-application/ios"
+  EXConstants:
+    :path: "../node_modules/expo-constants/ios"
+  EXErrorRecovery:
+    :path: "../node_modules/expo-error-recovery/ios"
+  EXFileSystem:
+    :path: "../node_modules/expo-file-system/ios"
+  EXFont:
+    :path: "../node_modules/expo-font/ios"
+  EXKeepAwake:
+    :path: "../node_modules/expo-keep-awake/ios"
+  Expo:
+    :path: "../node_modules/expo/ios"
+  ExpoLocalization:
+    :path: "../node_modules/expo-localization/ios"
+  ExpoModulesCore:
+    :path: "../node_modules/expo-modules-core/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
@@ -585,12 +625,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-ui-lib/lib"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
-  RNDeviceInfo:
-    :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
-  RNLocalize:
-    :path: "../node_modules/react-native-localize"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNVectorIcons:
@@ -602,6 +638,15 @@ SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
+  EXApplication: bdc8dc27713235565da1029a34385229f31b8e08
+  EXConstants: 5d18484e38e8eacef7695a82214b6ac90133dedf
+  EXErrorRecovery: deea88a01d38f8b1c1181b4e1d179b0ba0e4bb5b
+  EXFileSystem: 7d1309ba6b38b82ef7fc9e80174de3f9184ac8b4
+  EXFont: 1fb13af43dc517c01c0ff21a6e32f9f9bf2ea602
+  EXKeepAwake: b571c2ad8323b2fced6e907766e2549f75119471
+  Expo: d9b8b5e49c200471fc473a652a84fe30dee73027
+  ExpoLocalization: 83582a967db52987a8479490b056d5eb9fd70552
+  ExpoModulesCore: 64abda7af7cf659d2fa092934e29c6f4ea7e849f
   FBLazyVector: e5569e42a1c79ca00521846c223173a57aca1fe1
   FBReactNativeSpec: fe08c1cd7e2e205718d77ad14b34957cce949b58
   Flipper: 30e8eeeed6abdc98edaf32af0cda2f198be4b733
@@ -652,14 +697,12 @@ SPEC CHECKSUMS:
   ReactNativeNavigation: 0a768a3eb149e808ca28e12ffbca9b3efecb4ddf
   ReactNativeUiLib: cde7263a7d308b60161cd286f95c9433e79f2f7d
   RNCAsyncStorage: ea6b5c280997b2b32a587793163b1f10e580c4f7
-  RNDeviceInfo: 0400a6d0c94186d1120c3cbd97b23abc022187a9
   RNGestureHandler: e5c7cab5f214503dcefd6b2b0cefb050e1f51c4a
-  RNLocalize: f567ea0e35116a641cdffe6683b0d212d568f32a
   RNReanimated: 65583befd5706cc9c86ae9a081786181ced37b93
   RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: f20a78021082eac5d883f18af802e36176be5961
+PODFILE CHECKSUM: ac14803545a622885d3e57e2384f73052e175cd2
 
 COCOAPODS: 1.10.1
