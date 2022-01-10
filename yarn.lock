@@ -9595,10 +9595,10 @@ rn-bounceable@^1.1.0:
   resolved "https://registry.yarnpkg.com/rn-bounceable/-/rn-bounceable-1.1.0.tgz#85717f999168cda3cb264ea0479e9b97ee842ff1"
   integrity sha512-JZmMjL9bc3y0HAP8yLQ3EooGVI/NrN620BbfSbrB8wVwJMWBXYDP9BxPFkIUJd0PE9UVdGhk7zg69mAnMGMaNw==
 
-rnn-screens@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/rnn-screens/-/rnn-screens-0.1.0.tgz#5a143689e4e10e42dd51841814e239a751c73d43"
-  integrity sha512-cnvVlaEq8I2qRCMPGxu8wmMQB0As13KymwRhU7D+++jj1ZQPDjU/IznoGKPgyGecBG/y2itpYTSlsBKOvF1d0Q==
+rnn-screens@^0.2.0-rc.14:
+  version "0.2.0-rc.14"
+  resolved "https://registry.yarnpkg.com/rnn-screens/-/rnn-screens-0.2.0-rc.14.tgz#17c28e2e8caa44ac974abde9f07e320cc17d8df6"
+  integrity sha512-uyjCFJzppGTKC7wnoK42+t2R8gPStiQCNF521X7xgtG9cP+RQCfyY6/1+w2rSo0MDgsaX+7v1+SCbo6ETV5MyQ==
   dependencies:
     react-native-navigation "^7.23.1"
 
