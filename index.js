@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import {Navigation} from 'react-native-navigation';
-import {start} from './src/app';
+import {registerRootComponent} from 'rnn-screens';
 
-Navigation.events().registerAppLaunchedListener(start);
+import {TabsApp, beforeStart} from './App';
+
+registerRootComponent(TabsApp, {beforeStart});
