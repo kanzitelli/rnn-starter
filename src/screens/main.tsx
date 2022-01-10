@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react';
 import {ScrollView, Alert, ActivityIndicator} from 'react-native';
 import {View, Text} from 'react-native-ui-lib';
-import {NavigationFunctionComponent} from 'react-native-navigation';
+import {ScreenComponent} from 'rnn-screens';
 import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 import {observer} from 'mobx-react';
 import {If} from '@kanzitelli/if-component';
@@ -18,7 +18,7 @@ import {randomNum} from '../utils/help';
 import {withSharedTransitions} from '../services/navigation/sharedTransition';
 import {BButton} from '../components/button';
 
-export const Main: NavigationFunctionComponent = observer(({componentId}) => {
+export const Main: ScreenComponent = observer(({componentId}) => {
   const {t, api} = useServices();
   const {counter, ui} = useStores();
 

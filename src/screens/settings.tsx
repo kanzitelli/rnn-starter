@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {Alert, Linking, ScrollView} from 'react-native';
 import {View, ActionSheet, Text} from 'react-native-ui-lib';
-import {NavigationFunctionComponent} from 'react-native-navigation';
+import {ScreenComponent} from 'rnn-screens';
 import {observer, useLocalObservable} from 'mobx-react';
 import * as Application from 'expo-application';
 
@@ -20,7 +20,7 @@ type PickersState = {
   hide: <T extends PickersStateKey>(what: T) => void;
 };
 
-export const Settings: NavigationFunctionComponent = observer(() => {
+export const Settings: ScreenComponent = observer(() => {
   const {ui} = useStores();
   const {links} = useConstants();
 
