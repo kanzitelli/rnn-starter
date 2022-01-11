@@ -58,7 +58,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 ## What's inside
 
 - [React Native Navigation](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android.
-- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - Simplifed and predictable Navigation for React Native. Built on top of [React Native Navigation](https://github.com/wix/react-native-navigation).
+- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - simplifed and predictable Navigation for React Native. Built on top of [React Native Navigation](https://github.com/wix/react-native-navigation).
 - [Expo Modules](https://github.com/expo/expo) - libraries and modules from [Expo](https://expo.dev) ecosystem.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
