@@ -91,7 +91,7 @@ https://user-images.githubusercontent.com/4402166/148626964-fc07acf6-1c38-44fc-a
 
 All setup for your screens takes place in one file `src/screens/index.ts`:
 
-```
+```tsx
 import {generateRNNScreens} from 'rnn-screens';
 
 import {Main} from './main';
@@ -122,7 +122,7 @@ export const screens = generateRNNScreens(
 
 #### Navigate with predictability
 
-```
+```tsx
 import {screens} from '.';
 
 const Screen = ({componentId}) => {
@@ -157,7 +157,7 @@ const TabsApp = () =>
 
 #### Simplified API for Shared Transitions
 
-```
+```tsx
 screens.push<ExampleScreenProps>(
   componentId,
   'Example',
