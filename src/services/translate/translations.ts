@@ -2,6 +2,9 @@ export const en = {
   home: {
     title: 'Home',
   },
+  example: {
+    title: 'Example',
+  },
   section: {
     navigation: {
       title: 'Navigation',
@@ -19,6 +22,9 @@ export const en = {
 export const ru = {
   home: {
     title: 'Хоум',
+  },
+  example: {
+    title: 'Пример',
   },
   section: {
     navigation: {

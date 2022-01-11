@@ -58,6 +58,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 ## What's inside
 
 - [React Native Navigation](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android.
+- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - simplifed and predictable Navigation for React Native. Built on top of [React Native Navigation](https://github.com/wix/react-native-navigation).
 - [Expo Modules](https://github.com/expo/expo) - libraries and modules from [Expo](https://expo.dev) ecosystem.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
@@ -66,7 +67,6 @@ If you need to rename the app, do the following (based on [react-native-rename](
 
 #### Extra helpful libraries
 
-- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - a set of methods to help build initial screens for RNN ([React Native Navigation](https://github.com/wix/react-native-navigation)) without hassle. Includes screens registration and predictable navigation between them.
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of hooks for React Native Navigation.
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
@@ -78,13 +78,12 @@ If you need to rename the app, do the following (based on [react-native-rename](
 
 #### Useful services/methods
 
-- `navigation` - a service where all navigation configuration takes place in (such as default options, listeners, etc.).
+- `navigation` - a service where some of navigation configuration takes place in (such as default options).
 - `translate` - a service that brings an easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [expo-localization](https://github.com/expo/expo/tree/master/packages/expo-localization). You can see an example of `en` and `ru` localizations in `Example` screen.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
 - `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc. Now you can add as much theme modes as you want.
 
 https://user-images.githubusercontent.com/4402166/148626964-fc07acf6-1c38-44fc-a392-f933bd5f4d19.MP4
-
 
 ## Advantages
 
@@ -92,8 +91,11 @@ https://user-images.githubusercontent.com/4402166/148626964-fc07acf6-1c38-44fc-a
 
 All setup for your screens takes place in one file `src/screens/index.ts`:
 
-```
+```tsx
 import {generateRNNScreens} from 'rnn-screens';
+
+import {Main} from './main';
+import {Settings} from './settings';
 
 export const screens = generateRNNScreens(
   {
@@ -101,10 +103,15 @@ export const screens = generateRNNScreens(
       component: Main,
       options: {
         topBar: {
-          ...withTitle(services.t.do('home.title')),
+          ...withTitle('Main'),
           ...withRightButtons('inc', 'dec'),
         },
-        ...withBottomTab('Main', 'newspaper'),
+      },
+    },
+    Settings: {
+      component: Settings,
+      options: {
+        topBar: { ...withTitle('Settings') },
       },
     },
     // ...
@@ -113,9 +120,9 @@ export const screens = generateRNNScreens(
 );
 ```
 
-#### Navigate to other screens with predictability
+#### Navigate with predictability
 
-```
+```tsx
 import {screens} from '.';
 
 const Screen = ({componentId}) => {
@@ -132,31 +139,25 @@ const Screen = ({componentId}) => {
 }
 ```
 
-#### Build layouts with ease
+#### Build root component with ease
 
-One screen app:
+```tsx
+// single screen app
+const App = () => Root(Screen(screens.get('Main')));
 
-```
-screens.N.setRoot(Root(Stack(Component(screens.get('Main')))));
-```
-
-Three tabs app:
-
-```
-screens.N.setRoot(
+// tab based app
+const TabsApp = () =>
   Root(
     BottomTabs([
-      Stack(Component(screens.get('Main'))),
-      Stack(Component(screens.get('Example'))),
-      Stack(Component(screens.get('Settings'))),
+      Screen(screens.get('Main')),
+      Screen(screens.get('Settings')),
     ]),
-  ),
-);
+  );
 ```
 
 #### Simplified API for Shared Transitions
 
-```
+```tsx
 screens.push<ExampleScreenProps>(
   componentId,
   'Example',
