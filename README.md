@@ -58,6 +58,7 @@ If you need to rename the app, do the following (based on [react-native-rename](
 ## What's inside
 
 - [React Native Navigation](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android.
+- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - Simplifed and predictable Navigation for React Native. Built on top of [React Native Navigation](https://github.com/wix/react-native-navigation).
 - [Expo Modules](https://github.com/expo/expo) - libraries and modules from [Expo](https://expo.dev) ecosystem.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
@@ -66,7 +67,6 @@ If you need to rename the app, do the following (based on [react-native-rename](
 
 #### Extra helpful libraries
 
-- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - a set of methods to help build initial screens for RNN ([React Native Navigation](https://github.com/wix/react-native-navigation)) without hassle. Includes screens registration and predictable navigation between them.
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of hooks for React Native Navigation.
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
