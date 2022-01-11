@@ -9108,17 +9108,6 @@ react-native-navigation-hooks@^6.3.0:
   dependencies:
     hoist-non-react-statics "3.3.2"
 
-react-native-navigation@^7.23.1:
-  version "7.23.1"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.23.1.tgz#11db7aa84cc8b0ea3f2492113e69d65a3d5a0be0"
-  integrity sha512-KkO9LCoiXGRvEMPWju7rxTrAGXdTVmVGYcEJNQipZSwFIvIE+3hwBCp11ELyWHd9h0e8FDlT0vqHdxE2osOF+w==
-  dependencies:
-    hoist-non-react-statics "3.x.x"
-    lodash "4.17.x"
-    prop-types "15.x.x"
-    react-lifecycles-compat "2.0.0"
-    tslib "1.9.3"
-
 react-native-navigation@^7.25.0:
   version "7.25.0"
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.25.0.tgz#ce7ae6ad01009c7cfcbf753fd2e66a4e18d9c83b"
@@ -9595,12 +9584,10 @@ rn-bounceable@^1.1.0:
   resolved "https://registry.yarnpkg.com/rn-bounceable/-/rn-bounceable-1.1.0.tgz#85717f999168cda3cb264ea0479e9b97ee842ff1"
   integrity sha512-JZmMjL9bc3y0HAP8yLQ3EooGVI/NrN620BbfSbrB8wVwJMWBXYDP9BxPFkIUJd0PE9UVdGhk7zg69mAnMGMaNw==
 
-rnn-screens@^0.2.0-rc.21:
-  version "0.2.0-rc.21"
-  resolved "https://registry.yarnpkg.com/rnn-screens/-/rnn-screens-0.2.0-rc.21.tgz#829e8a13683edf5af9cbc3a35cf5965d3cc31533"
-  integrity sha512-C1pd76lku2w8+CsVJFAn8T7UdzLl+RRN+BTzFs+jX4DW7EntFgzX79CR8XenlNwm1S5o6jmrpM+6fcbnQTFdQg==
-  dependencies:
-    react-native-navigation "^7.23.1"
+rnn-screens@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/rnn-screens/-/rnn-screens-0.2.0.tgz#bbe184184d60cc713079dc94df324620a2047ab6"
+  integrity sha512-//NEW5Tsu+4CIvVD04b9YzQM1Po1bQJTyd5WB+Abm7jl0873kaCfhTthv2DBNF5srcI5WoAfrUGLKU5Zt92qmg==
 
 rsvp@^4.8.4:
   version "4.8.5"
