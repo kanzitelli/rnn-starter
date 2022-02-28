@@ -54,10 +54,7 @@ export const Settings: ScreenComponent = observer(() => {
     console.log(option);
   };
 
-  const appearanceActions: AppearanceAction[] = useMemo(
-    () => [{name: 'System'}, {name: 'Light'}, {name: 'Dark'}],
-    [],
-  );
+  const appearanceActions: AppearanceAction[] = useMemo(() => [{name: 'System'}, {name: 'Light'}, {name: 'Dark'}], []);
   const AppearanceActionSheet = useMemo(
     () => (
       <ActionSheet
@@ -81,10 +78,7 @@ export const Settings: ScreenComponent = observer(() => {
     [pickers.appearance],
   );
 
-  const languageActions: LanguageAction[] = useMemo(
-    () => [{name: 'System'}, {name: 'English'}, {name: 'Russian'}],
-    [],
-  );
+  const languageActions: LanguageAction[] = useMemo(() => [{name: 'System'}, {name: 'English'}, {name: 'Russian'}], []);
   const LanguageActionSheet = useMemo(
     () => (
       <ActionSheet
@@ -157,16 +151,8 @@ export const Settings: ScreenComponent = observer(() => {
 
           <Section bg title="About">
             <View>
-              <Action
-                disabled
-                title="App name"
-                info={Application.applicationName ?? 'No app name'}
-              />
-              <Action
-                disabled
-                title="Version"
-                info={Application.nativeApplicationVersion ?? '0.0'}
-              />
+              <Action disabled title="App name" info={Application.applicationName ?? 'No app name'} />
+              <Action disabled title="Version" info={Application.nativeApplicationVersion ?? '0.0'} />
             </View>
           </Section>
         </View>

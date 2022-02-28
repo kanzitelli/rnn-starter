@@ -21,10 +21,4 @@ export const beforeStart = async (): PVoid => {
 
 export const App = () => Root(Screen(screens.get('Main'))); // or Root(Stack(Component(screens.get('Main'))))
 export const TabsApp = () =>
-  Root(
-    BottomTabs([
-      Screen(screens.get('Main')),
-      Screen(screens.get('Example')),
-      Screen(screens.get('Settings')),
-    ]),
-  );
+  Root(BottomTabs([Screen(screens.get('Main')), Screen(screens.get('Example')), Screen(screens.get('Settings'))]));

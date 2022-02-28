@@ -23,7 +23,7 @@ export const Icon: React.FC<IconProps> = ({
   onPress,
   bounceable = true,
 }: IconProps) => {
-  const Icon = useMemo(
+  const _Icon = useMemo(
     () => (
       <View {...viewProps}>
         <IconComponent name={name} size={size} color={color} />
@@ -32,10 +32,13 @@ export const Icon: React.FC<IconProps> = ({
     [viewProps, name, size, color],
   );
 
-  if (!bounceable) return Icon;
+  if (!bounceable) {
+    return _Icon;
+  }
+
   return (
-    <Bounceable onPress={onPress} disabled={!!!onPress}>
-      {Icon}
+    <Bounceable onPress={onPress} disabled={!onPress}>
+      {_Icon}
     </Bounceable>
   );
 };

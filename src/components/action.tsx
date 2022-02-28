@@ -14,21 +14,14 @@ type ActionProps = {
   onPress?: () => void;
 };
 
-export const Action: React.FC<ActionProps> = ({
-  title,
-  icon,
-  rightIcon,
-  info,
-  disabled,
-  onPress,
-}: ActionProps) => {
+export const Action: React.FC<ActionProps> = ({title, icon, rightIcon, info, disabled, onPress}: ActionProps) => {
   const b = {disabled, onPress};
   const iconSize = 22;
 
   return (
     <View padding-s4>
       <Bounceable {...b}>
-        <Row style={{justifyContent: 'space-between'}}>
+        <Row spread>
           <Row>
             {icon ? (
               <View marginR-s2>

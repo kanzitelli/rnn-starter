@@ -39,9 +39,7 @@ export const Example: ScreenComponent<ExampleScreenProps> = observer(({component
               <BButton
                 marginV-s1
                 label={t.do('section.navigation.button.passProps')}
-                onPress={() =>
-                  screens.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
-                }
+                onPress={() => screens.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})}
               />
             </View>
 
@@ -51,11 +49,7 @@ export const Example: ScreenComponent<ExampleScreenProps> = observer(({component
           </Section>
 
           <Reanimated2 stID="reanimated2" />
-          <BButton
-            marginV-s1
-            label={t.do('section.navigation.button.back')}
-            onPress={() => screens.pop(componentId)}
-          />
+          <BButton marginV-s1 label={t.do('section.navigation.button.back')} onPress={() => screens.pop(componentId)} />
 
           <Text textColor center>
             localized with i18n-js

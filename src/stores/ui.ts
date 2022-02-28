@@ -49,13 +49,7 @@ export class UIStore implements IStore {
 
     makePersistable(this, {
       name: UIStore.name,
-      properties: [
-        'appLaunches',
-        'isSystemAppearance',
-        'appearance',
-        'isSystemLanguage',
-        'language',
-      ],
+      properties: ['appLaunches', 'isSystemAppearance', 'appearance', 'isSystemLanguage', 'language'],
     });
   }
 

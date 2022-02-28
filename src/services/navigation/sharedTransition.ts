@@ -1,16 +1,9 @@
-import {
-  AnimationOptions,
-  Options,
-  SharedElementTransition,
-  StackAnimationOptions,
-} from 'react-native-navigation';
+import {AnimationOptions, Options, SharedElementTransition, StackAnimationOptions} from 'react-native-navigation';
 import {SharedTransitionElement, SharedTransitionId, SharedTransitionNativeId} from './types';
 
 export const genNativeId = (id?: SharedTransitionId): SharedTransitionNativeId => id || 'id';
 
-export const genSharedElementTransition = (
-  e: SharedTransitionElement,
-): SharedElementTransition => ({
+export const genSharedElementTransition = (e: SharedTransitionElement): SharedElementTransition => ({
   ...e.rest,
   fromId: genNativeId(e.id),
   toId: genNativeId(e.id),
