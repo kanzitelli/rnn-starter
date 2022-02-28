@@ -56,9 +56,7 @@ export const Main: ScreenComponent = observer(({componentId}) => {
             <BButton
               marginV-s1
               label={t.do('section.navigation.button.passProps')}
-              onPress={() =>
-                screens.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})
-              }
+              onPress={() => screens.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})}
             />
             <BButton
               marginV-s1
@@ -94,11 +92,7 @@ export const Main: ScreenComponent = observer(({componentId}) => {
               </Text>
               <Text marginB-s2 text60R textColor>
                 Counter:{' '}
-                <If
-                  _={counter.loading}
-                  _then={() => <ActivityIndicator />}
-                  _else={<Text>{counter.value}</Text>}
-                />
+                <If _={counter.loading} _then={() => <ActivityIndicator />} _else={<Text>{counter.value}</Text>} />
               </Text>
               <BButton margin-s1 label="-" onPress={counter.dec} />
               <BButton margin-s1 label="+" onPress={counter.inc} />
