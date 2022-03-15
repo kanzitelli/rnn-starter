@@ -6,7 +6,11 @@ import {initServices} from './src/services';
 import {hydrateStores} from './src/stores';
 import {configureDesignSystem} from './src/utils/designSystem';
 
-LogBox.ignoreLogs(['EventEmitter.removeListener', '`new NativeEventEmitter()`']);
+LogBox.ignoreLogs([
+  'EventEmitter.removeListener',
+  '`new NativeEventEmitter()`',
+  '[react-native-gesture-handler] Seems like',
+]);
 
 export const beforeStart = async (): PVoid => {
   // 1. hydrate stores
