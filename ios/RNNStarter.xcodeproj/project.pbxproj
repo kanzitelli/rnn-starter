@@ -13,6 +13,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		17F13FBE7099DDA1527AD461 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109088BA618085E5FC827FA /* ExpoModulesProvider.swift */; };
+		4F2E25EF0782BDAE4BEDF224 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DABC535D0282A8963F75F /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-RNNStarter-RNNStarterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-RNNStarter-RNNStarterTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RNNStarter/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-RNNStarter-RNNStarterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNNStarter-RNNStarterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-RNNStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNStarter.debug.xcconfig"; path = "Target Support Files/Pods-RNNStarter/Pods-RNNStarter.debug.xcconfig"; sourceTree = "<group>"; };
+		5109088BA618085E5FC827FA /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RNNStarter-RNNStarterTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		548DABC535D0282A8963F75F /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RNNStarter/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-RNNStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNStarter.release.xcconfig"; path = "Target Support Files/Pods-RNNStarter/Pods-RNNStarter.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-RNNStarter-RNNStarterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNStarter-RNNStarterTests.debug.xcconfig"; path = "Target Support Files/Pods-RNNStarter-RNNStarterTests/Pods-RNNStarter-RNNStarterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-RNNStarter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNNStarter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +115,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6245AD50149F6D35E59C5A08 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				BBC480F8514A04F0BEE6B197 /* RNNStarter */,
+				F811844974AFCEBA512E110E /* RNNStarterTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				6245AD50149F6D35E59C5A08 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -142,6 +156,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BBC480F8514A04F0BEE6B197 /* RNNStarter */ = {
+			isa = PBXGroup;
+			children = (
+				548DABC535D0282A8963F75F /* ExpoModulesProvider.swift */,
+			);
+			name = RNNStarter;
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +173,14 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-RNNStarter-RNNStarterTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F811844974AFCEBA512E110E /* RNNStarterTests */ = {
+			isa = PBXGroup;
+			children = (
+				5109088BA618085E5FC827FA /* ExpoModulesProvider.swift */,
+			);
+			name = RNNStarterTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* RNNStarterTests.m in Sources */,
+				17F13FBE7099DDA1527AD461 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +451,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				0C2CA7B428B99042002E4349 /* file.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				4F2E25EF0782BDAE4BEDF224 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +488,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNNStarter.app/RNNStarter";
@@ -481,6 +514,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNNStarter.app/RNNStarter";
@@ -506,6 +540,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = io.batyr.RNNStarter;
 				PRODUCT_NAME = RNNStarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "RNNStarter-Bridging-Header.h";
@@ -533,6 +568,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = io.batyr.RNNStarter;
 				PRODUCT_NAME = RNNStarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "RNNStarter-Bridging-Header.h";
