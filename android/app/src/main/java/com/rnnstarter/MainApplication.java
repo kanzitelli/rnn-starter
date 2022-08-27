@@ -1,5 +1,9 @@
 package com.rnnstarter;
 
+import android.content.res.Configuration;
+import expo.modules.ApplicationLifecycleDispatcher;
+import expo.modules.ReactNativeHostWrapper;
+
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -57,6 +61,7 @@ public class MainApplication extends NavigationApplication {
     ReactFeatureFlags.useTurboModules = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
     
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+    ApplicationLifecycleDispatcher.onApplicationCreate(this);
   }
 
   /**
@@ -88,5 +93,11 @@ public class MainApplication extends NavigationApplication {
         e.printStackTrace();
       }
     }
+  }
+
+  @Override
+	public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    ApplicationLifecycleDispatcher.onConfigurationChanged(this, newConfig);
   }
 }
