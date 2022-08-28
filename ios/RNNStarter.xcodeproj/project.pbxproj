@@ -35,6 +35,22 @@
 		00E356F21AD99517003FC87E /* RNNStarterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNStarterTests.m; sourceTree = "<group>"; };
 		0C2CA7B228B99042002E4349 /* RNNStarter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNNStarter-Bridging-Header.h"; sourceTree = "<group>"; };
 		0C2CA7B328B99042002E4349 /* file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = file.swift; sourceTree = "<group>"; };
+		0CCFB17C28BC14D300ADC163 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		0CCFB17D28BC14D300ADC163 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		0CCFB17E28BC14D300ADC163 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		0CCFB17F28BC14D300ADC163 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		0CCFB18028BC14D300ADC163 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		0CCFB18128BC14D300ADC163 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		0CCFB18228BC14D300ADC163 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		0CCFB18328BC14D300ADC163 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		0CCFB18428BC14D300ADC163 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		0CCFB18528BC14D300ADC163 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		0CCFB18628BC14D300ADC163 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		0CCFB18728BC14D300ADC163 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		0CCFB18828BC14D300ADC163 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		0CCFB18928BC14D300ADC163 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		0CCFB18A28BC14D300ADC163 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		0CCFB18B28BC14D300ADC163 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* RNNStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNNStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RNNStarter/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = RNNStarter/AppDelegate.mm; sourceTree = "<group>"; };
@@ -90,6 +106,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0CCFB17B28BC14D300ADC163 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0CCFB17C28BC14D300ADC163 /* Fontisto.ttf */,
+				0CCFB17D28BC14D300ADC163 /* Octicons.ttf */,
+				0CCFB17E28BC14D300ADC163 /* Feather.ttf */,
+				0CCFB17F28BC14D300ADC163 /* Entypo.ttf */,
+				0CCFB18028BC14D300ADC163 /* FontAwesome5_Brands.ttf */,
+				0CCFB18128BC14D300ADC163 /* MaterialCommunityIcons.ttf */,
+				0CCFB18228BC14D300ADC163 /* AntDesign.ttf */,
+				0CCFB18328BC14D300ADC163 /* Foundation.ttf */,
+				0CCFB18428BC14D300ADC163 /* Ionicons.ttf */,
+				0CCFB18528BC14D300ADC163 /* FontAwesome5_Solid.ttf */,
+				0CCFB18628BC14D300ADC163 /* FontAwesome5_Regular.ttf */,
+				0CCFB18728BC14D300ADC163 /* FontAwesome.ttf */,
+				0CCFB18828BC14D300ADC163 /* Zocial.ttf */,
+				0CCFB18928BC14D300ADC163 /* EvilIcons.ttf */,
+				0CCFB18A28BC14D300ADC163 /* SimpleLineIcons.ttf */,
+				0CCFB18B28BC14D300ADC163 /* MaterialIcons.ttf */,
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* RNNStarter */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +141,7 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				0C2CA7B328B99042002E4349 /* file.swift */,
 				0C2CA7B228B99042002E4349 /* RNNStarter-Bridging-Header.h */,
+				0CCFB17B28BC14D300ADC163 /* Fonts */,
 			);
 			name = RNNStarter;
 			sourceTree = "<group>";
