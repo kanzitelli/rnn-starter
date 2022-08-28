@@ -1,19 +1,6 @@
-import {Navigation} from 'react-native-navigation';
-import App from './App';
+import 'react-native-gesture-handler';
+import {registerRootComponent} from 'rnn-screens';
 
-Navigation.registerComponent('com.myApp.WelcomeScreen', () => App);
-Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'com.myApp.WelcomeScreen',
-            },
-          },
-        ],
-      },
-    },
-  });
-});
+import {TabsApp, beforeStart} from './App';
+
+registerRootComponent(TabsApp, {beforeStart});
