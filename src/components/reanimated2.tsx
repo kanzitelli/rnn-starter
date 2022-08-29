@@ -7,16 +7,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {Bounceable} from 'rn-bounceable';
 
-import {genNativeId} from '../services/navigation/sharedTransition';
-import {SharedTransitionId} from '../services/navigation/types';
-
-type Reanimated2Props = {
-  stID?: SharedTransitionId;
-};
-
-export const Reanimated2: React.FC<Reanimated2Props> = ({
-  stID,
-}: Reanimated2Props) => {
+export const Reanimated2: React.FC = () => {
   const offset = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => ({
@@ -32,13 +23,8 @@ export const Reanimated2: React.FC<Reanimated2Props> = ({
       <Animated.View style={[animatedStyles]}>
         <View center padding-s1>
           <Bounceable onPress={moveObject} activeScale={0.9}>
-            <View
-              nativeID={genNativeId(stID)}
-              center
-              bg-primary
-              padding-s8
-              br40>
-              <Text whitish>Bounceable</Text>
+            <View center bg-primary padding-s8 br40>
+              <Text _white>Bounceable</Text>
             </View>
           </Bounceable>
         </View>
