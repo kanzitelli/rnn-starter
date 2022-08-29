@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.3.0",
+    "@shopify/flash-list": "^1.2.1",
     "date-fns": "^2.29.2",
     "expo": "^46.0.9",
     "expo-localization": "^13.1.0",
@@ -35,6 +36,7 @@
     "mobx-react": "^7.5.2",
     "react": "18.0.0",
     "react-native": "0.69.5",
+    "react-native-fast-image": "^8.6.0",
     "react-native-gesture-handler": "^2.6.0",
     "react-native-mmkv": "^2.4.3",
     "react-native-navigation": "^7.30.0-alpha.1",
