@@ -1,27 +1,29 @@
 import {Color} from 'react-native-navigation';
 import {Colors, Typography} from 'react-native-ui-lib';
 import {stores} from '../stores';
+import {Appearance} from './types/enums';
 
-const colors: DesignSystemColors = {
+const colors = {
   primary: '#5383b8', // blue
   secondary: '#469c57', // green
   accent: '#fed330', // yellow
-  blackish: Colors.rgba(20, 20, 20, 1),
-  blackish2: Colors.rgba(50, 50, 50, 1),
-  whitish: Colors.rgba(250, 250, 250, 1),
-  whitish2: Colors.rgba(230, 230, 230, 1),
+  _black: Colors.rgba(20, 20, 20, 1),
+  _black2: Colors.rgba(50, 50, 50, 1),
+  _white: Colors.rgba(250, 250, 250, 1),
+  _white2: Colors.rgba(230, 230, 230, 1),
 };
 
-const themes: Record<AppearanceMode, ThemeColors> = {
+const themes: Record<Appearance, ThemeColors> = {
+  system: {} as any,
   light: {
-    textColor: colors.blackish,
-    bgColor: colors.whitish,
-    bg2Color: colors.whitish2,
+    textColor: colors._black,
+    bgColor: colors._white,
+    bg2Color: colors._white2,
   },
   dark: {
-    textColor: colors.whitish,
-    bgColor: colors.blackish,
-    bg2Color: colors.blackish2,
+    textColor: colors._white,
+    bgColor: colors._black,
+    bg2Color: colors._black2,
   },
 };
 
@@ -29,7 +31,7 @@ const themes: Record<AppearanceMode, ThemeColors> = {
 export const configureDesignSystem = async (): PVoid => {
   const {ui} = stores;
 
-  if (ui.isSystemAppearance) {
+  if (ui.isAppearanceSystem) {
     Colors.loadColors(colors);
     Colors.loadSchemes(themes);
   } else {
@@ -45,7 +47,7 @@ export const configureDesignSystem = async (): PVoid => {
 export const getThemeColor = (c: keyof ThemeColors): Color => {
   const {ui} = stores;
 
-  if (ui.isSystemAppearance) {
+  if (ui.isAppearanceSystem) {
     return {
       dark: themes.dark[c],
       light: themes.light[c],
@@ -58,7 +60,7 @@ export const getThemeColor = (c: keyof ThemeColors): Color => {
 export const getThemeStatusBarStyle = (): StatusBarStyle => {
   const {ui} = stores;
 
-  if (ui.isSystemAppearance) {
+  if (ui.isAppearanceSystem) {
     return undefined;
   } else {
     switch (ui.appearance) {
