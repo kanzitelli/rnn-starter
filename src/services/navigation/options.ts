@@ -2,7 +2,7 @@ import {Options, OptionsTopBar} from 'react-native-navigation';
 import {Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {getThemeColor, getThemeStatusBarStyle} from '../../utils/designSystem';
-import {Button, buttons} from './buttons';
+import {NavButton, navButtons} from './buttons';
 
 const ICON_SIZE = 25;
 
@@ -10,8 +10,6 @@ export const navDefaultOptions = (): Options => {
   return {
     layout: {
       orientation: ['portrait'],
-      // componentBackgroundColor: Colors.bgColor,
-      // backgroundColor: Colors.bgColor,
       componentBackgroundColor: getThemeColor('bgColor'),
       backgroundColor: getThemeColor('bgColor'),
     },
@@ -65,6 +63,6 @@ export const withTitle = (text = 'Screen'): OptionsTopBar => ({
   title: {text},
 });
 
-export const withRightButtons = (...btns: Button[]): OptionsTopBar => ({
-  rightButtons: btns.map(id => buttons[id]),
+export const withRightButtons = (...btns: NavButton[]): OptionsTopBar => ({
+  rightButtons: btns.map(id => navButtons[id]),
 });

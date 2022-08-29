@@ -1,11 +1,12 @@
+import {OptionsTopBarButton} from 'react-native-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {ButtonsOptions} from './types';
 
 const ICON_SIZE = 30;
 
-export type Button = 'inc' | 'dec' | 'settings';
+const _navButtonIds = ['inc', 'dec', 'save', 'settings'] as const;
+export type NavButton = typeof _navButtonIds[number];
 
-export const buttons: ButtonsOptions = {
+export const navButtons: Record<NavButton, OptionsTopBarButton> = {
   inc: {
     id: 'inc',
     text: 'Inc',
@@ -13,6 +14,10 @@ export const buttons: ButtonsOptions = {
   dec: {
     id: 'dec',
     text: 'Dec',
+  },
+  save: {
+    id: 'save',
+    text: 'Save',
   },
   settings: {
     id: 'settings',
