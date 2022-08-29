@@ -14,6 +14,8 @@ import {Section} from '../components/Section';
 import {BButton} from '../components/Button';
 import {Reanimated2} from '../components/Reanimated2';
 import {Row} from '../components/Row';
+import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
+import {navButtons} from '../services/navigation/buttons';
 
 export const Main: ScreenComponent = ({componentId}) => {
   const {counter, ui} = useStores();
@@ -36,15 +38,21 @@ export const Main: ScreenComponent = ({componentId}) => {
     }
   }, [api.counter, counter]);
 
-  // Start
-  useEffect(() => {
-    getCounterValue();
-  }, [componentId, getCounterValue]);
-
   // Methods
   const push = () =>
     screens.push<SampleProps>(componentId, 'Sample', {type: 'push'});
   const show = () => screens.show<SampleProps>('Sample', {type: 'show'});
+
+  const handleCounterDec = () => counter.set('value', counter.value - 1);
+  const handleCounterInc = () => counter.set('value', counter.value + 1);
+  const handleCounterReset = () => counter.set('value', 0);
+
+  // Start
+  useEffect(() => {
+    getCounterValue();
+  }, [componentId, getCounterValue]);
+  useNavigationButtonPress(handleCounterInc, componentId, navButtons.inc.id);
+  useNavigationButtonPress(handleCounterDec, componentId, navButtons.dec.id);
 
   // UI Methods
 
@@ -93,21 +101,9 @@ export const Main: ScreenComponent = ({componentId}) => {
             </Text>
 
             <Row>
-              <BButton
-                margin-s1
-                label=" - "
-                onPress={() => counter.set('value', counter.value - 1)}
-              />
-              <BButton
-                margin-s1
-                label=" + "
-                onPress={() => counter.set('value', counter.value + 1)}
-              />
-              <BButton
-                margin-s1
-                label="reset"
-                onPress={() => counter.set('value', 0)}
-              />
+              <BButton margin-s1 label=" - " onPress={handleCounterDec} />
+              <BButton margin-s1 label=" + " onPress={handleCounterInc} />
+              <BButton margin-s1 label="reset" onPress={handleCounterReset} />
             </Row>
           </View>
         </Section>
