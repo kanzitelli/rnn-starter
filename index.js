@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
+require('react-native-ui-lib/config').setConfig({appScheme: 'default'});
 import {registerRootComponent} from 'rnn-screens';
 
-import {TabsApp, beforeStart} from './App';
+import {App, beforeStart} from './App';
 
-registerRootComponent(TabsApp, {beforeStart});
+registerRootComponent(App, {beforeStart});
