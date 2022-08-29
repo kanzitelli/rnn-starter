@@ -8484,6 +8484,11 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha512-xTgYBc3fuo7Yt7JbiuFxSYGToMoz8fLoE6TC9Wx1P/u+LfeThMOAqmuyECnlBaaJb+u1m9hHiXUEtwW4OzfUJg==
 
+postinstall-postinstall@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/postinstall-postinstall/-/postinstall-postinstall-2.1.0.tgz#4f7f77441ef539d1512c40bd04c71b06a4704ca3"
+  integrity sha512-7hQX6ZlZXIoRiWNrbMQaLzUUfH+sSx39u8EJ9HYuDc1kLo9IXKWjM5RSquZN1ad5GnH8CGFM78fsAAQi3OKEEQ==
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
@@ -9311,15 +9316,15 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-rn-bounceable@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/rn-bounceable/-/rn-bounceable-1.1.0.tgz#85717f999168cda3cb264ea0479e9b97ee842ff1"
-  integrity sha512-JZmMjL9bc3y0HAP8yLQ3EooGVI/NrN620BbfSbrB8wVwJMWBXYDP9BxPFkIUJd0PE9UVdGhk7zg69mAnMGMaNw==
+rn-bounceable@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/rn-bounceable/-/rn-bounceable-1.2.0.tgz#10cbbe880df6acf5cbae59819b268b444118680c"
+  integrity sha512-lotMXOiwGQbaL9yLW0CFqNJnVvwJaW7b7tBVtBeEScqcAzmETJkDf9ZRd1RLF9PrSbgQlLzd9+SDeOo6eKSSPg==
 
-rnn-screens@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/rnn-screens/-/rnn-screens-0.2.0.tgz#bbe184184d60cc713079dc94df324620a2047ab6"
-  integrity sha512-//NEW5Tsu+4CIvVD04b9YzQM1Po1bQJTyd5WB+Abm7jl0873kaCfhTthv2DBNF5srcI5WoAfrUGLKU5Zt92qmg==
+rnn-screens@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/rnn-screens/-/rnn-screens-0.3.1.tgz#94baaff279074dc0648b4820a64676c4981137fd"
+  integrity sha512-2x50CEXGZcBeZoTx9oCLQ6BGWa9Wxdck0VIJx7b560P85IaqKJs4h5Kz9aJUvgUi+nuWRyKbNjnRMI3OM4BKNw==
 
 rsvp@^4.8.4:
   version "4.8.5"
