@@ -1,0 +1,27 @@
+diff --git a/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m b/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m
+index 08fcd52..3b3bc4e 100644
+--- a/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m
++++ b/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m
+@@ -14,13 +14,21 @@
+ 
+ @implementation RCTScrollContentView
+ 
++- (void)didMoveToWindow
++{
++  [super didMoveToWindow];
++  
++  RCTScrollView *scrollView = (RCTScrollView *)self.superview.superview;
++  [scrollView updateContentSizeIfNeeded];
++}
++
+ - (void)reactSetFrame:(CGRect)frame
+ {
+   [super reactSetFrame:frame];
+ 
+   RCTScrollView *scrollView = (RCTScrollView *)self.superview.superview;
+ 
+-  if (!scrollView) {
++  if (!scrollView  || !self.window) {
+     return;
+   }
+ 

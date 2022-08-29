@@ -1,5 +1,8 @@
 import React from 'react';
-import {NavigationComponentProps, NavigationFunctionComponent} from 'react-native-navigation';
+import {
+  NavigationComponentProps,
+  NavigationFunctionComponent,
+} from 'react-native-navigation';
 
 import {OnStartService} from './onStart';
 import {NavService} from './navigation';
@@ -26,7 +29,8 @@ export const withServices = (C: NavigationFunctionComponent) => {
   };
 };
 
-export const useServices = (): ContextServices => React.useContext(servicesContext);
+export const useServices = (): ContextServices =>
+  React.useContext(servicesContext);
 
 export const initServices = async (): PVoid => {
   for (const key in services) {

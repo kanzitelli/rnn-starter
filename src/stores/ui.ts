@@ -1,58 +1,53 @@
 import {makeAutoObservable} from 'mobx';
 import {hydrateStore, makePersistable} from 'mobx-persist-store';
-import {restartApp} from '../utils/help';
+import {
+  Appearance,
+  appearanceToUI,
+  Language,
+  languageToUI,
+} from '../utils/types/enums';
 
 export class UIStore implements IStore {
   appLaunches = 0;
-  incAppLaunces = (v = 1): void => {
-    this.appLaunches += v;
-  };
 
-  isSystemAppearance = true;
-  appearance: AppearanceMode = 'light';
-  setAppearanceMode = (v: UIAppearance): void => {
-    this.isSystemAppearance = v === 'System';
-    this.appearance = this.appearanceFromUIToInternal(v);
-
-    restartApp();
-  };
-  get appearanceName(): UIAppearance {
-    return this.isSystemAppearance ? 'System' : this.appearanceFromInternalToUI(this.appearance);
+  // Appearance
+  appearance: Appearance = 'system';
+  get appearanceStr() {
+    return appearanceToUI[this.appearance];
   }
-  private appearanceFromInternalToUI = (v: AppearanceMode): UIAppearance => {
-    return v === 'light' ? 'Light' : 'Dark';
-  };
-  private appearanceFromUIToInternal = (v: UIAppearance): AppearanceMode => {
-    return v === 'Light' ? 'light' : 'dark';
-  };
-
-  isSystemLanguage = true;
-  language: Language = 'en';
-  setLanguage = (v: UILanguage): void => {
-    this.isSystemLanguage = v === 'System';
-    this.language = this.languageFromUIToInternal(v);
-
-    restartApp();
-  };
-  get languageName(): UILanguage {
-    return this.isSystemLanguage ? 'System' : this.languageFromInternalToUI(this.language);
+  get isAppearanceSystem() {
+    return this.appearance === 'system';
   }
-  private languageFromInternalToUI = (v: Language): UILanguage => {
-    return v === 'en' ? 'English' : 'Russian';
-  };
-  private languageFromUIToInternal = (v: UILanguage): Language => {
-    return v === 'English' ? 'en' : 'ru';
-  };
+
+  // Language
+  language: Language = 'system';
+  get languageStr() {
+    return languageToUI[this.language];
+  }
+  get isLanguageSystem() {
+    return this.language === 'system';
+  }
 
   constructor() {
     makeAutoObservable(this);
 
     makePersistable(this, {
       name: UIStore.name,
-      properties: ['appLaunches', 'isSystemAppearance', 'appearance', 'isSystemLanguage', 'language'],
+      properties: ['appLaunches', 'appearance', 'language'],
     });
   }
 
+  // Unified set methods
+  set<T extends StoreKeysOf<UIStore>>(what: T, value: UIStore[T]) {
+    (this as UIStore)[what] = value;
+  }
+  setMany<T extends StoreKeysOf<UIStore>>(obj: Record<T, UIStore[T]>) {
+    for (const [k, v] of Object.entries(obj)) {
+      this.set(k as T, v as UIStore[T]);
+    }
+  }
+
+  // Hydration
   hydrate = async (): PVoid => {
     await hydrateStore(this);
   };

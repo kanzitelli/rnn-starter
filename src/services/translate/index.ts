@@ -1,11 +1,12 @@
 import * as Localization from 'expo-localization';
-import i18n from 'i18n-js';
+import {I18n, Scope, TranslateOptions} from 'i18n-js';
 
-import {ru, en} from './translations';
+import * as translations from './translations';
 import {stores} from '../../stores';
 
 export class TranslateService implements IService {
   private inited = false;
+  private i18n = new I18n(translations);
 
   init = async (): PVoid => {
     if (!this.inited) {
@@ -15,18 +16,14 @@ export class TranslateService implements IService {
     }
   };
 
-  do = i18n.t;
+  do = (scope: Scope, options?: TranslateOptions | undefined) =>
+    this.i18n.t(scope, options);
 
   setup = (): void => {
     const {ui} = stores;
     const lng = Localization.locale;
 
-    i18n.translations = {en, ru};
-    i18n.fallbacks = true;
-    if (ui.isSystemLanguage) {
-      i18n.locale = lng;
-    } else {
-      i18n.locale = ui.language;
-    }
+    this.i18n.enableFallback = true;
+    this.i18n.locale = ui.isLanguageSystem ? lng : ui.language;
   };
 }

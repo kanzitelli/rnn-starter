@@ -1,32 +1,18 @@
-import React from 'react';
-import {View, Text} from 'react-native-ui-lib';
+import React, {PropsWithChildren} from 'react';
+import {Text, View} from 'react-native-ui-lib';
 
-type SectionProps = {
-  children: React.ReactNode;
-  title: string;
-  bg?: boolean;
-};
-
-export const Section: React.FC<SectionProps> = ({children, title, bg}: SectionProps) => {
-  const S = {
-    'bg-bg2Color': bg,
-    'paddingH-s1': bg,
-    'paddingV-s2': bg,
-  };
-
+export const Section: React.FC<
+  PropsWithChildren<{
+    title: string;
+  }>
+> = ({children, title}) => {
   return (
-    <View paddingV-s1>
-      <View row>
-        <Text textColor section>
-          {title}
-        </Text>
-      </View>
+    <View margin-s2 marginV-s3 paddingH-s3>
+      <Text section textColor>
+        {title}
+      </Text>
 
-      <View paddingH-s2 paddingV-s2>
-        <View br40 {...S}>
-          {children}
-        </View>
-      </View>
+      <View padding-s2>{children}</View>
     </View>
   );
 };

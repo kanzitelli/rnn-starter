@@ -1,15 +1,19 @@
 import {stores} from '../stores';
 
-const {ui} = stores;
-
 export class OnStartService implements IService {
   private inited = false;
 
   init = async (): PVoid => {
     if (!this.inited) {
-      ui.incAppLaunces();
+      this.incAppLaunches();
 
       this.inited = true;
     }
   };
+
+  private incAppLaunches() {
+    const {ui} = stores;
+
+    ui.set('appLaunches', ui.appLaunches + 1);
+  }
 }

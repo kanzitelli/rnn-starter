@@ -1,5 +1,8 @@
 import React from 'react';
-import {NavigationComponentProps, NavigationFunctionComponent} from 'react-native-navigation';
+import {
+  NavigationComponentProps,
+  NavigationFunctionComponent,
+} from 'react-native-navigation';
 
 import './_hydration';
 import {UIStore} from './ui';

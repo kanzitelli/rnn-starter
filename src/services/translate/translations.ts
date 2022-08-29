@@ -9,10 +9,8 @@ export const en = {
     navigation: {
       title: 'Navigation',
       button: {
-        push: 'Push Example screen',
-        show: 'Show Example screen',
-        passProps: 'passProps to Example screen',
-        sharedTransition: 'Shared Transition',
+        push: 'Push →',
+        show: 'Show ↑',
         back: '← Back',
       },
     },
@@ -30,9 +28,8 @@ export const ru = {
     navigation: {
       title: 'Навигация',
       button: {
-        push: 'Запушить Example экран',
-        show: 'Показать Example экран',
-        passProps: 'passProps в Example экран',
+        push: 'Запушить →',
+        show: 'Показать ↑',
         back: '← Назад',
       },
     },

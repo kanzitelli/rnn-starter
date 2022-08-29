@@ -3,23 +3,6 @@ import {hydrateStore, makePersistable} from 'mobx-persist-store';
 
 export class CounterStore implements IStore {
   value = 0;
-  inc = (): void => {
-    this.value += 1;
-  };
-  dec = (): void => {
-    this.value -= 1;
-  };
-  reset = (): void => {
-    this.value = 0;
-  };
-  set = (v: number): void => {
-    this.value = v;
-  };
-
-  loading = false;
-  setLoading = (v: boolean): void => {
-    this.loading = v;
-  };
 
   constructor() {
     makeAutoObservable(this);
@@ -30,6 +13,19 @@ export class CounterStore implements IStore {
     });
   }
 
+  // Unified set methods
+  set<T extends StoreKeysOf<CounterStore>>(what: T, value: CounterStore[T]) {
+    (this as CounterStore)[what] = value;
+  }
+  setMany<T extends StoreKeysOf<CounterStore>>(
+    obj: Record<T, CounterStore[T]>,
+  ) {
+    for (const [k, v] of Object.entries(obj)) {
+      this.set(k as T, v as CounterStore[T]);
+    }
+  }
+
+  // Hydration
   hydrate = async (): PVoid => {
     await hydrateStore(this);
   };

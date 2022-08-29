@@ -1,110 +1,121 @@
-import React, {useCallback, useEffect} from 'react';
-import {ScrollView, Alert, ActivityIndicator} from 'react-native';
-import {View, Text} from 'react-native-ui-lib';
+import React, {useCallback, useEffect, useState} from 'react';
+import {ScrollView} from 'react-native';
+import {Text, View} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
-import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
-import {observer} from 'mobx-react';
-import {If} from '@kanzitelli/if-component';
 import Constants from 'expo-constants';
 import * as Application from 'expo-application';
+import {If} from '@kanzitelli/if-component';
 
 import {screens} from '.';
 import {useServices} from '../services';
 import {useStores} from '../stores';
+import {Props as SampleProps} from './_screen-sample';
+import {Section} from '../components/Section';
+import {BButton} from '../components/Button';
+import {Reanimated2} from '../components/Reanimated2';
+import {Row} from '../components/Row';
+import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
+import {navButtons} from '../services/navigation/buttons';
 
-import {Section} from '../components/section';
-import {Reanimated2} from '../components/reanimated2';
-import {randomNum} from '../utils/help';
-import {withSharedTransitions} from '../services/navigation/sharedTransition';
-import {BButton} from '../components/button';
-
-export const Main: ScreenComponent = observer(({componentId}) => {
-  const {t, api} = useServices();
+export const Main: ScreenComponent = ({componentId}) => {
   const {counter, ui} = useStores();
+  const {t, api} = useServices();
 
-  useNavigationButtonPress(counter.inc, componentId, 'inc');
-  useNavigationButtonPress(counter.dec, componentId, 'dec');
-  useNavigationButtonPress(() => screens.push(componentId, 'Settings'), componentId, 'settings');
+  // State (local)
+  const [loading, setLoading] = useState(false);
 
-  const start = useCallback(async () => {
+  // API Methods
+  const getCounterValue = useCallback(async () => {
+    setLoading(true);
     try {
-      await api.counter.get();
-    } catch (e) {
-      Alert.alert('Error', 'There was a problem fetching data :(');
-    }
-  }, [api.counter]);
+      const {value} = await api.counter.get();
 
+      counter.set('value', value);
+    } catch (e) {
+      console.log('[ERROR]', e);
+    } finally {
+      setLoading(false);
+    }
+  }, [api.counter, counter]);
+
+  // Methods
+  const push = () =>
+    screens.push<SampleProps>(componentId, 'Sample', {type: 'push'});
+  const show = () => screens.show<SampleProps>('Sample', {type: 'show'});
+
+  const handleCounterDec = () => counter.set('value', counter.value - 1);
+  const handleCounterInc = () => counter.set('value', counter.value + 1);
+  const handleCounterReset = () => counter.set('value', 0);
+
+  // Start
   useEffect(() => {
-    start();
-  }, [componentId, start]);
+    getCounterValue();
+  }, [componentId, getCounterValue]);
+  useNavigationButtonPress(handleCounterInc, componentId, navButtons.inc.id);
+  useNavigationButtonPress(handleCounterDec, componentId, navButtons.dec.id);
+
+  // UI Methods
 
   return (
     <View flex bg-bgColor>
       <ScrollView contentInsetAdjustmentBehavior="always">
-        <View padding-s4>
-          <Section title={t.do('section.navigation.title')}>
-            <BButton
-              marginV-s1
-              label={t.do('section.navigation.button.push')}
-              onPress={() => screens.push(componentId, 'Example')}
-            />
-            <BButton
-              marginV-s1
-              label={t.do('section.navigation.button.show')}
-              onPress={() => screens.show('Example')}
-            />
-            <BButton
-              marginV-s1
-              label={t.do('section.navigation.button.passProps')}
-              onPress={() => screens.push<ExampleScreenProps>(componentId, 'Example', {value: randomNum()})}
-            />
-            <BButton
-              marginV-s1
-              label={t.do('section.navigation.button.sharedTransition')}
-              onPress={() =>
-                screens.push<ExampleScreenProps>(
-                  componentId,
-                  'Example',
-                  {value: randomNum()},
-                  withSharedTransitions([{id: 'reanimated2', pop: true}]),
-                )
-              }
-            />
-          </Section>
+        <Section title="Expo">
+          <Text text60R textColor>
+            Session ID: {Constants.sessionId}
+          </Text>
+          <Text text60R textColor>
+            App name: {Application.applicationName}
+          </Text>
+        </Section>
 
-          <Section title="Expo">
+        <Section title={t.do('section.navigation.title')}>
+          <BButton
+            marginV-s1
+            label={t.do('section.navigation.button.push')}
+            onPress={push}
+          />
+          <BButton
+            marginV-s1
+            label={t.do('section.navigation.button.show')}
+            onPress={show}
+          />
+        </Section>
+
+        <Section title="Reanimated 2">
+          <Reanimated2 />
+        </Section>
+
+        <Section title="MobX">
+          <View centerV>
             <Text marginB-s2 text60R textColor>
-              Session Id: {Constants.sessionId}
+              App launches: {ui.appLaunches}
             </Text>
+
             <Text marginB-s2 text60R textColor>
-              App name: {Application.applicationName}
+              Counter:{' '}
+              <If
+                _={loading}
+                _then={<Text textColor>Loading...</Text>}
+                _else={<Text textColor>{counter.value}</Text>}
+              />
             </Text>
-          </Section>
 
-          <Section title="Reanimated 2">
-            <Reanimated2 stID="reanimated2" />
-          </Section>
+            <Row>
+              <BButton margin-s1 label=" - " onPress={handleCounterDec} />
+              <BButton margin-s1 label=" + " onPress={handleCounterInc} />
+              <BButton margin-s1 label="reset" onPress={handleCounterReset} />
+            </Row>
+          </View>
+        </Section>
 
-          <Section title="MobX">
-            <View centerV>
-              <Text marginB-s2 text60R textColor>
-                App launches: {ui.appLaunches}
-              </Text>
-              <Text marginB-s2 text60R textColor>
-                Counter:{' '}
-                <If _={counter.loading} _then={() => <ActivityIndicator />} _else={<Text>{counter.value}</Text>} />
-              </Text>
-              <BButton margin-s1 label="-" onPress={counter.dec} />
-              <BButton margin-s1 label="+" onPress={counter.inc} />
-              <BButton margin-s1 label="reset" onPress={counter.reset} />
-            </View>
-          </Section>
-
-          <Section title="API">
-            <BButton margin-s1 label="Update counter value from API" onPress={api.counter.get} />
-          </Section>
-        </View>
+        <Section title="API">
+          <BButton
+            margin-s1
+            label="Update counter value from API"
+            onPress={getCounterValue}
+          />
+        </Section>
       </ScrollView>
     </View>
   );
-});
+};
