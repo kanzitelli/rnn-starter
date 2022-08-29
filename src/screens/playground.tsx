@@ -1,44 +1,67 @@
-import React from 'react';
-import {ScrollView} from 'react-native';
-import {View} from 'react-native-ui-lib';
+import React, {useMemo} from 'react';
+import {Text, View} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
+import {FlashList} from '@shopify/flash-list';
+import FastImage from 'react-native-fast-image';
 
-import {screens} from '.';
-import {Props as SampleProps} from './_screen-sample';
-import {useServices} from '../services';
-// import {useStores} from '../stores';
-import {Section} from '../components/Section';
-import {BButton} from '../components/Button';
+const generateListItemDescription = (len: number) => {
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = ' ';
+  const charactersLength = characters.length;
+  for (let i = 0; i < len; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
 
-export const Playground: ScreenComponent = ({componentId}) => {
-  const {t} = useServices();
+  return result;
+};
+
+export const Playground: ScreenComponent = () => {
+  // const {t} = useServices();
   // const {ui} = useStores();
+
+  const DATA = Array.from({length: 1000}).map((v, ndx) => ({
+    title: `Item ${ndx}`,
+    image: `https://picsum.photos/200?image=${ndx + 1}`,
+    description: generateListItemDescription(300),
+  }));
 
   // State
 
   // Methods
-  const push = () =>
-    screens.push<SampleProps>(componentId, 'Sample', {type: 'push'});
-  const show = () => screens.show<SampleProps>('Sample', {type: 'show'});
-
   // UI Methods
+  const ListHeaderBlock = useMemo(() => {
+    return (
+      <View padding-s2 bg-bgColor>
+        <Text text50M textColor>
+          FlashList by Shopify
+        </Text>
+      </View>
+    );
+  }, []);
 
   return (
-    <View flex bg-bgColor>
-      <ScrollView contentInsetAdjustmentBehavior="always">
-        <Section title={t.do('section.navigation.title')}>
-          <BButton
-            marginV-s1
-            label={t.do('section.navigation.button.push')}
-            onPress={push}
+    <FlashList
+      data={DATA}
+      renderItem={({item}) => (
+        <View padding-s2 bg-bgColor>
+          <FastImage
+            style={{width: 120, height: 120, borderRadius: 20}}
+            source={{uri: item.image}}
+            resizeMode={FastImage.resizeMode.contain}
           />
-          <BButton
-            marginV-s1
-            label={t.do('section.navigation.button.show')}
-            onPress={show}
-          />
-        </Section>
-      </ScrollView>
-    </View>
+
+          <Text textColor text50R>
+            {item.title}
+          </Text>
+
+          <Text textColor text70R>
+            {item.description}
+          </Text>
+        </View>
+      )}
+      ListHeaderComponent={ListHeaderBlock}
+      estimatedItemSize={300}
+    />
   );
 };
