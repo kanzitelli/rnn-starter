@@ -2,13 +2,11 @@
   <img src="https://xxx-files.ggc.team/oss/rnn-starter/cover.png" width="80%" title="Logo">
 </p>
 
-This starter is a collection of libraries and approaches from my personal experience. No hard judgements ✌️
-
-For more information, check out [Why](#why) section.
+This starter is a collection of libraries and approaches needed for fast start and productive maintainance of React Native App.
 
 ## Getting Started
 
-#### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
+### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
 
 ```bash
 > npx cli-rn new App -t rnn
@@ -22,48 +20,52 @@ If you have any troubles running the app with `yarn ios` or `yarn android`, open
 1. Clone the repo
 
 ```bash
-> git clone https://github.com/kanzitelli/rnn-starter.git App && cd App
+npx degit kanzitelli/rnn-starter app
 ```
 
-2. Remove `.git` file (if not planning to contribute)
+2. Install packages and pods
 
 ```bash
-> rm -rf .git
+cd app && yarn && yarn ios:pods
 ```
 
-3. Install packages and pods
-
-```bash
-> yarn && yarn ios:pods
-```
-
-4. Run it!
+3. Run it
 
 Open XCode or Android Studio to run the project (recommended) or do
 
 ```bash
-> yarn ios
-> yarn android
-```
-
-If you need to rename the app, do the following (based on [react-native-rename](https://github.com/junedomingo/react-native-rename)):
-
-```bash
-> yarn rename NewAppName
-> yarn ios:pods
+yarn ios
+yarn android
 ```
 
 </details>
 
+#### Rename
+
+If you need to rename the app, do the following (based on [react-native-rename](https://github.com/junedomingo/react-native-rename)):
+
+```bash
+yarn rename "NewApp" -b com.yourcompany.newapp
+yarn ios:pods
+```
+
+⚠️ Troubleshooting on Android. You can see that after running `rename` script, it doesn't change package name and imports for files under `newarchitecture` folder. You will need do that manually:
+
+1. Open all `.java` files under `android/app/src/main/java/your/bundle/newarchitecture/` folder.
+2. Open `MainApplication.java`.
+3. Find all packages and imports which contain `io.batyr.rnnwithexpo` and change them to yours.
+
 ## What's inside
 
 - [React Native Navigation](https://github.com/wix/react-native-navigation) - truly native navigation experience for iOS and Android.
-- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - simplifed and predictable Navigation for React Native. Built on top of [React Native Navigation](https://github.com/wix/react-native-navigation).
 - [Expo Modules](https://github.com/expo/expo) - libraries and modules from [Expo](https://expo.dev) ecosystem.
+- [RNN Screens](https://github.com/kanzitelli/rnn-screens) - simplifed and predictable Navigation for React Native. Built on top of [React Native Navigation](https://github.com/wix/react-native-navigation).
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
+- [Flash List](https://github.com/Shopify/flash-list) - a better list for React Native (by Shopify).
+- [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_!
+- [Fast Image](https://github.com/DylanVann/react-native-fast-image) - performant React Native image component.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
-- ~~AsyncStorage~~ [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_!
 
 #### Extra helpful libraries
 
@@ -79,9 +81,15 @@ If you need to rename the app, do the following (based on [react-native-rename](
 #### Useful services/methods
 
 - `navigation` - a service where some of navigation configuration takes place in (such as default options).
-- `translate` - a service that brings an easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [expo-localization](https://github.com/expo/expo/tree/master/packages/expo-localization). You can see an example of `en` and `ru` localizations in `Example` screen.
+- `translate` - a service that brings an easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [expo-localization](https://github.com/expo/expo/tree/master/packages/expo-localization).
+- `api` - a service where API-related methods are located.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
-- `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc. Now you can add as much theme modes as you want.
+
+#### Design system
+
+This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as a design system, UI toolset and a source of ready-to-go components.
+
+`configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
 
 https://user-images.githubusercontent.com/4402166/148626964-fc07acf6-1c38-44fc-a392-f933bd5f4d19.MP4
 
@@ -111,7 +119,7 @@ export const screens = generateRNNScreens(
     Settings: {
       component: Settings,
       options: {
-        topBar: { ...withTitle('Settings') },
+        topBar: {...withTitle('Settings')},
       },
     },
     // ...
@@ -125,18 +133,21 @@ export const screens = generateRNNScreens(
 ```tsx
 import {screens} from '.';
 
-const Screen = ({componentId}) => {
+const SomeScreen = ({componentId}) => {
   const {nav} = useServices();
 
   return (
     <View>
       <Button
-        label="Open Settings"
-        onPress={() => screens.push(componentId, 'Settings')}
+        label="Open screen"
+        onPress={() => {
+          // IDE will autocomplete with registered screens
+          screens.push(componentId, 'AnotherScreen');
+        }}
       />
     </View>
-  )
-}
+  );
+};
 ```
 
 #### Build root component with ease
@@ -150,23 +161,13 @@ const TabsApp = () =>
   Root(
     BottomTabs([
       Screen(screens.get('Main')),
+      Screen(screens.get('Playground')),
       Screen(screens.get('Settings')),
     ]),
   );
 ```
 
-#### Simplified API for Shared Transitions
-
-```tsx
-screens.push<ExampleScreenProps>(
-  componentId,
-  'Example',
-  { value: randomNum() },
-  withSharedTransitions([{ id: 'reanimated2', pop: true }]),
-)
-```
-
-#### Correct Dark mode implementation
+#### Dark mode support
 
 You can define modes in `utils/designSystem.tsx`.
 
@@ -178,21 +179,7 @@ So you have one structure within the project. You can find them in corresponding
 
 There are still some things I would like to add to the starter:
 
-#### General
-
-- [x] Shared transitions example
-- [x] Passing props to a screen example
-- [x] Constants: add Dimensions, Navigation (nav service)
-- [x] AsyncStorage stores persisting example
-- [x] API example + useEffect and start logic on a screen
-- [x] Example with theme modes change
-- [x] Move some services/scripts to separate libraries, e.g., `rnn-screens`. Done - [kanzitelli/rnn-screens](https://github.com/kanzitelli/rnn-screens)
-- [ ] Better documentation/exlanation for project structure, stores, services, etc.
-
-#### Production
-
 - [ ] Auth flow
-- [ ] Fast Image - [DylanVann/react-native-fast-image](https://github.com/DylanVann/react-native-fast-image)
 - [ ] Notifications — [wix/react-native-notifications](https://github.com/wix/react-native-notifications) or/and [invertase/notifee](https://github.com/invertase/notifee)
 - [ ] E2E tests - [wix/Detox](https://github.com/wix/Detox)
 - [ ] Permissions — [zoontek/react-native-permissions](https://github.com/zoontek/react-native-permissions)
@@ -204,29 +191,23 @@ Feel free to open an issue for suggestions.
 
 ## Known issues (warnings)
 
-- _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists. So you can find the patch file for fixing that in `patches/react-native+0.65.1.patch`. It will be autorun when you do `yarn add/remove/etc`.
-- _Over-The-Air Updates_. They have been removed from the current version as I had some problems publishing one of the apps to AppStore. Check out [my tweet](https://twitter.com/kanzitelli/status/1398229619862642692) and be aware of the issue if you'd like to use them anyways.
+- _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists. So you can find the patch file for fixing that in `patches/react-native+0.69.5.patch`. It will be autorun when you do `yarn add/remove/etc`.
+- _Issue after renaming on Android_. This happens when you [rename](#rename) the app using `yarn rename` script. Check [Rename](#rename) section for possible solution.
+- _Broken Dark mode_. This happens if `appearance` is system and the app's appearance is toggled. This is connected to RNUILib's View component and this [issue](https://github.com/wix/react-native-ui-lib/issues/2127) particularly.
 
 ## Worth checking
 
 ### Other starters
 
+- [rnn-with-expo](https://github.com/starters-dev/rnn-with-expo) - 🛹 Minimalistic React Native App Starter with React Native Navigation, Expo Modules and RNN Screens.
 - [expo-starter](https://github.com/kanzitelli/expo-starter) - 🦥 Production-ready starter for Expo (React Native) App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, and much more.
 - [rn-starter](https://github.com/kanzitelli/rn-starter) - 🦄 Production-ready starter for React Native App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, Notifications, Permissions, and much more.
 
 ### Articles
 
-- Expo + React Native Navigation? Yes! - [Medium](https://kanzitelli.medium.com/expo-react-native-navigation-yes-ebda0cbfa4b1), [Dev.to](https://dev.to/kanzitelli/expo-react-native-navigation-1pll)
-- cli-rn — making RN app developing experience as smooth as possible - [Medium](https://kanzitelli.medium.com/cli-rn-making-rn-app-developing-experience-as-smooth-as-possible-1022aae3a0d3), [Dev.to](https://dev.to/kanzitelli/cli-rn-making-rn-app-developing-experience-as-smooth-as-possible-4e98)
-
-### Apps in production
-
-- Wallpapers App - [App Store](https://apps.apple.com/app/id878234888), [Twitter](https://twitter.com/kanzitelli/status/1408192827155177472?s=20)
-- Rabbit App. Lite Reddit client - [Github](https://github.com/kanzitelli/rabbit-app), [App Store](https://apps.apple.com/ru/app/rabbit-app-lite-reddit-client/id1535084154), [Google Play](https://play.google.com/store/apps/details?id=io.batyr.rabbitapp)
-- Trip Music Radio - [App Store](https://apps.apple.com/ru/app/id1525645826), [Google Play](https://play.google.com/store/apps/details?id=team.ggc.tripmusic)
-- App for VK - [App Store](https://apps.apple.com/ru/app/id1067670987)
-- Messenger for VK - [App Store](https://apps.apple.com/ru/app/id891605076)
-- Christmas Market - [App Store](https://apps.apple.com/ru/app/id1446775875)
+- "Build React Native Apps with Simplified and Predictable Navigation" - [Medium](https://kanzitelli.medium.com/build-react-native-apps-with-simplified-and-predictable-navigation-2859f047f29e), [Dev.to](https://dev.to/kanzitelli/build-react-native-apps-with-simplified-and-predictable-navigation-5b3j)
+- "Testing React Native apps with zero effort" - [Medium](https://kanzitelli.medium.com/cli-rn-making-rn-app-developing-experience-as-smooth-as-possible-1022aae3a0d3), [Dev.to](https://dev.to/kanzitelli/cli-rn-making-rn-app-developing-experience-as-smooth-as-possible-4e98)
+- "Expo + React Native Navigation? Yes!" - [Medium](https://kanzitelli.medium.com/expo-react-native-navigation-yes-ebda0cbfa4b1), [Dev.to](https://dev.to/kanzitelli/expo-react-native-navigation-1pll)
 
 ## Why
 
