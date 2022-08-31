@@ -6,8 +6,8 @@ import {ScreenComponent} from 'rnn-screens';
 import {screens} from '.';
 import {useServices} from '../services';
 // import {useStores} from '../stores';
-import {Section} from '../components/Section';
-import {BButton} from '../components/Button';
+import {Section} from '../components/section';
+import {BButton} from '../components/button';
 
 export type Props = {
   type?: 'push' | 'show';
