@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {ScrollView} from 'react-native';
 import {Text, View, SegmentedControl, Colors} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
-import {Section} from '../components/Section';
-import {Row} from '../components/Row';
+import {Section} from '../components/section';
+import {Row} from '../components/row';
 import {
   appearances,
   appearancesUI,

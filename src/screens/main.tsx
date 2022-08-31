@@ -5,17 +5,17 @@ import {ScreenComponent} from 'rnn-screens';
 import Constants from 'expo-constants';
 import * as Application from 'expo-application';
 import {If} from '@kanzitelli/if-component';
+import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 
 import {screens} from '.';
 import {useServices} from '../services';
 import {useStores} from '../stores';
-import {Props as SampleProps} from './_screen-sample';
-import {Section} from '../components/Section';
-import {BButton} from '../components/Button';
-import {Reanimated2} from '../components/Reanimated2';
-import {Row} from '../components/Row';
-import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 import {navButtons} from '../services/navigation/buttons';
+import {Props as SampleProps} from './_screen-sample';
+import {Section} from '../components/section';
+import {BButton} from '../components/button';
+import {Reanimated2} from '../components/reanimated2';
+import {Row} from '../components/row';
 
 export const Main: ScreenComponent = ({componentId}) => {
   const {counter, ui} = useStores();

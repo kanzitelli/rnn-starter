@@ -6,12 +6,12 @@ import {Main} from './main';
 import {Settings} from './settings';
 
 import {withServices} from '../services';
+import {withStores} from '../stores';
 import {
   withBottomTab,
   withRightButtons,
   withTitle,
 } from '../services/navigation/options';
-import {withStores} from '../stores';
 import {Sample} from './_screen-sample';
 import {Playground} from './playground';
 
