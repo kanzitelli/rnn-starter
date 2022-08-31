@@ -9,8 +9,10 @@ This starter is a collection of libraries and approaches needed for fast start a
 ### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
 
 ```bash
-> npx cli-rn new App -t rnn
+npx cli-rn new App -t rnn
 ```
+
+> As `cli-rn` uses `react-native-rename` script for renaming under the hood, please refer to [Rename](#rename) section to apply necessary changes to Android part.
 
 If you have any troubles running the app with `yarn ios` or `yarn android`, open XCode or Android Studio and run the project from there.
 
