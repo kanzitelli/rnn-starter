@@ -1,0 +1,16 @@
+diff --git a/node_modules/react-native-ui-lib/src/hooks/useThemeProps/index.js b/node_modules/react-native-ui-lib/src/hooks/useThemeProps/index.js
+index fdcba11..0b28fdf 100644
+--- a/node_modules/react-native-ui-lib/src/hooks/useThemeProps/index.js
++++ b/node_modules/react-native-ui-lib/src/hooks/useThemeProps/index.js
+@@ -1,9 +1,11 @@
+ import { useContext, createContext } from 'react';
++import { useColorScheme } from 'react-native';
+ import * as Modifiers from "../../commons/modifiers";
+ import { ThemeManager } from "../../style";
+ const EmptyContext = createContext({});
+ 
+ const useThemeProps = (props, componentName) => {
++  useColorScheme();
+   const themeContext = ThemeManager.getThemeContext();
+   const context = useContext(themeContext ?? EmptyContext);
+   return Modifiers.getThemeProps(props, context, componentName);
