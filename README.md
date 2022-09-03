@@ -202,7 +202,7 @@ Feel free to open an issue for suggestions.
 
 - _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists. So you can find the patch file for fixing that in `patches/react-native+0.69.5.patch`. It will be autorun when you do `yarn add/remove/etc`.
 - _Issue after renaming on Android_. This happens when you [rename](#rename) the app using `yarn rename` script. Check [Rename](#rename) section for possible solution.
-- _Broken Dark mode_. This happens if `appearance` is system and the app's appearance is toggled. This is connected to RNUILib's View component and this [issue](https://github.com/wix/react-native-ui-lib/issues/2127) particularly. `UPD`: Possible solution is to use the patch file (under `patches` folder) that will be automatically applied in this starter. More detailed info will be posted soon.
+- _Broken Dark mode_. This happens if `appearance` is system and the app's appearance is toggled. This is connected to RNUILib's View component and this [issue](https://github.com/wix/react-native-ui-lib/issues/2127) particularly. `UPD`: Possible solution is to use the patch file (under `patches` folder) that will be automatically applied in this starter. More details can be found [here](https://github.com/wix/react-native-ui-lib/issues/2127#issuecomment-1236120957).
 
 ## Worth checking
 
