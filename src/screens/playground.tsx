@@ -3,6 +3,7 @@ import {Text, View} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
 import {FlashList} from '@shopify/flash-list';
 import FastImage from 'react-native-fast-image';
+import {observer} from 'mobx-react';
 
 const generateListItemDescription = (len: number) => {
   const characters =
@@ -16,7 +17,7 @@ const generateListItemDescription = (len: number) => {
   return result;
 };
 
-export const Playground: ScreenComponent = () => {
+export const Playground: ScreenComponent = observer(() => {
   // const {t} = useServices();
   // const {ui} = useStores();
 
@@ -64,4 +65,4 @@ export const Playground: ScreenComponent = () => {
       estimatedItemSize={300}
     />
   );
-};
+});

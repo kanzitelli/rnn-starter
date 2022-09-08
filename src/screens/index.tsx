@@ -1,6 +1,5 @@
 import {generateRNNScreens} from 'rnn-screens';
 import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
-import {observer as withObserver} from 'mobx-react';
 
 import {Main} from './main';
 import {Settings} from './settings';
@@ -55,5 +54,5 @@ export const screens = generateRNNScreens(
       },
     },
   },
-  [withGestureHandler, withStores, withServices, withObserver],
+  [withGestureHandler, withStores, withServices],
 );

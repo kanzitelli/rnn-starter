@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {ScrollView} from 'react-native';
 import {Text, View, SegmentedControl, Colors} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
+import {observer} from 'mobx-react';
+
 import {Section} from '../components/section';
 import {Row} from '../components/row';
 import {
@@ -18,7 +20,7 @@ import {navButtons} from '../services/navigation/buttons';
 import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
 import {restartApp} from '../utils/help';
 
-export const Settings: ScreenComponent = ({componentId}) => {
+export const Settings: ScreenComponent = observer(({componentId}) => {
   const {ui} = useStores();
 
   // State
@@ -105,4 +107,4 @@ export const Settings: ScreenComponent = ({componentId}) => {
       </ScrollView>
     </View>
   );
-};
+});
