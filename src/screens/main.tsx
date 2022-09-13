@@ -16,8 +16,9 @@ import {Section} from '../components/section';
 import {BButton} from '../components/button';
 import {Reanimated2} from '../components/reanimated2';
 import {Row} from '../components/row';
+import { observer } from 'mobx-react';
 
-export const Main: ScreenComponent = ({componentId}) => {
+export const Main: ScreenComponent = observer(({componentId}) => {
   const {counter, ui} = useStores();
   const {t, api} = useServices();
 
@@ -118,4 +119,4 @@ export const Main: ScreenComponent = ({componentId}) => {
       </ScrollView>
     </View>
   );
-};
+});

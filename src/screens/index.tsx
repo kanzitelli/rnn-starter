@@ -55,5 +55,5 @@ export const screens = generateRNNScreens(
       },
     },
   },
-  [withGestureHandler, withStores, withServices, withObserver],
+  [withGestureHandler, withStores, withServices],
 );
