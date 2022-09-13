@@ -1,0 +1,51 @@
+diff --git a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/viewcontrollers/stack/topbar/button/ButtonPresenter.kt b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/viewcontrollers/stack/topbar/button/ButtonPresenter.kt
+index 78fb25d..7fd4637 100644
+--- a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/viewcontrollers/stack/topbar/button/ButtonPresenter.kt
++++ b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/viewcontrollers/stack/topbar/button/ButtonPresenter.kt
+@@ -74,7 +74,7 @@ open class ButtonPresenter(private val context: Context, private val button: But
+     private fun applyAccessibilityLabel(menuItem: MenuItem) {
+         if (button.accessibilityLabel.hasValue()) {
+             if (button.component.hasValue()) {
+-                menuItem.actionView.contentDescription = button.accessibilityLabel.get()
++                menuItem.actionView?.contentDescription = button.accessibilityLabel.get()
+             } else {
+                 MenuItemCompat.setContentDescription(menuItem, button.accessibilityLabel.get())
+             }
+diff --git a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/animations/BaseViewAnimator.kt b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/animations/BaseViewAnimator.kt
+index 8d6c256..c30fcad 100644
+--- a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/animations/BaseViewAnimator.kt
++++ b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/animations/BaseViewAnimator.kt
+@@ -43,17 +43,17 @@ open class BaseViewAnimator<T : View>(
+     private inner class AnimatorListener(private val startState: AnimationState, private val endVisibility: Int) : AnimatorListenerAdapter() {
+         var isCancelled = false
+ 
+-        override fun onAnimationStart(animation: Animator?) {
++        override fun onAnimationStart(animation: Animator) {
+             view.resetViewProperties()
+             view.visibility = View.VISIBLE
+             animationState = startState
+         }
+ 
+-        override fun onAnimationCancel(animation: Animator?) {
++        override fun onAnimationCancel(animation: Animator) {
+             isCancelled = true
+         }
+ 
+-        override fun onAnimationEnd(animation: Animator?) {
++        override fun onAnimationEnd(animation: Animator) {
+             if (!isCancelled) {
+                 animationState = AnimationState.Idle
+                 view.visibility = endVisibility
+diff --git a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/stack/topbar/titlebar/IconBackgroundDrawable.kt b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/stack/topbar/titlebar/IconBackgroundDrawable.kt
+index a469d4c..e3f606a 100644
+--- a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/stack/topbar/titlebar/IconBackgroundDrawable.kt
++++ b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/views/stack/topbar/titlebar/IconBackgroundDrawable.kt
+@@ -68,7 +68,7 @@ class IconBackgroundDrawable(
+         super.setBounds(r)
+     }
+ 
+-    override fun onBoundsChange(bounds: Rect?) {
++    override fun onBoundsChange(bounds: Rect) {
+         if (bounds != null) {
+             backgroundRect = Rect((bounds.width() - backgroundWidth) / 2,
+                     (bounds.height() - backgroundHeight) / 2,
