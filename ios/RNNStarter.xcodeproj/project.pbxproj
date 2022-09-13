@@ -35,6 +35,7 @@
 		00E356F21AD99517003FC87E /* RNNStarterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNStarterTests.m; sourceTree = "<group>"; };
 		0C2CA7B228B99042002E4349 /* RNNStarter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNNStarter-Bridging-Header.h"; sourceTree = "<group>"; };
 		0C2CA7B328B99042002E4349 /* file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = file.swift; sourceTree = "<group>"; };
+		0C9D880A28D0CC9500C0ADD9 /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = hermes.xcframework; path = "Pods/hermes-engine/destroot/Library/Frameworks/universal/hermes.xcframework"; sourceTree = "<group>"; };
 		0CCFB17C28BC14D300ADC163 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		0CCFB17D28BC14D300ADC163 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		0CCFB17E28BC14D300ADC163 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C9D880A28D0CC9500C0ADD9 /* hermes.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-RNNStarter.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-RNNStarter-RNNStarterTests.a */,

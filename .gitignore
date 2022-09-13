@@ -6,6 +6,7 @@
 #
 .env
 media/
+.vscode
 
 # Xcode
 #
@@ -35,6 +36,7 @@ build/
 local.properties
 *.iml
 *.hprof
+.cxx/
 
 # node.js
 #
