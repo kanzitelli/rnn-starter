@@ -5,7 +5,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'rnnstarter' do
+target 'RNNStarter' do
   use_expo_modules!
   post_integrate do |installer|
     begin
@@ -40,7 +40,7 @@ target 'rnnstarter' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'rnnstarterTests' do
+  target 'RNNStarterTests' do
     inherit! :complete
     # Pods for testing
   end

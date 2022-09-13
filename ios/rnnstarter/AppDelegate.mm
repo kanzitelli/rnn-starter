@@ -45,7 +45,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 #endif
 
   NSDictionary *initProps = [self prepareInitialProps];
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"rnnstarter", initProps);
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"RNNStarter", initProps);
 
   
 
