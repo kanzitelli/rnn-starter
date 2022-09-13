@@ -71,21 +71,18 @@ yarn ios:pods
 - [RNN Screens](https://github.com/kanzitelli/rnn-screens) - simplifed and predictable Navigation for React Native. Built on top of [React Native Navigation](https://github.com/wix/react-native-navigation).
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
-- [Flash List](https://github.com/Shopify/flash-list) - a better list for React Native (by Shopify).
 - [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_!
-- [Fast Image](https://github.com/DylanVann/react-native-fast-image) - performant React Native image component.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
+- [Flash List](https://github.com/Shopify/flash-list) - a better list for React Native (by Shopify).
+- [Fast Image](https://github.com/DylanVann/react-native-fast-image) - performant React Native image component.
+- [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
+- [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
 
 #### Extra helpful libraries
 
 - [React Native Navigation Hooks](https://github.com/underscopeio/react-native-navigation-hooks) - a set of hooks for React Native Navigation.
-- [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
-- [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
-- [Hermes Engine](https://reactnative.dev/docs/hermes) - a JavaScript engine optimized for running React Native apps.
-- [ESLint](https://github.com/eslint/eslint) + [Prettier](https://github.com/prettier/prettier) - keep your code neat and structured.
 - [Patch Package](https://github.com/ds300/patch-package) - useful for fixing node modules instantly.
 - [Release It](https://github.com/release-it/release-it) - automate versioning and publishing of your app.
-- [Typescript](https://www.typescriptlang.org/) - strict syntactical superset of JavaScript.
 
 #### Useful services/methods
 
@@ -128,7 +125,9 @@ export const screens = generateRNNScreens(
     Settings: {
       component: Settings,
       options: {
-        topBar: {...withTitle('Settings')},
+        topBar: {
+          ...withTitle('Settings')
+        },
       },
     },
     // ...
@@ -198,11 +197,11 @@ There are still some things I would like to add to the starter:
 
 Feel free to open an issue for suggestions.
 
-## Known issues (warnings)
+## Known issues
 
-- _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists. So you can find the patch file for fixing that in `patches/react-native+0.69.5.patch`. It will be autorun when you do `yarn add/remove/etc`.
-- _Issue after renaming on Android_. This happens when you [rename](#rename) the app using `yarn rename` script. Check [Rename](#rename) section for possible solution.
-- _Broken Dark mode_. This happens if `appearance` is system and the app's appearance is toggled. This is connected to RNUILib's View component and this [issue](https://github.com/wix/react-native-ui-lib/issues/2127) particularly. `UPD`: Possible solution is to use the patch file (under `patches` folder) that will be automatically applied in this starter. More details can be found [here](https://github.com/wix/react-native-ui-lib/issues/2127#issuecomment-1236120957).
+- **[iOS]** _Hermes framework not found/loaded_. There are some cases when `hermes.framework` is not found/loaded in XCode with React Native 0.70. Check [this comment](https://github.com/facebook/react-native/issues/34601#issuecomment-1243232921) for potential solution.
+- **[iOS]** _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists. You can find the patch file for fixing that at `patches/react-native+0.70.0.patch`.
+- **[Android]** _Issue after renaming on Android_. This happens when you [rename](#rename) the app using `yarn rename` script. Check [Rename](#rename) section for possible solution.
 
 ## Worth checking
 
@@ -212,6 +211,8 @@ Feel free to open an issue for suggestions.
 - [expo-starter](https://github.com/kanzitelli/expo-starter) - 🦥 Production-ready starter for Expo (React Native) App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, and much more.
 - [rn-starter](https://github.com/kanzitelli/rn-starter) - 🦄 Production-ready starter for React Native App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, Notifications, Permissions, and much more.
 
+> Originally bootstrapped from [starters-dev/rnn-with-expo](https://github.com/starters-dev/rnn-with-expo).
+
 ### Articles
 
 - "Build React Native Apps with Simplified and Predictable Navigation" - [Medium](https://kanzitelli.medium.com/build-react-native-apps-with-simplified-and-predictable-navigation-2859f047f29e), [Dev.to](https://dev.to/kanzitelli/build-react-native-apps-with-simplified-and-predictable-navigation-5b3j)
@@ -220,7 +221,7 @@ Feel free to open an issue for suggestions.
 
 ## Why
 
-...do we need yet another starter/boilerplate? Well, I work with React Native for more than 3 years and during the time I started having my own project structure which was a good fit for almost all of the delivered apps. Also, I have come up with some custom [useful services/methods](#useful-servicesmethods) which simplify usage of [React Native Navigation](https://github.com/wix/react-native-navigation) and other libraries. Check out [Advantages](#advantages) section.
+...do we need yet another starter/boilerplate? Well, I work with React Native for more than 4 years and during the time I started having my own project structure which was a good fit for almost all of the delivered apps. Also, I have come up with some custom [useful services/methods](#useful-servicesmethods) which simplify usage of [React Native Navigation](https://github.com/wix/react-native-navigation) and other libraries. Check out [Advantages](#advantages) section.
 
 ## License
 
