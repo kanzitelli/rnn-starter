@@ -86,7 +86,7 @@ yarn ios:pods
 
 #### Useful services/methods
 
-- `navigation` - a service where some of navigation configuration takes place in (such as default options).
+- `nav` - a service where some of navigation configuration takes place in (such as default options).
 - `translate` - a service that brings an easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [expo-localization](https://github.com/expo/expo/tree/master/packages/expo-localization).
 - `api` - a service where API-related methods are located.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
@@ -97,7 +97,7 @@ This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as
 
 `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
 
-https://user-images.githubusercontent.com/4402166/148626964-fc07acf6-1c38-44fc-a392-f933bd5f4d19.MP4
+https://user-images.githubusercontent.com/4402166/191782125-31bc8d9e-6d84-40b2-ae8e-798eda968d50.MP4
 
 ## Advantages
 
