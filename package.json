@@ -20,7 +20,9 @@
     "format": "prettier --check ./src",
     "format:write": "prettier --write ./src",
     "release": "dotenv release-it",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "patch-splash-android": "yo rn-toolbox:assets --splash splashscreen.psd --android",
+    "patch-splash-ios": "yo rn-toolbox:assets --splash splashscreen.psd --ios"
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.3.0",
@@ -43,6 +45,7 @@
     "react-native-navigation-hooks": "^6.3.0",
     "react-native-reanimated": "^2.10.0",
     "react-native-restart": "^0.0.24",
+    "react-native-splash-screen": "^3.3.0",
     "react-native-ui-lib": "^6.21.1",
     "react-native-vector-icons": "^9.2.0",
     "rn-bounceable": "^1.2.0",
