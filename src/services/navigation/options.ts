@@ -34,12 +34,12 @@ export const navDefaultOptions = (): Options => {
         color: getThemeColor('bgColor'),
       },
       backButton: {
-        color: getThemeColor('textColor'),
+        color: Colors.primary,
       },
       noBorder: true,
       elevation: 0,
-      rightButtonColor: getThemeColor('textColor'),
-      leftButtonColor: getThemeColor('textColor'),
+      rightButtonColor: Colors.primary,
+      leftButtonColor: Colors.primary,
       title: {
         color: getThemeColor('textColor'),
       },
