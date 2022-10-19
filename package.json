@@ -38,7 +38,7 @@
     "mobx-persist-store": "^1.1.2",
     "mobx-react": "^7.5.3",
     "react": "18.1.0",
-    "react-native": "^0.70.0",
+    "react-native": "0.70.3",
     "react-native-fast-image": "^8.6.1",
     "react-native-gesture-handler": "^2.6.0",
     "react-native-mmkv": "^2.4.3",
