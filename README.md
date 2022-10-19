@@ -92,12 +92,6 @@ yarn ios:pods
 - `api` - a service where API-related methods are located.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
 
-#### Design System
-
-This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as a design system, UI toolset and a source of ready-to-go components.
-
-`configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
-
 #### Splash Screen
 
 Starting from `v16.0.0`, we have added a Splash Screen that works great on pair with [React Native Navigation](https://github.com/wix/react-native-navigation) and can be hidden at any place in the app! Thanks to [@FawadMahmood](https://github.com/FawadMahmood)!
@@ -130,6 +124,12 @@ Now, splash screens for iOS and Android must be generated and you should manuall
 </details>
 
 > Splash Screen hides loading state of the app bundle when launching the app in debug mode.
+
+#### Design System
+
+This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as a design system, UI toolset and a source of ready-to-go components.
+
+`configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
 
 https://user-images.githubusercontent.com/4402166/191782125-31bc8d9e-6d84-40b2-ae8e-798eda968d50.MP4
 
