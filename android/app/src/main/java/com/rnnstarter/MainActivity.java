@@ -1,25 +1,19 @@
 package com.rnnstarter;
 
-
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
-
-import com.reactnativenavigation.NavigationActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-
-
-import org.devio.rn.splashscreen.SplashScreen; // here
-
+// RNN
+import com.reactnativenavigation.NavigationActivity;
+// Splash screen
+import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends NavigationActivity {
-
-
   @Override
   public void onPostCreate(@Nullable Bundle savedInstanceState) {
     super.onPostCreate(savedInstanceState);
-    SplashScreen.show(this);  // here
+    SplashScreen.show(this); // show splash screen
   }
 
   public static class MainActivityDelegate extends ReactActivityDelegate {

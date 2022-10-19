@@ -15,14 +15,15 @@
     "ios:pods:ru": "cd ios && pod install --repo-update && cd ..",
     "start": "npx react-native start",
     "rename": "npx react-native-rename",
+    "splash:gen": "yarn splash:gen:ios && splash:gen:android",
+    "splash:gen:android": "yo rn-toolbox:assets --splash splashscreen.psd --android",
+    "splash:gen:ios": "yo rn-toolbox:assets --splash splashscreen.psd --ios",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --check ./src",
     "format:write": "prettier --write ./src",
     "release": "dotenv release-it",
-    "postinstall": "patch-package",
-    "patch-splash-android": "yo rn-toolbox:assets --splash splashscreen.psd --android",
-    "patch-splash-ios": "yo rn-toolbox:assets --splash splashscreen.psd --ios"
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.3.0",
