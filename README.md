@@ -129,7 +129,7 @@ Now, splash screens for iOS and Android must be generated and you should manuall
 
 This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as a design system, UI toolset and a source of ready-to-go components.
 
-`configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
+`DesignSystem` - a class where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
 
 https://user-images.githubusercontent.com/4402166/191782125-31bc8d9e-6d84-40b2-ae8e-798eda968d50.MP4
 

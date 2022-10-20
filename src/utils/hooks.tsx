@@ -3,7 +3,7 @@ import {useColorScheme} from 'react-native';
 import {reaction} from 'mobx';
 
 import {stores} from '../stores';
-import {configureDesignSystem} from './designSystem';
+import {DesignSystem} from './designSystem';
 import {services} from '../services';
 import {
   NavigationComponentProps,
@@ -24,7 +24,7 @@ export const useAppearance = () => {
   reaction(
     () => ui.appearance,
     value => {
-      configureDesignSystem();
+      DesignSystem.configure();
       setAppearance(value);
     },
   );

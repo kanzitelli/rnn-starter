@@ -3,7 +3,7 @@ import {Options, OptionsTopBar} from 'react-native-navigation';
 import {Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
-  getThemeColor,
+  DesignSystem,
   getThemeRNStatusBarStyle,
   getThemeStatusBarStyle,
 } from '../../utils/designSystem';
@@ -15,7 +15,7 @@ export const screenDefaultOptions = (): Options => {
   return {
     topBar: {
       background: {
-        color: getThemeColor('bgColor'),
+        color: DesignSystem.themeColor('bgColor'),
       },
       backButton: {
         color: Colors.primary,
@@ -25,11 +25,11 @@ export const screenDefaultOptions = (): Options => {
       rightButtonColor: Colors.primary,
       leftButtonColor: Colors.primary,
       title: {
-        color: getThemeColor('textColor'),
+        color: DesignSystem.themeColor('textColor'),
       },
       largeTitle: {
         visible: true,
-        color: getThemeColor('textColor'),
+        color: DesignSystem.themeColor('textColor'),
       },
     },
   };
@@ -50,7 +50,7 @@ export const tabsDefaultOptions = (): Options => {
   return {
     bottomTabs: {
       titleDisplayMode: 'alwaysShow',
-      backgroundColor: getThemeColor('bgColor'),
+      backgroundColor: DesignSystem.themeColor('bgColor'),
       hideShadow: true,
       elevation: 0,
     },
@@ -65,12 +65,12 @@ export const navDefaultOptions = (): Options => {
   return {
     layout: {
       orientation: ['portrait'],
-      componentBackgroundColor: getThemeColor('bgColor'),
-      backgroundColor: getThemeColor('bgColor'),
+      componentBackgroundColor: DesignSystem.themeColor('bgColor'),
+      backgroundColor: DesignSystem.themeColor('bgColor'),
     },
     statusBar: {
       style: getThemeStatusBarStyle(),
-      backgroundColor: getThemeColor('bgColor'),
+      backgroundColor: DesignSystem.themeColor('bgColor'),
     },
 
     ...screenDefaultOptions(),
