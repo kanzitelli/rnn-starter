@@ -2,7 +2,13 @@
   <img src="https://xxx-files.ggc.team/oss/rnn-starter/cover.png" width="80%" title="Logo">
 </p>
 
+![React Native](https://img.shields.io/badge/React%20Native-0.70.3-blue)
+![React Native Navigation](https://img.shields.io/badge/React%20Native%20Navigation-7.29.0-blue)
+![Expo](https://img.shields.io/badge/𝝠%20Expo-46.0.16-blue)
+
 This starter is a collection of libraries and approaches needed for fast start and productive maintainance of React Native App.
+
+> <i>RNN Starter</i> is a part of [starters.dev](https://github.com/starters-dev).
 
 ## Getting Started
 
