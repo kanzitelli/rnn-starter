@@ -9276,10 +9276,10 @@ react-native-gradle-plugin@^0.70.3:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz#cbcf0619cbfbddaa9128701aa2d7b4145f9c4fc8"
   integrity sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==
 
-react-native-mmkv@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.4.3.tgz#6bb4c2d5e328513da11faab1371d056a189adbd0"
-  integrity sha512-0hYNOTbsjJ5j5cpX+qjwReGIxuYE9MWRsyPQ72fTOvzmEjYXCF4Wr2VQoqx8R6W1/Uinekvln7dGvJ4RExmHhQ==
+react-native-mmkv@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.5.0.tgz#b338cd5841daa266b756ee90c486b3663230fde1"
+  integrity sha512-ufTMHFjmFfo8X+g4FmmesshNRlt5xeiPN5KJwFRDjt5CiGELad3mVSKFx/gslYyrxgR7yYLETb/HCb0JLzB5pA==
 
 react-native-navigation-hooks@^6.3.0:
   version "6.3.0"
@@ -9339,10 +9339,10 @@ react-native-text-size@4.0.0-rc.1:
   resolved "https://registry.yarnpkg.com/react-native-text-size/-/react-native-text-size-4.0.0-rc.1.tgz#1e048d345dd6a5a8e1269e0585c1a5948c478da5"
   integrity sha512-CysqjU2jK6Yc+a+kEI222pUyTY2ywcU2HqbFqf1KHymW6OPTdvBBHqbEJKL0QiLhQaFYDbqicM+h990s9TP00g==
 
-react-native-ui-lib@^6.22.0:
-  version "6.22.0"
-  resolved "https://registry.yarnpkg.com/react-native-ui-lib/-/react-native-ui-lib-6.22.0.tgz#c5652a64d150c1b8d25597e69393963d77d93556"
-  integrity sha512-rOIVNVaAhztUiWCyn19nPWoJMivElr+KLXIwD1Hcolsd4BORzJVYii1MUnZBInTF3n9I2oe/YiL0cLPNT+Oapw==
+react-native-ui-lib@^6.22.1:
+  version "6.22.1"
+  resolved "https://registry.yarnpkg.com/react-native-ui-lib/-/react-native-ui-lib-6.22.1.tgz#00f66803b979d6fff8c3e1934d558693bc676403"
+  integrity sha512-VQwdn8iPnEHQUbe58FswazplIySTbbX+FRF8JonRLffJ3fEp1O73j6Q3jWIKklbZc5sDibLLjLc55w/jKUi+2g==
   dependencies:
     babel-plugin-transform-inline-environment-variables "^0.0.2"
     color "^3.1.0"
