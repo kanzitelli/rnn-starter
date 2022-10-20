@@ -137,7 +137,7 @@ This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as
 
 `DesignSystem` - a class where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
 
-https://user-images.githubusercontent.com/4402166/191782125-31bc8d9e-6d84-40b2-ae8e-798eda968d50.MP4
+https://user-images.githubusercontent.com/4402166/197052859-d7eef80a-a923-4a9b-86df-b9dbc32a075b.mov
 
 ## Advantages
 
@@ -172,7 +172,7 @@ export const screens = generateRNNScreens(
     },
     // ...
   },
-  [withGestureHandler, withStores, withServices, withAnotherProvider],
+  [withGestureHandler, withSS, withAppearance],
 );
 ```
 
