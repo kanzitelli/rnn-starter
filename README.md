@@ -2,7 +2,13 @@
   <img src="https://xxx-files.ggc.team/oss/rnn-starter/cover.png" width="80%" title="Logo">
 </p>
 
+![React Native](https://img.shields.io/badge/React%20Native-0.70.3-blue)
+![React Native Navigation](https://img.shields.io/badge/React%20Native%20Navigation-7.29.0-blue)
+![Expo](https://img.shields.io/badge/𝝠%20Expo-46.0.16-blue)
+
 This starter is a collection of libraries and approaches needed for fast start and productive maintainance of React Native App.
+
+> <i>RNN Starter</i> is a part of [starters.dev](https://github.com/starters-dev) collection.
 
 ## Getting Started
 
@@ -12,7 +18,7 @@ This starter is a collection of libraries and approaches needed for fast start a
 npx cli-rn new App -t rnn
 ```
 
-> As `cli-rn` uses `react-native-rename` script for renaming under the hood, please refer to [Rename](#rename) section to apply necessary changes to Android part.
+> As `cli-rn` uses `react-native-rename` script for renaming under the hood, please refer to [Rename section](#rename) to apply necessary changes to Android part.
 
 If you have any troubles running the app with `yarn ios` or `yarn android`, open XCode or Android Studio and run the project from there.
 
@@ -77,6 +83,7 @@ yarn ios:pods
 - [Fast Image](https://github.com/DylanVann/react-native-fast-image) - performant React Native image component.
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - customizable icons for React Native.
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
+- [React Native Splash Screen](https://github.com/crazycodeboy/react-native-splash-screen) - a splash screen for React Native. Works with RNN!
 
 #### Extra helpful libraries
 
@@ -91,13 +98,46 @@ yarn ios:pods
 - `api` - a service where API-related methods are located.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
 
-#### Design system
+#### Splash Screen 🎉
+
+Starting from `v16.0.0`, we have added a Splash Screen that works great on pair with [React Native Navigation](https://github.com/wix/react-native-navigation) and can be hidden at any moment in your app! Thanks to [@FawadMahmood](https://github.com/FawadMahmood)!
+
+> Current approach relies on `LaunchImage` on iOS that is marked as deprecated by Apple. However, people still use it and that's the only way to make it work with React Native Navigation.
+
+At some point of the app development, you'll probably want to replace existing splash screen (with [starters.dev](https://github.com/starters-dev) icon). Below, you can find some tutorials/advices on how to replace the splash screen images.
+
+<details>
+<summary>Splash Screen replacement</summary>
+
+If you already have some images ready for Splash Screen, you can just drag and drop them instead of existing `Images/LaunchImage` in XCode.
+
+If you'd like to generate new images, then follow the steps below.
+
+We are going to use [rn-toolbox](https://github.com/bamlab/generator-rn-toolbox) to achieve that. You can use any other tool or website.
+
+1. Follow the [requirements and installation](https://github.com/bamlab/generator-rn-toolbox/blob/master/generators/assets/README.md#requirements) steps for rn-toolbox.
+
+2. Prepare `splashscreen.psd` with the design of your splash screen.
+
+3. Run `yarn splash:gen`.
+
+Now, splash screens for iOS and Android must be generated and you should manually add them to the following folders.
+
+> Note for Android: discard any changes of `styles.xml` if it was accidentally overwritten by the script.
+
+> Note for iOS: key `UILaunchStoryboardName` must be removed from `Info.plist` file and `LaunchImage` value must be set for "Asset Catalog Launch Image" in Build Settings.
+
+</details>
+
+> Splash Screen hides loading state of the app bundle when launching the app in debug mode.
+
+#### Design System
 
 This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as a design system, UI toolset and a source of ready-to-go components.
 
-`configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
+`DesignSystem` - a class where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
 
-https://user-images.githubusercontent.com/4402166/191782125-31bc8d9e-6d84-40b2-ae8e-798eda968d50.MP4
+https://user-images.githubusercontent.com/4402166/197052859-d7eef80a-a923-4a9b-86df-b9dbc32a075b.mov
 
 ## Advantages
 
@@ -126,13 +166,13 @@ export const screens = generateRNNScreens(
       component: Settings,
       options: {
         topBar: {
-          ...withTitle('Settings')
+          ...withTitle('Settings'),
         },
       },
     },
     // ...
   },
-  [withGestureHandler, withStores, withServices, withAnotherProvider],
+  [withGestureHandler, withSS, withAppearance],
 );
 ```
 
@@ -142,8 +182,6 @@ export const screens = generateRNNScreens(
 import {screens} from '.';
 
 const SomeScreen = ({componentId}) => {
-  const {nav} = useServices();
-
   return (
     <View>
       <Button
@@ -199,7 +237,7 @@ Feel free to open an issue for suggestions.
 
 ## Known issues
 
-- **[iOS]** _Hermes framework not found/loaded_. There are some cases when `hermes.framework` is not found/loaded in XCode with React Native 0.70. Check [this comment](https://github.com/facebook/react-native/issues/34601#issuecomment-1243232921) for potential solution.
+- **[iOS]** _Hermes framework not found/loaded_. There are some cases when `hermes.framework` is not found/loaded in XCode with React Native 0.70. Check [this](https://github.com/facebook/react-native/issues/34608#issuecomment-1243232921) and [this](https://github.com/facebook/react-native/issues/34608#issuecomment-1246730507) comments for potential solution.
 - **[iOS]** _Large title is not shown on 2nd+ tab_. This [issue](https://github.com/software-mansion/react-native-screens/issues/649) exists. You can find the patch file for fixing that at `patches/react-native+0.70.0.patch`.
 - **[Android]** _Issue after renaming on Android_. This happens when you [rename](#rename) the app using `yarn rename` script. Check [Rename](#rename) section for possible solution.
 

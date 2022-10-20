@@ -2,7 +2,6 @@
 interface IStore {
   hydrate?: () => PVoid;
 }
-type Stores = Record<string, IStore>;
 
 type StoreDefaultKeys = 'set' | 'setMany' | 'hydrate';
 type StoreKeysOf<S> = keyof Omit<S, StoreDefaultKeys>;
@@ -11,7 +10,6 @@ type StoreKeysOf<S> = keyof Omit<S, StoreDefaultKeys>;
 interface IService {
   init: () => PVoid;
 }
-type Services = Record<string, IService>;
 
 // System
 type PVoid = Promise<void>;

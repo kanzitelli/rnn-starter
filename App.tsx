@@ -1,19 +1,26 @@
+import {LogBox} from 'react-native';
 import {Root, Screen, BottomTabs} from 'rnn-screens';
 
 import {screens} from './src/screens';
-import {initServices} from './src/services';
-import {hydrateStores} from './src/stores';
-import {configureDesignSystem} from './src/utils/designSystem';
+import {Services} from './src/services';
+import {Stores} from './src/stores';
+import {DesignSystem} from './src/utils/designSystem';
+import SplashScreen from 'react-native-splash-screen';
+
+LogBox.ignoreLogs(['Require', 'RCTBridge']);
 
 export const beforeStart = async (): PVoid => {
   // 1. hydrate stores
-  await hydrateStores();
+  await Stores.hydrate();
 
   // 2. configure design system
-  await configureDesignSystem();
+  await DesignSystem.configure();
 
   // 3. init services
-  await initServices();
+  await Services.init();
+
+  // 4. hide splash screen
+  SplashScreen.hide();
 };
 
 export const App = () =>

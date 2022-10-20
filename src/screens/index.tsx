@@ -4,15 +4,11 @@ import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-
 import {Main} from './main';
 import {Settings} from './settings';
 
-import {withServices} from '../services';
-import {withStores} from '../stores';
-import {
-  withBottomTab,
-  withRightButtons,
-  withTitle,
-} from '../services/navigation/options';
+import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {Sample} from './_screen-sample';
 import {Playground} from './playground';
+import {withAppearance} from '../utils/hooks';
+import {withSS} from '../utils/providers';
 
 export const screens = generateRNNScreens(
   {
@@ -20,7 +16,7 @@ export const screens = generateRNNScreens(
       component: Main,
       options: {
         topBar: {
-          ...withTitle('Main'),
+          // title is set in services/navigation/index.ts::configureTitleTranslations
           ...withRightButtons('inc', 'dec'),
         },
         ...withBottomTab('Main', 'home'),
@@ -29,18 +25,14 @@ export const screens = generateRNNScreens(
     Playground: {
       component: Playground,
       options: {
-        topBar: {
-          ...withTitle('Playground'),
-        },
+        topBar: {title: {text: 'Playground'}},
         ...withBottomTab('Playground', 'construct'),
       },
     },
     Settings: {
       component: Settings,
       options: {
-        topBar: {
-          ...withTitle('Settings'),
-        },
+        // title is set in services/navigation/index.ts::configureTitleTranslations
         ...withBottomTab('Settings', 'settings'),
       },
     },
@@ -49,10 +41,10 @@ export const screens = generateRNNScreens(
       component: Sample,
       options: {
         topBar: {
-          ...withTitle('Sample'),
+          title: {text: 'Sample'},
         },
       },
     },
   },
-  [withGestureHandler, withStores, withServices],
+  [withGestureHandler, withSS, withAppearance],
 );
