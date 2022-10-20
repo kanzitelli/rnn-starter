@@ -6,29 +6,8 @@ import {NavButton, navButtons} from './buttons';
 
 const ICON_SIZE = 25;
 
-export const navDefaultOptions = (): Options => {
+export const screenDefaultOptions = (): Options => {
   return {
-    layout: {
-      orientation: ['portrait'],
-      componentBackgroundColor: getThemeColor('bgColor'),
-      backgroundColor: getThemeColor('bgColor'),
-    },
-    bottomTabs: {
-      titleDisplayMode: 'alwaysShow',
-      backgroundColor: getThemeColor('bgColor'),
-      hideShadow: true,
-      elevation: 0,
-    },
-    bottomTab: {
-      iconColor: Colors.primary,
-      textColor: Colors.primary,
-      selectedIconColor: Colors.primary,
-      selectedTextColor: Colors.primary,
-    },
-    statusBar: {
-      style: getThemeStatusBarStyle(),
-      backgroundColor: getThemeColor('bgColor'),
-    },
     topBar: {
       background: {
         color: getThemeColor('bgColor'),
@@ -51,16 +30,52 @@ export const navDefaultOptions = (): Options => {
   };
 };
 
+export const tabDefaultOptions = (): Options => {
+  return {
+    bottomTab: {
+      iconColor: Colors.primary,
+      textColor: Colors.primary,
+      selectedIconColor: Colors.primary,
+      selectedTextColor: Colors.primary,
+    },
+  };
+};
+
+export const tabsDefaultOptions = (): Options => {
+  return {
+    bottomTabs: {
+      titleDisplayMode: 'alwaysShow',
+      backgroundColor: getThemeColor('bgColor'),
+      hideShadow: true,
+      elevation: 0,
+    },
+  };
+};
+
+export const navDefaultOptions = (): Options => {
+  return {
+    layout: {
+      orientation: ['portrait'],
+      componentBackgroundColor: getThemeColor('bgColor'),
+      backgroundColor: getThemeColor('bgColor'),
+    },
+    statusBar: {
+      style: getThemeStatusBarStyle(),
+      backgroundColor: getThemeColor('bgColor'),
+    },
+
+    ...screenDefaultOptions(),
+    ...tabsDefaultOptions(),
+    ...tabDefaultOptions(),
+  };
+};
+
 export const withBottomTab = (text = 'Screen', icon = 'earth'): Options => ({
   bottomTab: {
     text,
     icon: Ionicons.getImageSourceSync(`${icon}-outline`, ICON_SIZE),
     selectedIcon: Ionicons.getImageSourceSync(icon, ICON_SIZE),
   },
-});
-
-export const withTitle = (text = 'Screen'): OptionsTopBar => ({
-  title: {text},
 });
 
 export const withRightButtons = (...btns: NavButton[]): OptionsTopBar => ({
