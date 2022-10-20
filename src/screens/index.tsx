@@ -16,10 +16,7 @@ export const screens = generateRNNScreens(
       component: Main,
       options: {
         topBar: {
-          // title is set in services/navigation/index.ts
-          background: {
-            color: 'red',
-          },
+          // title is set in services/navigation/index.ts::configureTitleTranslations
           ...withRightButtons('inc', 'dec'),
         },
         ...withBottomTab('Main', 'home'),
@@ -35,7 +32,7 @@ export const screens = generateRNNScreens(
     Settings: {
       component: Settings,
       options: {
-        topBar: {title: {text: 'Settings'}},
+        // title is set in services/navigation/index.ts::configureTitleTranslations
         ...withBottomTab('Settings', 'settings'),
       },
     },
@@ -45,9 +42,6 @@ export const screens = generateRNNScreens(
       options: {
         topBar: {
           title: {text: 'Sample'},
-          background: {
-            color: 'yellow',
-          },
         },
       },
     },

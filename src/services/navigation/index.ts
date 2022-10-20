@@ -21,10 +21,11 @@ export class NavigationService implements IService {
   };
 
   handleUIOptionsChange = () => {
-    // -- setting common default options
+    // setting common default options
     this.configureDefaultOptions();
 
-    // -- updating options among mounted screens
+    // updating options among mounted screens
+    // hack for dark mode without app reload or setRoot
     for (const cName in this.mountedScreens) {
       screens.N.mergeOptions(
         this.mountedScreens[cName],
@@ -43,7 +44,7 @@ export class NavigationService implements IService {
     );
 
   private configureDefaultOptions = () => {
-    // -- setting common default options
+    // setting common default options
     screens.N.setDefaultOptions(navDefaultOptions());
 
     this.configureTitleTranslations();
@@ -52,7 +53,7 @@ export class NavigationService implements IService {
   private configureTitleTranslations = () => {
     const {t} = services;
 
-    // -- setting screen-based specific options
+    // setting screen-based specific options
     // for ex., if you want to use translate service
     screens.mergeOptions('Main', {
       topBar: {
