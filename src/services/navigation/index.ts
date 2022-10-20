@@ -1,3 +1,4 @@
+import {Platform} from 'react-native';
 import merge from 'lodash/merge';
 import {
   navDefaultOptions,
@@ -6,6 +7,7 @@ import {
 } from './options';
 import {screens} from '../../screens';
 import {services} from '..';
+import {App} from '../../../App';
 
 export class NavigationService implements IService {
   private inited = false;
@@ -27,15 +29,29 @@ export class NavigationService implements IService {
     // updating options among mounted screens
     // hack for dark mode without app reload or setRoot
     for (const cName in this.mountedScreens) {
+      const screenOptions = screens.get(cName as any).options;
       screens.N.mergeOptions(
         this.mountedScreens[cName],
         merge(
           screenDefaultOptions(), // applying default screen options
           tabsDefaultOptions(), // applying default tab options
-          screens.get(cName as any).options, // taking currently applied options
+          screenOptions, // taking currently applied options
         ),
       );
     }
+
+    if (Platform.OS === 'android') {
+      // [Android] we need to reload (setRoot) the app
+      //           the reason we need to set root again on Android is that when we merge options for mounted screens and re-setting default options,
+      //           RNN doesn't merge "bottomTabs.backgroundColor", it follows current system theme and ignores new values
+      // [iOS] You might want to use this method also for iOS because of some issues with status bar style when the appearance is not system,
+      //       and status bar style follows system theme.
+      this.reload();
+    }
+  };
+
+  private reload = () => {
+    screens.N.setRoot(App());
   };
 
   private registerComponentDidAppearListener = () =>
