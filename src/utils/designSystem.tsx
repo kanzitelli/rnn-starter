@@ -1,3 +1,4 @@
+import {StatusBarStyle as RNStatusBarStyle} from 'react-native';
 import {Color} from 'react-native-navigation';
 import {Colors, Typography} from 'react-native-ui-lib';
 import {stores} from '../stores';
@@ -77,6 +78,23 @@ export const getThemeStatusBarStyle = (): StatusBarStyle => {
         return 'light';
       case 'light':
         return 'dark';
+    }
+  }
+};
+
+export const getThemeRNStatusBarStyle = (): RNStatusBarStyle => {
+  const {ui} = stores;
+
+  if (ui.isAppearanceSystem) {
+    return 'default';
+  } else {
+    switch (ui.appearance) {
+      case 'dark':
+        return 'light-content';
+      case 'light':
+        return 'dark-content';
+      default:
+        return 'default';
     }
   }
 };

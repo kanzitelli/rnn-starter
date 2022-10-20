@@ -1,7 +1,12 @@
+import {StatusBar} from 'react-native';
 import {Options, OptionsTopBar} from 'react-native-navigation';
 import {Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {getThemeColor, getThemeStatusBarStyle} from '../../utils/designSystem';
+import {
+  getThemeColor,
+  getThemeRNStatusBarStyle,
+  getThemeStatusBarStyle,
+} from '../../utils/designSystem';
 import {NavButton, navButtons} from './buttons';
 
 const ICON_SIZE = 25;
@@ -53,6 +58,10 @@ export const tabsDefaultOptions = (): Options => {
 };
 
 export const navDefaultOptions = (): Options => {
+  // quick-fix: it seems like RNN options ignore status bar style,
+  // so StatusBar from react-native is used
+  StatusBar.setBarStyle(getThemeRNStatusBarStyle());
+
   return {
     layout: {
       orientation: ['portrait'],
