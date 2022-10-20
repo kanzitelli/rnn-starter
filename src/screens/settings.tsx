@@ -18,10 +18,11 @@ import {useStores} from '../stores';
 import {screens} from '.';
 import {navButtons} from '../services/navigation/buttons';
 import {useNavigationButtonPress} from 'react-native-navigation-hooks/dist';
-import {restartApp} from '../utils/help';
+import {useServices} from '../services';
 
 export const Settings: ScreenComponent = observer(({componentId}) => {
   const {ui} = useStores();
+  const {nav} = useServices();
 
   // State
   const [appearance, setAppearance] = useState(ui.appearance);
@@ -58,7 +59,7 @@ export const Settings: ScreenComponent = observer(({componentId}) => {
       language,
     });
 
-    restartApp();
+    nav.handleUIOptionsChange();
   };
   useNavigationButtonPress(handleSave, componentId, navButtons.save.id);
 

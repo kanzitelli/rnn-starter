@@ -1,5 +1,11 @@
-import RNRestart from 'react-native-restart';
+export const randomStr = (len: number = 16) => {
+  const chars =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  const charsLength = chars.length;
+  for (let i = 0; i < len; i++) {
+    result += chars.charAt(Math.floor(Math.random() * charsLength));
+  }
 
-export const randomNum = (max = 100): number => Math.floor(Math.random() * max);
-
-export const restartApp = () => RNRestart.Restart();
+  return result;
+};
