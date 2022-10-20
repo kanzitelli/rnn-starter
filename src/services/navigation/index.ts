@@ -11,7 +11,7 @@ import {App} from '../../../App';
 
 export class NavigationService implements IService {
   private inited = false;
-  private mountedScreens: Record<string, string> = {}; // Record<ComponentName, ComponentId>
+  private mountedComponents: Record<string, string> = {}; // Record<ComponentId, ComponentName>
 
   init = async (): PVoid => {
     if (!this.inited) {
@@ -26,12 +26,13 @@ export class NavigationService implements IService {
     // setting common default options
     this.configureDefaultOptions();
 
-    // updating options among mounted screens
+    // updating options among mounted components
     // hack for dark mode without app reload or setRoot
-    for (const cName in this.mountedScreens) {
+    for (const cId in this.mountedComponents) {
+      const cName = this.mountedComponents[cId];
       const screenOptions = screens.get(cName as any).options;
       screens.N.mergeOptions(
-        this.mountedScreens[cName],
+        cId,
         merge(
           screenDefaultOptions(), // applying default screen options
           tabsDefaultOptions(), // applying default tab options
@@ -56,7 +57,7 @@ export class NavigationService implements IService {
 
   private registerComponentDidAppearListener = () =>
     screens.N.events().registerComponentDidAppearListener(
-      e => (this.mountedScreens[e.componentName] = e.componentId),
+      e => (this.mountedComponents[e.componentId] = e.componentName),
     );
 
   private configureDefaultOptions = () => {
