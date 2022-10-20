@@ -13,7 +13,7 @@ export class NavService implements IService {
 
   init = async (): PVoid => {
     if (!this.inited) {
-      this.registerListeners();
+      this.registerComponentDidAppearListener();
       this.configureDefaultOptions();
 
       this.inited = true;
@@ -29,19 +29,28 @@ export class NavService implements IService {
       screens.N.mergeOptions(
         this.mountedScreens[cName],
         merge(
-          screenDefaultOptions(),
-          tabsDefaultOptions(),
-          screens.get(cName as any).options,
+          screenDefaultOptions(), // applying default screen options
+          tabsDefaultOptions(), // applying default tab options
+          screens.get(cName as any).options, // taking currently applied options
         ),
       );
     }
   };
 
-  private configureDefaultOptions = () => {
-    const {t} = services;
+  private registerComponentDidAppearListener = () =>
+    screens.N.events().registerComponentDidAppearListener(
+      e => (this.mountedScreens[e.componentName] = e.componentId),
+    );
 
+  private configureDefaultOptions = () => {
     // -- setting common default options
     screens.N.setDefaultOptions(navDefaultOptions());
+
+    this.configureTitleTranslations();
+  };
+
+  private configureTitleTranslations = () => {
+    const {t} = services;
 
     // -- setting screen-based specific options
     // for ex., if you want to use translate service
@@ -53,10 +62,13 @@ export class NavService implements IService {
         text: t.do('home.title'),
       },
     });
+    screens.mergeOptions('Settings', {
+      topBar: {
+        title: {text: t.do('settings.title')},
+      },
+      bottomTab: {
+        text: t.do('settings.title'),
+      },
+    });
   };
-
-  private registerListeners = () =>
-    screens.N.events().registerComponentDidAppearListener(
-      e => (this.mountedScreens[e.componentName] = e.componentId),
-    );
 }
