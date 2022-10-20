@@ -1,4 +1,7 @@
-import {StatusBarStyle as RNStatusBarStyle} from 'react-native';
+import {
+  StatusBarStyle as ExpoStatusBarStyle,
+  setStatusBarStyle,
+} from 'expo-status-bar';
 import {Color} from 'react-native-navigation';
 import {Colors, Typography} from 'react-native-ui-lib';
 import {stores} from '../stores';
@@ -49,6 +52,9 @@ export class DesignSystem {
       Colors.loadSchemes({dark: {}, light: {}});
     }
 
+    // setting status bar style
+    setStatusBarStyle(getThemeExpoStatusBarStyle());
+
     Typography.loadTypographies({
       section: {fontSize: 26, fontWeight: '600'},
     });
@@ -83,19 +89,19 @@ export const getThemeStatusBarStyle = (): StatusBarStyle => {
   }
 };
 
-export const getThemeRNStatusBarStyle = (): RNStatusBarStyle => {
+export const getThemeExpoStatusBarStyle = (): ExpoStatusBarStyle => {
   const {ui} = stores;
 
   if (ui.isAppearanceSystem) {
-    return 'default';
+    return 'auto';
   } else {
     switch (ui.appearance) {
       case 'dark':
-        return 'light-content';
+        return 'light';
       case 'light':
-        return 'dark-content';
+        return 'dark';
       default:
-        return 'default';
+        return 'auto';
     }
   }
 };
