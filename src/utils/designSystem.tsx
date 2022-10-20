@@ -31,6 +31,7 @@ const themes: Record<Appearance, ThemeColors> = {
 export const configureDesignSystem = async (): PVoid => {
   const {ui} = stores;
 
+  setColorsScheme(ui.appearance); // needed here
   if (ui.isAppearanceSystem) {
     Colors.loadColors(colors);
     Colors.loadSchemes(themes);
@@ -42,6 +43,14 @@ export const configureDesignSystem = async (): PVoid => {
   Typography.loadTypographies({
     section: {fontSize: 26, fontWeight: '600'},
   });
+};
+
+const setColorsScheme = (appearance: Appearance) => {
+  if (appearance === 'system') {
+    Colors.setScheme('default');
+  } else {
+    Colors.setScheme(appearance);
+  }
 };
 
 export const getThemeColor = (c: keyof ThemeColors): Color => {
