@@ -1,8 +1,4 @@
 import React from 'react';
-import {
-  NavigationComponentProps,
-  NavigationFunctionComponent,
-} from 'react-native-navigation';
 
 import './_hydration';
 import {UIStore} from './ui';
@@ -14,19 +10,11 @@ export const stores = {
 };
 type ContextStores = typeof stores;
 
-const storeContext = React.createContext<ContextStores>(stores);
-
-export const withStores = (C: NavigationFunctionComponent) => {
-  return (props: NavigationComponentProps): React.ReactElement => {
-    return (
-      <storeContext.Provider value={stores}>
-        <C {...props} />
-      </storeContext.Provider>
-    );
-  };
-};
-
-export const useStores = (): ContextStores => React.useContext(storeContext);
+const StoresContext = React.createContext<ContextStores>(stores);
+export const StoresProvider = ({children}: any) => (
+  <StoresContext.Provider value={stores}>{children}</StoresContext.Provider>
+);
+export const useStores = (): ContextStores => React.useContext(StoresContext);
 
 export const hydrateStores = async (): PVoid => {
   for (const key in stores) {

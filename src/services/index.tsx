@@ -1,8 +1,4 @@
 import React from 'react';
-import {
-  NavigationComponentProps,
-  NavigationFunctionComponent,
-} from 'react-native-navigation';
 
 import {OnStartService} from './onStart';
 import {NavService} from './navigation';
@@ -17,20 +13,14 @@ export const services = {
 };
 type ContextServices = typeof services;
 
-const servicesContext = React.createContext<ContextServices>(services);
-
-export const withServices = (C: NavigationFunctionComponent) => {
-  return (props: NavigationComponentProps): React.ReactElement => {
-    return (
-      <servicesContext.Provider value={services}>
-        <C {...props} />
-      </servicesContext.Provider>
-    );
-  };
-};
-
+const ServicesContext = React.createContext<ContextServices>(services);
+export const ServicesProvider = ({children}: any) => (
+  <ServicesContext.Provider value={services}>
+    {children}
+  </ServicesContext.Provider>
+);
 export const useServices = (): ContextServices =>
-  React.useContext(servicesContext);
+  React.useContext(ServicesContext);
 
 export const initServices = async (): PVoid => {
   for (const key in services) {
