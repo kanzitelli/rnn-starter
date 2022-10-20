@@ -8,7 +8,7 @@
 
 This starter is a collection of libraries and approaches needed for fast start and productive maintainance of React Native App.
 
-> <i>RNN Starter</i> is a part of [starters.dev](https://github.com/starters-dev).
+> <i>RNN Starter</i> is a part of [starters.dev](https://github.com/starters-dev) collection.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ This starter is a collection of libraries and approaches needed for fast start a
 npx cli-rn new App -t rnn
 ```
 
-> As `cli-rn` uses `react-native-rename` script for renaming under the hood, please refer to [Rename](#rename) section to apply necessary changes to Android part.
+> As `cli-rn` uses `react-native-rename` script for renaming under the hood, please refer to [Rename section](#rename) to apply necessary changes to Android part.
 
 If you have any troubles running the app with `yarn ios` or `yarn android`, open XCode or Android Studio and run the project from there.
 
@@ -98,13 +98,13 @@ yarn ios:pods
 - `api` - a service where API-related methods are located.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
 
-#### Splash Screen
+#### Splash Screen 🎉
 
-Starting from `v16.0.0`, we have added a Splash Screen that works great on pair with [React Native Navigation](https://github.com/wix/react-native-navigation) and can be hidden at any place in the app! Thanks to [@FawadMahmood](https://github.com/FawadMahmood)!
+Starting from `v16.0.0`, we have added a Splash Screen that works great on pair with [React Native Navigation](https://github.com/wix/react-native-navigation) and can be hidden at any moment in your app! Thanks to [@FawadMahmood](https://github.com/FawadMahmood)!
 
 > Current approach relies on `LaunchImage` on iOS that is marked as deprecated by Apple. However, people still use it and that's the only way to make it work with React Native Navigation.
 
-At some point of the app development, you'll probably want to replace existing splash screen (with [starters.dev](https://starters.dev) icon). Below, you can find some tutorials/advices how to replace the splash screen images and configure it for bare RNN project.
+At some point of the app development, you'll probably want to replace existing splash screen (with [starters.dev](https://github.com/starters-dev) icon). Below, you can find some tutorials/advices on how to replace the splash screen images.
 
 <details>
 <summary>Splash Screen replacement</summary>
@@ -182,8 +182,6 @@ export const screens = generateRNNScreens(
 import {screens} from '.';
 
 const SomeScreen = ({componentId}) => {
-  const {nav} = useServices();
-
   return (
     <View>
       <Button
