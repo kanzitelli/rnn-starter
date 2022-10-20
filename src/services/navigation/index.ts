@@ -7,7 +7,7 @@ import {
 import {screens} from '../../screens';
 import {services} from '..';
 
-export class NavService implements IService {
+export class NavigationService implements IService {
   private inited = false;
   private mountedScreens: Record<string, string> = {}; // Record<ComponentName, ComponentId>
 
