@@ -31,6 +31,7 @@
     "date-fns": "^2.29.3",
     "expo": "^46.0.16",
     "expo-localization": "^13.1.0",
+    "expo-status-bar": "~1.4.0",
     "formik": "^2.2.9",
     "i18n-js": "^4.1.1",
     "lodash": "^4.17.21",
