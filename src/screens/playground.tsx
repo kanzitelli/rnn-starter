@@ -1,21 +1,10 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
 import {FlashList} from '@shopify/flash-list';
 import FastImage from 'react-native-fast-image';
 import {observer} from 'mobx-react';
-
-const generateListItemDescription = (len: number) => {
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = ' ';
-  const charactersLength = characters.length;
-  for (let i = 0; i < len; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-
-  return result;
-};
+import {randomStr} from '../utils/help';
 
 export const Playground: ScreenComponent = observer(() => {
   // const {t} = useServices();
@@ -24,22 +13,13 @@ export const Playground: ScreenComponent = observer(() => {
   const DATA = Array.from({length: 1000}).map((v, ndx) => ({
     title: `Item ${ndx}`,
     image: `https://picsum.photos/200?image=${ndx + 1}`,
-    description: generateListItemDescription(300),
+    description: randomStr(300),
   }));
 
   // State
 
   // Methods
   // UI Methods
-  const ListHeaderBlock = useMemo(() => {
-    return (
-      <View padding-s2 bg-bgColor>
-        <Text text50M textColor>
-          FlashList by Shopify
-        </Text>
-      </View>
-    );
-  }, []);
 
   return (
     <FlashList
@@ -61,7 +41,13 @@ export const Playground: ScreenComponent = observer(() => {
           </Text>
         </View>
       )}
-      ListHeaderComponent={ListHeaderBlock}
+      ListHeaderComponent={
+        <View padding-s2 bg-bgColor>
+          <Text text50M textColor>
+            FlashList by Shopify
+          </Text>
+        </View>
+      }
       estimatedItemSize={300}
     />
   );
