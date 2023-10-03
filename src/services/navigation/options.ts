@@ -20,7 +20,11 @@ export const screenDefaultOptions = (): Options => {
       rightButtonColor: Colors.primary,
       leftButtonColor: Colors.primary,
       title: {
+        alignment: 'center',
         color: DesignSystem.themeColor('textColor'),
+        fontSize: 25,
+        // fontStyle: 'bold',
+        fontWeight: 'bold',
       },
       largeTitle: {
         visible: true,
@@ -37,8 +41,8 @@ export const screenDefaultOptions = (): Options => {
 export const tabDefaultOptions = (): Options => {
   return {
     bottomTab: {
-      iconColor: Colors.primary,
-      textColor: Colors.primary,
+      iconColor: Colors.grey5,
+      textColor: Colors.grey5,
       selectedIconColor: Colors.primary,
       selectedTextColor: Colors.primary,
     },
@@ -48,7 +52,7 @@ export const tabDefaultOptions = (): Options => {
 export const tabsDefaultOptions = (): Options => {
   return {
     bottomTabs: {
-      titleDisplayMode: 'alwaysShow',
+      titleDisplayMode: 'alwaysHide',
       backgroundColor: DesignSystem.themeColor('bgColor'),
       hideShadow: true,
       elevation: 0,

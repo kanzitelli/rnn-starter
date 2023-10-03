@@ -27,7 +27,11 @@ export const App = () =>
   Root(
     BottomTabs([
       Screen(screens.get('Main')),
-      Screen(screens.get('Playground')),
-      Screen(screens.get('Settings')),
+      Screen(screens.get('Menu')),
+      // Screen(screens.get('Playground')),
+      Screen(screens.get('Bag')),
+      Screen(screens.get('MyFavourites')),
+      Screen(screens.get('Profile')),
+      // Screen(screens.get('Settings')),
     ]),
   );
